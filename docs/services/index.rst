@@ -1,0 +1,92 @@
+Administrative access
+=====================
+
+See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html>`__ for access to self-hosted services and to third-party monitoring services.
+
+Airtable
+--------
+
+There should be at most two `Owners <https://airtable.com/wspXFnEMMAgLMWfe0/workspace/billing>`__. All users should belong to the above organizations.
+
+Amazon Web Services
+-------------------
+
+See `Identity and Access Management <https://console.aws.amazon.com/iam/home?region=us-east-1#/home>`__ for a list of users and permissions. We use S3 (Simple Storage Service) and SES (Simple Email Service).
+
+GitHub
+------
+
+The staff of the above organizations may be `members <https://github.com/orgs/open-contracting/people>`__ of the `open-contracting <https://github.com/open-contracting>`__ GitHub organization.
+
+There should be at most two members with the `Owner <https://help.github.com/articles/permission-levels-for-an-organization/>`__ role from each organization.
+
+GitHub’s `outside collaborators <https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/>`__ feature should be used for all other users.
+
+Google
+------
+
+Admin
+~~~~~
+
+There should be a minimum of `Super Admin <https://admin.google.com/open-contracting.org/AdminHome?hl=en#DomainSettings/notab=1&role=9170516996784129&subtab=roles>`__ users from OCP, and no other assigned admins.
+
+*Less secure apps* is set to “Allow users to manage their access to less secure apps” for the open-contracting.org domain, and `Allow less secure apps <https://myaccount.google.com/lesssecureapps>`__ is set to “ON” for the data@open-contracting.org user, so that Redmine can fetch mail.
+
+Analytics
+~~~~~~~~~
+
+There should be at most two `users <https://analytics.google.com/analytics/web/#/a35677147w162037252p163071392/admin/suiteusermanagement/account>`__ with all permissions from OCP. There should be at most two users with the Read & Analyze permissions from each other organization.
+
+Cloud Platform
+~~~~~~~~~~~~~~
+
+For the ``ocds`` project, `IAM <https://console.cloud.google.com/iam-admin/iam?organizationId=1015889055088&project=ocds-172716>`__ should only include Google-managed service accounts, ``ods-crm-redmine-backup`` and ``sysadmin@dogsbody.com``. `Service accounts <https://console.cloud.google.com/iam-admin/serviceaccounts?organizationId=1015889055088&project=ocds-172716>`__ should only include default service accounts and ``ods-crm-redmine-backup``. It should only use two storage buckets (``crm-open-contracting-org-daily-backups`` and ``crm-open-contracting-org-weekly-backups``). ``sysadmin@dogsbody.com`` must have the `“Storage Admin” role <https://cloud.google.com/storage/docs/access-control/iam-roles>`__ (``roles/storage.admin``), to get the ``storage.buckets.list`` permission.
+
+Periodically review `all projects <https://console.cloud.google.com/cloud-resource-manager?organizationId=1015889055088>`__. To view a project’s history, click its `Activity tab <https://console.cloud.google.com/home/activity?organizationId=1015889055088&project=ocds-172716>`__. To view a project’s resources, click its `Dashboard tab <https://console.cloud.google.com/home/dashboard?organizationId=1015889055088&project=ocds-172716>`__. Projects include:
+
+-  Library (two storage buckets)
+-  Toucan
+-  Website Search (API key)
+
+In case a new user needs to be given admin access to the ``ocds`` project, you can run, for example:
+
+::
+
+   gcloud projects add-iam-policy-binding ocds-172716 --member user:jmckinney@open-contracting.org --role roles/owner
+
+Drive
+~~~~~
+
+All users with access to `this folder <https://drive.google.com/drive/folders/0B79uNIOfT24eZTZqZjNNblVrek0>`__ should belong to the above organizations.
+
+Groups
+~~~~~~
+
+-  `standard-discuss <https://groups.google.com/a/open-contracting.org/forum/#!forum/standard-discuss>`__
+
+There should be at most two members with the `Owner <https://support.google.com/a/answer/167094?hl=en>`__ role from OCP. There should be at most two members with the Manager role from each other organization.
+
+Webmaster Central
+~~~~~~~~~~~~~~~~~
+
+There should be at most two `verified owners <https://www.google.com/webmasters/verification/details?hl=en&siteUrl=https://www.open-contracting.org/>`__ from each organization.
+
+PyPi
+----
+
+For each package owned by the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, there should be at most one other user with the `Owner role <https://pypi.org/help/#collaborator-roles>`__ from each of OCP and ODS (OpenDataServices). Only users who are reasonably expected to upload releases should have the Maintainer role.
+
+ReadTheDocs
+-----------
+
+There should be at most two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with the Maintainer role from each of OCP and ODS, excluding organization-wide accounts.
+
+Transifex
+---------
+
+Transifex is used by ODS for multiple clients. There should be at most two members with the `Project Maintainer and Team Manager <https://docs.transifex.com/teams/understanding-user-roles>`__ roles from OCP.
+
+Trello
+------
+
+Trello is used by ODS for multiple clients. There should be at least one member from OCP on relevant boards.
