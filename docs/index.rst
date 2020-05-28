@@ -5,6 +5,6 @@ A guide for developers of OCP's tools.
 
 .. toctree::
 
-   github
-   python
-   services
+   github/index
+   python/index
+   services/index

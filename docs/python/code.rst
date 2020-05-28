@@ -101,3 +101,9 @@ Coverage
   `Coveralls <https://coveralls-python.readthedocs.io/>`__
 Documentation
   `Sphinx <https://www.sphinx-doc.org/>`__. Its Markdown extensions should only be used for OCDS documentation.
+
+Maintainers can find dependencies with:
+
+.. code-block:: bash
+
+   find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 
