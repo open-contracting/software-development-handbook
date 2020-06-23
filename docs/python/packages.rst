@@ -69,12 +69,12 @@ Requirements
 Release process
 ---------------
 
-1. Ensure all tests pass on continuous integration
-1. Ensure the version number is correct in ``setup.py`` and ``docs/conf.py`` (if present)
-1. Ensure the changelog is up-to-date and dated
-1. Run ``check-manifest`` (``pip install check-manifest`` if not yet installed)
-1. Tag the release: ``git tag -a x.y.z -m 'x.y.z release.'; git push --tags``
-1. Remove old builds: ``rm -rf dist/``
-1. Build the package: ``python setup.py sdist``
-1. Upload to PyPI: ``twine upload dist/*`` (``pip install twine`` if not yet installed)
-1. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/forum/#!forum/standard-discuss>`__ if relevant
+#. Ensure all tests pass on continuous integration
+#. Ensure the version number is correct in ``setup.py`` and ``docs/conf.py`` (if present)
+#. Ensure the changelog is up-to-date and dated
+#. Run ``check-manifest`` (``pip install check-manifest`` if not yet installed)
+#. Tag the release: ``git tag -a x.y.z -m 'x.y.z release.'; git push --tags``
+#. Remove old builds: ``rm -rf dist/``
+#. Build the package: ``python setup.py sdist``
+#. Upload to PyPI: ``twine upload dist/*`` (``pip install twine`` if not yet installed)
+#. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/forum/#!forum/standard-discuss>`__ if relevant
