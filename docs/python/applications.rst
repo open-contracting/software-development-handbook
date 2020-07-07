@@ -18,7 +18,7 @@ Requirements
 
 Requirements are managed by four files at the root of a repository:
 
--  ``requirements.in`` names all direct requirements needed in the production environment, i.e. all packages ``import``\ ’ed by the application.
+-  ``requirements.in`` names all direct requirements needed in the production environment, i.e. all packages ``import``'ed by the application.
 
    -  If the application is incompatible with older or newer versions of a requirement, use the least specific `version specifier <https://www.python.org/dev/peps/pep-0440/#version-specifiers>`__ possible, for example:
 
@@ -26,7 +26,7 @@ Requirements are managed by four files at the root of a repository:
       -  requires older versions: use ``foo<2``
       -  requires versions range: use ``foo>=1.2,<2``
 
--  ``requirements_dev.in`` names all direct requirements needed exclusively in the development environment, and not in the production environment, e.g. \ ``pytest``.
+-  ``requirements_dev.in`` names all direct requirements needed exclusively in the development environment, and not in the production environment, e.g. ``pytest``.
 
    -  This file typically also includes the direct requirements needed in the production environment, by having a first line of ``-r requirements.txt``.
 
