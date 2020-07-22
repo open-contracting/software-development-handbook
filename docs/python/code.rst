@@ -89,15 +89,15 @@ Command-line interface
 Object Relational Mapper (ORM)
   Django. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except in low-level libraries with limited scope.
 HTTP library
-  `Requests <https://requests.readthedocs.io/>`__
+  `Requests <https://requests.readthedocs.io/>`__, unless a framework uses another, like Scrapy (Twisted).
 Templating
   `Jinja <https://jinja.palletsprojects.com/>`__
 Translation
-  `gettext <https://docs.python.org/3/library/gettext.html>`__, `Babel <http://babel.pocoo.org/>`__ and `transifex-client <https://pypi.org/project/transifex-client/>`__, unless a framework provides its own interface, like `Django <https://docs.djangoproject.com/en/3.0/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
+  `gettext <https://docs.python.org/3/library/gettext.html>`__, `Babel <http://babel.pocoo.org/>`__ and `transifex-client <https://pypi.org/project/transifex-client/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/3.0/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
 Logging
   `logging <https://docs.python.org/3/library/logging.html>`__
 Testing
-  `pytest <https://docs.pytest.org/>`__
+  `pytest <https://docs.pytest.org/>`__, unless a framework uses another, like `Django <https://docs.djangoproject.com/en/3.0/topics/testing/>`__ (unittest).
 Coverage
   `Coveralls <https://coveralls-python.readthedocs.io/>`__
 Documentation
