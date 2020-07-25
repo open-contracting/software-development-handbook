@@ -8,3 +8,8 @@ A guide for developers of OCP's tools.
    github/index
    python/index
    services/index
+
+Useful resources
+----------------
+
+-  `The Good Services Scale <https://good.services/the-good-services-scale>`__
