@@ -24,6 +24,13 @@ Repositories should not use ``.flake8`` or ``setup.cfg`` files to configure the 
 
 Otherwise, please refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
 
+Script patterns
+---------------
+
+-  For builds that involve independent command-line tools, use `Make <https://www.gnu.org/software/make/>`__, and follow `DataMade's Making Data Guidelines <https://github.com/datamade/data-making-guidelines>`__ and `Clark Grubb's Makefile Style Guide <https://clarkgrubb.com/makefile-style-guide>`__. Examples: `standard_profile_template <https://github.com/open-contracting/standard_profile_template>`__
+-  If a repository has scripts to set itself up and/or update itself, follow `GitHub's Scripts to Rule Them All <https://github.com/github/scripts-to-rule-them-all>`__. Examples: `deploy <https://github.com/open-contracting/deploy/tree/master/script>`__, `standard_profile_template <https://github.com/open-contracting/standard_profile_template/tree/master/script>`__
+-  If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.) Examples: `extension_registry <https://github.com/open-contracting/extension_registry/blob/master/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/master/manage.py>`__
+
 Output formats
 --------------
 
