@@ -79,7 +79,7 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
           SELECT * FROM record WHERE collection_id = %(collection_id)s AND ocid = %(ocid)s
       """, (1, 1, 'ocds-213czf-1'))
 
--  If you are writing a query template in which you want to substitute column names or table names, use the ``format`` method and the ``SQL`` and ``Identifier`` classes (`documentation <https://www.psycopg.org/docs/sql.html#module-psycopg2.sql>`__):
+-  If you are writing a query template in which you want to substitute column names or table names, use the ``format`` method and the ``SQL`` and ``Identifier`` classes (`documentation <https://www.psycopg.org/docs/sql.html>`__):
 
    .. code-block:: python
 
