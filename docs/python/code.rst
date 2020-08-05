@@ -24,6 +24,99 @@ Repositories should not use ``.flake8`` or ``setup.cfg`` files to configure the 
 
 Otherwise, please refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
 
+SQL statements
+--------------
+
+Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`__ to avoid accidental errors and `SQL injection <https://en.wikipedia.org/wiki/SQL_injection>`__.
+
+-  `Pass parameters to SQL queries <https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries>`__, using the second argument to the ``execute`` method. This adapts the Python value's type (like ``bool``, ``int``, ``str``) to the correct SQL representation:
+
+   .. code-block:: python
+
+      cur.execute("SELECT * FROM data WHERE data->>'date' > %(date)s", {'date': '2020-01-01'})
+
+   **DO NOT** use string interpolation (``%``):
+
+   .. code-block:: python
+
+      cur.execute("SELECT * FROM data WHERE data->>'date' > '%(date)s'" % {'date': '2020-01-01'})
+
+   **DO NOT** use string concatenation (``+``):
+
+   .. code-block:: python
+
+      cur.execute("SELECT * FROM data WHERE data->>'date' > '" + '2020-01-01' + "'")
+
+   **AVOID** using literal values:
+
+   .. code-block:: python
+
+      cur.execute("SELECT * FROM data WHERE data->>'date' > '2020-01-01'")
+
+   For example, if you forget that dates are represented as strings in SQL, you might do the following, which evaluates ``2020-12-31`` to ``1977``, which will match everything in the database:
+
+   .. code-block:: python
+
+      cur.execute("SELECT * FROM data WHERE data->>'date' > 2020-12-31")
+
+-  Use named placeholders (like ``%(collection_id)s``). This allows you to (1) use the same placeholder multiple times in the query, while only having to pass a single parameter, and (2) edit and re-order your query without re-ordering your parameters.
+
+   .. code-block:: python
+
+      cur.execute("""
+          SELECT * FROM release WHERE collection_id = %(collection_id)s
+          UNION
+          SELECT * FROM record WHERE collection_id = %(collection_id)s AND ocid = %(ocid)s
+      """, {'collection_id': 1, 'ocid': 'ocds-213czf-1'})
+
+   **DO NOT** use anonymous placeholders (``%s``):
+
+   .. code-block:: python
+
+      cur.execute("""
+          SELECT * FROM release WHERE collection_id = %(collection_id)s
+          UNION
+          SELECT * FROM record WHERE collection_id = %(collection_id)s AND ocid = %(ocid)s
+      """, (1, 1, 'ocds-213czf-1'))
+
+-  If you are writing a query template in which you want to substitute column names or table names, use the ``format`` method and the ``SQL`` and ``Identifier`` classes (`documentation <https://www.psycopg.org/docs/sql.html#module-psycopg2.sql>`__):
+
+   .. code-block:: python
+
+      from psycopg2.sql import SQL, Identifier
+
+      cur.execute(SQL("SELECT * FROM {table}").format(table=Identifier('collection')))
+
+   You can use this together with passing parameters:
+
+   .. code-block:: python
+
+      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s").format(table=Identifier('collection')), {'id': 1})
+
+   Remember to format the ``SQL()`` object. **DO NOT** format the string itself:
+
+   .. code-block:: python
+
+      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s".format(table='collection'), {'id': 1})
+
+   **DO NOT** use string interpolation (``%``):
+
+   .. code-block:: python
+
+      cur.execute("SELECT * FROM %s" % 'collection')
+
+   **DO NOT** use string concatenation (``+``):
+
+   .. code-block:: python
+
+      cur.execute("SELECT * FROM " + 'collection')
+
+   **AVOID** using anonymous placeholders:
+
+   .. code-block:: python
+
+      cur.execute(SQL("SELECT * FROM {}".format('collection'))
+
 Script patterns
 ---------------
 
