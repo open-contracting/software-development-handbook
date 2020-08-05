@@ -39,27 +39,27 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > '%(date)s'" % {'date': '2020-01-01'})
+      cur.execute("SELECT * FROM data WHERE data->>'date' > '%(date)s'" % {'date': '2020-01-01'})  # WRONG
 
    **DO NOT** use string concatenation (``+``):
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > '" + '2020-01-01' + "'")
+      cur.execute("SELECT * FROM data WHERE data->>'date' > '" + '2020-01-01' + "'")  # WRONG
 
    **AVOID** using literal values:
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > '2020-01-01'")
+      cur.execute("SELECT * FROM data WHERE data->>'date' > '2020-01-01'")  # AVOID
 
    For example, if you forget that dates are represented as strings in SQL, you might do the following, which evaluates ``2020-12-31`` to ``1977``, which will match everything in the database:
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > 2020-12-31")
+      cur.execute("SELECT * FROM data WHERE data->>'date' > 2020-12-31")  # BROKEN
 
--  Use named placeholders (like ``%(collection_id)s``). This allows you to (1) use the same placeholder multiple times in the query, while only having to pass a single parameter, and (2) edit and re-order your query without re-ordering your parameters.
+-  Use named placeholders like ``%(collection_id)s``. This allows you to use the same placeholder multiple times in the query, while only having to pass a single parameter, and to edit and re-order your query without re-ordering your parameters.
 
    .. code-block:: python
 
@@ -69,7 +69,7 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
           SELECT * FROM record WHERE collection_id = %(collection_id)s AND ocid = %(ocid)s
       """, {'collection_id': 1, 'ocid': 'ocds-213czf-1'})
 
-   **DO NOT** use anonymous placeholders (``%s``):
+   **AVOID** use anonymous placeholders (``%s``):
 
    .. code-block:: python
 
@@ -77,7 +77,7 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
           SELECT * FROM release WHERE collection_id = %(collection_id)s
           UNION
           SELECT * FROM record WHERE collection_id = %(collection_id)s AND ocid = %(ocid)s
-      """, (1, 1, 'ocds-213czf-1'))
+      """, (1, 1, 'ocds-213czf-1'))  # AVOID
 
 -  If you are writing a query template in which you want to substitute column names or table names, use the ``format`` method and the ``SQL`` and ``Identifier`` classes (`documentation <https://www.psycopg.org/docs/sql.html>`__):
 
@@ -97,25 +97,25 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
    .. code-block:: python
 
-      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s".format(table='collection'), {'id': 1})
+      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s".format(table='collection'), {'id': 1})  # WRONG
 
    **DO NOT** use string interpolation (``%``):
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM %s" % 'collection')
+      cur.execute("SELECT * FROM %s" % 'collection')  # WRONG
 
    **DO NOT** use string concatenation (``+``):
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM " + 'collection')
+      cur.execute("SELECT * FROM " + 'collection')  # WRONG
 
    **AVOID** using anonymous placeholders:
 
    .. code-block:: python
 
-      cur.execute(SQL("SELECT * FROM {}".format('collection'))
+      cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
 
 Script patterns
 ---------------
