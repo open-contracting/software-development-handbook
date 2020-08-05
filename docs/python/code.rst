@@ -91,13 +91,15 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
    .. code-block:: python
 
-      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s").format(table=Identifier('collection')), {'id': 1})
+      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s").format(
+          table=Identifier('collection')), {'id': 1})
 
    Remember to format the ``SQL()`` object. **DO NOT** format the string itself:
 
    .. code-block:: python
 
-      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s".format(table='collection'), {'id': 1})  # WRONG
+      cur.execute(SQL("SELECT * FROM {table} WHERE id = %(id)s".format(
+          table='collection'), {'id': 1})  # WRONG
 
    **DO NOT** use string interpolation (``%``):
 
@@ -120,9 +122,17 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 Script patterns
 ---------------
 
--  For builds that involve independent command-line tools, use `Make <https://www.gnu.org/software/make/>`__, and follow `DataMade's Making Data Guidelines <https://github.com/datamade/data-making-guidelines>`__ and `Clark Grubb's Makefile Style Guide <https://clarkgrubb.com/makefile-style-guide>`__. Examples: `standard_profile_template <https://github.com/open-contracting/standard_profile_template>`__
--  If a repository has scripts to set itself up and/or update itself, follow `GitHub's Scripts to Rule Them All <https://github.com/github/scripts-to-rule-them-all>`__. Examples: `deploy <https://github.com/open-contracting/deploy/tree/master/script>`__, `standard_profile_template <https://github.com/open-contracting/standard_profile_template/tree/master/script>`__
--  If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.) Examples: `extension_registry <https://github.com/open-contracting/extension_registry/blob/master/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/master/manage.py>`__
+-  For builds that involve independent command-line tools, use `Make <https://www.gnu.org/software/make/>`__, and follow DataMade's `Making Data Guidelines <https://github.com/datamade/data-making-guidelines>`__ and Clark Grubb's `Makefile Style Guide <https://clarkgrubb.com/makefile-style-guide>`__.
+
+   - Examples: `standard_profile_template <https://github.com/open-contracting/standard_profile_template>`__
+
+-  If a repository has scripts to set itself up and/or update itself, follow GitHub's `Scripts to Rule Them All <https://github.com/github/scripts-to-rule-them-all>`__.
+
+   - Examples: `deploy <https://github.com/open-contracting/deploy/tree/master/script>`__, `standard_profile_template <https://github.com/open-contracting/standard_profile_template/tree/master/script>`__
+
+-  If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
+
+   - Examples: `extension_registry <https://github.com/open-contracting/extension_registry/blob/master/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/master/manage.py>`__
 
 Output formats
 --------------
@@ -149,7 +159,7 @@ Use LF (``\n``) as the line terminator. Example:
 JSON
 ~~~~
 
-Indent with 2 spaces and preserve order of object pairs. Example:
+Indent with 2 spaces, use UTF-8 characters, and preserve order of object pairs. Example:
 
 .. code:: python
 
