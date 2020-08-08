@@ -33,6 +33,7 @@ General structure
 How-to guides
 ~~~~~~~~~~~~~
 
+-  Give explicit instructions. `Don't make me think <https://en.wikipedia.org/wiki/Don%27t_Make_Me_Think>`__.
 -  Don't include information that is not directly relevant to the how-to guide.
 -  Use numbered lists for instructions. Nest sub-tasks to give structure to long lists.
 -  Give example commands, but don't include default arguments or any other extraneous detail.
