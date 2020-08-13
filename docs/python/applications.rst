@@ -9,7 +9,7 @@ Python applications are different from :doc:`packages` in that:
 The ``master`` branch of applications should always be deployable, which requires that:
 
 -  Tests pass on continuous integration
--  Installation instructions are consistent with the ```deploy`` <https://github.com/open-contracting/deploy>`__ repository
+-  Installation instructions are consistent with the `deploy <https://github.com/open-contracting/deploy>`__ repository
 
 If installation instructions change (e.g. if a new service like Redis is required), then the ``deploy`` repository must be updated.
 
