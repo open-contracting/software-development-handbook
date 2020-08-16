@@ -19,6 +19,10 @@ External documentation can be accessed via the *Docs* links on `this page <https
 
 Internal documentation can be accessed via the `User Guides <https://ocdsdeploy.readthedocs.io/en/latest/use/index.html>`__ in the ``deploy`` repository.
 
+.. note::
+
+   We can consider writing `Architecture Decision Records (ADRs) <https://github.blog/2020-08-13-why-write-adrs/>`__.
+
 Writing documentation
 ---------------------
 
