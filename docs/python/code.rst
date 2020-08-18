@@ -199,6 +199,8 @@ If (and only if) the code must support Python 3.5 or earlier, use:
    with open(path) as f:
        data = json.load(f, object_pairs_hook=OrderedDict)
 
+.. _preferred-packages:
+
 Preferred packages
 ------------------
 
