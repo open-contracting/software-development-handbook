@@ -20,7 +20,7 @@ from recommonmark.transform import AutoStructify
 
 # -- Project information -----------------------------------------------------
 
-project = 'OCDS Development Handbook'
+project = 'OCP Software Development Handbook'
 copyright = '2017, Open Contracting Partnership'
 author = 'Open Contracting Partnership'
 
