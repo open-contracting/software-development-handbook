@@ -37,6 +37,22 @@ Analytics
 
 There should be at most two `users <https://analytics.google.com/analytics/web/#/a35677147w162037252p163071392/admin/suiteusermanagement/account>`__ with all permissions from OCP. There should be at most two users with the Read & Analyze permissions from each other organization.
 
+The *OCDS Tools* property tracks:
+
+-  Toucan
+-  OCDS Show
+-  OCDS Show for PPPs
+-  Extension Creator
+
+The *Open Contracting* property tracks:
+
+-  OCDS Documentation
+-  OCDS Data Review Tool
+-  Extension Explorer
+-  OCDS profiles
+-  OC4IDS Documentation
+-  OC4IDS Data Review Tool
+
 Cloud Platform
 ~~~~~~~~~~~~~~
 
