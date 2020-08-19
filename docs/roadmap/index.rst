@@ -1,7 +1,7 @@
 Roadmap
 =======
 
-OCP prepares a software roadmap each fiscal year.
+OCP prepares a software roadmap each fiscal year. This page documents common concepts for all roadmaps.
 
 Product and service families
 ----------------------------
@@ -67,6 +67,15 @@ Among other practices, we:
 -  Sufficiently resource the hosting of all services, to avoid service disruptions
 -  Review the :ref:`health of products and services<health>` in each roadmap and plan maintenance and improvements accordingly
 
+In addition, we expect consultants to:
+
+-  Follow the principles of `DRY <https://en.wikipedia.org/wiki/Don%27t_repeat_yourself>`__ (refactor regularly), `YAGNI <https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it>`__ (but try to anticipate needs with respect to performance and extensibility), `Unix philosophy <https://en.wikipedia.org/wiki/Unix_philosophy>`__ (limited responsibility, loose coupling), `KISS <https://en.wikipedia.org/wiki/KISS_principle>`__
+-  Agree on business requirements before coding (development can be agile, but we need to agree on what we’re building first)
+-  Author documentation, for users and developers (documenting methods often exposes complexity, which helps to simplify the API)
+-  Use tools properly and as intended (don’t go for the quick fix)
+-  Steal code (don’t write your own ORM)
+-  Write tests, and be strict
+
 Build capacity through documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -93,3 +102,9 @@ Within our software development activity, we:
 -  Engage with other teams to explore collaboration on open-source tools. For example, we made `JSCC <https://jscc.readthedocs.io/>`__ (FY20) and `OCDS Babel <https://ocds-babel.readthedocs.io/>`__ (FY19) reusable by other standards.
 
 We also support others through time-bound projects. For example, in FY20, we worked with the World Bank Group and The Engine Room to author a `primer on tool reuse in open contracting <https://www.open-contracting.org/resources/tool-re-use-in-open-contracting-a-primer/>`__. In FY19, we funded tools supporting a Latin American journalists network. In FY18, we created the `OCDS Bounty Program <https://www.open-contracting.org/2018/08/07/hunting-open-contracting-impact-bounty-better-tools/>`__ to support tool-builders to better document and package their existing OCDS tools for reuse. In FY17, we invited developers to participate in a prize-based `Open Contracting Innovation Challenge <http://challenge.open-contracting.org>`__, to support six innovative and experimental tools.
+
+Reference
+---------
+
+-  `Software Product Management Orientation <https://docs.google.com/document/d/1d-LRAjbiMlScijjIu1jQT0YuXhMiVnHKfJbnjuycLKc/edit>`__
+-  `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__
