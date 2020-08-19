@@ -14,13 +14,7 @@ Product and service families
 -  `Toucan <https://toucan.open-contracting.org>`__: An online tool to replicate the functionality of command-line tools in a browser. It gives access to OCDS Kit and Flatten Tool.
 -  `Redash <https://redash.open-contracting.org>`__: A deployment of `Redash <https://redash.io>`__ to give users access to the Kingfisher database.
 
-Together, these tools connect with different steps of the hypothesis for change expressed in the `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__, restated here as:
-
-#. Standardize data
-#. Simplify access to data
-#. Transform data to make it ready for analysis
-#. Aggregate data to support bulk operations
-#. Review quality to promote iterative improvement
+Together, these tools connect with different steps of the hypothesis for change expressed in the `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__.
 
 .. _health:
 
@@ -32,7 +26,7 @@ For each product and service, `this spreadsheet <https://docs.google.com/spreads
 Principles
 ----------
 
-This section serves to clarify important considerations, rather than to establish a comprehensive philosophy.
+This section serves to clarify important considerations, not establish a comprehensive philosophy.
 
 Understand user needs
 ~~~~~~~~~~~~~~~~~~~~~
