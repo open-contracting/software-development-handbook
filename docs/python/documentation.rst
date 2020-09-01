@@ -6,7 +6,7 @@ Documentation
 Types of documentation
 ----------------------
 
-Read [The Documentation System](https://documentation.divio.com) to learn about the four types of documentation we write: tutorials, how-to guides, technical reference and explanation.
+Read `The Documentation System <https://documentation.divio.com>`__ to learn about the four types of documentation we write: tutorials, how-to guides, technical reference and explanation.
 
 Locations of documentation
 --------------------------
@@ -51,3 +51,8 @@ Use specific and non-metaphorical language
   For example: "connect" to the server, not "go" to the server.
 Link unfamiliar terms to external documentation, if available
   For example: `concatenated JSON <https://en.wikipedia.org/wiki/JSON_streaming#Concatenated_JSON>`__.
+
+Shell examples
+~~~~~~~~~~~~~~
+
+Documentation and examples for external users should use ``sh`` or ``bash``. Documentation for internal users can use ``fish``.
