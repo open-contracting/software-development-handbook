@@ -222,6 +222,8 @@ Object Relational Mapper (ORM)
   Django. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except in low-level libraries with limited scope.
 HTTP library
   `Requests <https://requests.readthedocs.io/>`__, unless a framework uses another, like Scrapy (Twisted).
+HTML parsing
+  `lxml <https://pypi.org/project/lxml/>`__. Do not use `BeautifulSoup <https://pypi.org/project/BeautifulSoup/>`__.
 Templating
   `Jinja <https://jinja.palletsprojects.com/>`__
 Translation
