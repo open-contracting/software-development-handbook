@@ -29,6 +29,16 @@ In order to protect the private deploy repositories, the `base permissions <http
 Issues
 ------
 
+Reporting incorrect behavior
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When reporting incorrect behavior, ensure that the issue's description includes:
+- A description of the current and expected behavior
+- Screenshots, if illustrative
+- Any data or other inputs required to recreate the incorrect behavior. 
+
+Data used for an example should be somewhere that's likely to remain available even if the issue isn't dealt with for several months; the OCDS Data Review Tool and publisher websites typically don't meet this condition. If the data can't be shared publicly, keep a copy and make it clear how developers can obtain it for testing. 
+
 Managing long issues
 ~~~~~~~~~~~~~~~~~~~~
 
