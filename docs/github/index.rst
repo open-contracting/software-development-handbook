@@ -57,7 +57,7 @@ All issues should be closed with a brief rationale. This makes it easy to unders
 Projects
 --------
 
-The ```open-contracting`` organization <https://github.com/orgs/open-contracting/projects>`__ uses `GitHub Projects <https://help.github.com/articles/about-project-boards/>`__ to organize work in a `Kanban <https://en.wikipedia.org/wiki/Kanban>`__ system.
+The ``open-contracting`` `organization <https://github.com/orgs/open-contracting/projects>`__ uses `GitHub Projects <https://help.github.com/articles/about-project-boards/>`__ to organize work in a `Kanban <https://en.wikipedia.org/wiki/Kanban>`__ system.
 
 We also have an `agile board <https://crm.open-contracting.org/projects/ocds-team-tools-development-portfolio/agile/board>`__ in the CRM. Its uses and features are distinct (e.g. time tracking) and complementary (e.g. long-term project management) to what GitHub offers.
 
