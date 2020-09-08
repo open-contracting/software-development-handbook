@@ -32,12 +32,29 @@ Issues
 Reporting incorrect behavior
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When reporting incorrect behavior, ensure that the issue's description includes:
-- A description of the current and expected behavior
-- Screenshots, if illustrative
-- Any data or other inputs required to recreate the incorrect behavior. 
+#. Write a brief, clear and specific issue title
+#. Provide sufficient detail in the issue description
 
-Data used for an example should be somewhere that's likely to remain available even if the issue isn't dealt with for several months; the OCDS Data Review Tool and publisher websites typically don't meet this condition. If the data can't be shared publicly, keep a copy and make it clear how developers can obtain it for testing. 
+You can use this template for the issue description:
+
+What were you trying to do?
+  Describe the expected behavior. List *every* step to reproduce the incorrect behavior. Assume the reader is unfamilar with the tool. Attach any input data to the issue (you might need to save as TXT or ZIP). If you are working on the command-line, paste the specific commands.
+What error did you receive?
+  Provide the entire output, error message and stacktrace, if available. Do not omit any output, as this will delay resolution. If part of the output is large, attach it to the issue instead (you might need to save as TXT or ZIP). If the tool has a graphical interface, you can attach screenshots to illustrate.
+What is your environment?
+  Where relevant, please provide: tool's version, web browser name and version, operating system name and version (the precise version like "10.15.6", not the major version like "Catalina") and/or Python version.
+Did you attempt a fix?
+  If so, describe what you did.
+How soon do you need a fix?
+  If unspecified, no urgency is assumed.
+
+.. note::
+
+   The Data Review Tool expires results pages, so please attach the input data instead of linking to the results page.
+
+.. note::
+
+   Data publishers can change their data at any time. Please attach a copy of the data instead of linking to it.
 
 Managing long issues
 ~~~~~~~~~~~~~~~~~~~~
