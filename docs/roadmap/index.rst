@@ -108,3 +108,4 @@ Reference
 
 -  `Software Product Management Orientation <https://docs.google.com/document/d/1d-LRAjbiMlScijjIu1jQT0YuXhMiVnHKfJbnjuycLKc/edit>`__
 -  `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__
+-  `18F De-risking guide <https://derisking-guide.18f.gov/>`__
