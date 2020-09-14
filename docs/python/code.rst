@@ -220,7 +220,7 @@ Command-line interface
   `Click <https://click.palletsprojects.com/>`__, unless a framework provides its own, like `Django <https://docs.djangoproject.com/en/3.0/howto/custom-management-commands/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
 Object Relational Mapper (ORM)
   Django. If you don't need an ORM, use `psycopg2 <https://www.psycopg.org/docs/>`__. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except in low-level libraries with limited scope *where an ORM is needed*.
-HTTP library
+HTTP client
   `Requests <https://requests.readthedocs.io/>`__, unless a framework uses another, like Scrapy (Twisted).
 HTML parsing
   `lxml <https://pypi.org/project/lxml/>`__. Do not use `BeautifulSoup <https://pypi.org/project/BeautifulSoup/>`__.
@@ -242,3 +242,8 @@ Maintainers can find dependencies with:
 .. code-block:: bash
 
    find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 
+
+Reference
+---------
+
+-  `18F Python Development Guide <https://engineering.18f.gov/python/>`__
