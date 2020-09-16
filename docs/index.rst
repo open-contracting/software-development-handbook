@@ -6,6 +6,7 @@ A guide for developers of OCP's tools.
 .. toctree::
 
    github/index
+   general/index
    python/index
    services/index
    roadmap/index
