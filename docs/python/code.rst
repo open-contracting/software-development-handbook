@@ -3,12 +3,6 @@ Code
 
 Code is tested on Python 3.6 (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
 
-Reminders
----------
-
--  `Manage technical debt <https://tashian.com/articles/managing-technical-debt/>`__.
--  Instead of writing a ``TODO`` comment in the code, create an issue on GitHub. TODO’s in code are less visible to the rest of the team.
-
 Style guide
 -----------
 
@@ -119,16 +113,12 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
 
-Script patterns
----------------
+Scripts
+-------
 
--  For builds that involve independent command-line tools, use `Make <https://www.gnu.org/software/make/>`__, and follow DataMade's `Making Data Guidelines <https://github.com/datamade/data-making-guidelines>`__ and Clark Grubb's `Makefile Style Guide <https://clarkgrubb.com/makefile-style-guide>`__.
+.. note::
 
-   - Examples: `standard_profile_template <https://github.com/open-contracting/standard_profile_template>`__
-
--  If a repository has scripts to set itself up and/or update itself, follow GitHub's `Scripts to Rule Them All <https://github.com/github/scripts-to-rule-them-all>`__.
-
-   - Examples: `deploy <https://github.com/open-contracting/deploy/tree/master/script>`__, `standard_profile_template <https://github.com/open-contracting/standard_profile_template/tree/master/script>`__
+   Read the general :ref:`scripts` content.
 
 -  If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
 
@@ -216,6 +206,8 @@ For :doc:`applications`, we prefer all-inclusive and opinionated packages, becau
 
 Web framework
   `Django <https://www.djangoproject.com/>`__. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://pythonhosted.org/Frozen-Flask/>`__.
+API
+  No preference. Consider `Django Tastypie <http://tastypieapi.org>`__, `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__.
 Command-line interface
   `Click <https://click.palletsprojects.com/>`__, unless a framework provides its own, like `Django <https://docs.djangoproject.com/en/3.0/howto/custom-management-commands/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
 Object Relational Mapper (ORM)
