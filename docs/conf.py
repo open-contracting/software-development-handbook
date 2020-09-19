@@ -3,9 +3,6 @@
 # This file only contains a selection of the most common options. For a full
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-import os
-
-from recommonmark.transform import AutoStructify
 
 # -- Path setup --------------------------------------------------------------
 
@@ -21,7 +18,7 @@ from recommonmark.transform import AutoStructify
 # -- Project information -----------------------------------------------------
 
 project = 'OCP Software Development Handbook'
-copyright = '2017, Open Contracting Partnership'
+copyright = '2020, Open Contracting Partnership'
 author = 'Open Contracting Partnership'
 
 
@@ -30,9 +27,7 @@ author = 'Open Contracting Partnership'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    'recommonmark',
-]
+extensions = []
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -67,12 +62,3 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
     import sphinx_rtd_theme
     html_theme = 'sphinx_rtd_theme'
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-
-
-def setup(app):
-    app.add_config_value('recommonmark_config', {
-        'auto_toc_tree_section': 'Contents',
-        'enable_eval_rst': True,
-    }, True)
-
-    app.add_transform(AutoStructify)
