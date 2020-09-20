@@ -13,6 +13,7 @@ Product and service families
 -  `OCDS Kit <https://ocdskit.readthedocs.io/>`__: A suite of command-line tools and a Python library for working with OCDS data. It contains common functionality used by Kingfisher and Toucan, in particular.
 -  `Toucan <https://toucan.open-contracting.org>`__: An online tool to replicate the functionality of command-line tools in a browser. It gives access to OCDS Kit and Flatten Tool.
 -  `Redash <https://redash.open-contracting.org>`__: A deployment of `Redash <https://redash.io>`__ to give users access to the Kingfisher database.
+-  `OCDS Documentation <https://standard.open-contracting.org>`__: The official documentation of the Open Contracting Data Standard.
 
 Together, these tools connect with different steps of the hypothesis for change expressed in the `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__.
 
