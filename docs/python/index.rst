@@ -8,3 +8,4 @@ Python
    packages
    applications
    performance
+   continuous-integration
