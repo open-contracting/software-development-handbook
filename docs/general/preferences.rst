@@ -17,7 +17,7 @@ DevOps
 -  `SaltStack <https://docs.saltstack.com/>`__ (service deployment)
 -  `Prometheus <https://prometheus.io>`__ (service monitoring)
 -  `Sentry <https://sentry.io/>`__ (error tracking)
--  `GitHub Actions <https://docs.github.com/en/actions>`__ (automated testing)
+-  `GitHub Actions <https://docs.github.com/en/actions>`__ (continuous testing)
 -  `Coveralls <https://coveralls.io/github/open-contracting>`__ (coverage reporting)
 
 Hosting

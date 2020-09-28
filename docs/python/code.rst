@@ -3,6 +3,8 @@ Code
 
 Code is tested on Python 3.6 (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
 
+.. _style-guide:
+
 Style guide
 -----------
 
