@@ -110,7 +110,14 @@ Metadata
 #. Add a description. The description should not describe the project’s status (‘draft’), because people frequently forget to update repository descriptions. Describe the status in the readme instead.
 #. Add a website to the repository, if relevant: for example, a link to a deployment of the tool or to its documentation.
 
-The ``fix:lint_repos`` and ``fix:protect_branches`` Rake tasks in `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts>`__ otherwise normalize configurations.
+The `fix:lint_repos <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ Rake task otherwise normalizes configurations.
+
+.. _branch-protection:
+
+Branch protection
+~~~~~~~~~~~~~~~~~
+
+The `fix:protect_branches <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ Rake task in `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts>`__ protects default branches.
 
 We don’t generally enable the following behaviors on `protected branches <https://help.github.com/articles/about-protected-branches/>`__ for the provided reasons:
 
