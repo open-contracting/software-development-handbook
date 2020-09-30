@@ -10,11 +10,11 @@ Style guide
 
 All code is checked as documented by `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
-Repositories should not use ``.flake8`` or ``setup.cfg`` files to configure the behavior of ``flake8`` or ``isort``, except to ignore generated files like database migrations. Maintainers can find configuration files with:
+Repositories should not use ``setup.cfg``, ``.flake8``, ``.isort.cfg``, ``.editorconfig`` or ``pyproject.toml`` files to configure the behavior of ``flake8`` or ``isort``, except to ignore generated files like database migrations. Maintainers can find configuration files with:
 
 .. code-block:: bash
 
-   find . \( -name 'setup.cfg' -or -name '.flake8' \) -exec echo {} \; -exec cat {} \; 
+   find . \( -name 'setup.cfg' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.editorconfig' -or -name 'pyproject.toml' \) -exec echo {} \; -exec cat {} \; 
 
 ``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``.
 
