@@ -17,13 +17,13 @@ In order to protect the private deploy repositories, the `base permissions <http
 -  `General <https://github.com/orgs/open-contracting/teams/general>`__:
 
    -  **Members**: All `people <https://github.com/orgs/open-contracting/people>`__, except Dogsbody Technology staff
-   -  **Repositories**: All repositories, except `deploy <https://github.com/open-contracting?q=deploy>`__ and `archived <https://github.com/open-contracting?type=archived>`__ repositories
+   -  **Repositories**: All repositories, except `deploy <https://github.com/search?q=topic%3Adeployment+org%3Aopen-contracting>`__ and `archived <https://github.com/open-contracting?type=archived>`__ repositories
    -  **Permission levels**: *Triage* for issue-only repositories, *Write* for other repositories
 
 -  `Servers <https://github.com/orgs/open-contracting/teams/servers>`__:
 
    -  **Members**: All people with `root access <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html#root-access>`__ to any server
-   -  **Repositories**: The `deploy <https://github.com/open-contracting?q=deploy>`__ repositories
+   -  **Repositories**: The `deploy <https://github.com/search?q=topic%3Adeployment+org%3Aopen-contracting>`__ repositories
    -  **Permission levels**: *Write*
 
 Issues
