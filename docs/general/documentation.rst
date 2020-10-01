@@ -49,3 +49,26 @@ Shell examples
 ~~~~~~~~~~~~~~
 
 Documentation and examples for external users should use ``sh`` or ``bash``. Documentation for internal users can use ``fish``.
+
+Building documentation locally
+--------------------------------
+
+With Python 3 as your default interpreter, first install sphinx:
+
+.. code-block:: bash
+
+  pip install sphinx
+
+Then build the HTML pages:
+
+.. code-block:: bash
+
+  sphinx-build docs build
+
+Run a web-server:
+
+.. code-block:: bash
+
+  python -m http.server 8000
+
+Open http://localhost:8000/build/ in your web browser.
