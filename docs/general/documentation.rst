@@ -51,24 +51,36 @@ Shell examples
 Documentation and examples for external users should use ``sh`` or ``bash``. Documentation for internal users can use ``fish``.
 
 Building documentation locally
---------------------------------
+------------------------------
 
-With Python 3 as your default interpreter, first install sphinx:
-
-.. code-block:: bash
-
-  pip install sphinx
-
-Then build the HTML pages:
+With Python 3 as your default interpreter, install Python modules:
 
 .. code-block:: bash
 
-  sphinx-build docs build
+   pip install sphinx sphinx_rtd_theme
 
-Run a web-server:
+Build the HTML pages:
 
 .. code-block:: bash
 
-  python -m http.server 8000
+   sphinx-build docs docs/_build/html
 
-Open http://localhost:8000/build/ in your web browser.
+Run a web server:
+
+.. code-block:: bash
+
+   python -m http.server 8000
+
+Open http://localhost:8000/docs/_build/html/ in your web browser:
+
+.. code-block:: bash
+
+   open http://localhost:8000/docs/_build/html/
+
+.. note::
+
+   If you are using Python 3.7 or greater, you can pass ``-d docs/_build/html`` to the ``python`` command, and open http://localhost:8000/.
+
+.. note::
+
+   Documentation is built in ``docs/_build/html``, to match the location when building with ``make html`` from the ``docs/`` directory.
