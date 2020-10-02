@@ -179,7 +179,7 @@ Indent with 2 spaces, use UTF-8 characters, and preserve order of object pairs. 
        data = json.load(f)
 
    with open(path, 'w') as f:
-       json.dump(data, f, ensure_ascii=False, indent=2, separators=(',', ': '))
+       json.dump(data, f, ensure_ascii=False, indent=2)
        f.write('\n')
 
 If (and only if) the code must support Python 3.5 or earlier, use:
