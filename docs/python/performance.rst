@@ -12,6 +12,8 @@ For example:
    gprof2dot -f pstats code.prof | dot -Tpng -o output.png
    open output.png
 
+To see where a running program is spending its time, use `py-spy top <https://github.com/benfred/py-spy>`__.
+
 Memory profiling
 ----------------
 

@@ -71,10 +71,10 @@ Requirements
 Automated testing
 -----------------
 
-```shell
-pip install .[test]
-pytest
-```
+.. code-block:: shell
+
+   pip install .[test]
+   pytest
 
 Release process
 ---------------
