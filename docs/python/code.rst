@@ -21,6 +21,9 @@ Repositories should not use ``setup.cfg``, ``.flake8``, ``.isort.cfg``, ``.edito
 -  ``E501 line too long`` for long strings, especially URLs
 -  ``F401 module imported but unused`` in a library's top-level ``__init__.py`` file
 -  ``W291 Trailing whitespace`` in tests relating to trailing whitespace
+-  ``isort:skip`` if ``sys.path`` needs to be changed before an import
+
+Maintainers can find unwanted ``noqa`` comments with this regular expression: ``# noqa(?!(: (E501|F401|W291)| isort:skip)\n)``.
 
 Otherwise, please refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
 
