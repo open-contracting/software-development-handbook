@@ -16,7 +16,11 @@ Repositories should not use ``setup.cfg``, ``.flake8``, ``.isort.cfg``, ``.edito
 
    find . \( -name 'setup.cfg' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.editorconfig' -or -name 'pyproject.toml' \) -exec echo {} \; -exec cat {} \; 
 
-``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``.
+``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``. The errors that are allowed to be ignored are:
+
+-  ``E501 line too long`` for long strings, especially URLs
+-  ``F401 module imported but unused`` in a library's top-level ``__init__.py`` file
+-  ``W291 Trailing whitespace`` in tests relating to trailing whitespace
 
 Otherwise, please refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
 
