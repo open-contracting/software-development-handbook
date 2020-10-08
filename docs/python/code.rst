@@ -12,7 +12,7 @@ All code is checked as documented by `standard-maintenance-scripts <https://gith
 
 Repositories should not use ``setup.cfg``, ``.flake8``, ``.isort.cfg``, ``.editorconfig`` or ``pyproject.toml`` files to configure the behavior of ``flake8`` or ``isort``, except to ignore generated files like database migrations. Maintainers can find configuration files with:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    find . \( -name 'setup.cfg' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.editorconfig' -or -name 'pyproject.toml' \) -exec echo {} \; -exec cat {} \; 
 
@@ -233,7 +233,7 @@ Documentation
 
 Maintainers can find dependencies with:
 
-.. code-block:: bash
+.. code-block:: shell-session
 
    find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 
 

@@ -71,7 +71,7 @@ Requirements
 Automated testing
 -----------------
 
-.. code-block:: shell
+.. code-block:: shell-session
 
    pip install .[test]
    pytest
