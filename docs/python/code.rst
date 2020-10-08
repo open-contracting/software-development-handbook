@@ -20,6 +20,24 @@ Repositories should not use ``setup.cfg``, ``.flake8``, ``.isort.cfg``, ``.edito
 
 Otherwise, please refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
 
+Optional checks
+~~~~~~~~~~~~~~~
+
+flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/project/mccabe/>`__) is deactivated by default. A threshold of 10 or 15 is `recommended <https://en.wikipedia.org/wiki/Cyclomatic_complexity#Limiting_complexity_during_development>`__:
+
+.. code-block:: shell-session
+
+   flake8 . --max-line-length 119 --max-complexity 10
+
+`pylint <https://pylint.org/>`__ and `pylint-django <https://pypi.org/project/pylint-django/>`__ provides useful, but noisy, feedback:
+
+.. code-block:: shell-session
+
+   pip install pylint
+   pylint --max-line-length 119 directory
+
+The `Python Code Quality Authority <https://github.com/PyCQA>`__ maintains ``flake8`` (which includes ``mccabe``, ``pycodestyle`` and ``pyflakes``), ``isort`` and ``pylint``. Its other tools include `pydocstyle <http://pydocstyle.org/>`__ (docstrings), `doc8 <https://pypi.org/project/doc8/>`__ (RST files), `bandit <https://bandit.readthedocs.io/en/latest/>`__ (security issues) and `flake8-bugbear <https://pypi.org/project/flake8-bugbear/>`__ (additional checks).
+
 SQL statements
 --------------
 
