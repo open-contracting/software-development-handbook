@@ -68,7 +68,7 @@ or:
 
    message = "Is '{person[name]}' correct?".format(person=person)
 
-is easier to read and write than:
+is easier to write than:
 
 .. code-block:: python
 
@@ -89,7 +89,7 @@ Logging
 
      logger.debug("hello %s", "world")
 Internationalization (i18n)
-  String extraction in most projects is done by the ``xgettext`` command, which doesn't support f-strings. To have a single syntax for translated strings, use named placeholders and the ``%`` operator, as recommended by `Django <https://docs.djangoproject.com/en/3.1/topics/i18n/translation/#standard-translation>`__.
+  String extraction in most projects is done by the ``xgettext`` command, which doesn't support f-strings. To have a single syntax for translated strings, use named placeholders and the ``%`` operator, as recommended by `Django <https://docs.djangoproject.com/en/3.1/topics/i18n/translation/#standard-translation>`__. For example:
 
   .. code-block:: python
 
