@@ -23,12 +23,12 @@ DevOps
 Hosting
 -------
 
--  GitHub (code)
--  ReadTheDocs (documentation)
 -  Bytemark (virtual private servers)
 -  Hetzner (dedicated servers)
 -  AWS Simple Storage Service (S3) (storage)
 -  AWS Relational Database Service (RDS) (database)
+-  ReadTheDocs (documentation)
+-  GitHub (code)
 
 Languages
 ---------
@@ -45,6 +45,11 @@ Datastores
 
 -  PostgreSQL
 -  Elasticsearch if our needs exceed PostgreSQL's capabilities, or if there is no PostgreSQL database
+
+Web servers
+-----------
+
+-  Apache (`#179 <https://github.com/open-contracting/deploy/issues/179>`__)
 
 Miscellaneous
 -------------
