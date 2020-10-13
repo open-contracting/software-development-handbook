@@ -36,7 +36,7 @@ Requirements are managed by four files at the root of a repository:
 The above ensures that:
 
 -  Development and production environments use the same versions of production requirements, to avoid errors or surprises during or after deployment due to differences between versions (e.g. a new version of Django requires upgrading application code).
--  Different developers and continuous integration use the same versions of development requirements, to avoid unexpected test failures due to differences between versions (e.g. a new version of pytest requires upgrading test code, or a new version of flake8 has stricter linting rules).
+-  Different developers and continuous integration use the same versions of development requirements, to avoid test failures due to differences between versions (e.g. a new version of pytest requires upgrading test code, or a new version of flake8 has stricter linting rules).
 
 The ``requirements*.txt`` files should be periodically updated, both for security updates and to better distribute the maintenance burden of upgrading versions over time. ``pip-tools`` is used to manage the ``requirements*.txt`` files (it is included in ``requirements_dev.*``).
 

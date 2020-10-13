@@ -1,20 +1,22 @@
-Code
-====
-
-Code is tested on Python 3.6 (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
-
-.. _style-guide:
-
 Style guide
------------
+===========
+
+Code is written for Python 3.6 and above (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
+
+Common checks
+-------------
 
 All code is checked as documented by `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
-Repositories should not use ``setup.cfg``, ``.flake8``, ``.isort.cfg``, ``.editorconfig`` or ``pyproject.toml`` files to configure the behavior of ``flake8`` or ``isort``, except to ignore generated files like database migrations. Maintainers can find configuration files with:
+Repositories should not use ``setup.cfg``, ``.editorconfig``, ``pyproject.toml`` or tool-specific files to configure the behavior of tools, except to ignore generated files like database migrations. Maintainers can find configuration files with:
 
 .. code-block:: shell-session
 
-   find . \( -name 'setup.cfg' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.editorconfig' -or -name 'pyproject.toml' \) -exec echo {} \; -exec cat {} \; 
+   find . \( -name 'setup.cfg' -or -name 'pyproject.toml' -or -name '.editorconfig' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.pylintrc' -or -name '.pylintrc' \) -exec echo {} \; -exec cat {} \;
+
+.. note::
+
+   If a project uses `Black <https://black.readthedocs.io>`__ it needs a ``setup.cfg`` file for `flake8 <https://gitlab.com/pycqa/flake8/-/issues/428>`__ and ``isort`` and a ``pyproject.toml`` file for `black <https://github.com/psf/black/issues/683>`__. Otherwise, use only a ``setup.cfg`` file.
 
 ``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``. The errors that are allowed to be ignored are:
 
@@ -28,7 +30,7 @@ Maintainers can find unwanted ``noqa`` comments with this regular expression: ``
 Otherwise, please refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
 
 Optional checks
-~~~~~~~~~~~~~~~
+---------------
 
 flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/project/mccabe/>`__) is deactivated by default. A threshold of 10 or 15 is `recommended <https://en.wikipedia.org/wiki/Cyclomatic_complexity#Limiting_complexity_during_development>`__:
 
@@ -43,7 +45,65 @@ flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/proj
    pip install pylint
    pylint --max-line-length 119 directory
 
-The `Python Code Quality Authority <https://github.com/PyCQA>`__ maintains ``flake8`` (which includes ``mccabe``, ``pycodestyle`` and ``pyflakes``), ``isort`` and ``pylint``. Its other tools include `pydocstyle <http://pydocstyle.org/>`__ (docstrings), `doc8 <https://pypi.org/project/doc8/>`__ (RST files), `bandit <https://bandit.readthedocs.io/en/latest/>`__ (security issues) and `flake8-bugbear <https://pypi.org/project/flake8-bugbear/>`__ (additional checks).
+The `Python Code Quality Authority <https://github.com/PyCQA>`__ maintains ``flake8`` (which includes ``mccabe``, ``pycodestyle`` and ``pyflakes``), ``isort`` and ``pylint``. Its other tools, for your consideration, include `pydocstyle <http://pydocstyle.org/>`__ (docstrings), `doc8 <https://pypi.org/project/doc8/>`__ (RST files), `bandit <https://bandit.readthedocs.io/en/latest/>`__ (security issues) and `flake8-bugbear <https://pypi.org/project/flake8-bugbear/>`__ (additional checks).
+
+String formatting
+-----------------
+
+`Format strings <https://docs.python.org/3/reference/lexical_analysis.html#f-strings>`__ (f-strings), introduced in Python 3.6 via `PEP 498 <https://www.python.org/dev/peps/pep-0498/>`__, are preferred for interpolation of variables:
+
+.. code-block:: python
+
+   message = f"hello {name}"
+
+For interpolation of expressions, the `str.format() <https://docs.python.org/3/library/string.html#formatstrings>`__ method is preferred if it is easier to read and write. For example:
+
+.. code-block:: python
+
+   message = "Is '{name}' correct?".format(name=person["name"])
+
+or:
+
+.. code-block:: python
+
+   message = "Is '{person[name]}' correct?".format(person=person)
+
+is easier to read and write than:
+
+.. code-block:: python
+
+   message = f"""Is '{person["name"]}' correct?"""
+
+There are two cases in which f-strings and ``str.format()`` are not preferred:
+
+Logging
+  `"Formatting of message arguments is deferred until it cannot be avoided." <https://docs.python.org/3/howto/logging.html#optimization>`__. If you write:
+
+  .. code-block:: python
+
+     logger.debug("hello {}".format("world"))  # WRONG
+
+  then ``str.format()`` is called whether or not the message is logged. Instead, please write:
+
+  .. code-block:: python
+
+     logger.debug("hello %s", "world")
+Internationalization (i18n)
+  String extraction in most projects is done by the ``xgettext`` command, which doesn't support f-strings. To have a single syntax for translated strings, use named placeholders and the ``%`` operator, as recommended by `Django <https://docs.djangoproject.com/en/3.1/topics/i18n/translation/#standard-translation>`__.
+
+  .. code-block:: python
+
+     _('Today is %(month)s %(day)s.') % {'month': m, 'day': d}
+
+  Remember to put the ``%`` operator outside, not inside, the ``_()`` call:
+
+  .. code-block:: python
+
+     _('Today is %(month)s %(day)s.' % {'month': m, 'day': d})  # WRONG
+
+.. note::
+
+   To learn how to use or migrate between ``%`` and ``format()``, see `pyformat.info <https://pyformat.info/>`__.
 
 SQL statements
 --------------
@@ -147,122 +207,6 @@ Scripts
 
    Read the general :ref:`scripts` content.
 
--  If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
+If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
 
-   - Examples: `extension_registry <https://github.com/open-contracting/extension_registry/blob/master/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/master/manage.py>`__
-
-Input formats
--------------
-
-JSON
-~~~~
-
-In most cases, simply use the `standard library <https://docs.python.org/3/library/json.html>`__.
-
-For critical paths involving small files, use `orjson <https://pypi.org/project/orjson/>`__.
-
-.. note::
-
-   We can switch to the Python bindings for simdjson, pending `benchmarks <https://github.com/TkTech/pysimdjson/issues/42>`__. For JSON documents with known structures, `JSON Link <https://github.com/beached/daw_json_link>`__ is fastest, but the files relevant to us have unknown structures.
-
-For large files, use the `same techniques <https://ocdskit.readthedocs.io/en/latest/contributing.html#streaming>`__ as OCDS Kit to stream input using `ijson <https://pypi.org/project/ijson/>`__, stream output using `iterencode <https://docs.python.org/3/library/json.html#json.JSONEncoder.iterencode>`__, and postpone evaluation using iterators. See its `brief tutorial <https://ocdskit.readthedocs.io/en/latest/library.html#working-with-streams>`__ on streaming and re-use its `default method <https://ocdskit.readthedocs.io/en/latest/_modules/ocdskit/util.html>`__.
-
-.. note::
-
-   ijson uses `Yajl <http://lloyd.github.io/yajl/>`__. `simdjson <https://simdjson.org>`__ is faster, but is limited to `files smaller than 4 GB <https://github.com/simdjson/simdjson/blob/master/doc/basics.md#newline-delimited-json-ndjson-and-json-lines>`__ and has no `streaming API <https://github.com/simdjson/simdjson/issues/31>`__.
-
-Output formats
---------------
-
-We read and write a lot of CSV and JSON files. Their format should be consistent.
-
-CSV
-~~~
-
-Use LF (``\n``) as the line terminator. Example:
-
-.. code:: python
-
-   with open(path) as f:
-       reader = csv.DictReader(f)
-       fieldnames = reader.fieldnames
-       rows = [row for row in reader]
-
-   with open(path, 'w') as f:
-       writer = csv.DictWriter(f, fieldnames, lineterminator='\n')
-       writer.writeheader()
-       writer.writerows(rows)
-
-JSON
-~~~~
-
-Indent with 2 spaces, use UTF-8 characters, and preserve order of object pairs. Example:
-
-.. code:: python
-
-   with open(path) as f:
-       data = json.load(f)
-
-   with open(path, 'w') as f:
-       json.dump(data, f, ensure_ascii=False, indent=2)
-       f.write('\n')
-
-If (and only if) the code must support Python 3.5 or earlier, use:
-
-.. code:: python
-
-   from collections import OrderedDict
-
-   with open(path) as f:
-       data = json.load(f, object_pairs_hook=OrderedDict)
-
-.. _preferred-packages:
-
-Preferred packages
-------------------
-
-We prefer packages in order to:
-
--  Limit the number of packages with which developers need to be familiar.
--  Re-use code (like Click) instead of writing new code (with argparse).
-
-For :doc:`applications`, we prefer all-inclusive and opinionated packages, because they:
-
--  Encourage greater similarity and code re-use across projects. With Django, for example, developers are encouraged to use its authentication mechanism. With Flask, each developer can choose a different mechanism, or write their own.
--  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/3.0/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
-
-Web framework
-  `Django <https://www.djangoproject.com/>`__. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://pythonhosted.org/Frozen-Flask/>`__.
-API
-  No preference. Consider `Django Tastypie <http://tastypieapi.org>`__, `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__.
-Command-line interface
-  `Click <https://click.palletsprojects.com/>`__, unless a framework provides its own, like `Django <https://docs.djangoproject.com/en/3.0/howto/custom-management-commands/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
-Object Relational Mapper (ORM)
-  Django. If you don't need an ORM, use `psycopg2 <https://www.psycopg.org/docs/>`__. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except in low-level libraries with limited scope *where an ORM is needed*.
-HTTP client
-  `Requests <https://requests.readthedocs.io/>`__, unless a framework uses another, like Scrapy (Twisted).
-HTML parsing
-  `lxml <https://pypi.org/project/lxml/>`__. Do not use `BeautifulSoup <https://pypi.org/project/BeautifulSoup/>`__.
-Templating
-  `Jinja <https://jinja.palletsprojects.com/>`__
-Translation
-  `gettext <https://docs.python.org/3/library/gettext.html>`__, `Babel <http://babel.pocoo.org/>`__ and `transifex-client <https://pypi.org/project/transifex-client/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/3.0/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
-Logging
-  `logging <https://docs.python.org/3/library/logging.html>`__
-Testing
-  `pytest <https://docs.pytest.org/>`__, unless a framework uses another, like `Django <https://docs.djangoproject.com/en/3.0/topics/testing/>`__ (unittest).
-Coverage
-  `Coveralls <https://coveralls-python.readthedocs.io/>`__
-Documentation
-  `Sphinx <https://www.sphinx-doc.org/>`__. Its Markdown extensions should only be used for OCDS documentation.
-
-Maintainers can find dependencies with:
-
-.. code-block:: shell-session
-
-   find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 
-
-Reference
----------
-
--  `18F Python Development Guide <https://engineering.18f.gov/python/>`__
+**Examples**: `extension_registry <https://github.com/open-contracting/extension_registry/blob/master/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/master/manage.py>`__

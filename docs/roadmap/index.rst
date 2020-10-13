@@ -56,8 +56,8 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases 
 -  Follow good software development practices (loose coupling, proper encapsulation, etc.) so that code isn't more complex than it needs to be.
 -  Use the latest versions of languages and dependencies, to postpone costly upgrades as far into the future as possible.
 -  Use a small number of dependencies, so that it is less effort to update dependencies with security fixes.
--  Use a small number of languages (primarily Python) and :ref:`dependencies<preferred-packages>` (primarily Django).
--  Use popular :ref:`libraries<preferred-packages>` where possible (e.g. Click, Scrapy, Requests).
+-  Use a small number of languages (primarily Python) and :doc:`dependencies<preferred_packages>` (primarily Django).
+-  Use popular :doc:`libraries<preferred_packages>` where possible (e.g. Click, Scrapy, Requests).
 
 Manage products and services responsibly
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

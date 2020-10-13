@@ -1,6 +1,8 @@
 Performance
 ===========
 
+This page presently only has reusable snippets.
+
 CPU profiling
 -------------
 

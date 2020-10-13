@@ -33,7 +33,7 @@ How-to guides
 -  Don't include information that is not directly relevant to the how-to guide.
 -  Use numbered lists for instructions. Nest sub-tasks to give structure to long lists.
 -  Give example commands, but don't include default arguments or any other extraneous detail.
--  It's okay to put many how-to guides on one page; however, the setup guide should be its own page.
+-  It's okay to put many how-to guides on one page; however, the setup guide should on its own.
 
 Word choice
 ~~~~~~~~~~~
@@ -48,39 +48,8 @@ Link unfamiliar terms to external documentation, if available
 Shell examples
 ~~~~~~~~~~~~~~
 
-Documentation and examples for external users should use ``sh`` or ``bash``. Documentation for internal users can use ``fish``.
-
-Building documentation locally
-------------------------------
-
-With Python 3 as your default interpreter, install Python modules:
-
-.. code-block:: shell-session
-
-   pip install sphinx sphinx_rtd_theme
-
-Build the HTML pages:
-
-.. code-block:: shell-session
-
-   sphinx-build docs docs/_build/html
-
-Run a web server:
-
-.. code-block:: shell-session
-
-   python -m http.server 8000
-
-Open http://localhost:8000/docs/_build/html/ in your web browser:
-
-.. code-block:: shell-session
-
-   open http://localhost:8000/docs/_build/html/
+Documentation and examples for external users should use ``sh`` or ``bash`` syntax. Documentation for internal users can use ``fish`` syntax.
 
 .. note::
 
-   If you are using Python 3.7 or greater, you can pass ``-d docs/_build/html`` to the ``python`` command, and open http://localhost:8000/.
-
-.. note::
-
-   Documentation is built in ``docs/_build/html``, to match the location when building with ``make html`` from the ``docs/`` directory.
+   Read the Python :doc:`../python/documentation` page to learn what to document in Python projects and how to build Sphinx documentation.

@@ -4,7 +4,7 @@ Quality assurance
 Automated testing
 -----------------
 
-pytest is preferred, as documented at :ref:`preferred-packages`.
+pytest is preferred, as documented at :doc:`preferred_packages`.
 
 **How To:** Run tests in :ref:`packages<packages-testing>`.
 
@@ -18,14 +18,14 @@ GitHub Actions is preferred, as documented at :doc:`../general/preferences`.
 Code style
 ~~~~~~~~~~
 
-See :ref:`style-guide`.
+See :doc:`code`.
 
 **Setup:** Most repositories use a ``.github/workflows/lint.yml`` workflow to run style checks, as documented in `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
 Code coverage
 ~~~~~~~~~~~~~
 
-Coveralls is preferred, as documented at :ref:`preferred-packages`.
+Coveralls is preferred, as documented at :doc:`preferred_packages`.
 
 **Setup:** On Coveralls, add the repository, access its settings page, and copy the repo token. On GitHub, add a secret, and set its name to ``COVERALLS_REPO_TOKEN`` and its value to the copied token. Then, append the following to ``.github/workflows/ci.yml``, commit and push:
 

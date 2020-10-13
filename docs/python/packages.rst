@@ -71,6 +71,8 @@ Requirements
 Automated testing
 -----------------
 
+All packages can be tested with:
+
 .. code-block:: shell-session
 
    pip install .[test]
