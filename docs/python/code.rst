@@ -212,3 +212,18 @@ Scripts
 If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
 
 **Examples**: `extension_registry <https://github.com/open-contracting/extension_registry/blob/master/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/master/manage.py>`__
+
+.. _python-tests:
+
+Tests
+-----
+
+Test code tends to be written once and only read when the test fails. As a result, test code tends to be poorly written, with a lot of copy pasting between test methods; however, this makes intent unclear. To write clear tests:
+
+-  Use `pytest.mark.parametrize <https://docs.pytest.org/en/stable/parametrize.html>`__ to test something with different inputs (like in `OCDS Kit <https://github.com/open-contracting/ocdskit/blob/master/tests/test_util.py>`__).
+-  Use `unittest.TestCase <https://docs.python.org/3/library/unittest.html#unittest.TestCase>`__ to re-use testing logic, including:
+
+   -  Test methods (like `ViewTests <https://github.com/open-contracting/toucan/blob/master/tests/__init__.py>`__ in Toucan)
+   -  Test scaffolding, using `setUp() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.setUp>`__ and `tearDown() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown>`__
+
+Note: There are some `caveats <https://docs.pytest.org/en/stable/unittest.html>`__ to using ``pytest`` with ``unittest``.

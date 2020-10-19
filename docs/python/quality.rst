@@ -6,6 +6,8 @@ Automated testing
 
 pytest is preferred, as documented at :doc:`preferred_packages`.
 
+**How To:** :ref:`Write tests<python-tests>`.
+
 **How To:** Run tests in :ref:`packages<packages-testing>`.
 
 Continuous testing
