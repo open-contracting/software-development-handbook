@@ -60,3 +60,15 @@ After adding a dependency, run:
 
    pip-compile
    pip-compile requirements_dev.in
+
+Configuration
+-------------
+
+All application interfaces should read configuration from environment variables, like in the `Twelve-Factor App methodology <https://12factor.net>`__. Environment variables are configured in the `deploy repository <https://github.com/open-contracting/deploy>`__.
+
+Web context
+  For a Django application, configure the environment variables in its Pillar file under the ``django.env`` key. The configuration is deployed via a `uWSGI INI file <https://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`__.
+:ref:`command-line interfaces<scripts>` context
+  Configure the environment variables in a ``.env`` file, and deploy the file. In the application, use `python-dotenv <https://pypi.org/project/python-dotenv/>`__ (not `django-environ <https://pypi.org/project/django-environ/>`__) to load the file: for example, `kingfisher-archive <https://github.com/open-contracting/kingfisher-archive/blob/master/manage.py>`__.
+
+Otherwise, read configuration from INI files using `configparser <https://docs.python.org/3/library/configparser.html>`__. Do not use: JSON (no comments), YAML (data typing, too many features, not in standard library), `TOML <https://github.com/madmurphy/libconfini/wiki/An-INI-critique-of-TOML>`__ (data typing, too many features, not in standard library), or XML (verbose, not in standard library).

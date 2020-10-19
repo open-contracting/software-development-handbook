@@ -200,6 +200,8 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
 
+.. _scripts:
+
 Scripts
 -------
 
