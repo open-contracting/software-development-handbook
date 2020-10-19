@@ -221,6 +221,7 @@ Tests
 Test code tends to be written once and only read when the test fails. As a result, test code tends to be poorly written, with a lot of copy pasting between test methods; however, this makes intent unclear. To write clear tests:
 
 -  Use `pytest.mark.parametrize <https://docs.pytest.org/en/stable/parametrize.html>`__ to test something with different inputs (like in `OCDS Kit <https://github.com/open-contracting/ocdskit/blob/master/tests/test_util.py>`__).
+-  Use `pytest.fixture <https://docs.pytest.org/en/stable/fixture.html>`__ to re-use test scaffolding (like in `OCDS Merge <https://github.com/open-contracting/ocds-merge/blob/master/tests/conftest.py>`__ or `Kingfisher Colab <https://github.com/open-contracting/kingfisher-colab/blob/master/tests/conftest.py>`__).
 -  Use `unittest.TestCase <https://docs.python.org/3/library/unittest.html#unittest.TestCase>`__ to re-use testing logic, including:
 
    -  Test methods (like `ViewTests <https://github.com/open-contracting/toucan/blob/master/tests/__init__.py>`__ in Toucan)
