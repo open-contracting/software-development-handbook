@@ -73,7 +73,7 @@ Automated testing
 
 All packages can be tested with:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    pip install .[test]
    pytest

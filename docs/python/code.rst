@@ -10,7 +10,7 @@ All code is checked as documented by `standard-maintenance-scripts <https://gith
 
 Repositories should not use ``setup.cfg``, ``.editorconfig``, ``pyproject.toml`` or tool-specific files to configure the behavior of tools, except to ignore generated files like database migrations. Maintainers can find configuration files with:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    find . \( -name 'setup.cfg' -or -name 'pyproject.toml' -or -name '.editorconfig' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.pylintrc' -or -name '.pylintrc' \) -exec echo {} \; -exec cat {} \;
 
@@ -34,13 +34,13 @@ Optional checks
 
 flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/project/mccabe/>`__) is deactivated by default. A threshold of 10 or 15 is `recommended <https://en.wikipedia.org/wiki/Cyclomatic_complexity#Limiting_complexity_during_development>`__:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    flake8 . --max-line-length 119 --max-complexity 10
 
 `pylint <https://pylint.org/>`__ and `pylint-django <https://pypi.org/project/pylint-django/>`__ provides useful, but noisy, feedback:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    pip install pylint
    pylint --max-line-length 119 directory

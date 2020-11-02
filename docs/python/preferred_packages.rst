@@ -38,6 +38,6 @@ Documentation
 
 Maintainers can find dependencies with:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 

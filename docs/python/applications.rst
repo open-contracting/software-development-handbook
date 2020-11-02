@@ -42,21 +42,21 @@ The ``requirements*.txt`` files should be periodically updated, both for securit
 
 To upgrade all dependencies:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    pip-compile --upgrade
    pip-compile --upgrade requirements_dev.in
 
 To upgrade one dependency, run, for example:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    pip-compile -P requests
    pip-compile -P requests requirements_dev.in
 
 After adding a dependency, run:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    pip-compile
    pip-compile requirements_dev.in

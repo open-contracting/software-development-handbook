@@ -18,25 +18,25 @@ Building documentation locally
 
 With Python 3 as your interpreter, install Python modules:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    pip install sphinx sphinx_rtd_theme
 
 Build the HTML pages:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    sphinx-build docs docs/_build/html
 
 Run a web server:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    python -m http.server 8000
 
 Open http://localhost:8000/docs/_build/html/ in your web browser:
 
-.. code-block:: shell-session
+.. code-block:: shell
 
    open http://localhost:8000/docs/_build/html/
 
