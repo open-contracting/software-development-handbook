@@ -138,10 +138,10 @@ Repositories that are no longer supported should be archived.
 
 #. Scan the repository’s open issues, milestones, pull requests and non-default branches in case any can be quickly closed, merged or deleted. Counter `GitHub’s recommendation <https://help.github.com/articles/about-archiving-repositories/>`__, open issues and pull requests indicate the development status of a repository, and should be left open.
 #. Change the repository’s description to describe the reason for archival. If the repository has been superseded, change it to “Superseded by [owner]/[repository]” and change the URL to the new repository’s URL.
-#. Run the ```fix:archive_repos REPOS=repo1,repo2`` <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task on the repository.
+#. Run the `fix:archive_repos REPOS=repo1,repo2 <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task on the repository.
 #. Move the archive to the ``open-contracting-archive`` organization.
 #. `Archive <https://help.github.com/articles/about-archiving-repositories/>`__ the repository through its settings.
-#. Run the ```local:badges`` <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task.
+#. Run the `local:badges <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task.
 
 Integrations
 ------------
