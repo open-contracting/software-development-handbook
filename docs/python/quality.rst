@@ -31,7 +31,7 @@ Coveralls is preferred, as documented at :doc:`preferred_packages`.
 
 **Setup:** On Coveralls, add the repository, access its settings page, and copy the repo token. On GitHub, add a secret, and set its name to ``COVERALLS_REPO_TOKEN`` and its value to the copied token. Then, append the following to ``.github/workflows/ci.yml``, commit and push:
 
-.. code:: yaml
+.. code-block:: yaml
 
        - env:
            COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
@@ -46,7 +46,7 @@ This test is run on `pull request <https://docs.github.com/en/free-pro-team@late
 
 For example, `cove-ocds <https://github.com/open-contracting/cove-ocds/blob/master/.github/workflows/ci.yml>`__ runs:
 
-.. code:: yaml
+.. code-block:: yaml
 
    - run: sudo apt install gettext translate-toolkit
    - run: python manage.py makemessages -l es
@@ -59,7 +59,7 @@ Test matrix
 
 Packages should be tested on Ubuntu, macOS and Windows and on Python versions that aren't end-of-life. For example:
 
-.. code:: yaml
+.. code-block:: yaml
 
    name: CI
    on: [push, pull_request]

@@ -8,7 +8,7 @@ setup.py
 
 If the package is distributed on PyPi, use this template ``setup.py``, adding arguments like ``entry_points``, ``extras_require`` and ``namespace_packages`` as needed:
 
-.. code:: python
+.. code-block:: python
 
    from setuptools import find_packages, setup
 
@@ -41,7 +41,7 @@ If the package is tested on macOS, Windows and Ubuntu, you can use the ``'Operat
 
 If the package isn’t distributed on PyPi, use this template ``setup.py``:
 
-.. code:: python
+.. code-block:: python
 
    from setuptools import find_packages, setup
 
@@ -56,7 +56,7 @@ If the package isn’t distributed on PyPi, use this template ``setup.py``:
 
 To change a readme from Markdown to reStructuredText, install ``pandoc`` and run:
 
-::
+.. code-block:: bash
 
    pandoc --from=markdown --to=rst --output=README.rst README.md
 

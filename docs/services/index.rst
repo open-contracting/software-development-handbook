@@ -66,7 +66,7 @@ Periodically review `all projects <https://console.cloud.google.com/cloud-resour
 
 In case a new user needs to be given admin access to the ``ocds`` project, you can run, for example:
 
-::
+.. code-block:: bash
 
    gcloud projects add-iam-policy-binding ocds-172716 --member user:jmckinney@open-contracting.org --role roles/owner
 

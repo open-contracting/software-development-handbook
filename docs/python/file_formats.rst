@@ -11,14 +11,14 @@ Input
 
 In most cases, simply use the `standard library <https://docs.python.org/3/library/json.html>`__.
 
-.. code:: python
+.. code-block:: python
 
    with open(path) as f:
        data = json.load(f)
 
 If (and only if) the code must support Python 3.5 or earlier, use:
 
-.. code:: python
+.. code-block:: python
 
    from collections import OrderedDict
 
@@ -42,7 +42,7 @@ Output
 
 Indent with 2 spaces, use UTF-8 characters, and preserve order of object pairs. Example:
 
-.. code:: python
+.. code-block:: python
 
    with open(path, 'w') as f:
        json.dump(data, f, ensure_ascii=False, indent=2)
@@ -54,7 +54,7 @@ CSV
 Input
 ~~~~~
 
-.. code:: python
+.. code-block:: python
 
    with open(path) as f:
        reader = csv.DictReader(f)
@@ -66,7 +66,7 @@ Output
 
 Use LF (``\n``) as the line terminator. Example:
 
-.. code:: python
+.. code-block:: python
 
    with open(path, 'w') as f:
        writer = csv.DictWriter(f, fieldnames, lineterminator='\n')
