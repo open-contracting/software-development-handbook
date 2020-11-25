@@ -71,7 +71,7 @@ Requirements
 Automated testing
 -----------------
 
-All packages can be tested with:
+A package can be tested with:
 
 .. code-block:: shell
 
