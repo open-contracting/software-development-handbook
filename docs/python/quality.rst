@@ -54,6 +54,32 @@ For example, `cove-ocds <https://github.com/open-contracting/cove-ocds/blob/mast
 
 In other words, either the event isn't a pull request, or the ``pocount`` command's output is empty.
 
+Test matrix
+~~~~~~~~~~~
+
+Packages should be tested on Ubuntu, macOS and Windows and on Python versions that aren't end-of-life. For example:
+
+.. code:: yaml
+
+   name: CI
+   on: [push, pull_request]
+   jobs:
+     build:
+       runs-on: ${{ matrix.os }}
+       strategy:
+         matrix:
+           os: [macos-latest, windows-latest, ubuntu-latest]
+           python-version: [3.6, 3.7, 3.8, 3.9]
+       steps:
+       - uses: actions/checkout@v2
+       - uses: actions/setup-python@v1
+         with:
+           python-version: ${{ matrix.python-version }}
+
+.. note::
+
+   If a package requires `service containers <https://docs.github.com/en/free-pro-team@latest/actions/guides/about-service-containers>`__, you must use an Ubuntu runner.
+
 Branch protection
 ~~~~~~~~~~~~~~~~~
 
