@@ -30,13 +30,14 @@ If the package is distributed on PyPi, use this template ``setup.py``, adding ar
        ],
        classifiers=[
            'License :: OSI Approved :: BSD License',
+           'Operating System :: POSIX :: Linux',
            'Programming Language :: Python :: 3.6',
            'Programming Language :: Python :: 3.7',
            'Programming Language :: Python :: 3.8',
        ],
    )
 
-If the package is tested on macOS, Windows and Ubuntu, you can add the ``'Operating System :: OS Independent'`` classifier.
+If the package is tested on macOS, Windows and Ubuntu, you can use the ``'Operating System :: OS Independent'`` classifier, instead.
 
 If the package isn’t distributed on PyPi, use this template ``setup.py``:
 
