@@ -149,3 +149,4 @@ Integrations
 -  **Coveralls**, to measure test coverage
 -  **ReadTheDocs**, to build repository-specific documentation (`access all docs <https://github.com/open-contracting/standard-maintenance-scripts/blob/master/badges.md#readme>`__)
 -  **GitHub Actions**, to run tests, and to build documentation (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/master/badges.md#readme>`__)
+-  **Code Climate**, to monitor maintanability (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/master/badges.md#readme>`__)
