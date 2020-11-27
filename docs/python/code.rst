@@ -209,14 +209,14 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
 
-.. _scripts:
+.. _python-scripts:
 
 Scripts
 -------
 
 .. note::
 
-   Read the general :ref:`scripts` content.
+   Read the general :doc:`../shell/index` content.
 
 If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
 
