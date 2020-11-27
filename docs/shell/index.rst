@@ -22,4 +22,6 @@ If a repository has scripts to set itself up and/or update itself, follow GitHub
 Shell options
 -------------
 
-Start a Bash script with `set -euo pipefail <https://wizardzines.com/comics/bash-errors/>`__. If the script explicitly handles unset variables, omit ``u``.
+Start a Bash script with `set -euo pipefail <https://wizardzines.com/comics/bash-errors/>`__. If the script explicitly handles unset variables, omit ``-u``. To see which command failed due to the ``-e`` option, add ``-x``.
+
+Reference: `The Set Builtin <https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html>`__
