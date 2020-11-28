@@ -6,6 +6,7 @@ Python
    code
    file_formats
    preferred_packages
+   services
    quality
    documentation
    packages
