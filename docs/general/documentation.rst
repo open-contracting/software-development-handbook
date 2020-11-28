@@ -15,6 +15,8 @@ External documentation can be accessed via the *Docs* links on `this page <https
 
 Internal documentation can be accessed via the `User Guides <https://ocdsdeploy.readthedocs.io/en/latest/use/index.html>`__ in the ``deploy`` repository.
 
+Documentation should be maximally proximate to the thing it is documenting. For example, to document what a method in software does, it's best to author that documentation as a heredoc in the method itself, instead of in a separate document.
+
 Writing documentation
 ---------------------
 
