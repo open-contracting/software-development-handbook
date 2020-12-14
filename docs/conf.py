@@ -15,7 +15,6 @@
 # sys.path.insert(0, os.path.abspath('.'))
 import os
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'OCP Software Development Handbook'
