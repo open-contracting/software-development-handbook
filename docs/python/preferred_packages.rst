@@ -12,7 +12,7 @@ For :doc:`applications`, we prefer all-inclusive and opinionated packages, becau
 -  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/3.0/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
 
 Web framework
-  `Django LTS<https://www.djangoproject.com/download/>`__, unless a newer version has desirable features. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://pythonhosted.org/Frozen-Flask/>`__.
+  `Django LTS <https://www.djangoproject.com/download/>`__, unless a newer version has desirable features. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://pythonhosted.org/Frozen-Flask/>`__.
 API
   No preference. Consider `Django Tastypie <http://tastypieapi.org>`__, `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__.
 Command-line interface
