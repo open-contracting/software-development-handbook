@@ -49,7 +49,7 @@ Datastores
 Web servers
 -----------
 
--  Apache (`#179 <https://github.com/open-contracting/deploy/issues/179>`__)
+-  Apache
 
 Miscellaneous
 -------------
