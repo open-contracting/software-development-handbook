@@ -27,3 +27,19 @@ Use, where possible:
 -  ``[ ]`` instead of ``test``
 -  ``[ ]`` instead of ``[[ ]]``, which is only needed in `rare circumstances <https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions>`__
 -  ``$NAME`` instead of ``${NAME}``, which is only needed if followed by a word character
+-  Use a subshell to temporarily change directory, for example:
+
+   .. code-block:: bash
+
+      (
+         cd subdir/
+         mv x.txt y.txt
+      )
+
+   Instead of:
+
+   .. code-block:: bash
+
+      cd subdir/
+      mv x.txt y.txt
+      cd ..  # AVOID
