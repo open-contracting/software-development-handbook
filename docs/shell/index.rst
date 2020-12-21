@@ -22,11 +22,11 @@ Code style
 
 Check shell scripts using `shellcheck <https://www.shellcheck.net>`__.
 
-Use, where possible:
+Use:
 
 -  ``[ ]`` instead of ``test``
--  ``[ ]`` instead of ``[[ ]]``, which is only needed in `rare circumstances <https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions>`__
--  ``$NAME`` instead of ``${NAME}``, which is only needed if followed by a word character
+-  ``[ ]`` instead of ``[[ ]]``, `unless required <https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions>`__
+-  ``$NAME`` instead of ``${NAME}``, unless followed by a word character
 -  Use a subshell to temporarily change directory, for example:
 
    .. code-block:: bash
@@ -43,3 +43,7 @@ Use, where possible:
       cd subdir/
       mv x.txt y.txt
       cd ..  # AVOID
+
+Avoid:
+
+-  ``set -x`` in scripts run by continuous integration, because it will expand any secret variables
