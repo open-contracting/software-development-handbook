@@ -27,7 +27,7 @@ Use:
 -  ``[ ]`` instead of ``test``
 -  ``[ ]`` instead of ``[[ ]]``, `unless required <https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions>`__
 -  ``$NAME`` instead of ``${NAME}``, unless followed by a word character
--  Use a subshell to temporarily change directory, for example:
+-  Subshells to temporarily change directory, for example:
 
    .. code-block:: bash
 
