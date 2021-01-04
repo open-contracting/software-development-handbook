@@ -218,7 +218,9 @@ If a repository requires a command-line tool for management tasks, create an exe
 Tests
 -----
 
-Test code tends to be written once and only read when the test fails. As a result, test code tends to be poorly written, with a lot of copy pasting between test methods; however, this makes intent unclear. To write clear tests:
+Test code tends to be written once and only read when the test fails. As a result, test code tends to be poorly written, with a lot of copy-pasting between test methods, which makes intent unclear.
+
+To write clear tests:
 
 -  Use `pytest.mark.parametrize <https://docs.pytest.org/en/stable/parametrize.html>`__ to test something with different inputs (like in `OCDS Kit <https://github.com/open-contracting/ocdskit/blob/master/tests/test_util.py>`__).
 -  Use `pytest.fixture <https://docs.pytest.org/en/stable/fixture.html>`__ to re-use test scaffolding (like in `OCDS Merge <https://github.com/open-contracting/ocds-merge/blob/master/tests/conftest.py>`__ or `Kingfisher Colab <https://github.com/open-contracting/kingfisher-colab/blob/master/tests/conftest.py>`__).
