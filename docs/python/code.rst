@@ -12,11 +12,11 @@ Repositories should not use ``setup.cfg``, ``.editorconfig``, ``pyproject.toml``
 
 .. code-block:: shell
 
-   find . \( -name 'setup.cfg' -or -name 'pyproject.toml' -or -name '.editorconfig' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.pylintrc' -or -name '.pylintrc' \) -exec echo {} \; -exec cat {} \;
+   find . \( -name 'setup.cfg' -or -name 'pyproject.toml' -or -name '.editorconfig' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.pylintrc' -or -name 'pylintrc' \) -exec echo {} \; -exec cat {} \;
 
 .. note::
 
-   If a project uses `Black <https://black.readthedocs.io>`__ it needs a ``setup.cfg`` file for `flake8 <https://gitlab.com/pycqa/flake8/-/issues/428>`__ and ``isort`` and a ``pyproject.toml`` file for `black <https://github.com/psf/black/issues/683>`__. Otherwise, use only a ``setup.cfg`` file.
+   If a project uses `Black <https://black.readthedocs.io>`__, it needs a ``setup.cfg`` file for `flake8 <https://gitlab.com/pycqa/flake8/-/issues/428>`__ and ``isort`` and a ``pyproject.toml`` file for `black <https://github.com/psf/black/issues/683>`__. Otherwise, use only a ``setup.cfg`` file. Black is not used in all projects, because its `vertical style <https://github.com/open-contracting/standard-maintenance-scripts/issues/148#issuecomment-693556236>`__ is slower to scan.
 
 ``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``. The errors that are allowed to be ignored are:
 
