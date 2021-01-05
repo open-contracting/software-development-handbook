@@ -7,6 +7,7 @@ A guide for developers of OCP's tools.
 
    general/index
    python/index
+   javascript/index
    shell/index
    github/index
    services/index
