@@ -36,7 +36,6 @@ To transform older code to ECMAScript 6, use `lebab <https://github.com/lebab/le
        "commonjs",
        "template",
        "default-param",
-       "destruct-param",
        "includes"
      ]
    }
