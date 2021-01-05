@@ -51,3 +51,9 @@ Plain JavaScript is preferred to using jQuery, unless functionality depends on j
 
 User interfaces
   `Vue <https://vuejs.org>`__ or `React <https://reactjs.org>`__
+
+Reference
+---------
+
+-  `MDN Web Docs <https://developer.mozilla.org/en-US/>`__
+-  `Can I use... <https://caniuse.com/>`__
