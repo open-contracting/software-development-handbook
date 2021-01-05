@@ -158,9 +158,9 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
    .. code-block:: python
 
       cur.execute("""
-          SELECT * FROM release WHERE collection_id = %(collection_id)s
+          SELECT * FROM release WHERE collection_id = %s
           UNION
-          SELECT * FROM record WHERE collection_id = %(collection_id)s AND ocid = %(ocid)s
+          SELECT * FROM record WHERE collection_id = %s AND ocid = %s
       """, (1, 1, 'ocds-213czf-1'))  # AVOID
 
 -  If you are writing a query template in which you want to substitute column names or table names, use the ``format`` method and the ``SQL`` and ``Identifier`` classes (`documentation <https://www.psycopg.org/docs/sql.html>`__):
