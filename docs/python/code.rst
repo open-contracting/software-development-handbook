@@ -1,6 +1,9 @@
 Style guide
 ===========
 
+Version
+-------
+
 Code is written for Python 3.6 and above (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
 
 Common checks
