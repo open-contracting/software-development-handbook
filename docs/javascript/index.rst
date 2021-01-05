@@ -17,29 +17,30 @@ Non-vendored code is checked and formatted using `Standard <https://github.com/s
 
 To transform older code to ECMAScript 6, use `lebab <https://github.com/lebab/lebab>`__, but be aware of its `bugs <https://github.com/lebab/lebab#unsafe-transforms>`__. There is a lebab `plugin <https://packagecontrol.io/packages/lebab>`__ for `Sublime Text <https://www.sublimetext.com>`__. Use these preferences (*Preferences* > *Package Settings* > *Lebab* > *Settings - User*):
 
-```json
-{
-  "transforms": [
-    "arrow",
-    "arrow-return",
-    "let",
-    "for-of",
-    "for-each",
-    "arg-rest",
-    "arg-spread",
-    "obj-method",
-    "obj-shorthand",
-    "no-strict",
-    "exponent",
-    "class",
-    "commonjs",
-    "template",
-    "default-param",
-    "destruct-param",
-    "includes"
-  ]
-}
-```
+.. code-block:: json
+
+   {
+     "transforms": [
+       "arrow",
+       "arrow-return",
+       "let",
+       "for-of",
+       "for-each",
+       "arg-rest",
+       "arg-spread",
+       "obj-method",
+       "obj-shorthand",
+       "no-strict",
+       "exponent",
+       "class",
+       "commonjs",
+       "template",
+       "default-param",
+       "destruct-param",
+       "includes"
+     ]
+   }
+
 
 To transform newer code to ECMAScript 6, use `Babel <https://babeljs.io>`__ with the `defaults <https://babeljs.io/docs/en/babel-preset-env#no-targets>`__ query from `browserlist <https://github.com/browserslist/browserslist>`__.
 
