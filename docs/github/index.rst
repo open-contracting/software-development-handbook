@@ -101,6 +101,31 @@ If a repository needs multiple branches (like the standard and profiles), the ne
 
 See the pages for the branch management of the `standard <../../standard/technical/repository>`__ and `profiles <../../profiles/technical/repository>`__ (including OC4IDS).
 
+Commits
+-------
+
+**DO NOT** force-push changes to a pull request in response to a code review. Force-pushing makes it impossible to use GitHub's *View changes* feature. If you want a single commit, select `Squash and merge <https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges>`__ from the *Merge pull request* dropdown.
+
+
+Commit messages
+~~~~~~~~~~~~~~~
+
+Follow the format:
+
+.. code-block:: none
+
+   component: Capitalized, <72 characters, no period
+
+   A longer description of paragraph text, as needed.
+
+   - Bullet points and other Markdown are okay, too
+
+   #123
+
+Most commits are made in pull requests, such that it's easy to find the related conversation on GitHub.
+
+Reference: `Write joyous git commit messages <https://medium.com/@joshuatauberer/write-joyous-git-commit-messages-2f98891114c4>`__
+
 Repository settings
 -------------------
 
