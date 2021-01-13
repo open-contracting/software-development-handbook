@@ -104,13 +104,17 @@ See the pages for the branch management of the `standard <../../standard/technic
 Naming convention
 ~~~~~~~~~~~~~~~~~
 
-When working on a fix or new feature, there should be an issue that describes the issue or feature requested. Then, you should create the branch where you are going to work in, following the following convention:
+To start work on an issue, create a branch, following this naming convention:
 
 .. code-block:: none
 
    {issue-number}-{brief-description}
 
-With this convention is easy to know what the changes in the branch are about.
+This makes it easy to know what the changes in a branch are about.
+
+.. note::
+
+   If no issue exists for the work you want to do, please create an issue first.
 
 Commits
 -------
