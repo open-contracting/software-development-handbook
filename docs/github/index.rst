@@ -101,6 +101,17 @@ If a repository needs multiple branches (like the standard and profiles), the ne
 
 See the pages for the branch management of the `standard <../../standard/technical/repository>`__ and `profiles <../../profiles/technical/repository>`__ (including OC4IDS).
 
+Naming convention
+~~~~~~~~~~~~~~~~~
+
+When working on a fix or new feature, there should be an issue that describes the issue or feature requested. Then, you should create the branch where you are going to work in, following the following convention:
+
+.. code-block:: none
+
+   {issue-number}-{brief-description}
+
+With this convention is easy to know what the changes in the branch are about.
+
 Commits
 -------
 
