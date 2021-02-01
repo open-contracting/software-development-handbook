@@ -9,15 +9,17 @@ Organizations
 -  `open-contracting-archive <https://github.com/open-contracting-archive/>`__: all unsupported repositories
 -  `open-contracting-partnership <https://github.com/open-contracting-partnership/>`__: `www.open-contracting.org <https://www.open-contracting.org/>`__-related repositories
 
+.. _github-teams:
+
 Teams
 -----
 
-In order to protect the private deploy repositories, the `base permissions <https://github.com/organizations/open-contracting/settings/member_privileges>`__ for ``open-contracting`` members is *None*. There are two teams:
+In order to protect the private deploy repositories, the `base permissions <https://github.com/organizations/open-contracting/settings/member_privileges>`__ for ``open-contracting`` members is *None*. There are two main teams, with additional teams for specific projects:
 
 -  `General <https://github.com/orgs/open-contracting/teams/general>`__:
 
-   -  **Members**: All `people <https://github.com/orgs/open-contracting/people>`__, except Dogsbody Technology staff
-   -  **Repositories**: All repositories, except `deploy <https://github.com/search?q=topic%3Adeployment+org%3Aopen-contracting>`__ and `archived <https://github.com/open-contracting?type=archived>`__ repositories
+   -  **Members**: All `people <https://github.com/orgs/open-contracting/people>`__ from OCP, Centro de Desarrollo Sostenible (CDS) and Open Data Services Co-operative Limited (ODS)
+   -  **Repositories**: All repositories, except `archived <https://github.com/open-contracting?type=archived>`__, `deploy <https://github.com/search?q=topic%3Adeployment+org%3Aopen-contracting>`__ and `health <https://github.com/orgs/open-contracting/teams/health/repositories>`__ repositories
    -  **Permission levels**: *Triage* for issue-only repositories, *Write* for other repositories
 
 -  `Servers <https://github.com/orgs/open-contracting/teams/servers>`__:
@@ -25,6 +27,10 @@ In order to protect the private deploy repositories, the `base permissions <http
    -  **Members**: All people with `root access <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html#root-access>`__ to any server
    -  **Repositories**: The `deploy <https://github.com/search?q=topic%3Adeployment+org%3Aopen-contracting>`__ repositories
    -  **Permission levels**: *Write*
+
+GitHub’s `outside collaborators <https://help.github.com/articles/adding-outside-collaborators-to-repositories-in-your-organization/>`__ feature should only be used for one-off projects.
+
+There should be a minimum of two `owners <https://help.github.com/articles/permission-levels-for-an-organization/>`__ from OCP. Owners do not need to be added to teams.
 
 Issues
 ------
