@@ -88,14 +88,16 @@ There should be at most two members with the Manager role from each other organi
 PyPi
 ----
 
-For each package owned by the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ roles from OCP only, including ``opencontracting``.
+For each package owned by the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ roles from OCP, including ``opencontracting``.
 
 Only users who are reasonably expected to upload releases should have the Maintainer role. If a third-party organization maintains a package, there can be one user from that organization with the Owner role to add maintainers (e.g. ``OpenDataServices``).
 
 ReadTheDocs
 -----------
 
-There should be at most two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with the Maintainer role from each of OCP and ODS, excluding organization-wide accounts.
+There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with the Maintainer role from OCP.
+
+Third-party maintainers of PyPi packages can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
 
 The following projects are redirect only: `kingfisher-scrape <https://kingfisher-scrape.readthedocs.io/>`__, `kingfisher-views <https://kingfisher-views.readthedocs.io/>`__, `ocdskingfisher <https://ocdskingfisher.readthedocs.io/>`__.
 
