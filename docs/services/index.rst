@@ -90,7 +90,7 @@ PyPi
 
 For each package owned by the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ roles from OCP only, including ``opencontracting``.
 
-Only users who are reasonably expected to upload releases should have the Maintainer role.
+Only users who are reasonably expected to upload releases should have the Maintainer role. If a third-party organization maintains a package, there can be one user from that organization with the Owner role to add maintainers.
 
 ReadTheDocs
 -----------
