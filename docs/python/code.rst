@@ -214,7 +214,7 @@ Scripts
 
 If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
 
-**Examples**: `extension_registry <https://github.com/open-contracting/extension_registry/blob/master/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/master/manage.py>`__
+**Examples**: `extension_registry <https://github.com/open-contracting/extension_registry/blob/main/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/main/manage.py>`__
 
 .. _python-tests:
 
@@ -226,11 +226,11 @@ Test code tends to be written once and only read when the test fails. As a resul
 To write clear tests:
 
 -  Test one scenario per test.
--  Use `pytest.mark.parametrize <https://docs.pytest.org/en/stable/parametrize.html>`__ to test something with different inputs (like in `OCDS Kit <https://github.com/open-contracting/ocdskit/blob/master/tests/test_util.py>`__).
--  Use `pytest.fixture <https://docs.pytest.org/en/stable/fixture.html>`__ to re-use test scaffolding (like in `OCDS Merge <https://github.com/open-contracting/ocds-merge/blob/master/tests/conftest.py>`__ or `Kingfisher Colab <https://github.com/open-contracting/kingfisher-colab/blob/master/tests/conftest.py>`__).
+-  Use `pytest.mark.parametrize <https://docs.pytest.org/en/stable/parametrize.html>`__ to test something with different inputs (like in `OCDS Kit <https://github.com/open-contracting/ocdskit/blob/main/tests/test_util.py>`__).
+-  Use `pytest.fixture <https://docs.pytest.org/en/stable/fixture.html>`__ to re-use test scaffolding (like in `OCDS Merge <https://github.com/open-contracting/ocds-merge/blob/main/tests/conftest.py>`__ or `Kingfisher Colab <https://github.com/open-contracting/kingfisher-colab/blob/main/tests/conftest.py>`__).
 -  Use `unittest.TestCase <https://docs.python.org/3/library/unittest.html#unittest.TestCase>`__ to re-use testing logic, including:
 
-   -  Test methods (like `ViewTests <https://github.com/open-contracting/toucan/blob/master/tests/__init__.py>`__ in Toucan)
+   -  Test methods (like `ViewTests <https://github.com/open-contracting/toucan/blob/main/tests/__init__.py>`__ in Toucan)
    -  Test scaffolding, using `setUp() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.setUp>`__ and `tearDown() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown>`__
 
 Note: There are some `caveats <https://docs.pytest.org/en/stable/unittest.html>`__ to using ``pytest`` with ``unittest``.

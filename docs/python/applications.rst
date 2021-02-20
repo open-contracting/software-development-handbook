@@ -6,7 +6,7 @@ Python applications are different from :doc:`packages` in that:
 -  Applications are not declared as dependencies by other software, and therefore do not have a ``setup.py`` file
 -  Applications are deployed to servers, and therefore freeze requirements in ``requirements.txt`` to have consistent deploys
 
-The ``master`` branch of applications should always be deployable, which requires that:
+The default branch of applications should always be deployable, which requires that:
 
 -  Tests pass on continuous integration
 -  Installation instructions are consistent with the `deploy <https://github.com/open-contracting/deploy>`__ repository
@@ -69,6 +69,6 @@ All application interfaces should read configuration from environment variables,
 Web context
   For a `Django application <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/python.html>`__, configure the environment variables in its Pillar file. The configuration is deployed via a `uWSGI INI file <https://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`__.
 :ref:`Command-line interface<python-scripts>` context
-  Configure the environment variables in a ``.env`` file, and deploy the file. In the application, use `python-dotenv <https://pypi.org/project/python-dotenv/>`__ (not `django-environ <https://pypi.org/project/django-environ/>`__) to load the file: for example, `kingfisher-archive <https://github.com/open-contracting/kingfisher-archive/blob/master/manage.py>`__.
+  Configure the environment variables in a ``.env`` file, and deploy the file. In the application, use `python-dotenv <https://pypi.org/project/python-dotenv/>`__ (not `django-environ <https://pypi.org/project/django-environ/>`__) to load the file: for example, `kingfisher-archive <https://github.com/open-contracting/kingfisher-archive/blob/main/manage.py>`__.
 
 Otherwise, read configuration from INI files using `configparser <https://docs.python.org/3/library/configparser.html>`__. Do not use: JSON (no comments), YAML (data typing, too many features, not in standard library), `TOML <https://github.com/madmurphy/libconfini/wiki/An-INI-critique-of-TOML>`__ (data typing, too many features, not in standard library), or XML (verbose, not in standard library).

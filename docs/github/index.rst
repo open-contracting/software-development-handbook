@@ -101,7 +101,7 @@ New projects should be created using the *Automated kanban* template.
 Branches
 --------
 
-In general, repositories should have only a default branch (usually ``master``) and pull request branches. If the repository is a fork, it may have a ``master`` branch for the source branch and an ``opencontracting`` (or ``open_contracting``) branch for the fork branch.
+In general, repositories should have only a default branch and pull request branches. If the repository is a fork, it may have a main branch for the source branch and an ``opencontracting`` (or ``open_contracting``) branch for the fork branch.
 
 If a repository needs multiple branches (like the standard and profiles), the needed branches should be protected. Otherwise, unprotected branches more than a month old should either be opened as pull requests, protected, or deleted.
 
@@ -193,6 +193,6 @@ Integrations
 ------------
 
 -  **Coveralls**, to measure test coverage
--  **ReadTheDocs**, to build repository-specific documentation (`access all docs <https://github.com/open-contracting/standard-maintenance-scripts/blob/master/badges.md#readme>`__)
--  **GitHub Actions**, to run tests, and to build documentation (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/master/badges.md#readme>`__)
--  **Code Climate**, to monitor maintanability (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/master/badges.md#readme>`__)
+-  **ReadTheDocs**, to build repository-specific documentation (`access all docs <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)
+-  **GitHub Actions**, to run tests, and to build documentation (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)
+-  **Code Climate**, to monitor maintanability (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)

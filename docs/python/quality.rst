@@ -44,7 +44,7 @@ Repositories that support multiple locales should test that translations are com
 
 This test is run on `pull request <https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#pull_request>`__ events, not `push <https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#push>`__ events, to allow developers to see test results on feature branches, before creating a pull request.
 
-For example, `cove-ocds <https://github.com/open-contracting/cove-ocds/blob/master/.github/workflows/ci.yml>`__ runs:
+For example, `cove-ocds <https://github.com/open-contracting/cove-ocds/blob/main/.github/workflows/ci.yml>`__ runs:
 
 .. code-block:: yaml
 

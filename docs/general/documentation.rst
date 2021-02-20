@@ -11,7 +11,7 @@ Read `The Documentation System <https://documentation.divio.com>`__ to learn abo
 Locations of documentation
 --------------------------
 
-External documentation can be accessed via the *Docs* links on `this page <https://github.com/open-contracting/standard-maintenance-scripts/blob/master/badges.md>`__.
+External documentation can be accessed via the *Docs* links on `this page <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md>`__.
 
 Internal documentation can be accessed via the `User Guides <https://ocdsdeploy.readthedocs.io/en/latest/use/index.html>`__ in the ``deploy`` repository.
 
