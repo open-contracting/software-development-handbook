@@ -29,13 +29,17 @@ Code coverage
 
 Coveralls is preferred, as documented at :doc:`preferred_packages`.
 
-**Setup:** On Coveralls, add the repository, access its settings page, and copy the repo token. On GitHub, add a secret, and set its name to ``COVERALLS_REPO_TOKEN`` and its value to the copied token. Then, append the following to ``.github/workflows/ci.yml``, commit and push:
+**Setup:** On Coveralls, add the repository. Then, append the following to ``.github/workflows/ci.yml``, commit and push:
 
 .. code-block:: yaml
 
        - env:
-           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-         run: coveralls
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         run: coveralls --service=github
+
+.. note::
+
+   If you're using `GitHub Actions' build matrix <https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy>`__ and want to combine results from the multiple jobs, `follow this example <https://coveralls-python.readthedocs.io/en/latest/usage/configuration.html#github-actions-support>`__.
 
 i18n coverage
 ~~~~~~~~~~~~~
