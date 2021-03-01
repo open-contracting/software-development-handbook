@@ -24,6 +24,8 @@ See :doc:`code`.
 
 **Setup:** Most repositories use a ``.github/workflows/lint.yml`` workflow to run style checks, as documented in `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
+.. _code-coverage:
+
 Code coverage
 ~~~~~~~~~~~~~
 

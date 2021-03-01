@@ -192,7 +192,7 @@ Repositories that are no longer supported should be archived.
 Integrations
 ------------
 
--  **Coveralls**, to measure test coverage
+-  **Coveralls**, to measure test coverage (:ref:`see setup instructions<code-coverage>`)
 -  **ReadTheDocs**, to build repository-specific documentation (`access all docs <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)
 -  **GitHub Actions**, to run tests, and to build documentation (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)
 -  **Code Climate**, to monitor maintanability (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)
