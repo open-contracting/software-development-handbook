@@ -58,6 +58,7 @@ Miscellaneous
 -  RabbitMQ (message broker)
 -  Memcached (page caching)
 -  Transifex (translation)
+-  Fathom (web analytics)
 
 Reference
 ---------
