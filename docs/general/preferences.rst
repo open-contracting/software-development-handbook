@@ -44,7 +44,7 @@ Datastores
 ----------
 
 -  PostgreSQL
--  Elasticsearch if our needs exceed PostgreSQL's capabilities, or if there is no PostgreSQL database
+-  Elasticsearch if our needs exceed PostgreSQL's `capabilities <https://www.postgresql.org/docs/11/textsearch.html>`__, or if there is no PostgreSQL database
 
 Web servers
 -----------
