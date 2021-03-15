@@ -29,6 +29,8 @@ Hosting
 -  AWS Relational Database Service (RDS) (database)
 -  ReadTheDocs (documentation)
 -  GitHub (code)
+-  GitHub Pages (static sites)
+-  GitHub Packages (Docker images)
 
 Languages
 ---------
