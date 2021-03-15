@@ -9,7 +9,7 @@ Collaboration
 -  GitHub (issue tracking, `project board <https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards>`__)
 -  Google Docs (collaborative editing)
 -  Google Meet (audio/video calling)
--  Google Chat, WhatsApp, Signal, Slack (instant messaging)
+-  Slack (instant messaging)
 
 DevOps
 ------
