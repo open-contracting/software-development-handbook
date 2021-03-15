@@ -35,7 +35,7 @@ How-to guides
 -  Don't include information that is not directly relevant to the how-to guide.
 -  Use numbered lists for instructions. Nest sub-tasks to give structure to long lists.
 -  Give example commands, but don't include default arguments or any other extraneous detail.
--  It's okay to put many how-to guides on one page; however, the setup guide should on its own.
+-  It's okay to put many how-to guides on one page; however, the setup guide should be on its own.
 
 Word choice
 ~~~~~~~~~~~
