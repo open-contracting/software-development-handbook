@@ -22,6 +22,8 @@ Code style
 
 Check shell scripts using `shellcheck <https://www.shellcheck.net>`__.
 
+Style shell scripts using `shfmt <https://github.com/mvdan/sh>`__: for example, ``shfmt -w -i 4 -sr (shfmt -f .)``.
+
 Use:
 
 -  ``[ ]`` instead of ``test``
