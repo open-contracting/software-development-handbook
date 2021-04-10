@@ -82,12 +82,36 @@ A package can be tested with:
 Release process
 ---------------
 
-#. Ensure all tests pass on continuous integration
-#. Ensure the version number is correct in ``setup.py`` and ``docs/conf.py`` (if present)
-#. Ensure the changelog is up-to-date and dated
-#. Run ``check-manifest`` (``pip install check-manifest`` if not yet installed)
-#. Tag the release: ``git tag -a x.y.z -m 'x.y.z release.'; git push --tags``
-#. Remove old builds: ``rm -rf dist/``
-#. Build the package: ``python setup.py sdist``
-#. Upload to PyPI: ``twine upload dist/*`` (``pip install twine`` if not yet installed)
+.. admonition:: One-time setup
+
+   Copy this `GitHub Actions workflow <https://raw.githubusercontent.com/open-contracting/ocds-babel/main/.github/workflows/pypi.yml>`__ to the new package's repository, to publish tagged releases to PyPi. Ensure that ``check-manifest`` is run in a workflow.
+
+   The ``open-contracting`` GitHub organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the ``opencontracting`` `PyPi user <https://pypi.org/manage/account/#api-tokens>`__, and the ``TEST_PYPI_API_TOKEN`` secret to the token of the TestPyPi user.
+
+   After publishing the first release to PyPi, :ref:`add additional owners <pypi-access>`.
+
+#. Ensure that the package is ready for release:
+
+   -  All tests pass on continuous integration
+   -  The version number is correct in ``setup.py`` and ``docs/conf.py`` (if present)
+   -  The changelog is up-to-date and dated
+
+#. Tag the release, replacing ``x.y.z`` twice:
+
+   .. code-block:: shell
+
+      git tag -a x.y.z -m 'x.y.z release.'
+
+#. Push the release:
+
+   .. code-block:: shell
+
+      git push --follow-tags
+
 #. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/forum/#!forum/standard-discuss>`__ if relevant
+
+Reference
+---------
+
+-  `Packaging and distributing projects <https://packaging.python.org/guides/distributing-packages-using-setuptools/>`__
+-  `Publishing package distribution releases using GitHub Actions CI/CD workflows <https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>`__

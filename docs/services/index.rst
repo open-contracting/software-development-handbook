@@ -67,6 +67,8 @@ There should be a minimum of two `Owner <https://support.google.com/a/answer/167
 
 There should be at most two members with the Manager role from each other organization.
 
+.. _pypi-access:
+
 PyPi
 ----
 
