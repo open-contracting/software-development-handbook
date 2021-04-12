@@ -3,6 +3,16 @@ Administrative access
 
 See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html>`__ for access to self-hosted services and to third-party monitoring services.
 
+If a service is down, check its status page:
+
+* `Airtable <https://status.airtable.com>`__
+* `Amazon Web Services <https://status.aws.amazon.com>`__
+* `GitHub <https://www.githubstatus.com>`__
+* `Google <https://www.google.com/appsstatus>`__
+* `PyPi <https://status.python.org>`__
+* `ReadTheDocs <http://status.readthedocs.com>`__
+* `Transifex <https://status.transifex.com>`__
+
 Airtable
 --------
 
@@ -89,3 +99,5 @@ Transifex
 ---------
 
 Transifex is used by ODS for multiple clients. There should be at most two members with the `Project Maintainer and Team Manager <https://docs.transifex.com/teams/understanding-user-roles>`__ roles from OCP.
+
+If we reach our collaborator limit, `manage collaborators <https://www.transifex.com/open-contracting-partnership-1/collaborators/>`__, removing those who were last seen more than 9 months ago.
