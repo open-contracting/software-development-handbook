@@ -64,6 +64,8 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases 
 -  Use tools properly and as intended. Don’t go for the quick fix.
 -  Anticipate needs with respect to performance and extensibility.
 
+The above broadly follows the spirit of `Choose Boring Technology <http://boringtechnology.club>`__, which applies `Maslow's hierarchy <https://en.wikipedia.org/wiki/Maslow's_hierarchy_of_needs>`__ in the context of software development. We try to ensure basic needs are always satisfied (*Is it tested? Is there a maintenance plan?*), so that we can spend more time on the big picture (*Is it achieving user goals? Is it achieving organizational goals?*).
+
 Manage products and services responsibly
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
