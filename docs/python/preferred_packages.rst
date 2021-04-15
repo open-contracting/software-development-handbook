@@ -23,6 +23,8 @@ HTTP client
   `Requests <https://requests.readthedocs.io/>`__, unless a framework uses another, like Scrapy (Twisted).
 HTML parsing
   `lxml <https://pypi.org/project/lxml/>`__. Do not use `BeautifulSoup <https://pypi.org/project/BeautifulSoup/>`__.
+Markdown parsing
+  `markdown-it-py <https://pypi.org/project/markdown-it-py/>`__. Do not use `commonmark <https://pypi.org/project/commonmark/>`__, which is slower and less well maintained.
 Templating
   `Jinja <https://jinja.palletsprojects.com/>`__
 Translation
