@@ -11,6 +11,7 @@ If a service is down, check its status page:
 * `Google <https://www.google.com/appsstatus>`__
 * `PyPi <https://status.python.org>`__
 * `ReadTheDocs <http://status.readthedocs.com>`__
+* `Sentry <https://status.sentry.io>`__
 * `Transifex <https://status.transifex.com>`__
 
 Airtable
@@ -94,6 +95,13 @@ There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-
 Third-party maintainers of PyPi packages can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
 
 The following projects are redirect only: `kingfisher-scrape <https://kingfisher-scrape.readthedocs.io/>`__, `kingfisher-views <https://kingfisher-views.readthedocs.io/>`__, `ocdskingfisher <https://ocdskingfisher.readthedocs.io/>`__.
+
+Sentry
+------
+
+There should be a minimum of two `members <https://sentry.io/settings/open-contracting-partnership/members/>`__ with the Admin role from OCP.
+
+Third-party developers can be added with the Member role to organization-specific `teams <https://sentry.io/settings/open-contracting-partnership/teams/>`__ for specific projects.
 
 Transifex
 ---------
