@@ -1,6 +1,14 @@
 HTML and CSS
 ============
 
+HTML
+----
+
+Code style
+~~~~~~~~~~
+
+Style HTML code using `Prettier <https://prettier.io>`__ with 4-space indentation.
+
 CSS
 ---
 
