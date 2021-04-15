@@ -13,6 +13,7 @@ A guide for developers of OCP's tools.
    github/index
    services/index
    roadmap/index
+   contributing
 
 Useful resources
 ----------------
