@@ -31,3 +31,9 @@ Development
 ~~~~~~~~~~~
 
 -  `Tachyons X-ray <http://tachyons.io/xray/>`__ to align objects to a grid
+
+Reference
+---------
+
+-  `MDN Web Docs <https://developer.mozilla.org/en-US/>`__
+-  `Can I use... <https://caniuse.com/>`__
