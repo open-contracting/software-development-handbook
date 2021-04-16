@@ -48,7 +48,7 @@ flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/proj
    pip install pylint
    pylint --max-line-length 119 directory
 
-The `Python Code Quality Authority <https://github.com/PyCQA>`__ maintains ``flake8`` (which includes ``mccabe``, ``pycodestyle`` and ``pyflakes``), ``isort`` and ``pylint``. Its other tools, for your consideration, include `pydocstyle <http://pydocstyle.org/>`__ (docstrings), `doc8 <https://pypi.org/project/doc8/>`__ (RST files), `bandit <https://bandit.readthedocs.io/en/latest/>`__ (security issues) and `flake8-bugbear <https://pypi.org/project/flake8-bugbear/>`__ (additional checks).
+The `Python Code Quality Authority <https://github.com/PyCQA>`__ maintains ``flake8`` (which includes ``mccabe``, ``pycodestyle`` and ``pyflakes``), ``isort`` and ``pylint``.
 
 String formatting
 -----------------
