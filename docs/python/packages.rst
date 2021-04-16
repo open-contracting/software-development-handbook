@@ -86,7 +86,7 @@ Release process
 
    Copy this `GitHub Actions workflow <https://raw.githubusercontent.com/open-contracting/ocds-babel/main/.github/workflows/pypi.yml>`__ to the new package's repository, to publish tagged releases to PyPi. Ensure that ``check-manifest`` is run in a workflow.
 
-   The ``open-contracting`` GitHub organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the ``opencontracting`` `PyPi user <https://pypi.org/manage/account/#api-tokens>`__, and the ``TEST_PYPI_API_TOKEN`` secret to the token of the TestPyPi user.
+   The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPi user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the TestPyPi user.
 
    After publishing the first release to PyPi, :ref:`add additional owners <pypi-access>`.
 
