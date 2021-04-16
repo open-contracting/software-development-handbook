@@ -1,12 +1,12 @@
 Packages
 ========
 
-All our packages should be distributed on PyPi.
+All our packages should be distributed on PyPI.
 
 setup.py
 --------
 
-If the package is distributed on PyPi, use this template ``setup.py``, adding arguments like ``entry_points``, ``extras_require`` and ``namespace_packages`` as needed:
+If the package is distributed on PyPI, use this template ``setup.py``, adding arguments like ``entry_points``, ``extras_require`` and ``namespace_packages`` as needed:
 
 .. code-block:: python
 
@@ -39,7 +39,7 @@ If the package is distributed on PyPi, use this template ``setup.py``, adding ar
 
 If the package is tested on macOS, Windows and Ubuntu, you can use the ``'Operating System :: OS Independent'`` classifier, instead.
 
-If the package isn’t distributed on PyPi, use this template ``setup.py``:
+If the package isn’t distributed on PyPI, use this template ``setup.py``:
 
 .. code-block:: python
 
@@ -84,11 +84,11 @@ Release process
 
 .. admonition:: One-time setup
 
-   Copy this `GitHub Actions workflow <https://raw.githubusercontent.com/open-contracting/ocds-babel/main/.github/workflows/pypi.yml>`__ to the new package's repository, to publish tagged releases to PyPi. Ensure that ``check-manifest`` is run in a workflow.
+   Copy this `GitHub Actions workflow <https://raw.githubusercontent.com/open-contracting/ocds-babel/main/.github/workflows/pypi.yml>`__ to the new package's repository, to publish tagged releases to PyPI. Ensure that ``check-manifest`` is run in a workflow.
 
-   The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPi user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the TestPyPi user.
+   The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the TestPyPI user.
 
-   After publishing the first release to PyPi, :ref:`add additional owners <pypi-access>`.
+   After publishing the first release to PyPI, :ref:`add additional owners <pypi-access>`.
 
 #. Ensure that you are on the ``main`` branch:
 

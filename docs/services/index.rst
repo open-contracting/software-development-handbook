@@ -9,7 +9,7 @@ If a service is down, check its status page:
 * `Amazon Web Services <https://status.aws.amazon.com>`__
 * `GitHub <https://www.githubstatus.com>`__
 * `Google <https://www.google.com/appsstatus>`__
-* `PyPi <https://status.python.org>`__
+* `PyPI <https://status.python.org>`__
 * `ReadTheDocs <http://status.readthedocs.com>`__
 * `Sentry <https://status.sentry.io>`__
 * `Transifex <https://status.transifex.com>`__
@@ -80,7 +80,7 @@ There should be at most two members with the Manager role from each other organi
 
 .. _pypi-access:
 
-PyPi
+PyPI
 ----
 
 For each package owned by the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ roles from OCP, including ``opencontracting``.
@@ -92,7 +92,7 @@ ReadTheDocs
 
 There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with the Maintainer role from OCP.
 
-Third-party maintainers of PyPi packages can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
+Third-party maintainers of PyPI packages can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
 
 The following projects are redirect only: `kingfisher-scrape <https://kingfisher-scrape.readthedocs.io/>`__, `kingfisher-views <https://kingfisher-views.readthedocs.io/>`__, `ocdskingfisher <https://ocdskingfisher.readthedocs.io/>`__.
 

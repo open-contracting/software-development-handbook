@@ -11,7 +11,7 @@ The current process is extremely lightweight: create a GitHub issue, and discuss
 Policy implementation
 ---------------------
 
-Ideally, a policy is implemented across all projects before it is added to this website, for example: Django LTS upgrade, PyPi continuous deployment, preferred package change, code style change, etc. This promotes consistency and predictability across projects, which eases development and avoids errors. This also avoids "aspirational" policies that are never implemented.
+Ideally, a policy is implemented across all projects before it is added to this website, for example: Django LTS upgrade, PyPI continuous deployment, preferred package change, code style change, etc. This promotes consistency and predictability across projects, which eases development and avoids errors. This also avoids "aspirational" policies that are never implemented.
 
 However, some policies might be harder or longer to implement across all projects. For example, we might want to set accessibility standards for new projects, without first fixing all past projects. We can develop rules for policy exceptions, and we can indicate with an admonition which policies are more forward-looking than backward-looking.
 
