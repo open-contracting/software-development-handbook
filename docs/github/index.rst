@@ -32,6 +32,10 @@ GitHub’s `outside collaborators <https://help.github.com/articles/adding-outsi
 
 There should be a minimum of two `owners <https://help.github.com/articles/permission-levels-for-an-organization/>`__ from OCP. Owners do not need to be added to teams.
 
+.. warning::
+
+   **NEVER** assign the Owner role to non-OCP staff. The Owner role has access to a private repository with multi-factor authentication backup codes. `Transferring a repository <https://docs.github.com/en/github/administering-a-repository/transferring-a-repository>`__ does not require the Owner role.
+
 Issues
 ------
 
