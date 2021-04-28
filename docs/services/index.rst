@@ -55,7 +55,6 @@ Periodically review `all projects <https://console.cloud.google.com/cloud-resour
 
 -  Library (two storage buckets)
 -  Pelican
--  Toucan
 -  Website Search (API key)
 
 In case a new user needs to be given admin access to the ``ocds`` project, you can run, for example:

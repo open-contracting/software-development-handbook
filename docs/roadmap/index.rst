@@ -11,7 +11,6 @@ Product and service families
 -  `Pelican <https://www.open-contracting.org/2020/01/28/meet-pelican-our-new-tool-for-assessing-the-quality-of-open-contracting-data/>`__: An online tool to report quality issues in OCDS data, sourced from Kingfisher. It is used internally by helpdesk analysts to provide feedback to OCDS publishers, and by program managers to better understand a publisher's data.
 -  `Spoonbill <https://github.com/open-contracting/spoonbill>`__: A command-line tool to transform OCDS data to tabular formats. It is an important tool for users who are more familiar with tabular formats.
 -  `OCDS Kit <https://ocdskit.readthedocs.io/>`__: A suite of command-line tools and a Python library for working with OCDS data. It contains common functionality used by Kingfisher and Toucan, in particular.
--  `Toucan <https://toucan.open-contracting.org>`__: An online tool to replicate the functionality of command-line tools in a browser. It gives access to OCDS Kit and `Flatten Tool <https://flatten-tool.readthedocs.io/usage-ocds/>`__.
 -  `Redash <https://redash.open-contracting.org>`__: A deployment of `Redash <https://redash.io>`__ to give users access to the Kingfisher database.
 -  `OCDS Documentation <https://standard.open-contracting.org>`__: The official documentation of the Open Contracting Data Standard.
 
