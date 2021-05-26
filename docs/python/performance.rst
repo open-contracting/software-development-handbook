@@ -26,3 +26,9 @@ For example:
    pip install memory_profiler matplotlib
    time mprof run libcoveoc4ids data.json
    mprof plot
+
+
+Reference
+---------
+
+-  `High Performance Browser Networking <https://hpbn.co>`__
