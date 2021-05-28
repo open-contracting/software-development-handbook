@@ -139,7 +139,7 @@ Follow the format:
 
 .. code-block:: none
 
-   component: Capitalized, <72 characters, no period
+   type(scope): Capitalized, <72 characters, no period
 
    A longer description of paragraph text, as needed.
 
@@ -148,6 +148,10 @@ Follow the format:
    #123
 
 Most commits are made in pull requests, such that it's easy to find the related conversation on GitHub.
+
+Reference: `Angular Commit Message Format <https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit-message-header>`__
+
+Reference: `Conventional Commits <https://www.conventionalcommits.org/en/v1.0.0/>`__
 
 Reference: `Write joyous git commit messages <https://medium.com/@joshuatauberer/write-joyous-git-commit-messages-2f98891114c4>`__
 
