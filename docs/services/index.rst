@@ -1,7 +1,7 @@
 Administrative access
 =====================
 
-See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html>`__ for access to self-hosted services and to third-party monitoring services.
+See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html>`__ for access to self-hosted services.
 
 If a service is down, check its status page:
 
@@ -98,9 +98,9 @@ The following projects are redirect only: `kingfisher-scrape <https://kingfisher
 Sentry
 ------
 
-There should be a minimum of two `members <https://sentry.io/settings/open-contracting-partnership/members/>`__ with the Admin role from OCP.
+There should be a minimum of two `members <https://sentry.io/settings/open-contracting-partnership/members/>`__ with the Owner role and one member with the Billing role from OCP.
 
-Third-party developers can be added with the Member role to organization-specific `teams <https://sentry.io/settings/open-contracting-partnership/teams/>`__ for specific projects.
+Third-party developers can be added with the Admin or Member role to organization-specific `teams <https://sentry.io/settings/open-contracting-partnership/teams/>`__ for specific projects.
 
 Transifex
 ---------
