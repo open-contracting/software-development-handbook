@@ -49,3 +49,8 @@ Use:
 Avoid:
 
 -  ``set -x`` in scripts run by continuous integration, because it will expand any secret variables
+
+Reference
+---------
+
+-  `Shell Parameter Expansion <https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html>`__ (``##``, ``%%``, etc.)
