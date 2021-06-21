@@ -39,14 +39,14 @@ It is of course of primary importance that our tools respond to user needs. See 
 -  Reflect on what was heard and observed, whether during OCDS retreats, OCDS Helpdesk weekly calls, CRM issues, GitHub repositories, etc.
 -  Promote the use of our tools and encourage feedback through the mailing list, GitHub repositories, and OCDS Helpdesk
 -  Recognize that our tools are only one part of a user's workflow and of a wider ecosystem
--  Transfer knowledge from relevant domains, e.g. open data more broadly
+-  Transfer knowledge from relevant domains, e.g. open data more broadly
 
 Create products sustainably
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases in which only one party has the knowledge and access to modify a product). To mitigate this risk, our approach is to:
+It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases in which only one party has the knowledge and access to modify a product). To mitigate this risk, our approach is to:
 
--  Not build a new tool if, with reasonable effort, a third-party tool can be used, adapted or improved to meet our needs (e.g. `jq <https://stedolan.github.io/jq/>`__).
+-  Not build a new tool if, with reasonable effort, a third-party tool can be used, adapted or improved to meet our needs (e.g. `jq <https://stedolan.github.io/jq/>`__).
 -  Use a `Quality Assurance Surveillance Plan (QASP) <https://docs.google.com/document/d/1s-PJSdX43_DMAcXYalG9Upm31XvWCp31j_QGCzFJ7qY/edit>`__ with consultants, which includes:
 
    -  Have test coverage above 90%, so that new developers can get involved without being overly concerned about breaking things.
@@ -54,7 +54,7 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases 
 
 -  Maintain this software development handbook, which includes:
 
-   -  Use popular :doc:`libraries<../python/preferred_packages>` where possible (e.g. Click, Django, Scrapy), so that developers have fewer APIs to learn.
+   -  Use popular :doc:`libraries<../python/preferred_packages>` where possible (e.g. Click, Django, Scrapy), so that developers have fewer APIs to learn.
    -  Use a small number of languages (primarily Python) and dependencies (like Django), so that it is less effort to update dependencies with security fixes.
 
 -  Break big products (that change frequently) into small libraries (that change infrequently), so that a new developer isn't required to know as much to work on a product.
