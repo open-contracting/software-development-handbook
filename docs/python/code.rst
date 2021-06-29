@@ -28,7 +28,7 @@ Repositories should not use ``setup.cfg``, ``.editorconfig``, ``pyproject.toml``
 -  ``W291 Trailing whitespace`` in tests relating to trailing whitespace
 -  ``isort:skip`` if ``sys.path`` needs to be changed before an import
 
-Maintainers can find unwanted ``noqa`` comments with this regular expression: ``# noqa(?!(: (E501|F401|W291)| isort:skip)\n)``.
+Maintainers can find unwanted ``noqa`` comments with this regular expression: ``# noqa(?!(: (E501|F401|W291)| isort:skip)\n)``
 
 Otherwise, please refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
 
@@ -202,6 +202,22 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
    .. code-block:: python
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
+
+Default values
+--------------
+
+Use ``dict.setdefault`` instead of a simple if-statement. A simple if-statement has no ``elif`` or ``else`` branches, and a single statement in the ``if`` branch.
+
+.. code-block:: python
+
+   data.setdefault('key', 1)
+
+.. code-block:: python
+
+   if 'key' not in data:  # AVOID
+       data['key'] = 1
+
+Maintainers can find simple if-statements with this regular expression: ``^( *)if (.+) not in (.+):(?: *#.*)?\n(?: *#.*\n)* +\3\[\2\] = .+\n(?!(?: *#.*\n)*\1(else\b|elif\b|    \S))``
 
 .. _python-scripts:
 
