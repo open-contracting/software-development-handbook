@@ -53,6 +53,32 @@ html_static_path = []
 
 # -- Extension configuration -------------------------------------------------
 
+linkcheck_anchors_ignore = [
+    # Ignore GitHub readme headings.
+    r'^(?:change-github-repository-configuration|commit-message-header|tests|unsafe-transforms)$',
+]
+
+linkcheck_ignore = [
+    # Login redirects.
+    r'^https://(?:crm\.open-contracting\.org|redash\.open-contracting\.org)',
+    r'^https://(?:admin\.google\.com|myaccount\.google\.com)/.+',
+    r'^https://(?:docs\.google\.com/(?:document|spreadsheets)/d|drive\.google\.com/drive/folders)/.+',
+    r'^https://console\.cloud\.google\.com/.+\?organizationId=.+',
+    r'^https://groups\.google\.com/a/open-contracting\.org/g/standard-discuss/members\?.+',
+    r'^https://(?:app\.usefathom\.com/#|console\.aws\.amazon\.com|readthedocs\.org/dashboard|sentry\.io/settings)/.+',
+    r'^https://github\.com/(?:organizations/open-contracting/settings|orgs/open-contracting/teams)/.+',
+    r'^https://www\.transifex\.com/.+/collaborators/$',
+    r'^https://airtable\.com/.+/workspace/billing$',
+    r'^https://pypi\.org/manage/account/#api-tokens$',
+    # Localhost instructions.
+    r'^http://localhost:8000',
+    # Redirects to specific versions.
+    r'https://docs\.pytest\.org/$',
+    r'https://click\.palletsprojects\.com/$',
+    r'https://flask\.palletsprojects\.com/$',
+    r'https://jinja\.palletsprojects\.com/$',
+]
+
 # Needed for ReadTheDocs (Sphinx 1.8).
 master_doc = 'index'
 

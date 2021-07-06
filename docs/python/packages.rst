@@ -114,7 +114,7 @@ Release process
 
       git push --follow-tags
 
-#. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/forum/#!forum/standard-discuss>`__ if relevant
+#. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ if relevant
 
 Reference
 ---------

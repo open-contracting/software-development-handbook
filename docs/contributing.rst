@@ -18,4 +18,4 @@ However, some policies might be harder or longer to implement across all project
 Reference
 ---------
 
--  `Datamade: Making changes to the stack <https://github.com/datamade/how-to/blob/master/CONTRIBUTING.md>`__. See research for `Heroku <https://github.com/datamade/how-to/blob/master/heroku/research/recommendation-of-adoption.md>`__, `Gatsby <https://github.com/datamade/how-to/tree/master/gatsby/research>`__ and `Wagtail <https://github.com/datamade/how-to/tree/master/django/wagtail/research>`__.
+-  `Datamade: Making changes to the stack <https://github.com/datamade/how-to/blob/master/CONTRIBUTING.md>`__. See research for `Heroku <https://github.com/datamade/how-to/blob/master/deployment/heroku/research/recommendation-of-adoption.md>`__, `Gatsby <https://github.com/datamade/how-to/tree/master/gatsby/research>`__ and `Wagtail <https://github.com/datamade/how-to/tree/master/django/wagtail/research>`__.

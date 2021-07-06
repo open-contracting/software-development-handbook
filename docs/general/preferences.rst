@@ -6,7 +6,7 @@ We have preferences in order to limit the number of tools with which developers 
 Collaboration
 -------------
 
--  GitHub (issue tracking, `project board <https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards>`__)
+-  GitHub (issue tracking, `project board <https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards>`__)
 -  Google Docs (collaborative editing)
 -  Google Meet (audio/video calling)
 -  Slack (instant messaging)
@@ -14,9 +14,9 @@ Collaboration
 DevOps
 ------
 
--  `SaltStack <https://docs.saltstack.com/>`__ (service deployment)
+-  `SaltStack <https://docs.saltproject.io>`__ (service deployment)
 -  `Prometheus <https://prometheus.io>`__ (service monitoring)
--  `Sentry <https://sentry.io/>`__ (error tracking)
+-  `Sentry <https://sentry.io>`__ (error tracking)
 -  `GitHub Actions <https://docs.github.com/en/actions>`__ (continuous testing)
 -  `Coveralls <https://coveralls.io/github/open-contracting>`__ (coverage reporting)
 
@@ -39,7 +39,7 @@ Languages
 -  JavaScript (frontend)
 -  Make (build)
 -  Bash (script)
--  `reStructured Text <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__ (`Sphinx <https://www.sphinx-doc.org/>`__ documentation)
+-  `reStructured Text <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__ (`Sphinx <https://www.sphinx-doc.org/en/master/>`__ documentation)
 -  `Markdown <https://commonmark.org>`__ (non-Sphinx documentation)
 
 Datastores

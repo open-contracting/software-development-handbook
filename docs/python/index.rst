@@ -3,9 +3,9 @@ Python
 
 .. toctree::
 
-   code
+   style_guide
    file_formats
-   preferred_packages
+   preferences
    services
    quality
    documentation

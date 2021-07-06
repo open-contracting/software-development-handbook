@@ -4,7 +4,7 @@ Quality assurance
 Automated testing
 -----------------
 
-pytest is preferred, as documented at :doc:`preferred_packages`.
+pytest is preferred, as documented at :doc:`preferences`.
 
 **How To:** :ref:`Write tests<python-tests>`.
 
@@ -20,7 +20,7 @@ GitHub Actions is preferred, as documented at :doc:`../general/preferences`.
 Code style
 ~~~~~~~~~~
 
-See :doc:`code`.
+See :doc:`style_guide`.
 
 **Setup:** Most repositories use a ``.github/workflows/lint.yml`` workflow to run style checks, as documented in `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
@@ -29,7 +29,7 @@ See :doc:`code`.
 Code coverage
 ~~~~~~~~~~~~~
 
-Coveralls is preferred, as documented at :doc:`preferred_packages`.
+Coveralls is preferred, as documented at :doc:`preferences`.
 
 **Setup:** On Coveralls, add the repository. Then, append the following to ``.github/workflows/ci.yml``, commit and push:
 
@@ -48,7 +48,7 @@ i18n coverage
 
 Repositories that support multiple locales should test that translations are complete.
 
-This test is run on `pull request <https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#pull_request>`__ events, not `push <https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#push>`__ events, to allow developers to see test results on feature branches, before creating a pull request.
+This test is run on `pull request <https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request>`__ events, not `push <https://docs.github.com/en/actions/reference/events-that-trigger-workflows#push>`__ events, to allow developers to see test results on feature branches, before creating a pull request.
 
 For example, `cove-ocds <https://github.com/open-contracting/cove-ocds/blob/main/.github/workflows/ci.yml>`__ runs:
 
@@ -84,7 +84,7 @@ Packages should be tested on Ubuntu, macOS and Windows and on Python versions th
 
 .. note::
 
-   If a package requires `service containers <https://docs.github.com/en/free-pro-team@latest/actions/guides/about-service-containers>`__, you must use an Ubuntu runner.
+   If a package requires `service containers <https://docs.github.com/en/actions/guides/about-service-containers>`__, you must use an Ubuntu runner.
 
 Branch protection
 ~~~~~~~~~~~~~~~~~

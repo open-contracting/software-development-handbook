@@ -71,7 +71,7 @@ All users with access to `this folder <https://drive.google.com/drive/folders/0B
 Groups
 ~~~~~~
 
--  `standard-discuss <https://groups.google.com/a/open-contracting.org/forum/#!forum/standard-discuss>`__ (`owners <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Aowner>`__, `managers <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Amanager>`__)
+-  `standard-discuss <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ (`owners <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Aowner>`__, `managers <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Amanager>`__)
 
 There should be a minimum of two `Owner <https://support.google.com/a/answer/167094?hl=en>`__ members from OCP only.
 
@@ -93,7 +93,7 @@ There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-
 
 Third-party maintainers of PyPI packages can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
 
-The following projects are redirect only: `kingfisher-scrape <https://kingfisher-scrape.readthedocs.io/>`__, `kingfisher-views <https://kingfisher-views.readthedocs.io/>`__, `ocdskingfisher <https://ocdskingfisher.readthedocs.io/>`__.
+The following projects are redirect only: `kingfisher-scrape <https://kingfisher-scrape.readthedocs.io/en/latest/>`__, `kingfisher-views <https://kingfisher-views.readthedocs.io/en/latest/>`__, `ocdskingfisher <https://ocdskingfisher.readthedocs.io/en/latest/>`__.
 
 Sentry
 ------

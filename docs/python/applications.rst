@@ -69,6 +69,6 @@ All application interfaces should read configuration from environment variables,
 Web context
   For a `Django application <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/python.html>`__, configure the environment variables in its Pillar file. The configuration is deployed via a `uWSGI INI file <https://uwsgi-docs.readthedocs.io/en/latest/Configuration.html>`__.
 :ref:`Command-line interface<python-scripts>` context
-  Configure the environment variables in a ``.env`` file, and deploy the file. In the application, use `python-dotenv <https://pypi.org/project/python-dotenv/>`__ (not `django-environ <https://pypi.org/project/django-environ/>`__) to load the file: for example, `kingfisher-archive <https://github.com/open-contracting/kingfisher-archive/blob/main/manage.py>`__.
+  Configure the environment variables in a ``.env`` file, and deploy the file. In the application, use `python-dotenv <https://pypi.org/project/python-dotenv/>`__ (not `django-environ <https://pypi.org/project/django-environ/>`__) to load the file: for example, `kingfisher-summarize <https://github.com/open-contracting/kingfisher-summarize/blob/main/manage.py>`__.
 
 Otherwise, read configuration from INI files using `configparser <https://docs.python.org/3/library/configparser.html>`__. Do not use: JSON (no comments), YAML (data typing, too many features, not in standard library), `TOML <https://github.com/madmurphy/libconfini/wiki/An-INI-critique-of-TOML>`__ (data typing, too many features, not in standard library), or XML (verbose, not in standard library).
