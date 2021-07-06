@@ -47,3 +47,20 @@ Open http://localhost:8000/docs/_build/html/ in your web browser:
 .. note::
 
    Documentation is built in ``docs/_build/html``, to match the location when building with ``make html`` from the ``docs/`` directory.
+
+Checking broken links
+---------------------
+
+Sphinx' `linkcheck <https://www.sphinx-doc.org/en/master/usage/builders/index.html#sphinx.builders.linkcheck.CheckExternalLinksBuilder>`__ builder reports redirects, error codes and non-existing anchors. It cannot be `configured <https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder>`__ to report only error codes. As such, it is tedious to include in :ref:`continuous integration <continuous-integration>` outside OCDS documentation, and to configure for manual invocation.
+
+To check broken links, run:
+
+.. code-block:: shell
+
+   sphinx-build -q -b linkcheck docs _linkcheck
+
+Review the broken links in the ``_linkcheck/output.txt`` file:
+
+.. code-block:: shell
+
+   cat _linkcheck/output.txt

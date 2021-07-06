@@ -10,6 +10,8 @@ pytest is preferred, as documented at :doc:`preferences`.
 
 **How To:** Run tests in :ref:`packages<packages-testing>`.
 
+.. _continuous-integration:
+
 Continuous testing
 ------------------
 

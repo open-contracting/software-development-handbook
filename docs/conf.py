@@ -54,12 +54,14 @@ html_static_path = []
 # -- Extension configuration -------------------------------------------------
 
 linkcheck_anchors_ignore = [
-    # Ignore GitHub readme headings.
+    # GitHub readme headings.
     r'^(?:change-github-repository-configuration|commit-message-header|tests|unsafe-transforms)$',
 ]
 
 linkcheck_ignore = [
-    # Login redirects.
+    # Localhost instructions.
+    r'^http://localhost:8000',
+    # Redirects to login pages.
     r'^https://(?:crm\.open-contracting\.org|redash\.open-contracting\.org)',
     r'^https://(?:admin\.google\.com|myaccount\.google\.com)/.+',
     r'^https://(?:docs\.google\.com/(?:document|spreadsheets)/d|drive\.google\.com/drive/folders)/.+',
@@ -70,8 +72,6 @@ linkcheck_ignore = [
     r'^https://www\.transifex\.com/.+/collaborators/$',
     r'^https://airtable\.com/.+/workspace/billing$',
     r'^https://pypi\.org/manage/account/#api-tokens$',
-    # Localhost instructions.
-    r'^http://localhost:8000',
     # Redirects to specific versions.
     r'https://docs\.pytest\.org/$',
     r'https://click\.palletsprojects\.com/$',
