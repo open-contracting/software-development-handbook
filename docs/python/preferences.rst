@@ -41,6 +41,27 @@ For :doc:`applications`, we prefer all-inclusive and opinionated packages, becau
 -  Promote greater similarity and code reuse across projects. Django encourages developers to use its authentication mechanism. With Flask, each developer can choose a different mechanism.
 -  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
 
+Criteria
+--------
+
+A preferred package should meet the following criteria:
+
+-  It is properly released: its readme is rendered on PyPI, a changelog is maintained, tags are used, etc.
+-  It supports the most recent version of Python and frameworks (if relevant), like Django or Sphinx. Counter-example: `django-tastypie <https://github.com/django-tastypie/django-tastypie/pull/1623>`__ (since resolved).
+
+   -  Simple libraries might not need new releases for new Python versions.
+
+-  It meets the [QASP criteria](https://docs.google.com/document/d/1s-PJSdX43_DMAcXYalG9Upm31XvWCp31j_QGCzFJ7qY/edit) of published, tested and documented.
+
+   -  *Published*: Find its repository and check its open source license.
+   -  *Tested*: Check its CI badges, GitHub Actions tab, or CI configuration.
+   -  *Documented*: Check its documentation website.
+
+-  Its issue tracker demonstrates that the maintainers are responsive. Counter-example: `django-environ <https://github.com/joke2k/django-environ/pull/291>`__ (`issue <https://github.com/OpenDataServices/lib-cove-web/issues/80>`__).
+
+   -  The repository is not described as archived or unmaintained.
+   -  The maintainer's other repositories can be considered if the repository is new or unpopular.
+
 Enforcement
 -----------
 
