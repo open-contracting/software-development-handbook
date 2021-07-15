@@ -65,7 +65,7 @@ In other words, either the event isn't a pull request, or the ``pocount`` comman
 Test matrix
 ~~~~~~~~~~~
 
-Packages should be tested on Ubuntu, macOS and Windows and on Python versions that aren't end-of-life. For example:
+Packages should be tested on Ubuntu, macOS and Windows, on Python versions that aren't end-of-life, and on the latest version of PyPy. For example:
 
 .. code-block:: yaml
 
@@ -77,10 +77,10 @@ Packages should be tested on Ubuntu, macOS and Windows and on Python versions th
        strategy:
          matrix:
            os: [macos-latest, windows-latest, ubuntu-latest]
-           python-version: [3.6, 3.7, 3.8, 3.9]
+           python-version: [3.6, 3.7, 3.8, 3.9, pypy-3.7]
        steps:
        - uses: actions/checkout@v2
-       - uses: actions/setup-python@v1
+       - uses: actions/setup-python@v2
          with:
            python-version: ${{ matrix.python-version }}
 
