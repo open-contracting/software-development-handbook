@@ -219,6 +219,35 @@ Use ``dict.setdefault`` instead of a simple if-statement. A simple if-statement 
 
 Maintainers can find simple if-statements with this regular expression: ``^( *)if (.+) not in (.+):(?: *#.*)?\n(?: *#.*\n)* +\3\[\2\] = .+\n(?!(?: *#.*\n)*\1(else\b|elif\b|    \S))``
 
+Functional style
+----------------
+
+``itertools``, ``filter()`` and ``map()`` can be harder to read, less familiar, and longer. On PyPy, they can also be `slower <https://www.pypy.org/performance.html>`__.
+
+Instead of using ``filter()`` and ``map()`` with a lambda expression, you can use a list comprehension in most cases. For example:
+
+.. code-block:: python
+
+   output = list(filter(lambda x: x < 10, xs))  # AVOID
+
+.. code-block:: python
+
+   output = [x for x in xs if x < 10]
+
+.. code-block:: python
+
+   output = list(map(lambda x: f'a strong with {x}', xs))  # AVOID
+
+.. code-block:: python
+
+   output = [f'a string with {x}' for x in xs]
+
+That said, it is fine to do:
+
+.. code-block:: python
+
+   output = map(str, xs)
+
 .. _python-scripts:
 
 Scripts
