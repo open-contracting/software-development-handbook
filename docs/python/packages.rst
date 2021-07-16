@@ -34,10 +34,13 @@ If the package is distributed on PyPI, use this template ``setup.py``, adding ar
            'Programming Language :: Python :: 3.6',
            'Programming Language :: Python :: 3.7',
            'Programming Language :: Python :: 3.8',
+           'Programming Language :: Python :: Implementation :: CPython',
        ],
    )
 
 If the package is tested on macOS, Windows and Ubuntu, you can use the ``'Operating System :: OS Independent'`` classifier, instead.
+
+If the package is tested on PyPy, add the ``'Programming Language :: Python :: Implementation :: PyPy'`` classifier.
 
 If the package isn’t distributed on PyPI, use this template ``setup.py``:
 
