@@ -28,3 +28,8 @@ Then, change into the project's directory and run, for example:
 .. code-block:: bash
 
    find . -name '*.sql' -exec pg_format -f 1 -o {} {} \;
+
+Reference
+---------
+
+-  `Improve slow queries <https://ocdsdeploy.readthedocs.io/en/latest/use/databases.html#improve-slow-queries>`__
