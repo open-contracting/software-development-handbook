@@ -51,7 +51,7 @@ A preferred package should meet the following criteria:
 
    -  Simple libraries might not need new releases for new Python versions.
 
--  It meets the [QASP criteria](https://docs.google.com/document/d/1s-PJSdX43_DMAcXYalG9Upm31XvWCp31j_QGCzFJ7qY/edit) of published, tested and documented.
+-  It meets the `QASP criteria <https://docs.google.com/document/d/1s-PJSdX43_DMAcXYalG9Upm31XvWCp31j_QGCzFJ7qY/edit>`__ of published, tested and documented.
 
    -  *Published*: Find its repository and check its open source license.
    -  *Tested*: Check its CI badges, GitHub Actions tab, or CI configuration.
