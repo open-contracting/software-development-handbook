@@ -17,6 +17,20 @@ Internal documentation can be accessed via the `User Guides <https://ocdsdeploy.
 
 Documentation should be maximally proximate to the thing it is documenting. For example, to document what a method in software does, it's best to author that documentation as a heredoc in the method itself, instead of in a separate document.
 
+Required documentation
+----------------------
+
+The ``README.md`` file or documentation website must document how to:
+
+-  Install requirements
+-  Initialize services (e.g. via database migrations)
+-  Configure settings (e.g. via environment variables)
+-  Perform common actions, like:
+
+   -  Start server
+   -  Translate text
+   -  Run tests
+
 Writing documentation
 ---------------------
 
