@@ -25,7 +25,22 @@ Admin
 -  Configure ``fieldsets`` (or ``fields`` if there are only a few) to group and order fields logically
 -  Configure ``readonly_fields``, so that the administrator knows whether to edit a field
 
+Deployment
+----------
+
+-  Use the `Deployment checklist <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/>`__
+
+.. _django-performance:
+
+Performance
+-----------
+
+-  `Performance and optimization <https://docs.djangoproject.com/en/3.2/topics/performance/>`__
+-  `Database access optimization <https://docs.djangoproject.com/en/3.2/topics/db/optimization/>`__
+-  Deployment checklist: `Performance optimizations <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/#performance-optimizations>`__
+
 Reference
 ---------
 
 -  `The Django admin site <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__
+-  `Deploying Django <https://docs.djangoproject.com/en/3.2/howto/deployment/>`__

@@ -3,6 +3,10 @@ Performance
 
 This page presently only has reusable snippets.
 
+.. seealso::
+
+   :ref:`Django performance<django-performance>`
+
 CPU profiling
 -------------
 
