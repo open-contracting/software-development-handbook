@@ -4,6 +4,7 @@ Python
 .. toctree::
 
    style_guide
+   django
    file_formats
    preferences
    services
