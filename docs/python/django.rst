@@ -1,5 +1,5 @@
-Django style guide
-==================
+Django
+======
 
 General
 -------

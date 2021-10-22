@@ -1,18 +1,28 @@
 Python
 ======
 
+Style guides
+------------
+
 .. toctree::
    :maxdepth: 2
 
    style_guide
    django
    file_formats
-   preferences
    services
-   quality
-   documentation
    packages
    applications
+
+Code quality
+------------
+
+.. toctree::
+   :maxdepth: 2
+
+   preferences
+   quality
+   documentation
    performance
 
 Reference

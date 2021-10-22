@@ -1,5 +1,5 @@
-Style guide
-===========
+General
+=======
 
 Version
 -------

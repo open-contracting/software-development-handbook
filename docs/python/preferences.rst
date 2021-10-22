@@ -1,6 +1,19 @@
 Preferred packages
 ==================
 
+We have preferences in order to:
+
+-  Limit the number of packages with which developers need to be familiar.
+-  Re-use code (like Click) instead of writing new code (with argparse).
+
+For :doc:`applications`, we prefer all-inclusive and opinionated packages, because they:
+
+-  Promote greater similarity and code reuse across projects. Django encourages developers to use its authentication mechanism. With Flask, each developer can choose a different mechanism.
+-  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
+
+Preferences
+-----------
+
 Web framework
   `Django LTS <https://www.djangoproject.com/download/>`__, unless a newer version has desirable features. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://pythonhosted.org/Frozen-Flask/>`__.
 API
@@ -27,19 +40,6 @@ Coverage
   `Coveralls <https://coveralls-python.readthedocs.io/en/latest/>`__
 Documentation
   `Sphinx <https://www.sphinx-doc.org/en/master/>`__. Its Markdown extensions should only be used for OCDS documentation.
-
-Rationale
----------
-
-We have preferences in order to:
-
--  Limit the number of packages with which developers need to be familiar.
--  Re-use code (like Click) instead of writing new code (with argparse).
-
-For :doc:`applications`, we prefer all-inclusive and opinionated packages, because they:
-
--  Promote greater similarity and code reuse across projects. Django encourages developers to use its authentication mechanism. With Flask, each developer can choose a different mechanism.
--  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
 
 Criteria
 --------
