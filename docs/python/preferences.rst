@@ -57,7 +57,7 @@ A preferred package should meet the following criteria:
    -  *Tested*: Check its CI badges, GitHub Actions tab, or CI configuration.
    -  *Documented*: Check its documentation website.
 
--  Its issue tracker demonstrates that the maintainers are responsive. Counter-example: `django-environ <https://github.com/joke2k/django-environ/pull/291>`__ (`issue <https://github.com/OpenDataServices/lib-cove-web/issues/80>`__).
+-  Its issue tracker demonstrates that the maintainers are responsive. Counter-example: `django-environ <https://github.com/joke2k/django-environ/pull/291>`__ (since resolved).
 
    -  The repository is not described as archived or unmaintained.
    -  The maintainer's other repositories can be considered if the repository is new or unpopular.
