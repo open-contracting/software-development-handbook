@@ -4,6 +4,7 @@ OCP Software Development Handbook
 A guide for developers of OCP's tools.
 
 .. toctree::
+   :maxdepth: 2
 
    general/index
    python/index
