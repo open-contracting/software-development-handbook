@@ -25,6 +25,30 @@ Admin
 -  Configure ``fieldsets`` (or ``fields`` if there are only a few) to group and order fields logically
 -  Configure ``readonly_fields``, so that the administrator knows whether to edit a field
 
+Templates
+---------
+
+In many cases, you can achieve the same outcome using either `context processors <https://docs.djangoproject.com/en/3.2/ref/templates/api/#writing-your-own-context-processors>`__ or `inclusion tags <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__. If the variables that the template uses are constant (e.g. from a Django settings file), use a context processor. Otherwise, use an inclusion tag.
+
+Settings
+--------
+
+Use a single `Django settings file <https://docs.djangoproject.com/en/3.2/topics/settings/>`__, in which values are read from environment variables, and in which the default values are appropriate for all developers. In production, a `uWSGI INI file <https://github.com/open-contracting/deploy/blob/main/salt/uwsgi/files/django.ini>`__ or a `Docker Compose .env file <https://docs.docker.com/compose/environment-variables/>`__ can override these values. In testing, a GitHub Actions workflow can override these values.
+
+Use this template:
+
+.. code-block:: python
+
+   TODO
+
+Generate a default ``SECRET_KEY`` value:
+
+.. code-block:: bash
+
+   python manage.py shell -c 'from django.core.management import utils; print(utils.get_random_secret_key())'
+
+Add `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ to your :ref:`requirements file<application-requirements>`, and refer to its documentation.
+
 Deployment
 ----------
 

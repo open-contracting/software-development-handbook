@@ -13,6 +13,8 @@ The default branch of applications should always be deployable, which requires t
 
 If installation instructions change (e.g. if a new service like Redis is required), then the ``deploy`` repository must be updated.
 
+.. _application-requirements:
+
 Requirements
 ------------
 
