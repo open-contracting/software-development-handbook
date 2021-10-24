@@ -5,4 +5,5 @@ Services
    :maxdepth: 2
 
    postgresql
+   rabbitmq
    admin
