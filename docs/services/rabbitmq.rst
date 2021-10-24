@@ -18,19 +18,19 @@ It is recommended to be familiar with all `RabbitMQ tutorials <https://www.rabbi
 Development
 -----------
 
-1. Install RabbitMQ. On macOS:
+#. Install RabbitMQ. On macOS:
 
    .. code-block:: shell
 
       brew install rabbitmq
 
-1. Enable the `management plugin <https://www.rabbitmq.com/management.html>`__:
+#. Enable the `management plugin <https://www.rabbitmq.com/management.html>`__:
 
    .. code-block:: shell
 
       rabbitmq-plugins enable rabbitmq_management
 
-1. Access the management plugin at http://127.0.0.1:15672 (user: ``guest``, password: ``guest``)
+#. Access the management plugin at http://127.0.0.1:15672 (user: ``guest``, password: ``guest``)
 
 In Python, use `pika <https://pika.readthedocs.io/en/stable/>`__ to interact with RabbitMQ: see examples `in its documentation <https://pika.readthedocs.io/en/stable/examples.html>`__ and `on GitHub <https://github.com/pika/pika/tree/master/examples>`__. Don't use Celery, because its abstractions add inefficiencies, requiring `complex workarounds <http://blog.untrod.com/2015/03/how-celery-chord-synchronization-works.html>`__.
 

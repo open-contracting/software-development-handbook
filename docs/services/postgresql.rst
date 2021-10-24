@@ -1,8 +1,8 @@
 PostgreSQL
-----------
+==========
 
 Clients
-~~~~~~~
+-------
 
 Database administrators need to identify the sources of queries, in order to notify developers of inefficient queries or alert users whose queries will be interrupted by maintenance. For example:
 
@@ -11,7 +11,7 @@ Database administrators need to identify the sources of queries, in order to not
 -  Kingfisher Colab uses the ipython-sql package, and adds the Google Colaboratory notebook URL as a comment to all queries
 
 SQL statements
-~~~~~~~~~~~~~~
+--------------
 
 Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`__ to avoid accidental errors and `SQL injection <https://en.wikipedia.org/wiki/SQL_injection>`__. The code samples blow use the psycopg2 Python package.
 
@@ -104,3 +104,21 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
    .. code-block:: python
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
+
+.. _postgresql-erd:
+
+Entity Relationship Diagram
+---------------------------
+
+#. Install `SchemaSpy <https://schemaspy.readthedocs.io/en/latest/installation.html>`__
+#. Download the `PostgreSQL JDBC Driver <https://jdbc.postgresql.org/>`__
+#. Rename the JAR files to ``schemaspy.jar`` and ``postgresql.jar``
+#. Move the JAR files to a preferred location
+
+Run SchemaSpy, using appropriate values for the ``-db`` (database name), ``-s`` (schema, optional), ``-u`` (user) and ``-p`` (password, optional) arguments:
+
+.. code-block:: bash
+
+   java -jar schemaspy.jar -t pgsql -dp postgresql.jar -host localhost -db DATABASE -s SCHEMA -u USER -p PASSWORD -o schemaspy -norows
+
+Use either the ``schemaspy/diagrams/summary/relationships.real.compact.png`` or ``schemaspy/diagrams/summary/relationships.real.large.png`` file and check the ``schemaspy/diagrams/orphans/`` directory.
