@@ -32,7 +32,7 @@ Development
 
 1. Access the management plugin at http://127.0.0.1:15672 (user: ``guest``, password: ``guest``)
 
-In Python, use `pika <https://pika.readthedocs.io/en/stable/>`__ to interact with RabbitMQ directly. Don't use Celery, because its abstractions adds inefficiencies, requiring `complex workarounds <http://blog.untrod.com/2015/03/how-celery-chord-synchronization-works.html>`__. See pika's examples `in its documentation <https://pika.readthedocs.io/en/stable/examples.html>`__ and `on GitHub <https://github.com/pika/pika/tree/master/examples>`__.
+In Python, use `pika <https://pika.readthedocs.io/en/stable/>`__ to interact with RabbitMQ: see examples `in its documentation <https://pika.readthedocs.io/en/stable/examples.html>`__ and `on GitHub <https://github.com/pika/pika/tree/master/examples>`__. Don't use Celery, because its abstractions add inefficiencies, requiring `complex workarounds <http://blog.untrod.com/2015/03/how-celery-chord-synchronization-works.html>`__.
 
 Design decisions
 ----------------
@@ -54,7 +54,7 @@ That said, from Datlab's experience, the RabbitMQ connection can be unreliable, 
 Acknowledgements
 ~~~~~~~~~~~~~~~~
 
-If a consumer is interrupted or fails before a message is acknowledged, the broker `automatically requeues <https://www.rabbitmq.com/confirms.html#automatic-requeueing>`__ the message, once either the `acknowledgement timeout <https://www.rabbitmq.com/consumers.html#acknowledgement-timeout>`__ (30 minutes by default) or the `heartbeat timeout <https://www.rabbitmq.com/heartbeats.html>`__ is reached, at which time the consumer is considered buggy, stuck or unavailable by the broker.
+If a consumer is interrupted or fails before a message is ack'd, the broker `automatically requeues <https://www.rabbitmq.com/confirms.html#automatic-requeueing>`__ the message, once either the `acknowledgement timeout <https://www.rabbitmq.com/consumers.html#acknowledgement-timeout>`__ (30 minutes by default) or the `heartbeat timeout <https://www.rabbitmq.com/heartbeats.html>`__ is reached, at which time the consumer is considered buggy, stuck or unavailable by the broker.
 
 Now, what to do about the unacknowledged message?
 
@@ -72,11 +72,11 @@ In some cases, a message is acknowledged once a point-of-no-return is reached, *
 
 .. note::
 
-   If a message is not acknowledged on a channel within the acknowledgement timeout, the broker closes the channel. This might cause unexpected errors the next time the consumer uses the channel.
+   If a message is not ack'd on a channel within the acknowledgement timeout, the broker closes the channel. This might cause unexpected errors the next time the consumer uses the channel.
 
 .. seealso::
 
-   -  Message acknowledgment under `Work Queues tutorial <https://www.rabbitmq.com/tutorials/tutorial-two-python.html>`__
+   -  *Message acknowledgment* under `Work Queues tutorial <https://www.rabbitmq.com/tutorials/tutorial-two-python.html>`__
 
 .. https://github.com/open-contracting/data-registry/issues/140
 

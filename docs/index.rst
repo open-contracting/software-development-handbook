@@ -12,8 +12,8 @@ A guide for developers of OCP's tools.
    shell/index
    sql/index
    htmlcss/index
-   github/index
    services/index
+   github/index
    roadmap/index
    contributing
 
