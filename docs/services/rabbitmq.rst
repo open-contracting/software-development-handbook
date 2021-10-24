@@ -83,7 +83,7 @@ In some cases, a message is acknowledged once a point-of-no-return is reached, *
 Consumer prefetch
 ~~~~~~~~~~~~~~~~~
 
-.. todo::
+.. admonition:: To do
 
    Add guidance on preferred `prefetch count <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch>`__, with 1 being the `most conservative <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput>`__.
 
