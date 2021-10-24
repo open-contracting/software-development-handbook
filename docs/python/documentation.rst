@@ -64,3 +64,25 @@ Review the broken links in the ``_linkcheck/output.txt`` file:
 .. code-block:: shell
 
    cat _linkcheck/output.txt
+
+Creating ReadTheDocs project
+----------------------------
+
+#. Sign in to `ReadTheDocs <https://readthedocs.org/dashboard/>`__
+#. Click *Import a Project*
+#. Click *Import Manually*
+
+   #. Enter the name of the repository in *Name*
+   #. Paste the URL of the repository in *Repository URL*
+   #. Enter "main" in *Default branch*
+   #. Check *Edit advanced project options*
+   #. Click *Next*
+
+#. Set *Programming language* to "Python"
+#. Click *Finish*
+#. Click *Admin*
+#. Click *Advanced Settings*
+
+   #. Uncheck *Enable PDF build*
+   #. Uncheck *Enable EPUB build*
+   #. Click *Save*
