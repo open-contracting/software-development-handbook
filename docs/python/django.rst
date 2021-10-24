@@ -112,7 +112,7 @@ This template is based on the `default settings.py file <https://github.com/djan
 
 Replace ``{{ project_name }}`` with the project's module name:
 
-.. literalinclude:: settings.py
+.. literalinclude:: samples/settings.py
    :language: python
 
 Deployment

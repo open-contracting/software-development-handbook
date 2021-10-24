@@ -8,36 +8,8 @@ setup.py
 
 If the package is distributed on PyPI, use this template ``setup.py``, adding arguments like ``entry_points``, ``extras_require`` and ``namespace_packages`` as needed:
 
-.. code-block:: python
-
-   from setuptools import find_packages, setup
-
-   with open('README.rst') as f:
-       long_description = f.read()
-
-   setup(
-       name='NAME',
-       version='0.0.0',
-       author='Open Contracting Partnership',
-       author_email='data@open-contracting.org',
-       url='https://github.com/open-contracting/REPOSITORY',
-       description='DESCRIPTION',
-       license='BSD',
-       packages=find_packages(exclude=['tests', 'tests.*']),
-       long_description=long_description,
-       install_requires=[
-           'REQUIREMENT',
-       ],
-       classifiers=[
-           'License :: OSI Approved :: BSD License',
-           'Operating System :: POSIX :: Linux',
-           'Programming Language :: Python :: 3.6',
-           'Programming Language :: Python :: 3.7',
-           'Programming Language :: Python :: 3.8',
-           'Programming Language :: Python :: 3.9',
-           'Programming Language :: Python :: Implementation :: CPython',
-       ],
-   )
+.. literalinclude:: samples/setup.py
+   :language: python
 
 If the package is tested on macOS, Windows and Ubuntu, you can use the ``'Operating System :: OS Independent'`` classifier, instead.
 
