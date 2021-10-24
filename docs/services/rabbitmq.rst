@@ -34,21 +34,36 @@ Development
 
 In Python, use `pika <https://pika.readthedocs.io/en/stable/>`__ to interact with RabbitMQ directly. Don't use Celery, because its abstractions adds inefficiencies, requiring `complex workarounds <http://blog.untrod.com/2015/03/how-celery-chord-synchronization-works.html>`__. See pika's examples `in its documentation <https://pika.readthedocs.io/en/stable/examples.html>`__ and `on GitHub <https://github.com/pika/pika/tree/master/examples>`__.
 
+Design decisions
+----------------
+
+Bindings
+~~~~~~~~
+
+*Consumers declare and bind queues, not publishers*. To reduce coupling, a publisher does not control how its messages are routed: it simply sets the routing key. Each consumer then declares its own queue to read from, and it sets the routing keys that the queue binds to. As such, any number of consumers can read a publisher's messages; if no consumer reads the messages, they are undelivered, by design. This pattern makes it easier to re-order, add or remove consumers.
+
 Heartbeat
----------
+~~~~~~~~~
 
 If a consumer takes too long to process a message, the heartbeat might timeout, causing the connection to RabbitMQ to drop (for Python, see pika's `readme <https://github.com/pika/pika/#requesting-message-acknowledgements-from-another-thread>`__ and `example <https://pika.readthedocs.io/en/latest/examples/heartbeat_and_blocked_timeouts.html>`__).
 
-Disabling the heartbeat is `discouraged <https://stackoverflow.com/a/51755383/244258>`__ by RabbitMQ developers. The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/master/examples/basic_consumer_threaded.py>`__).
+Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/heartbeats.html>`__. The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/master/examples/basic_consumer_threaded.py>`__).
 
 That said, from Datlab's experience, the RabbitMQ connection can be unreliable, regardless of the connection settings. In any case, for the Data Registry, most consumers are asynchronous and use two threads: one to manage the connection, another to process the message.
 
 Acknowledgements
-----------------
+~~~~~~~~~~~~~~~~
 
 In some cases, messages are acknowledged when a point-of-no-return is reached, before the messages are processed. For example, when importing data from Kingfisher into Pelican, messages for the next phase are already published for the yet-unfinished job; it is not simple to go back if processing fails.
 
 .. https://github.com/open-contracting/data-registry/issues/140
+
+Consumer prefetch
+~~~~~~~~~~~~~~~~~
+
+.. todo::
+
+   Add guidance on preferred `prefetch count <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch>`__, with 1 being the `most conservative <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput>`__.
 
 Unused features
 ---------------
