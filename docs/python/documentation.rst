@@ -86,3 +86,30 @@ Creating ReadTheDocs project
    #. Uncheck *Enable PDF build*
    #. Uncheck *Enable EPUB build*
    #. Click *Save*
+
+Redirecting ReadTheDocs project
+-------------------------------
+
+#. Replace ``docs/_templates/layout.html`` with the below, replacing ``SUBDOMAIN``:
+
+   .. code-block:: html
+
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <meta charset="utf8">
+          <meta http-equiv="refresh" content="0; url=https://SUBDOMAIN.readthedocs.io/">
+          <link rel="canonical" href="https://SUBDOMAIN.readthedocs.io/">
+          <title>This page has moved</title>
+      </head>
+      <body>
+          <p>This page has moved. Redirecting you to <a href="https://SUBDOMAIN.readthedocs.io/">https://SUBDOMAIN.readthedocs.io/</a>&hellip;</p>
+      </body>
+      </html>
+
+#. Sign in to `ReadTheDocs <https://readthedocs.org/dashboard/>`__
+#. Click on the project
+#. Click *Admin*
+#. Click *Integrations*
+#. Click *GitHub incoming webhook*
+#. Click *Delete webhook*
