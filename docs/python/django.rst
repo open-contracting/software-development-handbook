@@ -41,9 +41,9 @@ Environment variables
 ~~~~~~~~~~~~~~~~~~~~~
 
 ``DJANGO_ENV=production``
-  Sets ``DEBUG = False``. Sets `HTTPS-related settings <https://docs.djangoproject.com/en/3.2/topics/security/#ssl-https>`__, unless ``LOCAL_ACCESS`` is set.
-``ALLOWED_HOSTS=hostname1,hostname2``
-  Localhost is allowed by default.
+  Sets ``DEBUG = False``. Sets `HTTPS-related settings <https://docs.djangoproject.com/en/3.2/topics/security/#ssl-https>`__, if ``LOCAL_ACCESS`` is not set and ``ALLOWED_HOSTS` is set.
+``ALLOWED_HOSTS``
+  Set to a comma-separated list of `host names <https://docs.djangoproject.com/en/3.2/ref/settings/#allowed-hosts>`__. Localhost connections are always allowed.
 ``SECRET_KEY``
   Set to:
 
@@ -52,15 +52,15 @@ Environment variables
      python manage.py shell -c 'from django.core.management import utils; print(utils.get_random_secret_key())'
 
 ``DATABASE_URL``
-  `See dj-database-url's documentation <https://github.com/kennethreitz/dj-database-url#readme>`__.
+  Set according to `dj-database-url's documentation <https://github.com/kennethreitz/dj-database-url#readme>`__.
 ``SECURE_HSTS_SECONDS``
-  `See Django's documentation <https://docs.djangoproject.com/en/3.2/ref/middleware/#http-strict-transport-security>`__.
+  Set according to `Django's documentation <https://docs.djangoproject.com/en/3.2/ref/middleware/#http-strict-transport-security>`__.
 ``SENTRY_DSN``
-  Get the project's client key (DSN) from Sentry.
+  Set to the project's client key (DSN) from Sentry.
 ``FATHOM_ANALYTICS_DOMAIN=kite.open-contracting.org``
-  Configure your project to render the embed code (`example <https://github.com/open-contracting/data-registry/pull/160/files>`__).
+  Remember to configure your project to render the embed code (`example <https://github.com/open-contracting/data-registry/pull/160/files>`__).
 ``FATHOM_ANALYTICS_ID``
-  Get the site's ID from Fathom Analytics.
+  Set to the site's ID from Fathom Analytics.
 
 Using the template
 ~~~~~~~~~~~~~~~~~~
@@ -76,23 +76,23 @@ Using the template
   Do not enable more applications than necessary. Among the `default applications <https://github.com/django/django/blob/main/django/conf/project_template/project_name/settings.py-tpl>`__:
 
   `django.contrib.admin <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__ (`tutorial <https://docs.djangoproject.com/en/3.2/intro/tutorial02/>`__)
-    Remove, unless using the Django admin (check for occurrences of ``admin``)
+    Remove, unless using the Django admin (check for occurrences of ``admin``).
   `django.contrib.auth <https://docs.djangoproject.com/en/3.2/ref/contrib/auth/>`__ (`topic <https://docs.djangoproject.com/en/3.2/topics/auth/>`__)
-    Remove, unless using ``django.contrib.admin`` or authenticated users (check for occurrences of ``auth`` or ``user``)
+    Remove, unless using ``django.contrib.admin`` or authenticated users (check for occurrences of ``auth`` or ``user``).
   `django.contrib.messages <https://docs.djangoproject.com/en/3.2/ref/contrib/messages/>`__
-    Remove, unless using ``django.contrib.admin`` or one-time messages (check for occurrences of ``messages``)
+    Remove, unless using ``django.contrib.admin`` or one-time messages (check for occurrences of ``messages``).
   `django.contrib.contenttypes <https://docs.djangoproject.com/en/3.2/ref/contrib/contenttypes/>`__
-    Remove, unless using ``django.contrib.admin``, ``django.contrib.auth`` or otherwise dependent
+    Remove, unless using ``django.contrib.admin``, ``django.contrib.auth`` or otherwise dependent.
   django.contrib.sessions (`topic <https://docs.djangoproject.com/en/3.2/topics/http/sessions/>`__)
-    Remove, unless using ``django.contrib.admin``, ``django.contrib.auth``, ``django.contrib.messages`` or anonymous sessions (check for occurrences of ``session``)
+    Remove, unless using ``django.contrib.admin``, ``django.contrib.auth``, ``django.contrib.messages`` or anonymous sessions (check for occurrences of ``session``).
   `django.contrib.staticfiles <https://docs.djangoproject.com/en/3.2/ref/contrib/staticfiles/>`__ (`how-to <https://docs.djangoproject.com/en/3.2/howto/static-files/>`__)
-    Remove, unless the project contains static files
+    Remove, unless the project contains static files.
 
   Then, make any corresponding changes to ``urls.py``, and ``MIDDLEWARE``, ``TEMPLATES``, ``STATIC_URL`` and ``AUTH_PASSWORD_VALIDATORS`` in ``settings.py``.
 `DATABASES <https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-DATABASES>`__
   
-  -  Add `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ to your :ref:`requirements file<application-requirements>`.
   -  Replace ``{{ database_name }}`` and ``{{ app_name }}``.
+  -  Remember to add `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ to your :ref:`requirements file<application-requirements>`.
 
 `LOGGING <https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-LOGGING>`__
   See :doc:`logging`.
