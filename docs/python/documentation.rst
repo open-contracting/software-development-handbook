@@ -107,6 +107,7 @@ Redirecting ReadTheDocs project
       </body>
       </html>
 
+#. Push the change to build the documentation
 #. Sign in to `ReadTheDocs <https://readthedocs.org/dashboard/>`__
 #. Click on the project
 #. Click *Admin*
