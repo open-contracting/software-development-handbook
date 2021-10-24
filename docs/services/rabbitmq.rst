@@ -54,7 +54,29 @@ That said, from Datlab's experience, the RabbitMQ connection can be unreliable, 
 Acknowledgements
 ~~~~~~~~~~~~~~~~
 
-In some cases, messages are acknowledged when a point-of-no-return is reached, before the messages are processed. For example, when importing data from Kingfisher into Pelican, messages for the next phase are already published for the yet-unfinished job; it is not simple to go back if processing fails.
+If a consumer is interrupted or fails before a message is acknowledged, the broker `automatically requeues <https://www.rabbitmq.com/confirms.html#automatic-requeueing>`__ the message, once either the `acknowledgement timeout <https://www.rabbitmq.com/consumers.html#acknowledgement-timeout>`__ (30 minutes by default) or the `heartbeat timeout <https://www.rabbitmq.com/heartbeats.html>`__ is reached, at which time the consumer is considered buggy, stuck or unavailable by the broker.
+
+Now, what to do about the unacknowledged message?
+
+-  If the message is processable, the consumer can do nothing. Sometime later, a consumer will receive it again, process it and acknowledge it.
+-  If the message is unprocessable:
+
+   -  If this case is expected to occur, or if there's no consequence to ignoring the message (like causing a silent failure), the consumer should handle the error, write to a log, and acknowledge the message.
+   -  If this case isn't expected to occur, either the consumer can `negatively acknowledge <https://www.rabbitmq.com/nack.html>`__ the message, or the consumer can do nothing, in which case administrative action is required (e.g. purging the queue).
+
+   Whether the error is expected or not, you need to decide whether the consumer should publish an output message based on the input message: in other words, you need to decide whether processing stops or continues.
+
+Whether the messages is processable or not, you need to decide whether the consumer should continue to receive messages.
+
+In some cases, a message is acknowledged once a point-of-no-return is reached, *before* its processing is completed. For example, when importing data from Kingfisher into Pelican, each message identifies a collection to import. After some initial processing, the consumer performs database operations to import data and publish messages. If an operation fails, the consumer cannot easily "retry" the original message, without encountering integrity errors and creating duplicate work. As such, the message is acknowledge at this point-of-no-return.
+
+.. note::
+
+   If a message is not acknowledged on a channel within the acknowledgement timeout, the broker closes the channel. This might cause unexpected errors the next time the consumer uses the channel.
+
+.. seealso::
+
+   -  Message acknowledgment under `Work Queues tutorial <https://www.rabbitmq.com/tutorials/tutorial-two-python.html>`__
 
 .. https://github.com/open-contracting/data-registry/issues/140
 
