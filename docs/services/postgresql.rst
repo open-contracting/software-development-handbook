@@ -1,6 +1,10 @@
 PostgreSQL
 ==========
 
+.. note::
+
+   The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/index.html>`__ documentation covers many topics relating to PostgreSQL, including: configuration, maintenance, and usage by clients. This page addresses topics relating to software development.
+
 Clients
 -------
 
@@ -104,6 +108,26 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
    .. code-block:: python
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
+
+Paginating data
+---------------
+
+Do not use ``LIMIT`` with ``OFFSET``. ``OFFSET`` becomes more inefficient as its value increases. Instead, filter on the table's primary key, which has near-constant performance. For example:
+
+.. code-block:: sql
+
+   SELECT id, mycolumn
+   FROM mytable
+   WHERE
+       id > %s
+       AND myfilter = %s
+   ORDER BY id
+   LIMIT 1000
+
+Loading and dumping data
+------------------------
+
+Use the `\copy <https://www.postgresql.org/docs/13/app-psql.html#APP-PSQL-META-COMMANDS-COPY>`__ meta-command instead of the `COPY <https://www.postgresql.org/docs/13/sql-copy.html>`__ command, so that file accessibility and privileges are those of the user, not the server – such that no SQL superuser privileges are required.
 
 .. _postgresql-erd:
 
