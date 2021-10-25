@@ -83,9 +83,7 @@ In some cases, a message is acknowledged once a point-of-no-return is reached, *
 Consumer prefetch
 ~~~~~~~~~~~~~~~~~
 
-.. admonition:: To do
-
-   Add guidance on preferred `prefetch count <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch>`__, with 1 being the `most conservative <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput>`__.
+In our projects, `prefetch count <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch>`__ is set to 1, which is the `most conservative <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput>`__ option. Since consumers are slow compared to RabbitMQ, using a less conservative option is not expected to yield a performance improvement.
 
 Unused features
 ---------------
