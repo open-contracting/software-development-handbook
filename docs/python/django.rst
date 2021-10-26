@@ -35,9 +35,11 @@ In many cases, you can achieve the same outcome using either `context processors
 Settings
 --------
 
-To simplify the configuration of Django projects, use :ref:`the template below<django-template>` for the `Django settings file <https://docs.djangoproject.com/en/3.2/topics/settings/>`__. Some values can be overridden using environment variables.
+To simplify the configuration of Django projects, use :ref:`the template below<django-template>` for the `Django settings file <https://docs.djangoproject.com/en/3.2/topics/settings/>`__.
 
-In **development**, the default values are appropriate as-is. Override the default values in other environments with, for example, a `uWSGI INI file <https://github.com/open-contracting/deploy/blob/main/salt/uwsgi/files/django.ini>`__ or a `Docker Compose .env file <https://docs.docker.com/compose/environment-variables/>`__ in **production** or a GitHub Actions workflow in **testing**.
+.. seealso::
+
+   :doc:`settings`, for the general approach to configuration
 
 Environment variables
 ~~~~~~~~~~~~~~~~~~~~~
