@@ -9,6 +9,7 @@ Style guides
 
    style_guide
    django
+   settings
    logging
    file_formats
    services
