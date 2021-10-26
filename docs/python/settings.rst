@@ -28,7 +28,7 @@ Use the following names for environment variables:
 
    -  ``FATHOM_ANALYTICS_DOMAIN``
    -  ``FATHOM_ANALYTICS_ID``
-   -  ``SENTRY_DSN``
+   -  ``SENTRY_DSN`` (not DNS!)
    -  ``SENTRY_SAMPLE_RATE``
 
 Deployment
