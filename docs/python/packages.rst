@@ -32,9 +32,13 @@ If the package isn’t distributed on PyPI, use this template ``setup.py``:
 
 To change a readme from Markdown to reStructuredText, install ``pandoc`` and run:
 
-.. code-block:: bash
+.. code-block:: shell
 
    pandoc --from=markdown --to=rst --output=README.rst README.md
+
+.. note::
+
+   We don't use ``pyproject.toml`` or ``setup.cfg`` for packaging, preferring a single ``setup.py`` file. See also: :ref:`common-checks`.
 
 Requirements
 ------------

@@ -6,16 +6,24 @@ Version
 
 Code is written for Python 3.6 and above (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
 
+.. _common-checks:
+
 Common checks
 -------------
 
 All code is checked as documented by `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
-Repositories should not use ``setup.cfg``, ``.editorconfig``, ``pyproject.toml`` or tool-specific files to configure the behavior of tools, except to ignore generated files like database migrations. Maintainers can find configuration files with:
+Repositories should not use ``setup.cfg``, ``pyproject.toml``, ``.editorconfig`` or tool-specific files to configure the behavior of tools, except to ignore generated files like database migrations. Maintainers can find configuration files with:
 
 .. code-block:: shell
 
-   find . \( -name 'setup.cfg' -or -name 'pyproject.toml' -or -name '.editorconfig' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.pylintrc' -or -name 'pylintrc' \) -exec echo {} \; -exec cat {} \;
+   find . \( -name 'setup.cfg' -or -name 'pyproject.toml' -or -name '.editorconfig' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.pylintrc' -or -name 'pylintrc' \) -not -path '*/node_modules/*' -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "4b679b931113f9a779bfea5e8c55cea40f8a5efe 1031acedc073ce860655c192071a0b0ad7653919" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
+
+..
+   The shasums are:
+
+   4b679b931113f9a779bfea5e8c55cea40f8a5efe minimal pyproject.toml file for Black
+   1031acedc073ce860655c192071a0b0ad7653919 minimal setup.cfg file for Black
 
 .. note::
 
