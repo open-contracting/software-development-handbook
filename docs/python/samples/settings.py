@@ -137,6 +137,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Project-specific Django configuration
 
+STATIC_ROOT = BASE_DIR / 'static'
+
 # https://docs.djangoproject.com/en/3.2/topics/logging/#django-security
 LOGGING = {
     "version": 1,
