@@ -6,6 +6,15 @@ General
 
 -  Delete empty, auto-generated files.
 
+Layout
+------
+
+-  Maintain the distinction between app directories and the project directory.
+
+.. seealso::
+
+   :doc:`layout`
+
 Models
 ------
 

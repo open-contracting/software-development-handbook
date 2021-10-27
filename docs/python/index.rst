@@ -1,6 +1,13 @@
 Python
 ======
 
+.. seealso::
+
+   The :doc:`../services/index` section contains Python-related content:
+
+   -  :doc:`../services/postgresql`
+   -  :doc:`../services/rabbitmq`
+
 Style guides
 ------------
 
@@ -8,11 +15,11 @@ Style guides
    :maxdepth: 2
 
    style_guide
+   layout
    django
    settings
    logging
    file_formats
-   services
    packages
    applications
 

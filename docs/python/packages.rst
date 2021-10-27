@@ -51,6 +51,8 @@ Requirements
 -  Do not use ``requirements.txt``
 -  Sort requirements alphabetically
 
+.. _python-package-release-process:
+
 Release process
 ---------------
 
