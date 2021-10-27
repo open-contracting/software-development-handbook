@@ -1,21 +1,36 @@
 Quality assurance
 =================
 
+.. _automated-testing:
+
 Automated testing
 -----------------
 
-pytest is preferred, as documented at :doc:`preferences`.
+pytest is :doc:`preferred<preferences>`.
 
-**How To:** :ref:`Write tests<python-tests>`.
+:doc:`applications` can be tested with:
 
-**How To:** Run tests in :ref:`packages<packages-testing>`.
+.. code-block:: shell
+
+   pytest
+
+:doc:`packages` can be tested with:
+
+.. code-block:: shell
+
+   pip install .[test]
+   pytest
+
+.. seealso::
+
+   :ref:`python-tests` style guide.
 
 .. _continuous-integration:
 
 Continuous testing
 ------------------
 
-GitHub Actions is preferred, as documented at :doc:`../general/preferences`.
+GitHub Actions is :doc:`preferred<../general/preferences>`.
 
 **Setup:** Most repositories use a ``.github/workflows/ci.yml`` workflow to run automated tests.
 
@@ -31,7 +46,7 @@ See :doc:`style_guide`.
 Code coverage
 ~~~~~~~~~~~~~
 
-Coveralls is preferred, as documented at :doc:`preferences`.
+Coveralls is :doc:`preferred<preferences>`.
 
 **Setup:** On Coveralls, add the repository. Then, append the following to ``.github/workflows/ci.yml``, commit and push:
 

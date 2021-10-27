@@ -3,6 +3,10 @@ Packages
 
 All our packages should be distributed on PyPI.
 
+.. seealso::
+
+   :ref:`automated-testing`
+
 setup.py
 --------
 
@@ -46,18 +50,6 @@ Requirements
 -  Use ``install_requires`` and ``extras_require`` in ``setup.py``
 -  Do not use ``requirements.txt``
 -  Sort requirements alphabetically
-
-.. _packages-testing:
-
-Automated testing
------------------
-
-A package can be tested with:
-
-.. code-block:: shell
-
-   pip install .[test]
-   pytest
 
 Release process
 ---------------
