@@ -17,7 +17,7 @@ Repositories should not use ``setup.cfg``, ``pyproject.toml``, ``.editorconfig``
 
 .. code-block:: shell
 
-   find . \( -name 'setup.cfg' -or -name 'pyproject.toml' -or -name '.editorconfig' -or -name '.flake8' -or -name '.isort.cfg' -or -name '.pylintrc' -or -name 'pylintrc' \) -not -path '*/node_modules/*' -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "4b679b931113f9a779bfea5e8c55cea40f8a5efe 1031acedc073ce860655c192071a0b0ad7653919" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
+   find . \( -name setup.cfg -or -name pyproject.toml -or -name .editorconfig -or -name .flake8 -or -name .isort.cfg -or -name .pylintrc -or -name pylintrc -or -name pytest.ini \) -not -path '*/node_modules/*' -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "4b679b931113f9a779bfea5e8c55cea40f8a5efe 1031acedc073ce860655c192071a0b0ad7653919" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
 
 ..
    The shasums are:
