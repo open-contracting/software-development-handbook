@@ -1,6 +1,10 @@
 Documentation
 =============
 
+.. seealso::
+
+   :ref:`readthedocs`
+
 .. _doc-types:
 
 Types of documentation

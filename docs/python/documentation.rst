@@ -65,6 +65,8 @@ Review the broken links in the ``_linkcheck/output.txt`` file:
 
    cat _linkcheck/output.txt
 
+.. _readthedocs:
+
 Creating ReadTheDocs project
 ----------------------------
 
@@ -86,6 +88,11 @@ Creating ReadTheDocs project
    #. Uncheck *Enable PDF build*
    #. Uncheck *Enable EPUB build*
    #. Click *Save*
+
+#. Click *Notifications*
+
+   #. Enter "sysadmin@open-contracting.org" in *Email*
+   #. Click *Add*
 
 Redirecting ReadTheDocs project
 -------------------------------
