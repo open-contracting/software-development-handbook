@@ -1,6 +1,8 @@
 Directory layout
 ================
 
+Don't mix static files with Python files.
+
 For :ref:`automated-testing`, put `tests outside application code <https://docs.pytest.org/en/latest/explanation/goodpractices.html#choosing-a-test-layout-import-rules>`__.
 
 :doc:`applications` should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/3.2/intro/tutorial01/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__. If no framework is used, prefer a smaller number of directories: Examples: `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize>`__, `Pelican backend <https://github.com/open-contracting/pelican-backend>`__.
