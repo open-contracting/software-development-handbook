@@ -1,7 +1,7 @@
 Directory layout
 ================
 
-Don't mix static files with Python files.
+Don't mix static files with Python files in the same directory.
 
 For :ref:`automated-testing`, put `tests outside application code <https://docs.pytest.org/en/latest/explanation/goodpractices.html#choosing-a-test-layout-import-rules>`__.
 
@@ -11,8 +11,9 @@ For :ref:`automated-testing`, put `tests outside application code <https://docs.
 
 .. code-block:: none
 
-   .
    ├── PACKAGENAME
+   │   ├── migrations
+   │   └── static
    ├── docs
    └── tests
        └── fixtures
