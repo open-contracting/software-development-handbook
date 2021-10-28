@@ -58,11 +58,16 @@ If a consumer is interrupted or fails before a message is ack'd, the broker `aut
 
 Now, what to do about the unacknowledged message?
 
--  If the message is processable, the consumer can do nothing. Sometime later, a consumer will receive it again, process it and acknowledge it.
+-  If the message is processable, either the consumer can `negatively acknowledge <https://www.rabbitmq.com/nack.html>`__ the message, or the consumer can do nothing. Sometime later, a consumer will receive it again, process it and acknowledge it.
+
+   .. note::
+
+      In Python, pika's `basic_nack <https://pika.readthedocs.io/en/stable/modules/channel.html#pika.channel.Channel.basic_nack>`__ method sets ``requeue=True`` by default.
+
 -  If the message is unprocessable:
 
    -  If this case is expected to occur, or if there's no consequence to ignoring the message (like causing a silent failure), the consumer should handle the error, write to a log, and acknowledge the message.
-   -  If this case isn't expected to occur, either the consumer can `negatively acknowledge <https://www.rabbitmq.com/nack.html>`__ the message, or the consumer can do nothing, in which case administrative action is required (e.g. purging the queue).
+   -  If this case isn't expected to occur and it's unknown whether it can safely be ignored, the consumer can do nothing, in which case administrative action is required (e.g. purging the queue).
 
    Whether the error is expected or not, you need to decide whether the consumer should publish an output message based on the input message: in other words, you need to decide whether processing stops or continues.
 
