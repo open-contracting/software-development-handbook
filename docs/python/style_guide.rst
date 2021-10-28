@@ -195,3 +195,7 @@ To write clear tests:
    -  Test scaffolding, using `setUp() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.setUp>`__ and `tearDown() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown>`__
 
 Note: There are some `caveats <https://docs.pytest.org/en/stable/unittest.html>`__ to using ``pytest`` with ``unittest``.
+
+.. seealso::
+
+   :ref:`Test file naming and directory layout<layout-tests>`

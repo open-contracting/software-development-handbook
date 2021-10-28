@@ -23,7 +23,7 @@ pytest is :doc:`preferred<preferences>`.
 
 .. seealso::
 
-   :ref:`python-tests` style guide.
+   :ref:`style guide<python-tests>` and :ref:`directory layout<layout-tests>` for tests.
 
 .. _continuous-integration:
 
