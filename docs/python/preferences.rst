@@ -62,6 +62,8 @@ A preferred package should meet the following criteria:
    -  The repository is not described as archived or unmaintained.
    -  The maintainer's other repositories can be considered if the repository is new or unpopular.
 
+`Snyk Open Source Advisor <https://snyk.io/advisor/>`__ might be used to answer the above.
+
 Enforcement
 -----------
 
