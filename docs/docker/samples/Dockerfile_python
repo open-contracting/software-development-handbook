@@ -1,0 +1,10 @@
+FROM python:3.8
+
+RUN groupadd -r builder && useradd --no-log-init -r -g builder builder
+WORKDIR /workdir
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+USER builder:builder
+COPY --chown=builder:builder . .
