@@ -3,7 +3,7 @@ Docker
 
 .. seealso::
 
-   For deploying Docker, see the  `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/docker.html>`__.
+   For deploying Docker, see the  `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/docker.html>`__. Do not put ``docker-compose.yaml`` or ``.env`` files in repositories.
 
 To simplify the :ref:`GitHub Actions workflow<docker-registry>`, put the :ref:`dockerfile` and :ref:`dockerignore` files in the root of the repository.
 
@@ -101,26 +101,33 @@ The `.dockerignore <https://docs.docker.com/engine/reference/builder/#dockerigno
 .. literalinclude:: samples/dockerignore
    :language: none
 
+To check the contents of the image, you can run, replacing ``IMAGE``:
+
+.. code-block:: bash
+
+   docker run -it --entrypoint sh IMAGE
+
 .. _docker-registry:
 
 Docker registry
 ---------------
 
-In most cases, you can add the job below to an existing :ref:`.github/workflows/ci.yml<continuous-integration>` file. If you need to build multiple images, then for each image:
+In most cases, you can add the job below to an existing :ref:`.github/workflows/ci.yml<continuous-integration>` file.
+
+If you need to build multiple images, then for each image:
 
 #. Include a ``docker/build-push-action`` step.
 #. Set either the path to the Dockerfile with the `file <https://github.com/docker/build-push-action#inputs>`__ key or the path to the directory (`context <https://docs.docker.com/engine/context/working-with-contexts/>`__) with the ``context`` key.
 #. Add a suffix to the repository name under the ``tags`` key.
 
 .. literalinclude:: samples/ci.yml
-   :language: none
+   :language: yaml
 
 .. note::
 
    The `docker/build-push-action <https://github.com/docker/build-push-action>`__ step uses `BuildKit <https://docs.docker.com/engine/reference/builder/#buildkit>`__ by default.
 
 ..
-
    The following would simplify the workflow somewhat. However, it would not work when building multiple images, producing an inconsistent approach across repositories.
 
       # https://github.com/docker/metadata-action#usage
