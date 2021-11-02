@@ -5,7 +5,7 @@ Docker
 
    For deploying Docker, see the  `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/docker.html>`__.
 
-To simplify the :ref:`GitHub Actions workflow<docker-registry>`, put the :ref:`dockerfile` and :ref`dockerignore` files in the root of the repository.
+To simplify the :ref:`GitHub Actions workflow<docker-registry>`, put the :ref:`dockerfile` and :ref:`dockerignore` files in the root of the repository.
 
 .. _dockerfile:
 
@@ -26,18 +26,16 @@ To increase consistency across projects:
 
       WORKDIR /workdir
 
-Reference: `Dockerfile best practices <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/>`__
-
 Instruction order
 ~~~~~~~~~~~~~~~~~
 
 To `leverage the build cache <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache>`__, order the instructions from least-to-most likely to change over time. In general, the order is:
 
 #. Declare the base image
-#. Create a non-root user
 #. Install system packages
 #. Copy requirements files
 #. Install project dependencies
+#. Create a non-root user
 #. Set the working directory
 #. Switch to the non-root user
 #. Copy project files
@@ -77,9 +75,16 @@ If it's not included, install it following `best practices <https://docs.docker.
 Templates
 ~~~~~~~~~
 
-For Python projects, adapt this Dockerfile:
+Python
+^^^^^^
 
 .. literalinclude:: samples/Dockerfile_python
+   :language: none
+
+Node
+^^^^
+
+.. literalinclude:: samples/Dockerfile_node
    :language: none
 
 .. _dockerignore:
