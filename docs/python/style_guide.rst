@@ -58,6 +58,12 @@ flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/proj
 
 The `Python Code Quality Authority <https://github.com/PyCQA>`__ maintains ``flake8`` (which includes ``mccabe``, ``pycodestyle`` and ``pyflakes``), ``isort`` and ``pylint``.
 
+Exception handling
+------------------
+
+-  Do not use a bare ``except:`` or a generic ``except Exception:``. Use specific error classes to avoid handling exceptions incorrectly.
+-  If an unexpected error occurs within a long-running worker, allow the worker to die. Otherwise, for example, if a worker is failing due to a broken connection, it should not survive to uselessly attempt to re-use that broken connection.
+
 String formatting
 -----------------
 
