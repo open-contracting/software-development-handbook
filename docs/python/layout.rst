@@ -1,6 +1,11 @@
 Directory layout
 ================
 
+Filename conventions
+--------------------
+
+-  ``util`` for a generic module of helper functions, not ``utils``, ``tools`` or ``helper``
+
 Static files
 ------------
 
@@ -44,4 +49,3 @@ Packages
 .. note::
 
    We don't use the `src/ layout <https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure>`__. Although a `single blog post <https://blog.ionelmc.ro/2015/02/24/the-problem-with-packaging-in-python/>`__ and a few passionate developers have popularized the idea, in practice, we rarely encounter the problems it solves, and our use of :ref:`check-manifest<python-package-release-process>` and `test_requirements.py <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/tests/test_requirements.py>`__ guard against those problems.
-
