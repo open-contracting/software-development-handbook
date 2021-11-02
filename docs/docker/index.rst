@@ -51,6 +51,16 @@ For Node, use the default image, `as recommended <https://hub.docker.com/_/node/
 
 For a web server, use the `nginxinc/nginx-unprivileged:latest <https://hub.docker.com/r/nginxinc/nginx-unprivileged>`__ image. Note that the default port is changed to 8080 (instead of 80).
 
+For reference, the ``/etc/nginx/conf.d/default.conf`` file in the Nginx image is:
+
+.. literalinclude:: samples/default.conf
+   :language: nginx
+
+..
+   docker pull nginxinc/nginx-unprivileged
+   docker run -it --entrypoint sh nginxinc/nginx-unprivileged
+   $ cat /etc/nginx/conf.d/default.conf
+
 System packages
 ~~~~~~~~~~~~~~~
 
