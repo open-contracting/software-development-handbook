@@ -5,7 +5,7 @@ Docker
 
    For deploying Docker, see the  `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/docker.html>`__.
 
-To simplify the :ref:`GitHub Actions workflow<docker-ci>`, put the :ref:`dockerfile` and :ref`dockerignore` files in the root of the repository.
+To simplify the :ref:`GitHub Actions workflow<docker-registry>`, put the :ref:`dockerfile` and :ref`dockerignore` files in the root of the repository.
 
 .. _dockerfile:
 
@@ -92,10 +92,10 @@ The `.dockerignore <https://docs.docker.com/engine/reference/builder/#dockerigno
 .. literalinclude:: samples/dockerignore
    :language: none
 
-.. _docker-ci:
+.. _docker-registry:
 
-Continuous integration
-----------------------
+Docker registry
+---------------
 
 In most cases, you can add the job below to an existing :ref:`.github/workflows/ci.yml<continuous-integration>` file. If you need to build multiple images, then for each image:
 
