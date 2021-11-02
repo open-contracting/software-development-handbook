@@ -16,13 +16,13 @@ To increase consistency across projects:
 
 -  Set the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__ to ``runner``
 
-   .. code-block:: none
+   .. code-block:: docker
 
       RUN groupadd -r runner && useradd --no-log-init -r -g runner runner
 
 -  Set `WORKDIR <https://docs.docker.com/engine/reference/builder/#workdir>`__ to ``/workdir``
 
-   .. code-block:: none
+   .. code-block:: docker
 
       WORKDIR /workdir
 
@@ -62,11 +62,11 @@ Before installing a system package, check whether it's included in a base image.
 #. Look for ``FROM`` instructions
 #. Repeat steps 1-3 for the ``FROM`` image(s)
 
-In this example, we find that the `buildpack-deps:bullseye image <https://github.com/docker-library/buildpack-deps/blob/master/debian/bullseye/Dockerfile>`__ installs the ``libpq-dev`` system package.
+We find that the `buildpack-deps:bullseye image <https://github.com/docker-library/buildpack-deps/blob/master/debian/bullseye/Dockerfile>`__ installs the ``libpq-dev`` system package.
 
 If it's not included, install it following `best practices <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#apt-get>`__:
 
-.. code-block:: none
+.. code-block:: docker
 
    RUN apt-get update && apt-get install -y --no-install-recommends \
          package-a \
@@ -81,7 +81,7 @@ Python
 ^^^^^^
 
 .. literalinclude:: samples/Dockerfile_python
-   :language: none
+   :language: docker
 
 Node
 ^^^^
@@ -96,7 +96,7 @@ See:
 .dockerignore
 -------------
 
-The `.dockerignore <https://docs.docker.com/engine/reference/builder/#dockerignore-file> file`__ should only ignore tracked files (not files like ``.DS_Store`` or directories like ``__pycache__``), unless the build generates untracked files (like ``node_modules``).
+The `.dockerignore <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`__ file should only ignore tracked files (not files like ``.DS_Store`` or directories like ``__pycache__``), unless the build generates untracked files (like ``node_modules``).
 
 .. literalinclude:: samples/dockerignore
    :language: none
@@ -117,7 +117,11 @@ In most cases, you can add the job below to an existing :ref:`.github/workflows/
 If you need to build multiple images, then for each image:
 
 #. Include a ``docker/build-push-action`` step.
-#. Set either the path to the Dockerfile with the `file <https://github.com/docker/build-push-action#inputs>`__ key or the path to the directory (`context <https://docs.docker.com/engine/context/working-with-contexts/>`__) with the ``context`` key.
+#. Set either:
+
+   -  The path to the Dockerfile with the `file <https://github.com/docker/build-push-action#inputs>`__ key
+   -  The path to the directory (`context <https://docs.docker.com/engine/context/working-with-contexts/>`__) with the ``context`` key
+
 #. Add a suffix to the repository name under the ``tags`` key.
 
 .. literalinclude:: samples/ci.yml
