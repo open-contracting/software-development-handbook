@@ -6,7 +6,7 @@ We have preferences in order to:
 -  Limit the number of packages with which developers need to be familiar.
 -  Re-use code (like Click) instead of writing new code (with argparse).
 
-For :doc:`applications`, we prefer all-inclusive and opinionated packages, because they:
+For applications, we prefer all-inclusive and opinionated packages, because they:
 
 -  Promote greater similarity and code reuse across projects. Django encourages developers to use its authentication mechanism. With Flask, each developer can choose a different mechanism.
 -  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.

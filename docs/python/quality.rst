@@ -8,7 +8,7 @@ Automated testing
 
 pytest is :doc:`preferred<preferences>`.
 
-:doc:`applications` can be tested with:
+Applications can be tested with:
 
 .. code-block:: shell
 

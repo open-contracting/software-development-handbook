@@ -28,7 +28,7 @@ Tests
 Applications
 ------------
 
-:doc:`applications` should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/3.2/intro/tutorial01/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__. If no framework is used, prefer a smaller number of directories: Examples: `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize>`__, `Pelican backend <https://github.com/open-contracting/pelican-backend>`__. For example:
+Applications should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/3.2/intro/tutorial01/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__. If no framework is used, prefer a smaller number of directories: Examples: `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize>`__, `Pelican backend <https://github.com/open-contracting/pelican-backend>`__. For example:
 
 .. code-block:: none
 

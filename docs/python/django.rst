@@ -104,7 +104,7 @@ Using the template
   Then, make any corresponding changes to ``urls.py``, and ``MIDDLEWARE``, ``TEMPLATES``, ``STATIC_URL`` and ``AUTH_PASSWORD_VALIDATORS`` in ``settings.py``.
 `DATABASES <https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-DATABASES>`__
   -  Replace ``{{ database_name }}`` and ``{{ app_name }}``.
-  -  Remember to add `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ to your :ref:`requirements file<application-requirements>`.
+  -  Remember to add `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ to your :doc:`requirements file<requirements>`.
 `LOGGING <https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-LOGGING>`__
   See :doc:`logging`.
 

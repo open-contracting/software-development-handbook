@@ -20,8 +20,8 @@ Style guides
    settings
    logging
    file_formats
+   requirements
    packages
-   applications
 
 Code quality
 ------------
