@@ -35,19 +35,21 @@ To `leverage the build cache <https://docs.docker.com/develop/develop-images/doc
 #. Install system packages
 #. Copy requirements files
 #. Install project dependencies
-#. Create a non-root user
-#. Set the working directory
-#. Switch to the non-root user
+#. Create a non-root user †
+#. Set the working directory †
+#. Switch to the non-root user †
 #. Copy project files
+
+† For different languages, the instructions about the non-root user and working directory might appear in a different order.
 
 Base images
 ~~~~~~~~~~~
 
-For Python, use the default image, `as recommended <https://hub.docker.com/_/python>`__, of the minor version, to ensure predictable behavior. Do not use the ``-slim`` version.
+For Python, use the default image, `as recommended <https://hub.docker.com/_/python>`__, of the minor version, to ensure predictable behavior. Do not use the ``-slim`` or ``-alpine`` versions.
+
+For Node, use the default image, `as recommended <https://hub.docker.com/_/node/>`__, of the major version. Do not use the ``-slim`` or ``-alpine`` versions.
 
 For a web server, use the `nginxinc/nginx-unprivileged:latest <https://hub.docker.com/r/nginxinc/nginx-unprivileged>`__ image. Note that the default port is changed to 8080 (instead of 80).
-
-Reference: `node images <https://hub.docker.com/_/node/>`__
 
 System packages
 ~~~~~~~~~~~~~~~
@@ -84,8 +86,10 @@ Python
 Node
 ^^^^
 
-.. literalinclude:: samples/Dockerfile_node
-   :language: none
+See:
+
+-  `Dockerising a Node.js web app <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>`__
+-  `Best Practices Guide <https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md>`__
 
 .. _dockerignore:
 
