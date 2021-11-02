@@ -4,7 +4,13 @@ Directory layout
 Filename conventions
 --------------------
 
--  ``util`` for a generic module of helper functions, not ``utils``, ``tools`` or ``helper``
+-  ``util`` for a generic module of helper functions, not ``utils``, ``tools`` or ``helper``.
+-  Use verbs for commands (like ``add_files.py``).
+-  Use nouns for workers (like ``checker.py``).
+
+   .. note::
+
+      Verbs may be used for workers if they aren't mixed with commands.
 
 Static files
 ------------
