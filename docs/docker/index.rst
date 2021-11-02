@@ -5,20 +5,51 @@ Docker
 
    For deploying Docker, see the  `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/docker.html>`__.
 
+To simplify the :ref:`GitHub Actions workflow<docker-ci>`, put the :ref:`dockerfile` and :ref`dockerignore` files in the root of the repository.
+
+.. _dockerfile:
+
 Dockerfile
 ----------
 
 To increase consistency across projects:
 
--  Set the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__ to ``builder``
+-  Set the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__ to ``runner``
+
+   .. code-block:: none
+
+      RUN groupadd -r runner && useradd --no-log-init -r -g runner runner
+
 -  Set `WORKDIR <https://docs.docker.com/engine/reference/builder/#workdir>`__ to ``/workdir``
 
+   .. code-block:: none
+
+      WORKDIR /workdir
+
 Reference: `Dockerfile best practices <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/>`__
+
+Instruction order
+~~~~~~~~~~~~~~~~~
+
+To `leverage the build cache <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache>`__, order the instructions from least-to-most likely to change over time. In general, the order is:
+
+#. Declare the base image
+#. Create a non-root user
+#. Install system packages
+#. Copy requirements files
+#. Install project dependencies
+#. Set the working directory
+#. Switch to the non-root user
+#. Copy project files
 
 Base images
 ~~~~~~~~~~~
 
 For Python, use the default image, `as recommended <https://hub.docker.com/_/python>`__, of the minor version, to ensure predictable behavior. Do not use the ``-slim`` version.
+
+For a web server, use the `nginxinc/nginx-unprivileged:latest <https://hub.docker.com/r/nginxinc/nginx-unprivileged>`__ image. Note that the default port is changed to 8080 (instead of 80).
+
+Reference: `node images <https://hub.docker.com/_/node/>`__
 
 System packages
 ~~~~~~~~~~~~~~~
@@ -33,7 +64,7 @@ Before installing a system package, check whether it's included in a base image.
 
 In this example, we find that the `buildpack-deps:bullseye image <https://github.com/docker-library/buildpack-deps/blob/master/debian/bullseye/Dockerfile>`__ installs the ``libpq-dev`` system package.
 
-If it's not included, install iit following `best practices <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/>`__:
+If it's not included, install it following `best practices <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#apt-get>`__:
 
 .. code-block:: none
 
@@ -51,6 +82,8 @@ For Python projects, adapt this Dockerfile:
 .. literalinclude:: samples/Dockerfile_python
    :language: none
 
+.. _dockerignore:
+
 .dockerignore
 -------------
 
@@ -58,3 +91,23 @@ The `.dockerignore <https://docs.docker.com/engine/reference/builder/#dockerigno
 
 .. literalinclude:: samples/dockerignore
    :language: none
+
+.. _docker-ci:
+
+Continuous integration
+----------------------
+
+In most cases, you can add the job below to an existing :ref:`.github/workflows/ci.yml<continuous-integration>` file. If you need to build multiple images, then for each image:
+
+#. Include a ``docker/build-push-action`` step.
+#. Set either the path to the Dockerfile with the `file <https://github.com/docker/build-push-action#inputs>`__ key or the path to the directory (`context <https://docs.docker.com/engine/context/working-with-contexts/>`__) with the ``context`` key.
+#. Add a suffix to the repository name under the ``tags`` key.
+
+Reference: `Troubleshooting <https://github.com/docker/build-push-action/blob/master/TROUBLESHOOTING.md>`__ ``docker/build-push-action`` GitHub Action.
+
+.. literalinclude:: samples/ci.yml
+   :language: none
+
+.. note::
+
+   The `docker/build-push-action <https://github.com/docker/build-push-action>`__ step uses `BuildKit <https://docs.docker.com/engine/reference/builder/#buildkit>`__ by default.
