@@ -5,19 +5,15 @@ All our packages should be distributed on PyPI.
 
 .. seealso::
 
-   :ref:`automated-testing`
+   :ref:`Directory layout<layout-packages>` for packages, and :ref:`how to run tests<automated-testing>` in packages
 
-setup.py
+Metadata
 --------
 
-If the package is distributed on PyPI, use this template ``setup.py``, adding arguments like ``entry_points``, ``extras_require`` and ``namespace_packages`` as needed:
+If the package is distributed on PyPI, use this template for the ``setup.py`` file, adding arguments like ``entry_points``, ``extras_require`` and ``namespace_packages`` as needed:
 
 .. literalinclude:: samples/setup.py
    :language: python
-
-If the package is tested on macOS, Windows and Ubuntu, you can use the ``'Operating System :: OS Independent'`` classifier, instead.
-
-If the package is tested on PyPy, add the ``'Programming Language :: Python :: Implementation :: PyPy'`` classifier.
 
 If the package isn’t distributed on PyPI, use this template ``setup.py``:
 
@@ -34,22 +30,41 @@ If the package isn’t distributed on PyPI, use this template ``setup.py``:
        ],
    )
 
-To change a readme from Markdown to reStructuredText, install ``pandoc`` and run:
+.. note::
+
+   We don't use ``pyproject.toml`` or ``setup.cfg`` for packaging, preferring a single ``setup.py`` file.
+
+Reference: `Packaging and distributing projects <https://packaging.python.org/guides/distributing-packages-using-setuptools/>`__
+
+Requirements
+~~~~~~~~~~~~
+
+-  Use ``install_requires`` and ``extras_require`` in the ``setup.py`` file
+-  Do not use a ``requirements.txt`` file
+-  Sort requirements alphabetically
+
+.. seealso::
+
+   :doc:`preferences`
+
+Classifiers
+~~~~~~~~~~~
+
+-  If the package is tested on macOS, Windows and Ubuntu, use the ``'Operating System :: OS Independent'`` classifier, instead.
+-  If the package is tested on PyPy, add the ``'Programming Language :: Python :: Implementation :: PyPy'`` classifier.
+
+Documentation
+-------------
+
+The template reads the documentation from a ``README.rst`` file. To convert a ``README.md`` file, install ``pandoc`` and run:
 
 .. code-block:: shell
 
    pandoc --from=markdown --to=rst --output=README.rst README.md
 
-.. note::
+.. seealso::
 
-   We don't use ``pyproject.toml`` or ``setup.cfg`` for packaging, preferring a single ``setup.py`` file. See also: :ref:`common-checks`.
-
-Requirements
-------------
-
--  Use ``install_requires`` and ``extras_require`` in ``setup.py``
--  Do not use ``requirements.txt``
--  Sort requirements alphabetically
+   :doc:`documentation`
 
 .. _python-package-release-process:
 
@@ -90,8 +105,4 @@ Release process
 
 #. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ if relevant
 
-Reference
----------
-
--  `Packaging and distributing projects <https://packaging.python.org/guides/distributing-packages-using-setuptools/>`__
--  `Publishing package distribution releases using GitHub Actions CI/CD workflows <https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>`__
+Reference: `Publishing package distribution releases using GitHub Actions CI/CD workflows <https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>`__

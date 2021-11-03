@@ -11,6 +11,12 @@ For applications, we prefer all-inclusive and opinionated packages, because they
 -  Promote greater similarity and code reuse across projects. Django encourages developers to use its authentication mechanism. With Flask, each developer can choose a different mechanism.
 -  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/3.2/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
 
+Maintainers can find dependencies with:
+
+.. code-block:: bash
+
+   find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 
+
 Preferences
 -----------
 
@@ -62,13 +68,4 @@ A preferred package should meet the following criteria:
    -  The repository is not described as archived or unmaintained.
    -  The maintainer's other repositories can be considered if the repository is new or unpopular.
 
-`Snyk Open Source Advisor <https://snyk.io/advisor/>`__ might be used to answer the above.
-
-Enforcement
------------
-
-Maintainers can find dependencies with:
-
-.. code-block:: shell
-
-   find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 
+`Snyk Open Source Advisor <https://snyk.io/advisor/>`__ might also be used to answer the above.

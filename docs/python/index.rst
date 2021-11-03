@@ -1,38 +1,28 @@
 Python
 ======
 
+Code is written for Python 3.6 and above (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
+
 .. seealso::
 
-   The :doc:`../services/index` section contains Python-related content:
-
-   -  :doc:`../services/postgresql`
-   -  :doc:`../services/rabbitmq`
-
-Style guides
-------------
+   The :doc:`../services/index` section contains Python-related content for :doc:`../services/postgresql` and :doc:`../services/rabbitmq`.
 
 .. toctree::
    :maxdepth: 2
 
-   style_guide
    layout
-   django
+   requirements
+   preferences
+   tests
+   ci
+   documentation
    settings
    logging
+   django
    file_formats
-   requirements
    packages
-
-Code quality
-------------
-
-.. toctree::
-   :maxdepth: 2
-
-   preferences
-   quality
-   documentation
    performance
+   style_guide
 
 Reference
 ---------

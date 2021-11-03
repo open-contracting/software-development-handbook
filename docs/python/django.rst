@@ -20,7 +20,7 @@ Models
 
 -  Use ``help_text`` and ``verbose_name`` to describe fields.
 -  Use ``TextField``, not ``CharField``. There is `no performance difference <https://www.postgresql.org/docs/11/datatype-character.html>`__ in PostgreSQL.
--  Do not use ``null=True`` with ``TextField`` or ``CharField``, as `recommended by Django <https://docs.djangoproject.com/en/3.2/ref/models/fields/#null>`__. 
+-  Do not use ``null=True`` with ``TextField`` or ``CharField``, `as recommended by Django <https://docs.djangoproject.com/en/3.2/ref/models/fields/#null>`__.
 
 Forms
 -----
@@ -37,7 +37,7 @@ Admin
 Templates
 ---------
 
-In many cases, you can achieve the same outcome using either `context processors <https://docs.djangoproject.com/en/3.2/ref/templates/api/#writing-your-own-context-processors>`__ or `inclusion tags <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__. If the variables that the template uses are constant (e.g. from a Django settings file), use a context processor. Otherwise, use an inclusion tag.
+-  In many cases, you can achieve the same outcome using either `context processors <https://docs.djangoproject.com/en/3.2/ref/templates/api/#writing-your-own-context-processors>`__ or `inclusion tags <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__. If the variables that the template uses are constant (e.g. from a Django settings file), use a context processor. Otherwise, use an inclusion tag.
 
 .. _django-settings:
 
@@ -61,6 +61,8 @@ Environment variables
 
 ``DJANGO_ENV=production``
   Sets ``DEBUG = False``. Sets `HTTPS-related settings <https://docs.djangoproject.com/en/3.2/topics/security/#ssl-https>`__, if ``LOCAL_ACCESS`` is not set and ``ALLOWED_HOSTS`` is set.
+``LOCAL_ACCESS``
+  If set, HTTPS-related settings are not set.
 ``ALLOWED_HOSTS``
   Set to a comma-separated list of `host names <https://docs.djangoproject.com/en/3.2/ref/settings/#allowed-hosts>`__. Localhost connections are always allowed.
 ``SECRET_KEY``
@@ -127,28 +129,24 @@ Add additional settings for:
 Template
 ~~~~~~~~
 
-This template is based on the `default settings.py file <https://github.com/django/django/blob/stable/3.2.x/django/conf/project_template/project_name/settings.py-tpl>`__. You can also refer to the `default Django settings <https://github.com/django/django/blob/stable/3.2.x/django/conf/global_settings.py>`__.
-
-Replace ``{{ project_name }}`` with the project's module name:
+This template is based on the `default settings.py file <https://github.com/django/django/blob/stable/3.2.x/django/conf/project_template/project_name/settings.py-tpl>`__. You can also refer to the `default Django settings <https://github.com/django/django/blob/stable/3.2.x/django/conf/global_settings.py>`__. Replace ``{{ project_name }}`` with the project's module name:
 
 .. literalinclude:: samples/settings.py
    :language: python
-
-Deployment
-----------
-
--  Use the `Deployment checklist <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/>`__
 
 .. _django-performance:
 
 Performance
 -----------
 
+Read:
+
 -  `Performance and optimization <https://docs.djangoproject.com/en/3.2/topics/performance/>`__
 -  `Database access optimization <https://docs.djangoproject.com/en/3.2/topics/db/optimization/>`__
 -  Deployment checklist: `Performance optimizations <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/#performance-optimizations>`__
 
-Reference
----------
+Deployment
+----------
 
--  `Deploying Django <https://docs.djangoproject.com/en/3.2/howto/deployment/>`__
+-  Use the `Deployment checklist <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/>`__
+-  Read `Deploying Django <https://docs.djangoproject.com/en/3.2/howto/deployment/>`__

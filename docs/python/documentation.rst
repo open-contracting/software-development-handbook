@@ -51,7 +51,7 @@ Open http://localhost:8000/docs/_build/html/ in your web browser:
 Checking broken links
 ---------------------
 
-Sphinx' `linkcheck <https://www.sphinx-doc.org/en/master/usage/builders/index.html#sphinx.builders.linkcheck.CheckExternalLinksBuilder>`__ builder reports redirects, error codes and non-existing anchors. It cannot be `configured <https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder>`__ to report only error codes. As such, it is tedious to include in :ref:`continuous integration <continuous-integration>` outside OCDS documentation, and to configure for manual invocation.
+Sphinx' `linkcheck <https://www.sphinx-doc.org/en/master/usage/builders/index.html#sphinx.builders.linkcheck.CheckExternalLinksBuilder>`__ builder reports redirects, error codes and non-existing anchors. It cannot be `configured <https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder>`__ to report only error codes. As such, it is tedious to include in :doc:`continuous integration<ci>` outside OCDS documentation, and to configure for manual invocation.
 
 To check broken links, run:
 

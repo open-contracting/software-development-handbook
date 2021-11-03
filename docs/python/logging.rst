@@ -12,9 +12,9 @@ The `logging <https://docs.python.org/3/library/logging.html>`__ module is :doc:
 Name
 ----
 
-In most cases, use ``logger = logging.getLogger(__name__)``, as `recommended <https://docs.python.org/3/library/logging.html#logger-objects>`__.
+In most cases, use ``logger = logging.getLogger(__name__)``, `as recommended <https://docs.python.org/3/library/logging.html#logger-objects>`__.
 
-If a file is run directly, ``__name__`` will be ``"__main__"``, which is less informative. In such cases, you can use the name of the module, like ``"checker.dataset"`` in `Pelican backend <https://github.com/open-contracting/pelican-backend>`__, or you can include the name of the sub-command, like ``"ocdskingfisher.summarize.add"`` in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize/blob/main/manage.py>`__.
+If a file is run directly, ``__name__`` will be ``"__main__"``, which is less informative. In such cases, you can use the name of the module, like ``"workers.check.dataset"`` in `Pelican backend <https://github.com/open-contracting/pelican-backend>`__, or you can include the name of the sub-command, like ``"ocdskingfisher.summarize.add"`` in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize/blob/main/manage.py>`__.
 
 If a command-line tool logs messages to give user feedback, we typically use the name of the command, like ``"oc4ids"``, ``"ocdskit"``, ``"ocdsextensionregistry"`` and ``"spoonbill"``.
 
@@ -48,6 +48,11 @@ To configure the format in general:
    formatter = logging.Formatter("%(asctime)s %(levelname)s [%(name)s:%(lineno)s] %(message)s")
    logger.setFormatter(formatter)
 
+Reference:
+
+-  `Django's default logging configuration <https://github.com/django/django/blob/main/django/utils/log.py>`__
+-  `Python's warnings.py format string <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L37>`__
+
 Methods
 -------
 
@@ -61,9 +66,3 @@ Configuration
 -------------
 
 Loggers are organized into a `hierarchy <https://docs.python.org/3/library/logging.html#logger-objects>`__. As such, you can configure only the root logger (its name is ``''`` in Django, or ``None`` in general), or only the loggers for top-level modules (like only ``a``, instead of both ``a.b`` and ``a.c``).
-
-Reference
----------
-
--  `Django's default logging configuration <https://github.com/django/django/blob/main/django/utils/log.py>`__
--  `Python's warnings.py format string <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L37>`__
