@@ -48,6 +48,17 @@ If running ``pip-compile`` introduces unexpected differences, upgrade ``pip-tool
 
    :doc:`preferences`
 
+.. _requirements-psycopg2:
+
+psycopg2
+~~~~~~~~
+
+``psycopg2`` is `recommended <https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary>`__ for production. However, installing ``psycopg2`` for development can be difficult on operating systems like macOS. In that case, you can:
+
+-  Put ``psycopg2`` in ``requirements.in``
+-  Put ``psycopg2-binary`` in ``requirements_dev.in``
+-  Run: ``pip install psycopg2-binary``
+
 Install requirements
 --------------------
 

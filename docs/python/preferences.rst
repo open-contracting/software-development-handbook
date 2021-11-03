@@ -1,7 +1,7 @@
 Preferred packages
 ==================
 
-We have preferences in order to:
+We have preferences for :doc:`requirements<requirements>` in order to:
 
 -  Limit the number of packages with which developers need to be familiar.
 -  Re-use code (like Click) instead of writing new code (with argparse).
@@ -28,6 +28,11 @@ Command-line interface
   `Click <https://click.palletsprojects.com/>`__, unless a framework provides its own, like `Django <https://docs.djangoproject.com/en/3.2/howto/custom-management-commands/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
 Object Relational Mapper (ORM)
   Django. If you don't need an ORM, use `psycopg2 <https://www.psycopg.org/docs/>`__. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except in low-level libraries with limited scope *where an ORM is needed*.
+
+  .. note::
+
+     Use ``psycopg2`` in production, not ``psycopg2-binary``, `as recommended <https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary>`__. See :ref:`how to configure this<requirements-psycopg2>`.
+
 HTTP client
   `Requests <https://docs.python-requests.org/en/master/>`__, unless a framework uses another, like Scrapy (Twisted).
 HTML parsing
