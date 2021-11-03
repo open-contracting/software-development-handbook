@@ -51,7 +51,8 @@ Datastores
 Web servers
 -----------
 
--  Apache
+-  Apache on hosts
+-  Nginx in containers
 
 Miscellaneous
 -------------

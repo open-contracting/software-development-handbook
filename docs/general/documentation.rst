@@ -3,7 +3,8 @@ Documentation
 
 .. seealso::
 
-   :ref:`readthedocs`
+   -  :ref:`How to create a project on ReadTheDocs<readthedocs>`
+   -  :doc:`What to document in Python projects and how to build Sphinx documentation<../python/documentation>`
 
 .. _doc-types:
 
@@ -53,13 +54,13 @@ How-to guides
 -  Don't include information that is not directly relevant to the how-to guide.
 -  Use numbered lists for instructions. Nest sub-tasks to give structure to long lists.
 -  Give example commands, but don't include default arguments or any other extraneous detail.
--  It's okay to put many how-to guides on one page; however, the setup guide should be on its own.
+-  It's okay to put many how-to guides on one page, but the setup guide should be on its own.
 
 Word choice
 ~~~~~~~~~~~
 
 Use consistent terms and constructions
-  For example: "connect to the server," not a mix of "go to the app server", "access the remote machine", etc.
+  For example: "connect to the server," not a mix of "go to the server", "access the machine", etc.
 Use specific and non-metaphorical language
   For example: "connect" to the server, not "go" to the server.
 Link unfamiliar terms to external documentation, if available
@@ -69,7 +70,3 @@ Shell examples
 ~~~~~~~~~~~~~~
 
 Documentation and examples for external users should use ``sh`` or ``bash`` syntax. Documentation for internal users can use ``fish`` syntax.
-
-.. note::
-
-   Read the Python :doc:`../python/documentation` page to learn what to document in Python projects and how to build Sphinx documentation.
