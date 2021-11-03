@@ -46,6 +46,12 @@ Settings
 
 To simplify the configuration of Django projects, use the :ref:`template below<django-template>` for the `settings file <https://docs.djangoproject.com/en/3.2/topics/settings/>`__.
 
+In other modules, import settings from ``django.conf``, `as recommended <https://docs.djangoproject.com/en/3.2/topics/settings/#using-settings-in-python-code>`__:
+
+.. code-block:: python
+
+   from django.conf import settings
+
 .. seealso::
 
    :doc:`settings`, for the general approach to configuration
