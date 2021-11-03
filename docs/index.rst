@@ -5,7 +5,7 @@ A guide for developers of OCP's tools.
 
 .. admonition:: Remember
 
-   Put **all deployment-related code** in the `deploy <https://github.com/open-contracting/deploy>`__ repository, not in the software repository.
+   Put **all deployment-related code** in the `deploy <https://github.com/open-contracting/deploy>`__ repository, not in the software repository. (:doc:`Creating images<docker/index>` is allowed in software repositories.)
 
 .. toctree::
    :maxdepth: 2
