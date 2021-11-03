@@ -1,7 +1,9 @@
 Requirements
 ============
 
-Requirements are managed by four files at the root of a repository:
+Now that you have a :doc:`directory layout<layout>`, you can declare the project's requirements.
+
+The requirements of *applications* (not :doc:`packages<packages>`) are managed by four files at the root of a repository:
 
 -  ``requirements.in`` names all direct requirements needed in the production environment, i.e. all packages ``import``'ed by the application.
 
@@ -33,10 +35,6 @@ Get started
 Add a requirement
 -----------------
 
-.. note::
-
-   For guidance on selecting a package, see :doc:`preferences`.
-
 Add the requirement in alphabetical order to the appropriate ``.in`` file. Then, run:
 
 .. code-block:: bash
@@ -44,24 +42,26 @@ Add the requirement in alphabetical order to the appropriate ``.in`` file. Then,
    pip-compile
    pip-compile requirements_dev.in
 
-.. note::
+If running ``pip-compile`` introduces unexpected differences, upgrade ``pip-tools`` to the latest version, and check that you are using the same version of Python as for other runs.
 
-   To declare the dependencies of packages, see :doc:`packages`.
+.. seealso::
+
+   :doc:`preferences`
 
 Install requirements
 --------------------
-
-In production:
-
-.. code-block:: bash
-
-   pip-sync
 
 In development:
 
 .. code-block:: bash
 
    pip-sync requirements_dev.txt
+
+In production:
+
+.. code-block:: bash
+
+   pip-sync -q --pip-args "--exists-action w"
 
 Upgrade requirements
 --------------------
