@@ -58,6 +58,12 @@ flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/proj
 
 The `Python Code Quality Authority <https://github.com/PyCQA>`__ maintains ``flake8`` (which includes ``mccabe``, ``pycodestyle`` and ``pyflakes``), ``isort`` and ``pylint``.
 
+Comments
+--------
+
+-  Use sentence case, correct punctuation, and correct capitalization. Do not omit articles.
+-  Do not add ``TODO`` comments. Instead, create GitHub issues. TODO's in code are less visible to the rest of the team.
+
 Exception handling
 ------------------
 

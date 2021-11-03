@@ -70,7 +70,7 @@ Manage products and services responsibly
 
 Among other practices, we:
 
--  Sufficiently resource the maintenance of all software, to limit technical debt
+-  Sufficiently resource the maintenance of all software, to `manage technical debt <https://tashian.com/articles/managing-technical-debt/>`__
 -  Sufficiently resource the hosting of all services, to avoid service disruptions
 -  Review the :ref:`health of products and services<health>` in each roadmap and plan maintenance and improvements accordingly
 

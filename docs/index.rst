@@ -3,6 +3,10 @@ OCP Software Development Handbook
 
 A guide for developers of OCP's tools.
 
+.. admonition:: Remember
+
+   Put **all deployment-related code** in the `deploy <https://github.com/open-contracting/deploy>`__ repository, not in the software repository.
+
 .. toctree::
    :maxdepth: 2
 
