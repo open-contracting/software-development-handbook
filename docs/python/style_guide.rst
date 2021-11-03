@@ -1,6 +1,10 @@
 General style
 =============
 
+.. seealso::
+
+   The :doc:`../services/index` section contains Python-related content for :doc:`../services/postgresql` and :doc:`../services/rabbitmq`.
+
 Comments
 --------
 
@@ -128,5 +132,7 @@ Scripts
    Read the general :doc:`../shell/index` content.
 
 If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
+
+If you are having trouble with the Python path, try running the script with ``python -m script_module``, which will add the current directory to ``sys.path``.
 
 **Examples**: `extension_registry <https://github.com/open-contracting/extension_registry/blob/main/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/main/manage.py>`__
