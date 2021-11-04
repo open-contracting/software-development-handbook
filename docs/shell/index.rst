@@ -50,6 +50,14 @@ Avoid:
 
 -  ``set -x`` in scripts run by continuous integration, because it will expand any secret variables
 
+Continuous integration
+----------------------
+
+Create a ``.github/workflows/lint.yml`` file with:
+
+.. literalinclude:: samples/lint.yml
+   :language: yaml
+
 Reference
 ---------
 
