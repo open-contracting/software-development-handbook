@@ -105,7 +105,7 @@ Release process
 
 #. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ if relevant
 
-Maintainers can find and compare PyPI workflow files with:
+Maintainers can find and compare ``pypi.yml`` files with:
 
 .. code-block:: bash
 

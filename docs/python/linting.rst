@@ -1,31 +1,47 @@
 Linting
 =======
 
-All code should be checked as documented by `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
+Before writing any code, set up formatters and linters.
 
 Configuration
 -------------
 
-Repositories should not use ``setup.cfg``, ``pyproject.toml``, ``.editorconfig`` or tool-specific files to configure the behavior of tools, except to ignore generated files like database migrations.
+New projects should use `Black <https://black.readthedocs.io/en/stable/>`. All projects must use `flake8 <https://flake8.pycqa.org/en/latest/>`__ and `isort <https://pycqa.github.io/isort/>`__ with line lengths of 119 (the Django standard). If using Black, `configure it <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html>`__ as follows:
 
-.. note::
+.. code-block:: toml
+   :caption: pyproject.toml
 
-   If a project uses `Black <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html?highlight=flake8>`__, it needs a ``setup.cfg`` file for `flake8 <https://github.com/PyCQA/flake8/issues/234>`__ and ``isort`` and a ``pyproject.toml`` file for `black <https://github.com/psf/black/issues/683>`__. Black is not used in all projects, because its `vertical style <https://github.com/open-contracting/standard-maintenance-scripts/issues/148#issuecomment-693556236>`__ is slower to scan.
+   [tool.black]
+   line-length = 119
 
-Maintainers can find configuration files with:
+   [tool.isort]
+   profile = 'black'
+   line_length = 119
+
+.. code-block:: ini
+   :caption: setup.cfg
+
+   [flake8]
+   max-line-length = 119
+   extend-ignore = E203
+
+Repositories should not modify or otherwise use ``setup.cfg``, ``pyproject.toml``, ``.editorconfig`` or tool-specific files to configure the behavior of tools, except to ignore generated files like database migrations.
+
+Maintainers can find and compare configuration files with:
 
 .. code-block:: bash
 
-   find . \( -name setup.cfg -or -name pyproject.toml -or -name .editorconfig -or -name .flake8 -or -name .isort.cfg -or -name .pylintrc -or -name pylintrc -or -name pytest.ini \) -not -path '*/node_modules/*' -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "4b679b931113f9a779bfea5e8c55cea40f8a5efe 1031acedc073ce860655c192071a0b0ad7653919" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
+   find . \( -name setup.cfg -or -name pyproject.toml -or -name .editorconfig -or -name .flake8 -or -name .isort.cfg -or -name .pylintrc -or -name pylintrc -or -name pytest.ini \) -not -path '*/node_modules/*' -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "45342d1e1c767ae5900edbcbde5c030adb30a753 ed723d5329bb74ab24e978c6b0ba6d2095e8fa1e 29418dd6acf27bb182036cf072790cb640f34c9c" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
 
 ..
    The shasums are:
 
-   4b679b931113f9a779bfea5e8c55cea40f8a5efe minimal pyproject.toml file for Black
-   1031acedc073ce860655c192071a0b0ad7653919 minimal setup.cfg file for Black
+   45342d1e1c767ae5900edbcbde5c030adb30a753 pyproject.toml as above
+   ed723d5329bb74ab24e978c6b0ba6d2095e8fa1e setup.cfg as above
+   29418dd6acf27bb182036cf072790cb640f34c9c pytest.ini with doctests
 
-Allowing exceptions
--------------------
+Skipping linting
+----------------
 
 ``isort:skip`` and ``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``. The errors that are allowed to be ignored are:
 
@@ -50,6 +66,8 @@ Create a ``.github/workflows/lint.yml`` file. As a base, use:
 .. literalinclude:: samples/lint.yml
    :language: yaml
 
+See the `documentation <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the scripts.
+
 If the project uses Black, add:
 
 .. code-block:: yaml
@@ -57,7 +75,7 @@ If the project uses Black, add:
          - run: pip install black
          - run: black --check .
 
-Unless the project is documentation only, add:
+Unless the project is documentation only (like a handbook or a standard), add:
 
 -  For an application:
 
@@ -73,15 +91,6 @@ Unless the project is documentation only, add:
             - run: pip install .[test]
             - run: pytest /tmp/test_requirements.py
 
-If the project includes :doc:`shell scripts<../shell/index>`, add:
-
-.. code-block:: yaml
-
-         - run: sudo apt install shellcheck
-         - run: sudo snap install shfmt
-         - run: shellcheck $(shfmt -f .)
-         - run: shfmt -d -i 4 -sr $(shfmt -f .)
-
 If the project is a :doc:`package<packages>`, add:
 
 .. code-block:: yaml
@@ -91,7 +100,24 @@ If the project is a :doc:`package<packages>`, add:
 
 Finally, add any project-specific linting, like in `notebooks-ocds <https://github.com/open-contracting/notebooks-ocds/blob/f9f42cac48f91564eba0da3c2a79ebdf7c3c43ad/.github/workflows/lint.yml#L22-L24>`__
 
-If the project contains JavaScript, you can create a ``.github/workflows/js.yml`` file, following :ref:`this template<javascript-ci>`.
+Maintainers can find and compare ``lint.yml`` files with:
+
+.. code-block:: bash
+
+   find . -name lint.yml -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "9773a893d136df0dc82deddedd8af8563969c04a 9222eac95ab63f3c2d983ba3cf4629caea53a72e 953ef7f0815d49226fd2d05db8df516fff2e3fdb fc3eff616a7e72f41c96e48214d244c9058dbc83 dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
+
+..
+   The shasums are:
+
+   9773a893d136df0dc82deddedd8af8563969c04a basic
+   9222eac95ab63f3c2d983ba3cf4629caea53a72e application
+   953ef7f0815d49226fd2d05db8df516fff2e3fdb black + application
+   fc3eff616a7e72f41c96e48214d244c9058dbc83 package
+   dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4 black + package
+
+.. seealso::
+
+   Workflow files for linting :ref:`shell scripts<shell-ci>` and :ref:`Javascript files<javascript-ci>`
 
 Optional linting
 ----------------
