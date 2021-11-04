@@ -50,13 +50,21 @@ Avoid:
 
 -  ``set -x`` in scripts run by continuous integration, because it will expand any secret variables
 
+.. _shell-ci:
+
 Continuous integration
 ----------------------
 
-Create a ``.github/workflows/lint.yml`` file with:
+Create a ``.github/workflows/shell.yml`` file with:
 
-.. literalinclude:: samples/lint.yml
+.. literalinclude:: samples/shell.yml
    :language: yaml
+
+Maintainers can find and compare ``shell.yml`` files with:
+
+.. code-block:: bash
+
+   find . -name shell.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
 
 Reference
 ---------
