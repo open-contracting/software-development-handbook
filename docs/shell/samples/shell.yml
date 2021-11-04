@@ -1,4 +1,4 @@
-name: Lint
+name: Lint Shell
 on: [push, pull_request]
 jobs:
   build:

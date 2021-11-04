@@ -66,6 +66,12 @@ Maintainers can find and compare ``shell.yml`` files with:
 
    find . -name shell.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
 
+Maintainers can find repositories with shell scripts but without ``shell.yml`` files with:
+
+.. code-block:: bash
+
+   find . \( -path '*/script/*' -o -name '*.sh' \) -not -path '*/node_modules/*' -not -path '*/vendor/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name shell.yml) ]]; then echo {}; fi' \;
+
 Reference
 ---------
 
