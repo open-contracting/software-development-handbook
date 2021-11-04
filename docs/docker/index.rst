@@ -137,7 +137,7 @@ To check the contents of the image, you can run, replacing ``IMAGE``:
 Docker registry
 ---------------
 
-In most cases, you can add the job below to an existing :ref:`.github/workflows/ci.yml<continuous-integration>` file.
+In most cases, you can add the job below to an existing :doc:`.github/workflows/ci.yml<../python/ci>` file.
 
 If you need to build multiple images, then for each image:
 
