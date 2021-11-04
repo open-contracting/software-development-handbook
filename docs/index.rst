@@ -18,6 +18,7 @@ A guide for developers of OCP's tools.
    htmlcss/index
    docker/index
    services/index
+   git/index
    github/index
    roadmap/index
    contributing
