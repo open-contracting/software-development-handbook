@@ -8,36 +8,124 @@ Continous integration
 Automated tests
 ---------------
 
+Create a ``.github/workflows/ci.yml`` file, and use one of the base templates below.
+
+-  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
+-  If a ``run:`` step is a single line, omit the ``name:`` key.
+-  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
+
+Service containers
+~~~~~~~~~~~~~~~~~~
+
+If the workflow requires `service containers <https://docs.github.com/en/actions/using-containerized-services/about-service-containers>`__, add the ``services:`` key after the ``steps:`` key, so that files are easier to compare visually.
+
+.. note::
+
+   Service containers are `only available on Ubuntu runners <https://docs.github.com/en/actions/using-containerized-services/about-service-containers#about-service-containers>`__.
+
+PostgreSQL
+^^^^^^^^^^
+
+Set the image tag to the version used in production:
+
+.. tip::
+
+   If you are running out of connections, use the ``cyberboss/postgres-max-connections`` image, which is a `fork <https://github.com/tgstation/tgstation-server/blob/a64be6d9819b8923231ffbe54e37f5d92ebd0f17/.github/workflows/ci-suite.yml#L271>`__ of ``postgres:latest`` with ``max_connections=500``.
+
+.. code-block:: yaml
+
+         postgres:
+           image: postgres:13
+           env:
+             POSTGRES_PASSWORD: postgres
+           options: >-
+             --health-cmd pg_isready
+             --health-interval 10s
+             --health-timeout 5s
+             --health-retries 5
+           ports:
+             - 5432/tcp
+
+RabbitMQ
+^^^^^^^^
+
+.. code-block:: yaml
+
+         rabbitmq:
+           image: rabbitmq:latest
+           options: >-
+             --health-cmd "rabbitmqctl node_health_check"
+             --health-interval 10s
+             --health-timeout 5s
+             --health-retries 5
+           ports:
+             - 5672/tcp
+
+Elasticsearch
+^^^^^^^^^^^^^
+
+Set the image tag to the version used in production:
+
+.. code-block:: yaml
+
+         elasticsearch:
+           image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+           env:
+             discovery.type: single-node
+           options: >-
+             --health-cmd "curl localhost:9200/_cluster/health"
+             --health-interval 10s
+             --health-timeout 5s
+             --health-retries 5
+           ports:
+             - 9200/tcp
+
+Applications
+~~~~~~~~~~~~
+
+.. literalinclude:: samples/ci-app.yml
+   :language: yaml
+
 Packages
 ~~~~~~~~
 
-Create a ``.github/workflows/ci.yml`` file. As a base, use:
+If using `tox <http://tox.readthedocs.org>`__:
 
--  If using `tox <http://tox.readthedocs.org>`__:
+.. literalinclude:: samples/ci-package-tox.yml
+   :language: yaml
 
-   .. literalinclude:: samples/ci-package-tox.yml
-      :language: yaml
+Otherwise, replacing ``PACKAGENAME``:
 
--  Otherwise, replacing ``PACKAGENAME``:
+.. literalinclude:: samples/ci-package.yml
+   :language: yaml
 
-   .. literalinclude:: samples/ci-package.yml
-      :language: yaml
+:doc:`packages` should be tested on Python versions that aren't end-of-life, and on the latest version of PyPy. They should be tested on Ubuntu, macOS and Windows, unless service containers are needed, in which case an Ubuntu runner is required.
 
 If the package has optional support for `orjson <https://pypi.org/project/orjson/>`__, to test on PyPy, replace the ``pytest`` step with the following steps, replacing ``PACKAGENAME``: 
 
-      # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
-      - if: matrix.python-version != 'pypy-3.7'
-        name: Test
-        run: |
-          coverage run --append --source=PACKAGENAME -m pytest
-          pip install orjson
-          coverage run --append --source=PACKAGENAME -m pytest
-          pip uninstall -y orjson
-      - if: matrix.python-version == 'pypy-3.7'
-        name: Test
-        run: pytest --cov PACKAGENAME
+.. code-block:: yaml
+
+         # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
+         - if: matrix.python-version != 'pypy-3.7'
+           name: Test
+           run: |
+             coverage run --append --source=PACKAGENAME -m pytest
+             pip install orjson
+             coverage run --append --source=PACKAGENAME -m pytest
+             pip uninstall -y orjson
+         - if: matrix.python-version == 'pypy-3.7'
+           name: Test
+           run: pytest --cov PACKAGENAME
 
 Reference: `Using pip to get cache location <https://github.com/actions/cache/blob/main/examples.md#using-pip-to-get-cache-location>`__
+
+Static files
+~~~~~~~~~~~~
+
+For example, the `Extension Registry <https://github.com/open-contracting/extension_registry>`__ mainly contains static files. Tests are used to validate the files.
+
+.. literalinclude:: samples/ci-static.yml
+   :language: yaml
 
 .. _code-coverage:
 
@@ -71,32 +159,6 @@ For example, `cove-ocds <https://github.com/open-contracting/cove-ocds/blob/main
    - run: "[ \"$GITHUB_EVENT_NAME\" != \"pull_request\" ] || [ \"`pocount --incomplete cove_ocds/locale/es/LC_MESSAGES/django.po`\" = \"\" ]"
 
 In other words, either the event isn't a pull request, or the ``pocount`` command's output is empty.
-
-Test matrix
------------
-
-:doc:`packages` should be tested on Ubuntu, macOS and Windows, on Python versions that aren't end-of-life, and on the latest version of PyPy. For example:
-
-.. code-block:: yaml
-
-   name: CI
-   on: [push, pull_request]
-   jobs:
-     build:
-       runs-on: ${{ matrix.os }}
-       strategy:
-         matrix:
-           os: [macos-latest, windows-latest, ubuntu-latest]
-           python-version: [3.6, 3.7, 3.8, 3.9, pypy-3.7]
-       steps:
-       - uses: actions/checkout@v2
-       - uses: actions/setup-python@v2
-         with:
-           python-version: ${{ matrix.python-version }}
-
-.. note::
-
-   If a package requires `service containers <https://docs.github.com/en/actions/guides/about-service-containers>`__, you must use an Ubuntu runner.
 
 Maintenance
 -----------
@@ -156,3 +218,12 @@ Find and compare ``pypi.yml`` files:
 Find repositories for Python packages but without ``pypi.yml`` files:
 
    find . -name setup.py -not -path '*/node_modules/*' -exec bash -c 'if grep long_description {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
+
+Reference
+---------
+
+The following prevents GitHub Actions from running a workflow twice when pushing to the branch of a pull request:
+
+.. code-block:: yaml
+
+   if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
