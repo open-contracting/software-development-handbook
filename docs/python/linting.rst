@@ -6,7 +6,7 @@ Before writing any code, set up formatters and linters.
 Configuration
 -------------
 
-New projects should use `Black <https://black.readthedocs.io/en/stable/>`. All projects must use `flake8 <https://flake8.pycqa.org/en/latest/>`__ and `isort <https://pycqa.github.io/isort/>`__ with line lengths of 119 (the Django standard). If using Black, `configure it <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html>`__ as follows:
+New projects should use `Black <https://black.readthedocs.io/en/stable/>`__. All projects must use `flake8 <https://flake8.pycqa.org/en/latest/>`__ and `isort <https://pycqa.github.io/isort/>`__ with line lengths of 119 (the Django standard). If using Black, `configure it <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html>`__ as follows:
 
 .. code-block:: toml
    :caption: pyproject.toml
@@ -25,7 +25,7 @@ New projects should use `Black <https://black.readthedocs.io/en/stable/>`. All p
    max-line-length = 119
    extend-ignore = E203
 
-Repositories should not modify or otherwise use ``setup.cfg``, ``pyproject.toml``, ``.editorconfig`` or tool-specific files to configure the behavior of tools, except to ignore generated files like database migrations.
+Repositories should not modify or otherwise use ``setup.cfg``, ``pyproject.toml``, ``.editorconfig`` or tool-specific files, except to ignore generated files like database migrations.
 
 Maintainers can find and compare configuration files with:
 
@@ -40,10 +40,35 @@ Maintainers can find and compare configuration files with:
    ed723d5329bb74ab24e978c6b0ba6d2095e8fa1e setup.cfg as above
    29418dd6acf27bb182036cf072790cb640f34c9c pytest.ini with doctests
 
+Pre-commit hooks
+----------------
+
+To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__. For example, if Black is configured as above:
+
+.. code-block:: yaml
+
+   repos:
+     - repo: https://github.com/psf/black
+       rev: 21.5b2
+       hooks:
+         - id: black
+     - repo: https://github.com/pycqa/flake8
+       rev: 3.9.2
+       hooks:
+         - id: flake8
+     - repo: https://github.com/pycqa/isort
+       rev: 5.8.0
+       hooks:
+         - id: isort
+
+To ignore generated files, you can add, for example, ``exclude: /migrations/`` to the end of the file.
+
 Skipping linting
 ----------------
 
-``isort:skip`` and ``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``. The errors that are allowed to be ignored are:
+``isort:skip`` and ``noqa`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501``.
+
+The errors that are allowed to be ignored are:
 
 -  ``E501 line too long`` for long strings, especially URLs
 -  ``F401 module imported but unused`` in a library's top-level ``__init__.py`` file
@@ -66,7 +91,7 @@ Create a ``.github/workflows/lint.yml`` file. As a base, use:
 .. literalinclude:: samples/lint.yml
    :language: yaml
 
-See the `documentation <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the scripts.
+See the `documentation <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the Bash scripts.
 
 If the project uses Black, add:
 
@@ -98,7 +123,7 @@ If the project is a :doc:`package<packages>`, add:
          - run: pip install --upgrade check-manifest setuptools
          - run: check-manifest
 
-Finally, add any project-specific linting, like in `notebooks-ocds <https://github.com/open-contracting/notebooks-ocds/blob/f9f42cac48f91564eba0da3c2a79ebdf7c3c43ad/.github/workflows/lint.yml#L22-L24>`__
+Finally, add any project-specific linting, like in `notebooks-ocds <https://github.com/open-contracting/notebooks-ocds/blob/f9f42cac48f91564eba0da3c2a79ebdf7c3c43ad/.github/workflows/lint.yml#L22-L24>`__.
 
 Maintainers can find and compare ``lint.yml`` files with:
 
@@ -124,7 +149,7 @@ Optional linting
 
 .. note::
 
-   This section is provided for reference.
+   This section is provided for reference. In general, these are not worth the effort.
 
 flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/project/mccabe/>`__) is deactivated by default. A threshold of 10 or 15 is `recommended <https://en.wikipedia.org/wiki/Cyclomatic_complexity#Limiting_complexity_during_development>`__:
 
