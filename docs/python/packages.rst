@@ -58,7 +58,7 @@ Documentation
 
 The template reads the documentation from a ``README.rst`` file. To convert a ``README.md`` file, install ``pandoc`` and run:
 
-.. code-block:: shell
+.. code-block:: bash
 
    pandoc --from=markdown --to=rst --output=README.rst README.md
 
@@ -81,7 +81,7 @@ Release process
 
 #. Ensure that you are on the ``main`` branch:
 
-   .. code-block:: shell
+   .. code-block:: bash
 
       git checkout main
 
@@ -93,16 +93,22 @@ Release process
 
 #. Tag the release, replacing ``x.y.z`` twice:
 
-   .. code-block:: shell
+   .. code-block:: bash
 
       git tag -a x.y.z -m 'x.y.z release.'
 
 #. Push the release:
 
-   .. code-block:: shell
+   .. code-block:: bash
 
       git push --follow-tags
 
 #. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ if relevant
+
+Maintainers can find and compare PyPI workflow files with:
+
+.. code-block:: bash
+
+   find . -name pypi.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
 
 Reference: `Publishing package distribution releases using GitHub Actions CI/CD workflows <https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>`__
