@@ -1,7 +1,7 @@
 Directory layout
 ================
 
-The first step of a new project is to define its directory layout.
+A first step of a new project is to define its directory layout.
 
 Applications
 ------------

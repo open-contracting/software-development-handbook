@@ -5,7 +5,7 @@ An application should use (but not over-use) logging to make it easier to debug 
 
 .. seealso::
 
-   :ref:`String formatting style guide<string-logging>`
+   Logging section of the :ref:`String formatting style guide<string-logging>`
 
 .. _logging-name:
 
@@ -14,7 +14,7 @@ Name
 
 In most cases, use ``logger = logging.getLogger(__name__)``, `as recommended <https://docs.python.org/3/library/logging.html#logger-objects>`__.
 
-If a file is run directly, ``__name__`` will be ``"__main__"``, which is less informative. In such cases, you can use the name of the module, like ``"workers.check.dataset"`` in `Pelican backend <https://github.com/open-contracting/pelican-backend>`__, or you can include the name of the sub-command, like ``"ocdskingfisher.summarize.add"`` in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize/blob/main/manage.py>`__.
+If a file is run directly, ``__name__`` will be ``"__main__"``, which is less informative. In such cases, either use the name of the module, like ``"workers.check.dataset"`` in `Pelican backend <https://github.com/open-contracting/pelican-backend>`__, or include the name of the sub-command, like ``"ocdskingfisher.summarize.add"`` in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize/blob/main/manage.py>`__.
 
 If a command-line tool logs messages to give user feedback, we typically use the name of the command, like ``"oc4ids"``, ``"ocdskit"``, ``"ocdsextensionregistry"`` and ``"spoonbill"``.
 

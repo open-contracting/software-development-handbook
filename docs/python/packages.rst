@@ -64,7 +64,7 @@ The template reads the documentation from a ``README.rst`` file. To convert a ``
 
 .. seealso::
 
-   :doc:`documentation`
+   :doc:`Python documentation guide<documentation>`
 
 .. _python-package-release-process:
 

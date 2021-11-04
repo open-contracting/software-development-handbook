@@ -11,7 +11,7 @@ Otherwise, read configuration from INI files using `configparser <https://docs.p
 
 .. seealso::
 
-   :ref:`Django settings style guide<django-settings>`
+   :ref:`Django settings guide<django-settings>`
 
 Word choice
 -----------

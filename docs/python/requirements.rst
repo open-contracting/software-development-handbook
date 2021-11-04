@@ -3,7 +3,7 @@ Requirements
 
 Now that you have a :doc:`directory layout<layout>`, you can declare the project's requirements.
 
-The requirements of *applications* (not :doc:`packages<packages>`) are managed by four files at the root of a repository:
+The requirements of *applications* (not :doc:`packages<packages>`) are managed by four files:
 
 -  ``requirements.in`` names all direct requirements needed in the production environment, i.e. all packages ``import``'ed by the application.
 

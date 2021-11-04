@@ -1,13 +1,13 @@
 Testing
 =======
 
-You should write tests as you write code – not as an afterthought once the project is nearly complete.
+You should write tests as you write code – not as an afterthought once the project is complete.
 
 .. seealso::
 
    :ref:`File naming and directory layout<layout-tests>` for tests
 
-Style guide
+Write tests
 -----------
 
 Test code tends to be written once and only read when the test fails. As a result, test code tends to be poorly written, with a lot of copy-pasting between test methods, which makes intent unclear.

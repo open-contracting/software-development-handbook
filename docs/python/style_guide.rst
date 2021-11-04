@@ -9,7 +9,7 @@ Comments
 --------
 
 -  Use sentence case, correct punctuation, and correct capitalization. Do not omit articles.
--  Do not add ``TODO`` comments. Instead, create GitHub issues. TODO's in code are less visible to the rest of the team.
+-  Do not add ``TODO`` comments. Instead, create GitHub issues. TODO's are less visible to the team.
 
 Maintainers can find TODO comments with this command:
 
@@ -21,7 +21,7 @@ Exception handling
 ------------------
 
 -  Do not use a bare ``except:`` or a generic ``except Exception:``. Use specific error classes to avoid handling exceptions incorrectly.
--  If an unexpected error occurs within a long-running worker, allow the worker to die. Otherwise, for example, if a worker is failing due to a broken connection, it should not survive to uselessly attempt to re-use that broken connection.
+-  If an unexpected error occurs within a long-running worker, allow the worker to die. For example, if a worker is failing due to a broken connection, it should not survive to uselessly attempt to re-use that broken connection.
 
 String formatting
 -----------------
@@ -55,7 +55,7 @@ There are two cases in which f-strings and ``str.format()`` are not preferred:
 .. _string-logging:
 
 Logging
-  `"Formatting of message arguments is deferred until it cannot be avoided." <https://docs.python.org/3/howto/logging.html#optimization>`__. If you write:
+  `"Formatting of message arguments is deferred until it cannot be avoided." <https://docs.python.org/3/howto/logging.html#optimization>`__ If you write:
 
   .. code-block:: python
 
@@ -137,12 +137,12 @@ That said, it is fine to do:
 Scripts
 -------
 
-.. note::
-
-   Read the general :doc:`../shell/index` content.
-
 If a repository requires a command-line tool for management tasks, create an executable script named ``manage.py`` in the root of the repository. (This matches Django.)
 
 If you are having trouble with the Python path, try running the script with ``python -m script_module``, which will add the current directory to ``sys.path``.
 
 **Examples**: `extension_registry <https://github.com/open-contracting/extension_registry/blob/main/manage.py>`__, `deploy <https://github.com/open-contracting/deploy/blob/main/manage.py>`__
+
+.. seealso::
+
+   :doc:`Shell script guide<../shell/index>`

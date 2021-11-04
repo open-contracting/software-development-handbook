@@ -14,7 +14,7 @@ Layout
 
 .. seealso::
 
-   :doc:`layout`
+   :doc:`Directory layout guide<layout>`
 
 Models
 ------
@@ -55,7 +55,7 @@ In other modules, import settings from ``django.conf``, `as recommended <https:/
 
 .. seealso::
 
-   :doc:`settings`, for the general approach to configuration
+   :doc:`Settings guide<settings>`, for the general approach to configuration
 
 Environment variables
 ~~~~~~~~~~~~~~~~~~~~~
@@ -140,11 +140,9 @@ This template is based on the `default settings.py file <https://github.com/djan
 Performance
 -----------
 
-Read:
-
--  `Performance and optimization <https://docs.djangoproject.com/en/3.2/topics/performance/>`__
--  `Database access optimization <https://docs.djangoproject.com/en/3.2/topics/db/optimization/>`__
--  Deployment checklist: `Performance optimizations <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/#performance-optimizations>`__
+-  Read `Performance and optimization <https://docs.djangoproject.com/en/3.2/topics/performance/>`__
+-  Read `Database access optimization <https://docs.djangoproject.com/en/3.2/topics/db/optimization/>`__
+-  Read `Performance optimizations <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/#performance-optimizations>`__ in the Deployment checklist
 
 Deployment
 ----------
