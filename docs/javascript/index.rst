@@ -53,6 +53,16 @@ Package manager
 User interface
   `Vue <https://vuejs.org>`__ or `React <https://reactjs.org>`__
 
+.. _javascript-ci:
+
+Continuous integration
+----------------------
+
+Create a ``.github/workflows/lint.yml`` file. As a base, use:
+
+.. literalinclude:: samples/lint.yml
+   :language: yaml
+
 Reference
 ---------
 
