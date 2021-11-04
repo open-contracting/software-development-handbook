@@ -23,7 +23,7 @@ If consultants need to make changes that require Admin privileges, instead, ask 
 
 Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
 
-Per the `Software terms of reference (TOR) template <https://docs.google.com/document/d/13-_eFQrelLdj92MWTiqzAfO62in7Xxrv3DTcmRqvNjE/edit>`__, consultants should not have access to the production server, in order to ensure a complete knowledge transfer. As such, do not add any members to the `Servers <https://github.com/orgs/open-contracting/teams/servers>`__ team.
+Per the `Software terms of reference (TOR) template <https://docs.google.com/document/d/13-_eFQrelLdj92MWTiqzAfO62in7Xxrv3DTcmRqvNjE/edit>`__, consultants should not have access to the production server. As such, do not add any members to the `Servers <https://github.com/orgs/open-contracting/teams/servers>`__ team.
 
 .. tip::
 
@@ -50,14 +50,10 @@ Add repository metadata
 #. Add a description. The description should not describe the project’s status (‘draft’), because people frequently forget to update repository descriptions. Describe the status in the readme instead.
 #. Add a website to the repository, if relevant: for example, a link to a deployment of the tool or to its documentation.
 
-The `fix:lint_repos <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ Rake task otherwise normalizes configurations.
-
 .. _branch-protection:
 
 Protect branches
 ----------------
-
-The `fix:protect_branches <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ Rake task in `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts>`__ protects default branches.
 
 We don’t generally enable the following behaviors on `protected branches <https://docs.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches>`__ for the provided reasons:
 
@@ -69,6 +65,10 @@ If a repository needs multiple branches (like the standard and profiles), the ne
 .. seealso::
 
    Branch management of the `standard <https://ocds-standard-development-handbook.readthedocs.io/en/latest/standard/technical/repository.html>`__ and `profiles <https://ocds-standard-development-handbook.readthedocs.io/en/latest/profiles/technical/repository.html>`__ (including OC4IDS).
+
+.. tip::
+
+   Use the `fix:protect_branches <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task to protect branches.
 
 Archive a repository
 --------------------
