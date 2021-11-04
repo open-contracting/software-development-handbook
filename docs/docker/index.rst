@@ -14,17 +14,27 @@ Dockerfile
 
 To increase consistency across projects:
 
--  Set the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__ to ``runner``
+-  Use the name ``runner`` for the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__
 
    .. code-block:: docker
 
       RUN groupadd -r runner && useradd --no-log-init -r -g runner runner
 
+-  Use the ``user:group`` form for the `USER <https://docs.docker.com/engine/reference/builder/#user>`__ instruction, unless you want the group to be ``root``
 -  Set `WORKDIR <https://docs.docker.com/engine/reference/builder/#workdir>`__ to ``/workdir``
 
    .. code-block:: docker
 
       WORKDIR /workdir
+
+-  Use a leading ``/`` with the ``WORKDIR`` instruction
+-  Use the ``--chown=user:group`` option with the `COPY <https://docs.docker.com/engine/reference/builder/#copy>`__ instruction, unless you want the files to be owned by ``root``
+-  Prefer the ``COPY`` instruction to the `ADD <https://docs.docker.com/engine/reference/builder/#add>`__ instruction, `as recommended <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy>`__
+
+Reference:
+
+-  `Dockerfile reference <https://docs.docker.com/engine/reference/builder/>`__
+-  Best practices for `Dockerfile instructions <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#dockerfile-instructions>`__
 
 Instruction order
 ~~~~~~~~~~~~~~~~~
@@ -87,6 +97,10 @@ If it's not included, install it following `best practices <https://docs.docker.
 Templates
 ~~~~~~~~~
 
+.. note::
+
+   If Dockerfiles are similar across projects, we can consider creating our own base images and using the `ONBUILD <https://docs.docker.com/engine/reference/builder/#onbuild>`__ instruction to copy source code.
+
 Python
 ^^^^^^
 
@@ -100,6 +114,7 @@ See:
 
 -  `Dockerising a Node.js web app <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>`__
 -  `Best Practices Guide <https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md>`__
+-  `Node.js Language-specific guide <https://docs.docker.com/language/nodejs/>`__
 
 .. _dockerignore:
 
