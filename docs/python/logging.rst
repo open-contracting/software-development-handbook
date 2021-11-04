@@ -1,7 +1,7 @@
 Logging
 =======
 
-The `logging <https://docs.python.org/3/library/logging.html>`__ module is :doc:`preferred<preferences>`.
+An application should use (but not over-use) logging to make it easier to debug and monitor it in production. The `logging <https://docs.python.org/3/library/logging.html>`__ module is :doc:`preferred<preferences>`.
 
 .. seealso::
 

@@ -3,10 +3,6 @@ Python
 
 Code is written for Python 3.6 and above (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
 
-.. seealso::
-
-   The :doc:`../services/index` section contains Python-related content for :doc:`../services/postgresql` and :doc:`../services/rabbitmq`.
-
 .. toctree::
    :maxdepth: 2
 
@@ -20,11 +16,8 @@ Code is written for Python 3.6 and above (`see the status of Python branches <ht
    logging
    django
    file_formats
+   style_guide
    packages
    performance
-   style_guide
 
-Reference
----------
-
--  `18F Python Development Guide <https://engineering.18f.gov/python/>`__
+Reference: `18F Python Development Guide <https://engineering.18f.gov/python/>`__

@@ -1,9 +1,14 @@
-Tests
-=====
+Testing
+=======
+
+You should write tests as you write code – not as an afterthought once the project is nearly complete.
 
 .. seealso::
 
    :ref:`File naming and directory layout<layout-tests>` for tests
+
+Style guide
+-----------
 
 Test code tends to be written once and only read when the test fails. As a result, test code tends to be poorly written, with a lot of copy-pasting between test methods, which makes intent unclear.
 
@@ -18,7 +23,9 @@ To write clear tests:
    -  Test methods (like `ViewTests <https://github.com/open-contracting/toucan/blob/main/tests/__init__.py>`__ in Toucan)
    -  Test scaffolding, using `setUp() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.setUp>`__ and `tearDown() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown>`__
 
-Note: There are some `caveats <https://docs.pytest.org/en/stable/unittest.html>`__ to using ``pytest`` with ``unittest``.
+.. note::
+
+   There are `important caveats <https://docs.pytest.org/en/stable/unittest.html>`__ to using ``pytest`` with ``unittest``.
 
 .. _automated-testing:
 
@@ -35,9 +42,10 @@ Otherwise, pytest is :doc:`preferred<preferences>`. For applications:
 
 .. code-block:: shell
 
+   pip-sync requirements_dev.txt
    pytest
 
-For :doc:`packages`:
+For :doc:`packages<packages>`:
 
 .. code-block:: shell
 

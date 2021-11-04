@@ -1,20 +1,20 @@
 Documentation
 =============
 
-.. note::
-
-   Read the general :doc:`../general/documentation` page.
-
 :doc:`packages` and applications *must* have documentation to describe their usage for an external audience. They *may* have documentation to describe how to contribute. Documentation is written using `Sphinx <https://www.sphinx-doc.org/en/master/>`__ in a ``docs`` directory.
 
 :doc:`packages` must have `Sphinx-style docstrings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists>`__ for public modules, classes and methods, so that Sphinx can automatically generate documentation and so that Python's `help() function <https://docs.python.org/3/library/functions.html#help>`__ can display useful output.
+
+.. seealso::
+
+   :doc:`General documentation guide<../general/documentation>`
 
 .. note::
 
    We can consider writing `Architecture Decision Records (ADRs) <https://github.blog/2020-08-13-why-write-adrs/>`__.
 
-Building documentation locally
-------------------------------
+Build documentation locally
+---------------------------
 
 With Python 3 as your interpreter, install Python modules:
 
@@ -48,10 +48,10 @@ Open http://localhost:8000/docs/_build/html/ in your web browser:
 
    Documentation is built in ``docs/_build/html``, to match the location when building with ``make html`` from the ``docs/`` directory.
 
-Checking broken links
----------------------
+Check broken links
+------------------
 
-Sphinx' `linkcheck <https://www.sphinx-doc.org/en/master/usage/builders/index.html#sphinx.builders.linkcheck.CheckExternalLinksBuilder>`__ builder reports redirects, error codes and non-existing anchors. It cannot be `configured <https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder>`__ to report only error codes. As such, it is tedious to include in :doc:`continuous integration<ci>` outside OCDS documentation, and to configure for manual invocation.
+Sphinx's `linkcheck <https://www.sphinx-doc.org/en/master/usage/builders/index.html#sphinx.builders.linkcheck.CheckExternalLinksBuilder>`__ builder reports redirects, error codes and non-existing anchors. It cannot be `configured <https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder>`__ to report only error codes. As such, it is tedious to include in :doc:`continuous integration<ci>` outside OCDS documentation, and to configure for manual invocation.
 
 To check broken links, run:
 
@@ -67,7 +67,7 @@ Review the broken links in the ``_linkcheck/output.txt`` file:
 
 .. _readthedocs:
 
-Creating ReadTheDocs project
+Create a ReadTheDocs project
 ----------------------------
 
 #. Sign in to `ReadTheDocs <https://readthedocs.org/dashboard/>`__
@@ -94,8 +94,8 @@ Creating ReadTheDocs project
    #. Enter "sysadmin@open-contracting.org" in *Email*
    #. Click *Add*
 
-Redirecting ReadTheDocs project
--------------------------------
+Redirect a ReadTheDocs project
+------------------------------
 
 #. Replace ``docs/_templates/layout.html`` with the below, replacing ``SUBDOMAIN``:
 

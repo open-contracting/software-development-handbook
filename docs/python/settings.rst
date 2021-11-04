@@ -1,17 +1,17 @@
-Settings
-========
-
-.. seealso::
-
-   :ref:`Django settings style guide<django-settings>`
+Configuration
+=============
 
 All applications should read configuration from environment variables, like in the `Twelve-Factor App methodology <https://12factor.net>`__. 
 
-In **development**, the default values should be appropriate as-is. The default values can be overridden in other environments with, for example, a `uWSGI INI file <https://github.com/open-contracting/deploy/blob/main/salt/uwsgi/files/django.ini>`__ or a `Docker Compose .env file <https://docs.docker.com/compose/environment-variables/>`__ in **production** or a GitHub Actions workflow in **testing**.
+In *development*, the default values should be appropriate as-is. The default values can be overridden in other environments with, for example, a `uWSGI INI file <https://github.com/open-contracting/deploy/blob/main/salt/uwsgi/files/django.ini>`__ or a `Docker Compose .env file <https://docs.docker.com/compose/environment-variables/>`__ in *production* or a GitHub Actions workflow in *testing*.
 
 For :ref:`command-line interfaces<python-scripts>`, configure the environment variables in a ``.env`` file. Use `python-dotenv <https://pypi.org/project/python-dotenv/>`__ (not `django-environ <https://pypi.org/project/django-environ/>`__) to load the file: for example, `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize/blob/main/manage.py>`__.
 
 Otherwise, read configuration from INI files using `configparser <https://docs.python.org/3/library/configparser.html>`__. Do not use: JSON (no comments), YAML (data typing, too many features, not in standard library), `TOML <https://github.com/madmurphy/libconfini/wiki/An-INI-critique-of-TOML>`__ (data typing, too many features, not in standard library), or XML (verbose, not in standard library).
+
+.. seealso::
+
+   :ref:`Django settings style guide<django-settings>`
 
 Word choice
 -----------
