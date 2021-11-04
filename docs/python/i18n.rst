@@ -1,0 +1,33 @@
+Internationalization (i18n)
+===========================
+
+.. seealso::
+
+   :doc:`preferences`
+
+.. _i18n-ci:
+
+Continuous integration
+----------------------
+
+Repositories that support multiple locales should test that translations are complete.
+
+Create a ``.github/workflows/i18n.yml`` file.
+
+For Django applications:
+
+.. literalinclude:: samples/i18n-django.yml
+   :language: yaml
+
+For Sphinx themes:
+
+.. literalinclude:: samples/i18n-sphinx-theme.yml
+   :language: yaml
+
+.. warning::
+
+   If your default branch is not named ``main``, edit the ``push:`` key.
+
+.. note::
+
+   This workflow only runs on ``push`` for the ``main`` branch, so that feature branches don't fail until a PR is created.

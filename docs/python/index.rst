@@ -18,6 +18,7 @@ Code is written for Python 3.6 and above (`see the status of Python branches <ht
    django
    file_formats
    style_guide
+   i18n
    packages
    performance
 

@@ -1,0 +1,21 @@
+name: Translations
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install translate-toolkit for pocount
+        run: |
+          sudo apt update
+          sudo apt install translate-toolkit
+      - run: pip install babel
+      - run: python setup.py extract_messages update_catalog
+      - name: Count incomplete translations
+        run: |
+          output=$(find . -name LC_MESSAGES -exec pocount --incomplete --short "{}" +)
+          echo $output
+          [ "$output" = "" ]

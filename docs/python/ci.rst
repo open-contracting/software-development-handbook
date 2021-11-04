@@ -3,7 +3,7 @@ Continous integration
 
 .. seealso::
 
-   Workflows for linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>` and for :ref:`releasing packages<python-package-release-process>`
+   Workflows for linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`, for :ref:`releasing packages<python-package-release-process>` and for :ref:`internationalization<i18n-ci>`
 
 Automated tests
 ---------------
@@ -13,6 +13,8 @@ Create a ``.github/workflows/ci.yml`` file, and use one of the base templates be
 -  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
 -  If a ``run:`` step is a single line, omit the ``name:`` key.
 -  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
+
+Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
 
 Service containers
 ~~~~~~~~~~~~~~~~~~
@@ -26,11 +28,9 @@ If the workflow requires `service containers <https://docs.github.com/en/actions
 PostgreSQL
 ^^^^^^^^^^
 
-Set the image tag to the version used in production:
+Set the image tag to the version used in production.
 
-.. tip::
-
-   If you are running out of connections, use the ``cyberboss/postgres-max-connections`` image, which is a `fork <https://github.com/tgstation/tgstation-server/blob/a64be6d9819b8923231ffbe54e37f5d92ebd0f17/.github/workflows/ci-suite.yml#L271>`__ of ``postgres:latest`` with ``max_connections=500``.
+``postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/postgres`` can be used in ``psql`` commands or in environment variables to setup the database or configure the application.
 
 .. code-block:: yaml
 
@@ -45,6 +45,10 @@ Set the image tag to the version used in production:
              --health-retries 5
            ports:
              - 5432/tcp
+
+.. tip::
+
+   If you are running out of connections, use the ``cyberboss/postgres-max-connections`` image, which is a `fork <https://github.com/tgstation/tgstation-server/blob/a64be6d9819b8923231ffbe54e37f5d92ebd0f17/.github/workflows/ci-suite.yml#L271>`__ of ``postgres:latest`` with ``max_connections=500``.
 
 RabbitMQ
 ^^^^^^^^
@@ -64,7 +68,7 @@ RabbitMQ
 Elasticsearch
 ^^^^^^^^^^^^^
 
-Set the image tag to the version used in production:
+Set the image tag to the version used in production.
 
 .. code-block:: yaml
 
@@ -143,23 +147,6 @@ Code coverage
 
 If you're using `GitHub Actions' build matrix <https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy>`__ and want to combine results from multiple jobs, see `this example <https://coveralls-python.readthedocs.io/en/latest/usage/configuration.html#github-actions-support>`__.
 
-i18n coverage
--------------
-
-Repositories that support multiple locales should test that translations are complete.
-
-This test is run on `pull request <https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request>`__ events, not `push <https://docs.github.com/en/actions/reference/events-that-trigger-workflows#push>`__ events, to allow developers to see test results on feature branches, before creating a pull request.
-
-For example, `cove-ocds <https://github.com/open-contracting/cove-ocds/blob/main/.github/workflows/ci.yml>`__ runs:
-
-.. code-block:: yaml
-
-   - run: sudo apt install gettext translate-toolkit
-   - run: python manage.py makemessages -l es
-   - run: "[ \"$GITHUB_EVENT_NAME\" != \"pull_request\" ] || [ \"`pocount --incomplete cove_ocds/locale/es/LC_MESSAGES/django.po`\" = \"\" ]"
-
-In other words, either the event isn't a pull request, or the ``pocount`` command's output is empty.
-
 Maintenance
 -----------
 
@@ -167,7 +154,7 @@ Find unexpected workflows:
 
 .. code-block:: bash
 
-   find . -path '*/workflows/*' -not -name ci.yml -not -name lint.yml -not -name js.yml -not -name shell.yml -not -name pypi.yml -not -path '*/node_modules/*' -not -path '*/vendor/*'
+   find . -path '*/workflows/*' -not -name ci.yml -not -name lint.yml -not -name js.yml -not -name shell.yml -not -name pypi.yml -not -name i18n.yml -not -path '*/node_modules/*' -not -path '*/vendor/*'
 
 Find ``ci.yml`` files without ``lint.yml`` files, and vice versa:
 
@@ -217,7 +204,21 @@ Find and compare ``pypi.yml`` files:
 
 Find repositories for Python packages but without ``pypi.yml`` files:
 
+.. code-block:: bash
+
    find . -name setup.py -not -path '*/node_modules/*' -exec bash -c 'if grep long_description {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
+
+Find and compare ``i18n.yml`` files:
+
+.. code-block:: bash
+
+   find . -name i18n.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
+
+Find repositories with ``LC_MESSAGES`` directories but without ``i18n.yml`` files:
+
+.. code-block:: bash
+
+   find . -name LC_MESSAGES -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name i18n.yml) ]]; then echo {}; fi' \;
 
 Reference
 ---------
