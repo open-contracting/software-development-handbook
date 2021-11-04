@@ -1,5 +1,5 @@
-GitHub for users
-================
+For users
+=========
 
 Reporting incorrect behavior
 ----------------------------
@@ -22,9 +22,8 @@ How soon do you need a fix?
 
 .. note::
 
-   The Data Review Tool expires results pages, so please attach the input data instead of linking to the results page.
+   Data publishers can change their data at any time. Please attach a copy of the data instead of linking to it.
 
 .. note::
 
-   Data publishers can change their data at any time. Please attach a copy of the data instead of linking to it.
-
+   The Data Review Tool expires results pages, so please attach the input data instead of linking to the results page.

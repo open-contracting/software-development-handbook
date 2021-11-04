@@ -1,5 +1,5 @@
-GitHub for standards
-====================
+For standards
+=============
 
 Managing long issues
 --------------------

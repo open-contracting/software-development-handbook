@@ -6,4 +6,6 @@ GitHub
 
    developers
    users
+   maintainers
    standards
+   reference
