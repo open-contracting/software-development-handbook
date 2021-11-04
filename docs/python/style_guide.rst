@@ -1,6 +1,8 @@
 General style
 =============
 
+You may also refer to common guidance like the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`__.
+
 .. seealso::
 
    The :doc:`../services/index` section contains Python-related content for :doc:`../services/postgresql` and :doc:`../services/rabbitmq`.

@@ -60,7 +60,11 @@ Use the corresponding `method <https://docs.python.org/3/library/logging.html#lo
 
 When logging messages inside an ``except`` clause, if the error is unexpected and isn't re-raised, use `logger.exception(msg) <https://docs.python.org/3/library/logging.html#logging.Logger.exception>`__ to log the message at the ``ERROR`` level along with exception information. Do not bother with the ``traceback`` module.
 
-Maintainers can review loggers inside ``except`` branches with this regular expression: ``except (?!RecoverableException).+\n( +)(\S.*\n(\1.*\n)*\1)?.*log.*\.(?!exception\(|format\()``
+Maintainers can review loggers inside ``except`` branches with this regular expression:
+
+.. code-block:: none
+
+   except (?!RecoverableException).+\n( +)(\S.*\n(\1.*\n)*\1)?.*log.*\.(?!exception\(|format\()
 
 Configuration
 -------------

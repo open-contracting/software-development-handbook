@@ -9,6 +9,7 @@ Code is written for Python 3.6 and above (`see the status of Python branches <ht
    layout
    requirements
    preferences
+   linting
    tests
    ci
    documentation

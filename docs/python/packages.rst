@@ -5,7 +5,7 @@ All our packages should be distributed on PyPI.
 
 .. seealso::
 
-   :ref:`Directory layout<layout-packages>` for packages, and :ref:`how to run tests<automated-testing>` in packages
+   Package-rated content in :ref:`Directory layout<layout-packages>`, :ref:`Testing<automated-testing>` and :ref:`Linting<linting-ci>`
 
 Metadata
 --------
