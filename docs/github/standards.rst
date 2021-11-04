@@ -1,8 +1,8 @@
 For standards
 =============
 
-Managing long issues
---------------------
+Manage long issues
+------------------
 
 Some issues produce long discussions, and the original intent of the issue may change over time; this can make it more difficult to catch up on the current state of the issue. To deal with this, the issue’s description should be edited to reflect the current state of the issue, summarize the discussion so far, and link to the most recent comment from which the discussion may continue.
 

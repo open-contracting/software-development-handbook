@@ -1,32 +1,48 @@
 For maintainers
 ===============
 
-.. _github-teams:
+Onboard consultants
+-------------------
 
-Configure teams
----------------
+#. Create `new repositories <https://github.com/orgs/open-contracting/repositories>`__, as needed by the consultants
+#. Run the `fix:lint_repos <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ and ``fix:protect_branches`` tasks, to configure the repository
+#. Create a `new team <https://github.com/orgs/open-contracting/teams>`__ named after the consultants' organization
+#. From the *Members* tab:
 
-In order to protect the private deploy repositories, the `base permissions <https://github.com/organizations/open-contracting/settings/member_privileges>`__ for ``open-contracting`` members is *None*. There are two main teams, with additional teams for specific projects:
+   #. Invite the Project Manager
+   #. Once the invitation is accepted, set their role to Maintainer
+   #. Ask them to invite the rest of their team
+   #. Invite OCP program managers or project management consultants, as needed
 
--  `General <https://github.com/orgs/open-contracting/teams/general>`__:
+#. From the *Repositories* tab:
 
-   -  **Members**: All `people <https://github.com/orgs/open-contracting/people>`__ from OCP, Centro de Desarrollo Sostenible (CDS) and Open Data Services Co-operative Limited (ODS)
-   -  **Repositories**: All repositories, except `archived <https://github.com/open-contracting?type=archived>`__, `deploy <https://github.com/search?q=topic%3Adeployment+org%3Aopen-contracting>`__ and `health <https://github.com/orgs/open-contracting/teams/health/repositories>`__ repositories
-   -  **Permission levels**: *Triage* for issue-only repositories, *Write* for other repositories
+   #. Add the new repositories
+   #. Set the *Permission level* to "Maintain"
 
--  `Servers <https://github.com/orgs/open-contracting/teams/servers>`__:
+If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself, or create a `custom role <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization>`__.
 
-   -  **Members**: All people with `root access <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html#root-access>`__ to any server
-   -  **Repositories**: The `deploy <https://github.com/search?q=topic%3Adeployment+org%3Aopen-contracting>`__ repositories
-   -  **Permission levels**: *Write*
+Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
 
-GitHub’s `outside collaborators <https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__ feature should only be used for one-off projects.
+Per the `Software terms of reference (TOR) template <https://docs.google.com/document/d/13-_eFQrelLdj92MWTiqzAfO62in7Xxrv3DTcmRqvNjE/edit>`__, consultants should not have access to the production server, in order to ensure a complete knowledge transfer. As such, do not add any members to the `Servers <https://github.com/orgs/open-contracting/teams/servers>`__ team.
 
-There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization>`__ from OCP. Owners do not need to be added to teams.
+.. tip::
+
+   Update and then use the `org:members <https://github.com/open-contracting/standard-maintenance-scripts#github>`__, ``org:team_members``, ``org:team_repos`` and ``org:team_perms`` tasks to check the configuration.
+
+.. note::
+
+   In order to protect the private deploy repositories, the `base permissions <https://github.com/organizations/open-contracting/settings/member_privileges>`__ for ``open-contracting`` members is *None*.
 
 .. warning::
 
    **NEVER** assign the Owner role to non-OCP staff. The Owner role has access to a private repository with multi-factor authentication backup codes. `Transferring a repository <https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/transferring-a-repository>`__ does not require the Owner role.
+
+Offboard consultants
+--------------------
+
+If the consultants are anticipated to contribute again, set the *Permission level* for all repositories to "Write". Otherwise, delete the team.
+
+.. _repository-metadata:
 
 Add repository metadata
 -----------------------

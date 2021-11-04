@@ -27,7 +27,15 @@ There should be a minimum of two `IAM users <https://console.aws.amazon.com/iam/
 GitHub
 ------
 
-See :ref:`GitHub Teams<github-teams>`.
+There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization>`__ from OCP. Owners do not need to be added to teams.
+
+.. tip::
+
+   Use the `org:owners <https://github.com/open-contracting/standard-maintenance-scripts#github>`__ task to check the configuration.
+
+.. seealso::
+
+   :doc:`GitHub for maintainers<../github/maintainers>`
 
 Google
 ------
