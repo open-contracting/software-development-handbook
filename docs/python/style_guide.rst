@@ -11,6 +11,12 @@ Comments
 -  Use sentence case, correct punctuation, and correct capitalization. Do not omit articles.
 -  Do not add ``TODO`` comments. Instead, create GitHub issues. TODO's in code are less visible to the rest of the team.
 
+Maintainers can find TODO comments with this command:
+
+.. code-block:: none
+
+   grep -R -i --exclude-dir .git --exclude-dir .sass-cache --exclude-dir .tox --exclude-dir __pycache__ --exclude-dir _build --exclude-dir _static --exclude-dir build --exclude-dir dist --exclude-dir htmlcov --exclude-dir node_modules --exclude-dir sass --exclude-dir LC_MESSAGES --exclude app.js --exclude conf.py '\btodo\b' .
+
 Exception handling
 ------------------
 
@@ -91,7 +97,11 @@ Use ``dict.setdefault`` instead of a simple if-statement. A simple if-statement 
    if 'key' not in data:  # AVOID
        data['key'] = 1
 
-Maintainers can find simple if-statements with this regular expression: ``^( *)if (.+) not in (.+):(?: *#.*)?\n(?: *#.*\n)* +\3\[\2\] = .+\n(?!(?: *#.*\n)*\1(else\b|elif\b|    \S))``
+Maintainers can find simple if-statements with this regular expression:
+
+.. code-block:: none
+
+   ^( *)if (.+) not in (.+):(?: *#.*)?\n(?: *#.*\n)* +\3\[\2\] = .+\n(?!(?: *#.*\n)*\1(else\b|elif\b|    \S))
 
 Functional style
 ----------------
