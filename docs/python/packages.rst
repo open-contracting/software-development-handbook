@@ -105,10 +105,4 @@ Release process
 
 #. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ if relevant
 
-Maintainers can find and compare ``pypi.yml`` files with:
-
-.. code-block:: bash
-
-   find . -name pypi.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
-
 Reference: `Publishing package distribution releases using GitHub Actions CI/CD workflows <https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>`__

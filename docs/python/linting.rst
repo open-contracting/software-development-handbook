@@ -125,21 +125,6 @@ If the project is a :doc:`package<packages>`, add:
 
 Finally, add any project-specific linting, like in `notebooks-ocds <https://github.com/open-contracting/notebooks-ocds/blob/f9f42cac48f91564eba0da3c2a79ebdf7c3c43ad/.github/workflows/lint.yml#L22-L24>`__.
 
-Maintainers can find and compare ``lint.yml`` files with:
-
-.. code-block:: bash
-
-   find . -name lint.yml -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "9773a893d136df0dc82deddedd8af8563969c04a 9222eac95ab63f3c2d983ba3cf4629caea53a72e 953ef7f0815d49226fd2d05db8df516fff2e3fdb fc3eff616a7e72f41c96e48214d244c9058dbc83 dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
-
-..
-   The shasums are:
-
-   9773a893d136df0dc82deddedd8af8563969c04a basic
-   9222eac95ab63f3c2d983ba3cf4629caea53a72e application
-   953ef7f0815d49226fd2d05db8df516fff2e3fdb black + application
-   fc3eff616a7e72f41c96e48214d244c9058dbc83 package
-   dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4 black + package
-
 .. seealso::
 
    Workflow files for linting :ref:`shell scripts<shell-ci>` and :ref:`Javascript files<javascript-ci>`

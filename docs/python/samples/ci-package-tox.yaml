@@ -1,0 +1,19 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        python-version: [3.6, 3.7, 3.8, 3.9, pypy-3.7]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install tox
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: tox
