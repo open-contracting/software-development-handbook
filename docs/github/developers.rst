@@ -3,7 +3,7 @@ For developers
 
 .. seealso::
 
-   :doc:`Git guidance<../git/index>`
+   :doc:`Git guide<../git/index>`
 
 Assign issues
 -------------

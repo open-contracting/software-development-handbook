@@ -81,7 +81,7 @@ In some cases, a message is acknowledged once a point-of-no-return is reached, *
 
 .. seealso::
 
-   -  *Message acknowledgment* under `Work Queues tutorial <https://www.rabbitmq.com/tutorials/tutorial-two-python.html>`__
+   *Message acknowledgment* under `Work Queues tutorial <https://www.rabbitmq.com/tutorials/tutorial-two-python.html>`__
 
 .. https://github.com/open-contracting/data-registry/issues/140
 
