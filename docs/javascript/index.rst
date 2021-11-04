@@ -58,10 +58,16 @@ User interface
 Continuous integration
 ----------------------
 
-Create a ``.github/workflows/lint.yml`` file. As a base, use:
+Create a ``.github/workflows/js.yml`` file. As a base, use:
 
-.. literalinclude:: samples/lint.yml
+.. literalinclude:: samples/js.yml
    :language: yaml
+
+Maintainers can find and compare ``js.yml`` files with:
+
+.. code-block:: bash
+
+   find . -name js.yml -exec bash -c 'echo $(tail -r {} | tail +2 | tail -r | shasum - | cut -d" " -f1) {}' \;
 
 Reference
 ---------
