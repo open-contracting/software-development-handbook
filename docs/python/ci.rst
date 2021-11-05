@@ -108,6 +108,11 @@ Set the Ubuntu version and Python version to those used in production.
 .. literalinclude:: samples/ci-app.yml
    :language: yaml
 
+If using :doc:`django`, use this template, replacing ``PROJECTNAME`` and ``APPNAME1``:
+
+.. literalinclude:: samples/ci-django.yml
+   :language: yaml
+
 Packages
 ~~~~~~~~
 
