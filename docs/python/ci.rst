@@ -3,16 +3,17 @@ Continous integration
 
 .. seealso::
 
-   Workflows for linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`, for :ref:`releasing packages<python-package-release-process>` and for :ref:`internationalization<i18n-ci>`
+   Workflows for linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`, for :ref:`releasing packages<python-package-release-process>` and for :ref:`checking translations<i18n-ci>`
 
 Automated tests
 ---------------
 
 Create a ``.github/workflows/ci.yml`` file, and use one of the base templates below.
 
+-  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows>`__.
 -  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
--  If a ``run:`` step is a single line, omit the ``name:`` key.
 -  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
+-  If a ``run:`` step is a single line, omit the ``name:`` key.
 -  Put commands that form logical units in the same ``run:`` step. For example:
 
    .. code-block:: yaml
@@ -22,15 +23,25 @@ Create a ``.github/workflows/ci.yml`` file, and use one of the base templates be
           sudo apt update
           sudo apt install gettext
 
+   Not:
+
    .. code-block:: yaml
 
       - run: sudo apt update # WRONG
       - run: sudo apt install gettext # WRONG
 
-Reference:
+Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
 
--  `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
--  `Events that trigger workflows <https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows>`__
+Code coverage
+~~~~~~~~~~~~~
+
+All the templates below use Coveralls, :doc:`as preferred<preferences>`.
+
+.. tip::
+
+   If needed, you can `combine coverage results from multiple jobs <https://coveralls-python.readthedocs.io/en/latest/usage/configuration.html#github-actions-support>`__.
+
+.. _service-containers:
 
 Service containers
 ~~~~~~~~~~~~~~~~~~
@@ -46,8 +57,6 @@ PostgreSQL
 
 Set the image tag to the version used in production.
 
-``postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/postgres`` can be used in ``psql`` commands or in environment variables to setup the database or configure the application.
-
 .. code-block:: yaml
 
          postgres:
@@ -61,6 +70,12 @@ Set the image tag to the version used in production.
              --health-retries 5
            ports:
              - 5432/tcp
+
+This connection string can be used in ``psql`` commands or in environment variables to setup the database or configure the application:
+
+.. code-block:: none
+
+   postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/postgres
 
 .. tip::
 
@@ -127,12 +142,12 @@ If using `tox <http://tox.readthedocs.org>`__:
 
    Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.7 on Windows).
 
-Otherwise, replacing ``PACKAGENAME``:
+If not using ``tox``, use this template, replacing ``PACKAGENAME``:
 
 .. literalinclude:: samples/ci/package.yml
    :language: yaml
 
-:doc:`packages` should be tested on Python versions that aren't end-of-life, and on the latest version of PyPy. They should be tested on Ubuntu, macOS and Windows, unless service containers are needed, in which case an Ubuntu runner is required.
+Test :doc:`packages<packages>` on Python versions that aren't end-of-life, and on the latest version of PyPy. Test on Ubuntu, macOS and Windows (though :ref:`only Ubuntu<service-containers>` if a service container is needed).
 
 If the package has optional support for `orjson <https://pypi.org/project/orjson/>`__, to test on PyPy, replace the ``pytest`` step with the following steps, replacing ``PACKAGENAME``: 
 
@@ -159,22 +174,6 @@ For example, the `Extension Registry <https://github.com/open-contracting/extens
 
 .. literalinclude:: samples/ci/static.yml
    :language: yaml
-
-.. _code-coverage:
-
-Code coverage
--------------
-
-#. Add the repository on Coveralls, the :doc:`preferred service<preferences>`
-#. Append the following to ``.github/workflows/ci.yml``, commit and push:
-
-   .. code-block:: yaml
-
-          - env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            run: coveralls --service=github
-
-If you're using `GitHub Actions' build matrix <https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategy>`__ and want to combine results from multiple jobs, see `this example <https://coveralls-python.readthedocs.io/en/latest/usage/configuration.html#github-actions-support>`__.
 
 Maintenance
 -----------
