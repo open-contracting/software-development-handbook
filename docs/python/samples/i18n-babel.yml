@@ -13,7 +13,10 @@ jobs:
           sudo apt update
           sudo apt install translate-toolkit
       - run: pip install babel
-      - run: python setup.py extract_messages update_catalog
+      - name: Update catalogs
+        run: |
+          pybabel extract -F babel.cfg -o locale/sphinx.pot -k '_ l_ lazy_gettext' .
+          pybabel update -i locale/sphinx.pot -d locale -D sphinx
       - name: Count incomplete translations
         run: |
           output=$(find . -name LC_MESSAGES -exec pocount --incomplete --short "{}" +)
