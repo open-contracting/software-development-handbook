@@ -13,8 +13,24 @@ Create a ``.github/workflows/ci.yml`` file, and use one of the base templates be
 -  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
 -  If a ``run:`` step is a single line, omit the ``name:`` key.
 -  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
+-  Put commands that form logical units in the same ``run:`` step. For example:
 
-Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
+   .. code-block:: yaml
+
+      - name: Install gettext
+        run: |
+          sudo apt update
+          sudo apt install gettext
+
+   .. code-block:: yaml
+
+      - run: sudo apt update # WRONG
+      - run: sudo apt install gettext # WRONG
+
+Reference:
+
+-  `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
+-  `Events that trigger workflows <https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows>`__
 
 Service containers
 ~~~~~~~~~~~~~~~~~~
@@ -86,6 +102,8 @@ Set the image tag to the version used in production.
 
 Applications
 ~~~~~~~~~~~~
+
+Set the Ubuntu version and Python version to those used in production.
 
 .. literalinclude:: samples/ci-app.yml
    :language: yaml
@@ -218,7 +236,7 @@ Find repositories with ``LC_MESSAGES`` directories but without ``i18n.yml`` file
 
 .. code-block:: bash
 
-   find . -name LC_MESSAGES -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name i18n.yml) ]]; then echo {}; fi' \;
+   find . -name LC_MESSAGES -not -path '*/en/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name i18n.yml) ]]; then echo {}; fi' \;
 
 Reference
 ---------
