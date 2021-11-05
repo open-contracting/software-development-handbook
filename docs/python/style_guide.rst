@@ -85,6 +85,32 @@ Internationalization (i18n)
 
    To learn how to use or migrate between ``%`` and ``format()``, see `pyformat.info <https://pyformat.info/>`__.
 
+Maintainers can find improper formatting with this regular expression:
+
+.. code-block:: none
+
+   [^\w\]]\.format\(
+
+To correct formatting, the following patterns and replacements can be used:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Pattern
+     - Replacement
+   * - ``('[^']*?{)(}[^']*')\.format\(([\w.]+)\)``
+     - ``f$1$3$2``
+   * - ``("[^"]*?{)(}[^"]*")\.format\(([\w.]+)\)``
+     - ``f$1$3$2``
+   * - ``('[^']*?{)(}[^']*?{)(}[^']*')\.format\(([\w.]+), ([\w.]+)\)``
+     - ``f$1$4$2$5$3``
+   * - ``("[^"]*?{)(}[^"]*?{)(}[^"]*")\.format\(([\w.]+), ([\w.]+)\)``
+     - ``f$1$4$2$5$3``
+   * - ``('[^']*?{)(}[^']*?{)(}[^']*?{)(}[^']*?')\.format\(([\w.]+), ([\w.]+), ([\w.]+)\)``
+     - ``f$1$5$2$6$3$7$4``
+   * - ``("[^"]*?{)(}[^"]*?{)(}[^']*?{)(}[^"]*?")\.format\(([\w.]+), ([\w.]+), ([\w.]+)\)``
+     - ``f$1$5$2$6$3$7$4``
+
 Default values
 --------------
 
