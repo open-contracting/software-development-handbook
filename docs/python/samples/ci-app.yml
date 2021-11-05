@@ -16,7 +16,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - run: pip install -r requirements_dev.txt
-      - run: pytest --cov extension_explorer
+      - run: pytest --cov APPNAME1
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: coveralls --service=github

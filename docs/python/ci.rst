@@ -105,12 +105,14 @@ Applications
 
 Set the Ubuntu version and Python version to those used in production.
 
-.. literalinclude:: samples/ci-app.yml
-   :language: yaml
-
 If using :doc:`django`, use this template, replacing ``PROJECTNAME`` and ``APPNAME1``:
 
 .. literalinclude:: samples/ci-django.yml
+   :language: yaml
+
+Otherwise, use this template, replacing ``APPNAME1``:
+
+.. literalinclude:: samples/ci-app.yml
    :language: yaml
 
 Packages
@@ -120,6 +122,10 @@ If using `tox <http://tox.readthedocs.org>`__:
 
 .. literalinclude:: samples/ci-package-tox.yml
    :language: yaml
+
+.. note::
+
+   Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.7 on Windows).
 
 Otherwise, replacing ``PACKAGENAME``:
 
