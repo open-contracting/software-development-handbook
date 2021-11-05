@@ -32,6 +32,40 @@ Get started
 
    pip install pip-tools
 
+A common starter ``requirements.in`` for :doc:`django` is:
+
+.. code-block:: none
+
+   dj-database-url
+   django
+   psycopg2
+   sentry-sdk
+
+A common starter ``requirements_dev.in`` for linting is:
+
+.. code-block:: none
+
+   -r requirements.txt
+   black
+   coveralls
+   flake8
+   isort
+   pip-tools
+   pre-commit
+
+If using Django, add:
+
+.. code-block:: none
+
+   coverage
+
+Otherwise, add:
+
+.. code-block:: none
+
+   pytest
+   pytest-cov
+
 Add a requirement
 -----------------
 
