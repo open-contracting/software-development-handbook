@@ -22,7 +22,7 @@ jobs:
           sudo apt update
           sudo apt install gettext translate-toolkit
       - run: pip install -r requirements.txt
-      - run: python manage.py makemessages -l es
+      - run: python manage.py makemessages -a
       - name: Count incomplete translations
         run: |
           output=$(find . -name LC_MESSAGES -not -path "*/en/*" -exec pocount --incomplete --short "{}" +)
