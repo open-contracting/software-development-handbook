@@ -8,7 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install translate-toolkit for pocount
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.6
+      - name: Install translate-toolkit
         run: |
           sudo apt update
           sudo apt install translate-toolkit
