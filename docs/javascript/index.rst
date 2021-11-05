@@ -18,8 +18,6 @@ Use `npm <https://docs.npmjs.com>`__, not ``yarn``. Set the Node version in ``pa
 Code style
 ----------
 
-Non-vendored code is checked and formatted using `Prettier <https://prettier.io>`__ (or `Standard <https://github.com/standard/standard>`__).
-
 To transform older code to ECMAScript 6, use `lebab <https://github.com/lebab/lebab>`__, but be aware of its `bugs <https://github.com/lebab/lebab#unsafe-transforms>`__. There is a lebab `plugin <https://packagecontrol.io/packages/lebab>`__ for `Sublime Text <https://www.sublimetext.com>`__. Use these preferences (*Preferences* > *Package Settings* > *Lebab* > *Settings - User*):
 
 .. code-block:: json
@@ -56,7 +54,9 @@ Plain JavaScript is preferred to using jQuery, unless functionality depends on j
 Package manager
   `npm <https://docs.npmjs.com>`__, the default package manager of Node.js. Do not use `yarn <https://yarnpkg.com>`__.
 User interface
-  `Vue <https://vuejs.org>`__ or `React <https://reactjs.org>`__
+  `Vue <https://vuejs.org>`__ is preferred to `React <https://reactjs.org>`__.
+Formatter
+  `Standard <https://github.com/standard/standard>`__ and/or `Prettier <https://prettier.io>`__. Standard's JavaScript format is preferred to Prettier's. Prettier `supports more formats <https://prettier.io/docs/en/>`__.
 
 .. _javascript-ci:
 
