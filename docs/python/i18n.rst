@@ -12,6 +12,10 @@ Continuous integration
 
 Repositories that support multiple locales should test that translation files are complete. To do that, the workflow extracts messages, updates catalogs, and then counts incomplete translations.
 
+.. note::
+
+   These workflows only run on ``push`` for the ``main`` branch, so that feature branches don't fail until a PR is created.
+
 Create a ``.github/workflows/i18n.yml`` file.
 
 For a Django application, use:
@@ -30,4 +34,4 @@ For a Babel project, adapt:
 
 .. note::
 
-   This workflow only runs on ``push`` for the ``main`` branch, so that feature branches don't fail until a PR is created.
+   If you use the ``jinja2`` extractor, install ``jinja2`` with ``pip``.
