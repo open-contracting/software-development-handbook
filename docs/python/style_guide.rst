@@ -148,3 +148,17 @@ If you are having trouble with the Python path, try running the script with ``py
 .. seealso::
 
    :doc:`Shell script guide<../shell/index>`
+
+Input/Output
+------------
+
+.. code-block:: python
+
+   import sys
+
+   print('message', file=sys.stderr)
+   sys.stderr.write('message\n')  # WRONG
+
+.. seealso::
+
+   :doc:`file_formats`
