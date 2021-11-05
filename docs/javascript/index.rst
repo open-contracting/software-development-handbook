@@ -10,6 +10,11 @@ Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature supp
 
    Don't use `CoffeeScript <https://coffeescript.org>`__. Unless the repository is a fork, use `Decaffeinate <https://decaffeinate-project.org>`__ to convert CoffeeScript to ECMAScript.
 
+Requirements
+------------
+
+Use `npm <https://docs.npmjs.com>`__, not ``yarn``. Set the Node version in ``package.json``, `as documented <https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines>`__.
+
 Code style
 ----------
 
