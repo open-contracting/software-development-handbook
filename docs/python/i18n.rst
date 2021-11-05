@@ -10,7 +10,7 @@ Internationalization (i18n)
 Continuous integration
 ----------------------
 
-Repositories that support multiple locales should test that translation files are complete.
+Repositories that support multiple locales should test that translation files are complete. To do that, the workflow extracts messages, updates catalogs, and then counts incomplete translations.
 
 Create a ``.github/workflows/i18n.yml`` file.
 
