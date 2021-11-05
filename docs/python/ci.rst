@@ -107,12 +107,12 @@ Set the Ubuntu version and Python version to those used in production.
 
 If using :doc:`django`, use this template, replacing ``PROJECTNAME`` and ``APPNAME1``:
 
-.. literalinclude:: samples/ci-django.yml
+.. literalinclude:: samples/ci/django.yml
    :language: yaml
 
 Otherwise, use this template, replacing ``APPNAME1``:
 
-.. literalinclude:: samples/ci-app.yml
+.. literalinclude:: samples/ci/app.yml
    :language: yaml
 
 Packages
@@ -120,7 +120,7 @@ Packages
 
 If using `tox <http://tox.readthedocs.org>`__:
 
-.. literalinclude:: samples/ci-package-tox.yml
+.. literalinclude:: samples/ci/package-tox.yml
    :language: yaml
 
 .. note::
@@ -129,7 +129,7 @@ If using `tox <http://tox.readthedocs.org>`__:
 
 Otherwise, replacing ``PACKAGENAME``:
 
-.. literalinclude:: samples/ci-package.yml
+.. literalinclude:: samples/ci/package.yml
    :language: yaml
 
 :doc:`packages` should be tested on Python versions that aren't end-of-life, and on the latest version of PyPy. They should be tested on Ubuntu, macOS and Windows, unless service containers are needed, in which case an Ubuntu runner is required.
@@ -157,7 +157,7 @@ Static files
 
 For example, the `Extension Registry <https://github.com/open-contracting/extension_registry>`__ mainly contains static files. Tests are used to validate the files.
 
-.. literalinclude:: samples/ci-static.yml
+.. literalinclude:: samples/ci/static.yml
    :language: yaml
 
 .. _code-coverage:
