@@ -28,6 +28,10 @@ Exception handling
 String formatting
 -----------------
 
+.. seealso::
+
+   How to construct :ref:`sql-statements`
+
 `Format strings <https://docs.python.org/3/reference/lexical_analysis.html#f-strings>`__ (f-strings), introduced in Python 3.6 via `PEP 498 <https://www.python.org/dev/peps/pep-0498/>`__, are preferred for interpolation of variables:
 
 .. code-block:: python

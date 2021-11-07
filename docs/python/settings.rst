@@ -33,6 +33,23 @@ Use the following names for environment variables:
    -  ``SENTRY_DSN`` (not DNS!)
    -  ``SENTRY_SAMPLE_RATE``
 
+Database configuration
+----------------------
+
+Use a single environment variable – ``DATABASE_URL`` – instead of a combination of ``USER`` ``PASSWORD``, ``HOST``, ``PORT`` and ``NAME``. Connect to the database using `psycopg2.connect() <https://www.psycopg.org/docs/module.html#psycopg2.connect>`__ or `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__.
+
+To set the search path for a PostgreSQL connection, append to the connection string:
+
+.. code-block:: none
+   :caption: psycopg2
+
+   ?options=-csearch_path%3Dmyschema,public
+
+.. code-block:: none
+   :caption: dj-database-url
+
+   ?currentSchema=myschema,public
+
 Deployment
 ----------
 
