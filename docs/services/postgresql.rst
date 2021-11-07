@@ -5,8 +5,8 @@ PostgreSQL
 
    The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/index.html>`__ documentation covers many topics relating to PostgreSQL, including: configuration, maintenance, and usage by clients. This page addresses topics relating to software development.
 
-Clients
--------
+Identify clients
+----------------
 
 Database administrators need to identify the sources of queries, in order to notify developers of inefficient queries or alert users whose queries will be interrupted by maintenance. For example:
 
@@ -16,8 +16,8 @@ Database administrators need to identify the sources of queries, in order to not
 
 .. sql-statements:
 
-SQL statements
---------------
+Construct SQL statements
+------------------------
 
 Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`__ to avoid accidental errors and `SQL injection <https://en.wikipedia.org/wiki/SQL_injection>`__. The code samples below use the psycopg2 Python package.
 
@@ -111,8 +111,8 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
 
-Paginating data
----------------
+Paginate data
+-------------
 
 Do not use ``LIMIT`` with ``OFFSET``. ``OFFSET`` becomes more inefficient as its value increases. Instead, filter on the table's primary key, which has near-constant performance. For example:
 
@@ -126,15 +126,15 @@ Do not use ``LIMIT`` with ``OFFSET``. ``OFFSET`` becomes more inefficient as its
    ORDER BY id
    LIMIT 1000
 
-Loading and dumping data
-------------------------
+Load and dump data
+------------------
 
 Use the `\copy <https://www.postgresql.org/docs/13/app-psql.html#APP-PSQL-META-COMMANDS-COPY>`__ meta-command instead of the `COPY <https://www.postgresql.org/docs/13/sql-copy.html>`__ command, so that file accessibility and privileges are those of the user, not the server – such that no SQL superuser privileges are required.
 
 .. _postgresql-erd:
 
-Entity Relationship Diagram
----------------------------
+Generate Entity Relationship Diagram
+------------------------------------
 
 #. Install `SchemaSpy <https://schemaspy.readthedocs.io/en/latest/installation.html>`__
 #. Download the `PostgreSQL JDBC Driver <https://jdbc.postgresql.org/>`__
