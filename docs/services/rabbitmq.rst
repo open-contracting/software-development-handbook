@@ -39,8 +39,9 @@ Code style
 
 Connect to the broker using a connection string stored in the ``RABBIT_URL`` environment variable.
 
+In Python:
+
 .. code-block:: python
-   :caption: Python
 
    import pika
 

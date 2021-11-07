@@ -5,8 +5,27 @@ PostgreSQL
 
    The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/index.html>`__ documentation covers many topics relating to PostgreSQL, including: configuration, maintenance, and usage by clients. This page addresses topics relating to software development.
 
-Identify clients
-----------------
+Connect to a database
+---------------------
+
+Connect to the database using a connection string stored in the ``DATABASE_URL`` environment variable.
+
+In Python, connect to the database using `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ if using :doc:`Django<../python/django>`, or `psycopg2.connect() <https://www.psycopg.org/docs/module.html#psycopg2.connect>`__ otherwise.
+
+To set the search path for a PostgreSQL connection, append to the connection string:
+
+.. code-block:: none
+   :caption: psycopg2
+
+   ?options=-csearch_path%3Dmyschema,public
+
+.. code-block:: none
+   :caption: dj-database-url
+
+   ?currentSchema=myschema,public
+
+Identify the client
+~~~~~~~~~~~~~~~~~~~
 
 Database administrators need to identify the sources of queries, in order to notify developers of inefficient queries or alert users whose queries will be interrupted by maintenance. For example:
 
