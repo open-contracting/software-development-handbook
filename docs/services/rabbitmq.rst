@@ -34,6 +34,36 @@ Development
 
 In Python, use `pika <https://pika.readthedocs.io/en/stable/>`__ to interact with RabbitMQ: see examples `in its documentation <https://pika.readthedocs.io/en/stable/examples.html>`__ and `on GitHub <https://github.com/pika/pika/tree/master/examples>`__. Don't use Celery, because its abstractions add inefficiencies, requiring `complex workarounds <http://blog.untrod.com/2015/03/how-celery-chord-synchronization-works.html>`__.
 
+Code style
+----------
+
+Connect to the broker using a connection string stored in the ``RABBIT_URL`` environment variable.
+
+.. code-block:: python
+   :caption: Python
+
+   import pika
+
+   RABBIT_URL = os.getenv("RABBIT_URL", "amqp://localhost")
+
+   connection = pika.BlockingConnection(pika.URLParameters(RABBIT_URL))
+
+To add query string parameters:
+
+.. code-block:: python
+
+   from urllib.parse import parse_qs, urlencode, urlsplit
+
+   import pika
+
+   RABBIT_URL = os.getenv("RABBIT_URL", "amqp://localhost")
+
+   parsed = urlsplit(RABBIT_URL)
+   query = parse_qs(parsed.query)
+   query.update({"blocked_connection_timeout": 600, "heartbeat": 300})
+
+   connection = pika.BlockingConnection(pika.URLParameters(parsed._replace(query=urlencode(query)).geturl()))
+
 Design decisions
 ----------------
 
