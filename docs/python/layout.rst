@@ -27,6 +27,10 @@ If no framework is used, prefer a smaller number of directories, like in `Kingfi
 
 Components should be logically distinct units, like `apps <https://docs.djangoproject.com/en/3.2/ref/applications/>`__ in Django.
 
+.. seealso::
+
+   :ref:`Django directory layout guide<django-layout>`
+
 .. _layout-packages:
 
 Packages
