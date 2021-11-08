@@ -33,7 +33,7 @@ Database administrators need to identify the sources of queries, in order to not
 -  Kingfisher Summarize uses the `psycopg2 <https://www.psycopg.org/docs/>`__ package, and adds ``/* kingfisher-summarize {identifier} */`` as a comment to expensive queries
 -  Kingfisher Colab uses the `ipython-sql <https://pypi.org/project/ipython-sql/>`__ package, and adds the Google Colaboratory notebook URL as a comment to all queries
 
-.. sql-statements:
+.. _sql-statements:
 
 Construct SQL statements
 ------------------------

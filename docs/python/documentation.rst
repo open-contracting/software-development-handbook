@@ -94,6 +94,12 @@ Create a ReadTheDocs project
    #. Enter "sysadmin@open-contracting.org" in *Email*
    #. Click *Add*
 
+#. Click *Versions*
+
+   #. Click *Edit* for the *stable* version
+   #. Uncheck *Active*
+   #. Click *Save*
+
 Redirect a ReadTheDocs project
 ------------------------------
 
