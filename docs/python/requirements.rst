@@ -93,6 +93,10 @@ psycopg2
 -  Put ``psycopg2-binary`` in ``requirements_dev.in``
 -  Run: ``pip install psycopg2-binary``
 
+.. note::
+
+   You **must** keep the locked versions of psycopg2 and psycopg2-binary in sync.
+
 Install requirements
 --------------------
 
