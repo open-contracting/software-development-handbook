@@ -1,9 +1,56 @@
 Internationalization (i18n)
 ===========================
 
+Treat the source language as "developer" English, using the language code ``en_US``. Then, use Transifex to translate the "developer" English to "proper" English, using the language code ``en``.
+
+Reference: `Non-English as a Source Language <https://docs.transifex.com/localization-tips-workflows/non-english-as-a-source-language>`__
+
 .. seealso::
 
    :doc:`preferences`
+
+Configure Transifex
+-------------------
+
+The first time you use Transifex, create a `~/.transifexrc file <https://docs.transifex.com/client/client-configuration#~/-transifexrc>`__ (replace ``USERNAME`` and ``PASSWORD``).
+
+Add Transifex mapping
+---------------------
+
+For example, replacing ``TXPROJECT`` and ``APP``:
+
+.. code:: bash
+
+   tx config mapping -r TXPROJECT.django -f APP/locale/en_US/LC_MESSAGES/django.po -s en_US -t PO 'APP/locale/<lang>/LC_MESSAGES/django.po'
+
+Update Django translations
+--------------------------
+
+Whenever text in the interface is added or updated, you must extract the strings to translate from the code files into PO files by running:
+
+.. code:: bash
+
+   django-admin makemessages -l en_US
+
+Then, push the PO files to Transifex with:
+
+.. code:: bash
+
+   tx push -s
+
+When ready, pull the translations from Transifex with:
+
+.. code:: bash
+
+   tx pull -f -a
+
+Then, compile the PO files to MO files with:
+
+.. code:: bash
+
+   python manage.py compilemessages
+
+Reference: Django `Translation <https://docs.djangoproject.com/en/3.2/topics/i18n/translation/>`__
 
 .. _i18n-ci:
 

@@ -137,6 +137,10 @@ This template is based on the `default settings.py file <https://github.com/djan
 .. literalinclude:: samples/settings.py
    :language: python
 
+.. seealso::
+
+   The ``LANGUAGE_CODE`` is ``en-us``. See :doc:`i18n` for details.
+
 .. _django-performance:
 
 Performance
