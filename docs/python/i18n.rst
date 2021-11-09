@@ -69,7 +69,7 @@ Repositories that support multiple locales should test that translation files ar
 
 Create a ``.github/workflows/i18n.yml`` file.
 
-For a Django application, use:
+For a Django application, use the following. Change the ``python-version`` to match the version used to compile the :ref:`requirements_dev.txt file<requirements>`.
 
 .. literalinclude:: samples/i18n/django.yml
    :language: yaml
