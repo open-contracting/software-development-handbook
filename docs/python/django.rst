@@ -127,8 +127,6 @@ Add additional settings for:
 -  Dependencies under ``# Dependency configuration``
 -  Your project under ``# Project configuration``
 
-**AVOID** setting `LOCALE_PATHS <https://docs.djangoproject.com/en/3.2/ref/settings/#locale-paths>`__. Instead, allow Django to `discover translations <https://docs.djangoproject.com/en/3.2/topics/i18n/translation/#how-django-discovers-translations>`__ and to `write files <https://docs.djangoproject.com/en/3.2/topics/i18n/translation/#how-to-create-language-files>`__ with `manage.py makemessages <https://docs.djangoproject.com/en/3.2/ref/django-admin/#makemessages>`__ in the appropriate directories.
-
 .. _django-template:
 
 Template
