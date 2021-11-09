@@ -102,7 +102,7 @@ If the project uses Black, add:
 
 Unless the project is documentation only (like a handbook or a standard):
 
--  For an application, change the ``python-version`` to match the version used to compile the :ref:`requirements_dev.txt file<requirements>`, and add:
+-  For an application, change the ``python-version`` to match the version used to compile the :doc:`requirements_dev.txt file<requirements>`, and add:
 
    .. code-block:: yaml
 
