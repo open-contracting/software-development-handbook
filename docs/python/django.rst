@@ -13,6 +13,8 @@ Layout
 
 -  Use ``core`` or the name of the repository as the project name.
 -  Maintain the distinction between app directories and the project directory.
+-  Organize apps into logical units. Don't mix everything into one app.
+-  Use nouns for apps, like ``exporter`` not ``export`.
 
 .. seealso::
 

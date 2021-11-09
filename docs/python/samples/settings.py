@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+from glob import glob
 from pathlib import Path
 
 import dj_database_url
@@ -136,6 +137,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Project-specific Django configuration
+
+LOCALE_PATHS = glob(str(BASE_DIR / '**' / 'locale'))
 
 STATIC_ROOT = BASE_DIR / 'static'
 
