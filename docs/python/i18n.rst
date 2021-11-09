@@ -3,6 +3,10 @@ Internationalization (i18n)
 
 Treat the source language as "developer" English, using the language code ``en_US``. Then, use Transifex to translate the "developer" English to "proper" English, using the language code ``en``.
 
+.. note::
+
+   If you are using the source language as "proper" English, then replace ``en_US`` with ``en`` in the commands and templates below.
+
 Reference: `Non-English as a Source Language <https://docs.transifex.com/localization-tips-workflows/non-english-as-a-source-language>`__
 
 .. seealso::

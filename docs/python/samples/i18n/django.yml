@@ -25,6 +25,6 @@ jobs:
       - run: python manage.py makemessages -a
       - name: Count incomplete translations
         run: |
-          output=$(find . -name LC_MESSAGES -not -path "*/en/*" -exec pocount --incomplete --short "{}" +)
+          output=$(find . -name LC_MESSAGES -not -path "*/en_US/*" -exec pocount --incomplete --short "{}" +)
           echo $output
           [ "$output" = "" ]
