@@ -5,3 +5,4 @@ General
 
    documentation
    preferences
+   api
