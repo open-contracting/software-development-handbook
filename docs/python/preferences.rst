@@ -31,7 +31,7 @@ Object Relational Mapper (ORM)
 
   .. note::
 
-     Use ``psycopg2`` in production, not ``psycopg2-binary``, `as recommended <https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary>`__. See :ref:`how to configure this<requirements-psycopg2>`.
+     Use ``psycopg2`` in production, not ``psycopg2-binary``, `as recommended <https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary>`__. :ref:`See instructions<requirements-psycopg2>`.
 
 HTTP client
   `Requests <https://docs.python-requests.org/en/master/>`__, unless a framework uses another, like Scrapy (Twisted).
