@@ -43,9 +43,10 @@ Maintainers can find and compare configuration files with:
 Pre-commit hooks
 ----------------
 
-To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__. For example, if Black is configured as above:
+To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__ (add ``pre-commit`` to the :doc:`requirements_dev.in file<requirements>`. For example, if Black is configured as above:
 
 .. code-block:: yaml
+   :caption: .pre-commit-config.yaml
 
    repos:
      - repo: https://github.com/psf/black
@@ -60,6 +61,16 @@ To avoid pushing commits that fail formatting/linting checks, new projects shoul
        rev: 5.8.0
        hooks:
          - id: isort
+     - repo: https://github.com/jazzband/pip-tools
+       rev: 6.4.0
+       hooks:
+         - id: pip-compile
+           name: pip-compile requirements.in
+           files: ^requirements\.(in|txt)$
+         - id: pip-compile
+           name: pip-compile requirements_dev.in
+           files: ^requirements(_dev)?\.(in|txt)$
+           args: [requirements_dev.in]
 
 To ignore generated files, you can add, for example, ``exclude: /migrations/`` to the end of the file.
 
