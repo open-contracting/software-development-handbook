@@ -5,6 +5,9 @@ Docker
 
    For deploying Docker, see the  `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/docker.html>`__. Do not put ``docker-compose.yaml`` or ``.env`` files in repositories.
 
+Directory layout
+----------------
+
 To simplify the :ref:`GitHub Actions workflow<docker-registry>`, put the :ref:`dockerfile` and :ref:`dockerignore` files in the root of the repository.
 
 .. _dockerfile:
@@ -14,21 +17,21 @@ Dockerfile
 
 To increase consistency across projects:
 
--  Use the name ``runner`` for the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__
+-  Use the name ``runner`` for the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__:
 
    .. code-block:: docker
 
       RUN groupadd -r runner && useradd --no-log-init -r -g runner runner
 
 -  Use the ``user:group`` form for the `USER <https://docs.docker.com/engine/reference/builder/#user>`__ instruction, unless you want the group to be ``root``
--  Set `WORKDIR <https://docs.docker.com/engine/reference/builder/#workdir>`__ to ``/workdir``
+-  Set `WORKDIR <https://docs.docker.com/engine/reference/builder/#workdir>`__ to ``/workdir``:
 
    .. code-block:: docker
 
       WORKDIR /workdir
 
 -  Use a leading ``/`` with the ``WORKDIR`` instruction
--  Use the ``--chown=user:group`` option with the `COPY <https://docs.docker.com/engine/reference/builder/#copy>`__ instruction, unless you want the files to be owned by ``root``
+-  Use the ``--chown=user:group`` option with the `COPY <https://docs.docker.com/engine/reference/builder/#copy>`__ instruction, unless you want the ownership of the files to be ``root:root``
 -  Prefer the ``COPY`` instruction to the `ADD <https://docs.docker.com/engine/reference/builder/#add>`__ instruction, `as recommended <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy>`__
 
 Reference:
@@ -61,7 +64,7 @@ For Node, use the default image, `as recommended <https://hub.docker.com/_/node/
 
 For a web server, use the `nginxinc/nginx-unprivileged:latest <https://hub.docker.com/r/nginxinc/nginx-unprivileged>`__ image. Note that the default port is changed to 8080 (instead of 80).
 
-For reference, the ``/etc/nginx/conf.d/default.conf`` file in the Nginx image is:
+For reference, the default ``/etc/nginx/conf.d/default.conf`` file in the Nginx image is:
 
 .. literalinclude:: samples/default.conf
    :language: nginx
@@ -78,9 +81,9 @@ Before installing a system package, check whether it's included in a base image.
 
 #. Find the tag on the DockerHub page of the base image (the ``3.8`` tag is under *Shared Tags*)
 #. Click the link to view the Dockerfile
-#. Check the ``apt-get install`` commands
-#. Look for ``FROM`` instructions
-#. Repeat steps 1-3 for the ``FROM`` image(s)
+#. Check the ``apt-get install`` commands for the package name
+#. If not found, look for ``FROM`` instructions
+#. Repeat from step 1 for the ``FROM`` image(s)
 
 We find that the `buildpack-deps:bullseye image <https://github.com/docker-library/buildpack-deps/blob/master/debian/bullseye/Dockerfile>`__ installs the ``libpq-dev`` system package.
 
@@ -116,9 +119,11 @@ Add one Dockerfile for the Django project, and another for static files:
 
 .. literalinclude:: samples/Dockerfile_django
    :language: docker
+   :caption: Dockerfile_django
 
 .. literalinclude:: samples/Dockerfile_static
    :language: docker
+   :caption: Dockerfile_static
 
 Node
 ^^^^

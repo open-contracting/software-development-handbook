@@ -16,7 +16,7 @@ Follow the format:
 
    #123
 
-Most commits are made in pull requests, such that it's easy to find the related conversation on GitHub. As such, it's not necessary to provide a long narrative, if it exists in a pull request or linked issue.
+Most commits are made in pull requests, such that it's easy to find the discussion on GitHub. As such, it's not necessary to provide a long narrative, if it exists in a pull request or linked issue.
 
 Reference:
 
