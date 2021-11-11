@@ -157,3 +157,7 @@ Deployment
 
 -  Use the `Deployment checklist <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/>`__
 -  Read `Deploying Django <https://docs.djangoproject.com/en/3.2/howto/deployment/>`__
+
+.. seealso::
+
+  :ref:`Dockerfile template for Django projects<docker-django>`

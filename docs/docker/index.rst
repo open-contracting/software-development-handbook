@@ -107,6 +107,19 @@ Python
 .. literalinclude:: samples/Dockerfile_python
    :language: docker
 
+.. _docker-django:
+
+Django
+^^^^^^
+
+Add one Dockerfile for the Django project, and another for static files:
+
+.. literalinclude:: samples/Dockerfile_django
+   :language: docker
+
+.. literalinclude:: samples/Dockerfile_static
+   :language: docker
+
 Node
 ^^^^
 
