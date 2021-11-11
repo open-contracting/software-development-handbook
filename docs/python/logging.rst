@@ -38,6 +38,10 @@ To configure the format in `Django <https://docs.djangoproject.com/en/3.2/topics
 .. literalinclude:: samples/logging.py
    :language: python
 
+.. note::
+
+   Django's default `logging configuration <https://github.com/django/django/blob/main/django/utils/log.py>`__ configures the ``django`` and ``django.server`` loggers. To change those (for example, to set the level to ``DEBUG`` in development to `view database queries <https://docs.djangoproject.com/en/3.2/topics/logging/#examples>`__), add them to the above template.
+
 To configure the format in general:
 
 .. code-block:: python
@@ -50,7 +54,6 @@ To configure the format in general:
 
 Reference:
 
--  `Django's default logging configuration <https://github.com/django/django/blob/main/django/utils/log.py>`__
 -  `Python's warnings.py format string <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L37>`__
 
 Methods
