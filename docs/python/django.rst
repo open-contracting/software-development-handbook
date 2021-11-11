@@ -13,6 +13,7 @@ Layout
 
 -  Use ``core`` or the name of the repository as the project name.
 -  Maintain the distinction between app directories and the project directory.
+-  Do not nest app directories within the project directory. (While this avoids errors due to app names colliding with package names, in practice, this tends to produce a worse separation of concerns.)
 -  Organize apps into logical units. Don't mix everything into one app.
 -  Use *either* nouns (like ``exporter``) or verbs (like ``export``) for apps. Don't use both.
 
