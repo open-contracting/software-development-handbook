@@ -11,7 +11,7 @@ General
 Layout
 ------
 
--  Use ``core`` or the name of the repository as the project name.
+-  Use ``core`` as the project name.
 -  Maintain the distinction between app directories and the project directory.
 -  Do not nest app directories within the project directory. (While this avoids errors due to app names colliding with package names, in practice, this tends to produce a worse separation of concerns.)
 -  Organize apps into logical units. Don't mix everything into one app.
@@ -20,6 +20,8 @@ Layout
 .. seealso::
 
    :doc:`Directory layout guide<layout>`
+
+.. cookiecutter-django uses ``config`` as the project name, but a ``config.settings`` module is mind-bending.
 
 Models
 ------
