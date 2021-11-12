@@ -177,6 +177,23 @@ For example, the `Extension Registry <https://github.com/open-contracting/extens
 .. literalinclude:: samples/ci/static.yml
    :language: yaml
 
+Dependabot
+----------
+
+Keep GitHub Actions up-to-date with:
+
+.. code-block:: yaml
+   :caption: .github/dependabot.yml
+
+   version: 2
+   updates:
+     - package-ecosystem: "github-actions"
+       directory: "/"
+       schedule:
+         interval: "daily"
+
+Reference: `Configuration options for dependency updates <https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates>`__
+
 Maintenance
 -----------
 
