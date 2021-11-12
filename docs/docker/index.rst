@@ -135,8 +135,7 @@ Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and
 
    Gunicorn's options require explanation.
 
-   Worker class
-   ------------
+   **Worker class**
 
    Gunicorn describes use cases where asynchronous workers `are preferred <https://docs.gunicorn.org/en/stable/design.html#choosing-a-worker-type>`__. In particular, check whether the application makes long blocking calls and is therefore `I/O bound <https://medium.com/building-the-system/gunicorn-3-means-of-concurrency-efbb547674b7>`__.
 
@@ -156,8 +155,7 @@ Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and
 
       Setting the `--threads <https://docs.gunicorn.org/en/stable/settings.html#threads>`__ option to more than ``1`` automatically sets the worker class to ``gthreads``.
 
-   Number of threads
-   -----------------
+   **Number of threads**
 
    Check whether your code is thread safe. Notably, `psycopg2 cursors are not thread safe <https://www.psycopg.org/docs/cursor.html>`__, though this isn't a concern for typical usage of `Django <https://docs.djangoproject.com/en/3.2/ref/databases/>`__.
 
@@ -169,8 +167,7 @@ Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and
 
       If the application is CPU-bound, additional threads don't help, due to `Python's GIL <https://wiki.python.org/moin/GlobalInterpreterLock>`__. Instead, add additional workers (up to twice the number of cores).
 
-   Concurrency
-   -----------
+   **Concurrency**
 
    `cores * 2 + 1 <https://docs.gunicorn.org/en/stable/design.html#how-many-workers>`__ is the recommended number of workers plus threads. However, multiple applications on the same server need to share the same cores – plus, the server might not be dedicated to Gunicorn. At build time, the mix of applications is unknown.
 
@@ -178,15 +175,13 @@ Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and
 
    ``WEB_CONCURRENCY`` is set to ``cores + 1``, where the `nproc <https://www.gnu.org/software/coreutils/manual/html_node/nproc-invocation.html>`__ command returns the number of processors. ``--threads 2`` is set as above, such that the total concurrency is ``cores * 2 + 2`` – one more than recommended.
 
-   Signals
-   -------
+   **Signals**
 
    The shell form, ``CMD command param1``, `runs the command as a subcommand <https://docs.docker.com/engine/reference/builder/#cmd>`__ of ``/bin/sh -c``, which `doesn't pass signals <https://docs.docker.com/engine/reference/builder/#entrypoint>`__. For Gunicorn to receive the ``SIGTERM`` signal and stop gracefully, the exec form is used.
 
    Reference: Gunicorn `signal handling <https://docs.gunicorn.org/en/stable/signals.html>`__
 
-   Other options
-   -------------
+   **Other options**
 
    ``--bind 0.0.0.0:8000`` uses Docker's `default bind address for containers <https://docs.docker.com/network/iptables/#setting-the-default-bind-address-for-containers>`__ and Gunicorn's `default port <https://docs.gunicorn.org/en/stable/settings.html#bind>`__.
 
@@ -196,8 +191,7 @@ Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and
 
    Additional options can be configured from Docker Compose using the `GUNICORN_CMD_ARGS <https://docs.gunicorn.org/en/stable/settings.html>`__ environment variable, though command-line arguments `take precedence <https://docs.gunicorn.org/en/stable/configure.html#configuration-overview>`__.
 
-   Troubleshooting
-   ---------------
+   **Troubleshooting**
 
    Idle workers are regularly killed. As such, it can be hard to debug what happened. See this `FAQ question <https://docs.gunicorn.org/en/stable/faq.html#why-are-workers-silently-killed>`__ for some guidance.
 
