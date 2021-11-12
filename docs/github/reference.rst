@@ -15,3 +15,4 @@ Integrations
 -  Coveralls to measure test coverage
 -  ReadTheDocs to build :ref:`repository-specific documentation<readthedocs>` (`access all docs <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)
 -  GitHub Actions to :doc:`run tests<../python/ci>`, and to build documentation (`view all badges <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md#readme>`__)
+-  `pre-commit.ci <https://pre-commit.ci>`__ to fix linting issues automatically

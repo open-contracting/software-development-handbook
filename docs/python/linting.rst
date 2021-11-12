@@ -104,7 +104,9 @@ Create a ``.github/workflows/lint.yml`` file. As a base, use:
 
 See the `documentation <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the Bash scripts.
 
-If the project uses Black, add:
+If the project uses pre-commit, `pre-commit.ci <https://pre-commit.ci>`__ checks and fixes any linting issues.
+
+Otherwise, if the project uses Black, add:
 
 .. code-block:: yaml
 
