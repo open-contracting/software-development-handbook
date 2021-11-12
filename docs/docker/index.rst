@@ -183,6 +183,8 @@ Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and
 
    The shell form, ``CMD command param1``, `runs the command as a subcommand <https://docs.docker.com/engine/reference/builder/#cmd>`__ of ``/bin/sh -c``, which `doesn't pass signals <https://docs.docker.com/engine/reference/builder/#entrypoint>`__. For Gunicorn to receive the ``SIGTERM`` signal and stop gracefully, the exec form is used.
 
+   Reference: Gunicorn `signal handling <https://docs.gunicorn.org/en/stable/signals.html>`__
+
    Other options
    -------------
 
@@ -194,7 +196,10 @@ Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and
 
    Additional options can be configured from Docker Compose using the `GUNICORN_CMD_ARGS <https://docs.gunicorn.org/en/stable/settings.html>`__ environment variable, though command-line arguments `take precedence <https://docs.gunicorn.org/en/stable/configure.html#configuration-overview>`__.
 
-   Reference: Gunicorn `signal handling <https://docs.gunicorn.org/en/stable/signals.html>`__
+   Troubleshooting
+   ---------------
+
+   Idle workers are regularly killed. As such, it can be hard to debug what happened. See this `FAQ question <https://docs.gunicorn.org/en/stable/faq.html#why-are-workers-silently-killed>`__ for some guidance.
 
 Node
 ^^^^
