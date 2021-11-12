@@ -81,6 +81,8 @@ This connection string can be used in ``psql`` commands or in environment variab
 
    If you are running out of connections, use the ``cyberboss/postgres-max-connections`` image, which is a `fork <https://github.com/tgstation/tgstation-server/blob/a64be6d9819b8923231ffbe54e37f5d92ebd0f17/.github/workflows/ci-suite.yml#L271>`__ of ``postgres:latest`` with ``max_connections=500``.
 
+Reference: `Creating PostgreSQL service containers <https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers>`__
+
 RabbitMQ
 ^^^^^^^^
 
@@ -256,3 +258,23 @@ The following prevents GitHub Actions from running a workflow twice when pushing
 .. code-block:: yaml
 
    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+
+.. note::
+
+   A common configuration for GitHub Actions is:
+
+   .. code-block:: yaml
+
+      on:
+        push:
+          branches: [main, master]
+        pull_request:
+          branches: [main, master]
+
+   However, this means the workflow won't run for a push to a non-PR branch. Some developers only open a PR when ready for review, rather than as soon as they push the branch. In such cases, it's important for the developer to receive feedback from the workflow.
+
+   This also means the workflow won't run for a pull request whose base branch isn't a default branch. Sometimes, we create PRs on non-default branches, like when doing a rewrite, like the ``django`` branch of Kingfisher Process.
+
+   To correct for both scenarios, we use ``on: [push, pull_request]``, and then use the above condition to avoid duplicate runs.
+
+   Note that, in standards repositories, we have many protected branches (like ``1.0`` and ``1.0-dev``) that are not "main" or "master". The above setup avoids accidentally excluding relevant branches.
