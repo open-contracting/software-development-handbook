@@ -1,35 +1,39 @@
 Dockerfile
 ==========
 
-Code style
-----------
+Dockerfile instructions
+-----------------------
 
-To increase consistency across projects:
+Reference: `Dockerfile reference <https://docs.docker.com/engine/reference/builder/>`__, Best practices for `Dockerfile instructions <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#dockerfile-instructions>`__
 
+USER
+~~~~
+
+-  Use the ``user:group`` form for the `USER <https://docs.docker.com/engine/reference/builder/#user>`__ instruction, unless you want the group to be ``root``.
 -  Use the name ``runner`` for the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__:
 
    .. code-block:: docker
 
       RUN groupadd -r runner && useradd --no-log-init -r -g runner runner
 
--  Use the ``user:group`` form for the `USER <https://docs.docker.com/engine/reference/builder/#user>`__ instruction, unless you want the group to be ``root``
+WORKDIR
+~~~~~~~
+
+-  Use a leading ``/`` with the ``WORKDIR`` instruction.
 -  Set `WORKDIR <https://docs.docker.com/engine/reference/builder/#workdir>`__ to ``/workdir``:
 
    .. code-block:: docker
 
       WORKDIR /workdir
 
--  Use a leading ``/`` with the ``WORKDIR`` instruction
--  Use the ``--chown=user:group`` option with the `COPY <https://docs.docker.com/engine/reference/builder/#copy>`__ instruction, unless you want the ownership of the files to be ``root:root``
--  Prefer the ``COPY`` instruction to the `ADD <https://docs.docker.com/engine/reference/builder/#add>`__ instruction, `as recommended <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy>`__
+COPY
+~~~~
 
-Reference:
+-  Use the ``--chown=user:group`` option with the `COPY <https://docs.docker.com/engine/reference/builder/#copy>`__ instruction, unless you want the ownership of the files to be ``root:root``.
+-  Prefer the ``COPY`` instruction to the `ADD <https://docs.docker.com/engine/reference/builder/#add>`__ instruction, `as recommended <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy>`__.
 
--  `Dockerfile reference <https://docs.docker.com/engine/reference/builder/>`__
--  Best practices for `Dockerfile instructions <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#dockerfile-instructions>`__
-
-Instruction order
------------------
+Layer order
+-----------
 
 To `leverage the build cache <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache>`__, order the instructions from least-to-most likely to change over time. In general, the order is:
 

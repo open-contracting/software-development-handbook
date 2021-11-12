@@ -1,75 +1,15 @@
 Docker
 ======
 
+To simplify the :doc:`GitHub Actions workflow<build>`, put the :doc:`dockerfile` and :doc:`dockerignore` files in the root of the repository.
+
+.. toctree::
+
+   dockerignore
+   dockerfile
+   django
+   build
+
 .. seealso::
 
    For deploying Docker, see the  `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/docker.html>`__. Do not put ``docker-compose.yaml`` or ``.env`` files in repositories.
-
-Directory layout
-----------------
-
-To simplify the :ref:`GitHub Actions workflow<docker-registry>`, put the :doc:`dockerfile` and :ref:`dockerignore` files in the root of the repository.
-
-.. _dockerignore:
-
-.dockerignore
--------------
-
-The `.dockerignore <https://docs.docker.com/engine/reference/builder/#dockerignore-file>`__ file should only ignore tracked files (not files like ``.DS_Store`` or directories like ``__pycache__``), unless the build generates untracked files (like ``node_modules``).
-
-.. literalinclude:: samples/dockerignore
-   :language: none
-
-To check the contents of the image, you can run, replacing ``IMAGE``:
-
-.. code-block:: bash
-
-   docker run -it --entrypoint sh IMAGE
-
-.. _docker-registry:
-
-Docker registry
----------------
-
-In most cases, you can add the job below to an existing :doc:`.github/workflows/ci.yml<../python/ci>` file.
-
-If you need to build multiple images, then for each image:
-
-#. Include a ``docker/build-push-action`` step.
-#. Set either:
-
-   -  The path to the Dockerfile with the `file <https://github.com/docker/build-push-action#inputs>`__ key
-   -  The path to the directory (`context <https://docs.docker.com/engine/context/working-with-contexts/>`__) with the ``context`` key
-
-#. Add a suffix to the repository name under the ``tags`` key.
-
-.. literalinclude:: samples/ci.yml
-   :language: yaml
-
-.. note::
-
-   The `docker/build-push-action <https://github.com/docker/build-push-action>`__ step uses `BuildKit <https://docs.docker.com/engine/reference/builder/#buildkit>`__ by default.
-
-..
-   The following would simplify the workflow somewhat. However, it would not work when building multiple images, producing an inconsistent approach across repositories.
-
-      # https://github.com/docker/metadata-action#usage
-      - uses: docker/metadata-action@v3
-        with:
-          images: ghcr.io/${{ github.repository }}
-          tags: |
-            type=ref,event=tag
-      # https://github.com/docker/build-push-action#usage
-      - uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-
-    Note: The docker/metadata-action step with ``type=ref,event=tag`` automatically generates the `latest <https://github.com/docker/metadata-action#latest-tag>`__ tag.
-
-Reference
-~~~~~~~~~
-
--  `Publishing a package using an action <https://docs.github.com/en/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions>`__
--  `Troubleshooting <https://github.com/docker/build-push-action/blob/master/TROUBLESHOOTING.md>`__ ``docker/build-push-action`` step
