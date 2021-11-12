@@ -14,8 +14,9 @@ USER runner:runner
 COPY --chown=runner:runner . .
 
 ENV DJANGO_ENV=production
+ENV WEB_CONCURRENCY=$(( $(nproc) + 1 ))
 
 RUN python manage.py compilemessages
 
 EXPOSE 8000
-CMD exec gunicorn --bind 0.0.0.0:8000 --timeout 120 core.wsgi -c gunicorn_docker.py
+CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8000", "--worker-tmp-dir", "/dev/shm", "--threads", "2", "--name", "PROJECTNAME"]

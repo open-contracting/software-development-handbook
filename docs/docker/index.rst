@@ -115,7 +115,11 @@ Python
 Django
 ^^^^^^
 
-Add one Dockerfile for the Django project, and another for static files:
+Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and ``PROJECTNAME``, and another for static files.
+
+.. warning::
+
+   Remember to set the number of workers using a environment variable like ``GUNICORN_CMD_ARGS="--workers 3"``.
 
 .. literalinclude:: samples/Dockerfile_django
    :language: docker
@@ -124,6 +128,73 @@ Add one Dockerfile for the Django project, and another for static files:
 .. literalinclude:: samples/Dockerfile_static
    :language: docker
    :caption: Dockerfile_static
+
+.. _gunicorn:
+
+.. admonition:: Gunicorn
+
+   Gunicorn's options require explanation.
+
+   Worker class
+   ------------
+
+   Gunicorn describes use cases where asynchronous workers `are preferred <https://docs.gunicorn.org/en/stable/design.html#choosing-a-worker-type>`__. In particular, check whether the application makes long blocking calls and is therefore `I/O bound <https://medium.com/building-the-system/gunicorn-3-means-of-concurrency-efbb547674b7>`__.
+
+   .. note::
+
+      If Gunicorn is deployed `behind a proxy server <https://docs.gunicorn.org/en/stable/deploy.html>`__, like Apache, then it isn't "serving requests directly to the internet." That said, check whether other applications running on the same server and sending requests behind the proxy server are likely to DOS the application if it were to use a synchronous worker.
+
+   If not, then the synchronous `worker classes <https://docs.gunicorn.org/en/stable/settings.html#worker-class>`__ (``sync`` and ``gthreads``) are preferred.
+
+   .. note::
+
+      The ``gthreads`` worker class is synchronous, `despite <https://github.com/benoitc/gunicorn/issues/1493#issuecomment-321461614>`__ appearing under `AsyncIO Workers <https://docs.gunicorn.org/en/stable/design.html#asyncio-workers>`__.
+
+   When using the ``sync`` worker class, the `--timeout option <https://docs.gunicorn.org/en/stable/settings.html#timeout>`__ `behaves like a request timeout <https://github.com/benoitc/gunicorn/issues/1493#issuecomment-321331753>`__, because it can only *either* handle the request or handle the heartbeat. When using the ``gthreads`` worker class, a main thread `handles the heartbeat <https://docs.gunicorn.org/en/stable/design.html#how-many-threads>`__. As such, we use the ``gthreads`` worker class, to not have to worry about request times.
+
+   .. note::
+
+      Setting the `--threads <https://docs.gunicorn.org/en/stable/settings.html#threads>`__ option to more than ``1`` automatically sets the worker class to ``gthreads``.
+
+   Number of threads
+   -----------------
+
+   Check whether your code is thread safe. Notably, `psycopg2 cursors are not thread safe <https://www.psycopg.org/docs/cursor.html>`__, though this isn't a concern for typical usage of `Django <https://docs.djangoproject.com/en/3.2/ref/databases/>`__.
+
+   `When using threads <https://docs.gunicorn.org/en/stable/design.html#how-many-threads>`__, the application is loaded by the worker and some memory is shared between its threads (thus also consuming less memory than additional workers would).
+
+   Unless the server becomes memory-bound, use a minimum number of threads (``2``) and instead increase the number of workers, to lower the risk around thread safety.
+
+   .. note::
+
+      If the application is CPU-bound, additional threads don't help, due to `Python's GIL <https://wiki.python.org/moin/GlobalInterpreterLock>`__. Instead, add additional workers (up to twice the number of cores).
+
+   Concurrency
+   -----------
+
+   `cores * 2 + 1 <https://docs.gunicorn.org/en/stable/design.html#how-many-workers>`__ is the recommended number of workers plus threads. However, multiple applications on the same server need to share the same cores – plus, the server might not be dedicated to Gunicorn. At build time, the mix of applications is unknown.
+
+   As such, we omit the ``--workers`` option (`highest level of precedence  <https://docs.gunicorn.org/en/stable/configure.html#configuration-overview>`__), and set a `WEB_CONCURRENCY <https://docs.gunicorn.org/en/stable/settings.html#workers>`__ environment variable (lowest level of precedence). Docker Compose can then set a `GUNICORN_CMD_ARGS="--workers 3" <https://docs.gunicorn.org/en/stable/settings.html>`__ environment variable to override the number of workers.
+
+   ``WEB_CONCURRENCY`` is set to ``cores + 1``, where the `nproc <https://www.gnu.org/software/coreutils/manual/html_node/nproc-invocation.html>`__ command returns the number of processors. ``--threads 2`` is set as above, such that the total concurrency is ``cores * 2 + 2`` – one more than recommended.
+
+   Signals
+   -------
+
+   The shell form, ``CMD command param1``, `runs the command as a subcommand <https://docs.docker.com/engine/reference/builder/#cmd>`__ of ``/bin/sh -c``, which `doesn't pass signals <https://docs.docker.com/engine/reference/builder/#entrypoint>`__. For Gunicorn to receive the ``SIGTERM`` signal and stop gracefully, the exec form is used.
+
+   Other options
+   -------------
+
+   ``--bind 0.0.0.0:8000`` uses Docker's `default bind address for containers <https://docs.docker.com/network/iptables/#setting-the-default-bind-address-for-containers>`__ and Gunicorn's `default port <https://docs.gunicorn.org/en/stable/settings.html#bind>`__.
+
+   ``--worker-tmp-dir /dev/shm`` avoids a `potential issue <https://docs.gunicorn.org/en/stable/faq.html#how-do-i-avoid-gunicorn-excessively-blocking-in-os-fchmod>`__.
+
+   ``--name PROJECTNAME`` helps to `distinguish processes <https://docs.gunicorn.org/en/stable/faq.html#how-can-i-name-processes>`__ of different applications on the same server.
+
+   Additional options can be configured from Docker Compose using the `GUNICORN_CMD_ARGS <https://docs.gunicorn.org/en/stable/settings.html>`__ environment variable, though command-line arguments `take precedence <https://docs.gunicorn.org/en/stable/configure.html#configuration-overview>`__.
+
+   Reference: Gunicorn `signal handling <https://docs.gunicorn.org/en/stable/signals.html>`__
 
 Node
 ^^^^
