@@ -173,4 +173,4 @@ To perform deployment checks locally, run:
 
 .. seealso::
 
-  :ref:`Dockerfile template for Django projects<docker-django>`
+  :doc:`../docker/django`
