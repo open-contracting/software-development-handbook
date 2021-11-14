@@ -90,6 +90,44 @@ If it's not included, install it following `best practices <https://docs.docker.
          package-c \
       && rm -rf /var/lib/apt/lists/*
 
+Bind mounts
+-----------
+
+.. note::
+
+   In general, do not use absolute paths on the host's filesystem as an API between projects, because the projects might not share the same filesystem, like in the case of Docker containers. Instead, use paths relative to a configurable setting.
+
+If a project needs to read or write data to the filesystem:
+
+#. Add a setting with a default value. For example, for a :ref:`Django project<django-settings>`:
+
+   .. code-block:: python
+      :caption: settings.py
+
+      KINGFISHER_COLLECT_FILES_STORE = os.getenv(
+          "KINGFISHER_COLLECT_FILES_STORE", "/data" if production else BASE_DIR / "data"
+      )
+
+#. Create the directory using the default value in the Dockerfile. For example:
+
+   .. code-block:: docker
+      :caption: Dockerfile
+
+      # Must match the settings.KINGFISHER_COLLECT_FILES_STORE default value.
+      RUN mkdir -p /data && chown -R runner:runner /data
+
+#. `Mount <https://docs.docker.com/storage/bind-mounts/>`__ the host's directory to the default value in the Docker Compose file. For example:
+
+   .. code-block:: yaml
+      :caption: docker-compose.yaml
+
+      services:
+        django:
+          volumes:
+            - /data/storage/kingfisher-collect:/data
+
+If a project needs to read or write data to multiple directories, set the default values to subdirectories of the ``/data`` directory.
+
 Templates
 ---------
 
