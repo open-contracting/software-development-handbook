@@ -25,7 +25,7 @@ Use the following names for environment variables:
    -  ``DATABASE_URL`` (see :doc:`../services/postgresql`)
    -  ``RABBIT_URL`` (see :doc:`../services/rabbitmq`)
    -  ``RABBIT_EXCHANGE_NAME``
-   -  ``{APP}_URL`` (not ``{APP}_HOST``)
+   -  ``*_URL`` (not ``*_HOST``)
 
 -  Third-party services
 
@@ -33,6 +33,10 @@ Use the following names for environment variables:
    -  ``FATHOM_ANALYTICS_ID``
    -  ``SENTRY_DSN`` (not DNS!)
    -  ``SENTRY_SAMPLE_RATE``
+
+If a setting refers to a setting in another project, prefix it by the project's full name. For example:
+
+-  ``KINGFISHER_PROCESS_DATABASE_URL``, not ``PROCESS_DATABASE_URL``
 
 Deployment
 ----------
