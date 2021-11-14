@@ -63,7 +63,9 @@ To add query string parameters:
    query = parse_qs(parsed.query)
    query.update({"blocked_connection_timeout": 600, "heartbeat": 300})
 
-   connection = pika.BlockingConnection(pika.URLParameters(parsed._replace(query=urlencode(query)).geturl()))
+   connection = pika.BlockingConnection(
+      pika.URLParameters(parsed._replace(query=urlencode(query, doseq=True)).geturl())
+   )
 
 Design decisions
 ----------------
