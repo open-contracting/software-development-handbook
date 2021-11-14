@@ -25,7 +25,7 @@ Use the following names for environment variables:
    -  ``DATABASE_URL`` (see :doc:`../services/postgresql`)
    -  ``RABBIT_URL`` (see :doc:`../services/rabbitmq`)
    -  ``RABBIT_EXCHANGE_NAME``
-   -  ``*_URL`` (not ``*_HOST``)
+   -  ``*_URL`` (not ``*_HOST``, unless it is only the host part, like ``localhost``)
 
 -  Third-party services
 
