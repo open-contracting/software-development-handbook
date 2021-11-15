@@ -7,6 +7,14 @@ You may also refer to common guidance like the `Google Python Style Guide <https
 
    The :doc:`../services/index` section contains Python-related content for :doc:`../services/postgresql` and :doc:`../services/rabbitmq`.
 
+Naming
+------
+
+   *There are only two hard things in computer science: cache invalidation, naming things and off-by-one errors.*
+
+-  Use the same terminology as other projects. At minimum, don't use the same term for a different concept.
+-  Don't use "cute" names.
+
 Comments
 --------
 
