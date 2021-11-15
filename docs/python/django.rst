@@ -30,6 +30,7 @@ Filename conventions
 Models
 ------
 
+-  Use ``from django.db import models``, `as recommended <https://docs.djangoproject.com/en/3.2/ref/models/fields/>`__.
 -  Use ``help_text`` and ``verbose_name`` to describe fields.
 -  Use ``TextField``, not ``CharField``. There is `no performance difference <https://www.postgresql.org/docs/11/datatype-character.html>`__ in PostgreSQL.
 -  Do not use ``null=True`` with ``TextField`` or ``CharField``, `as recommended by Django <https://docs.djangoproject.com/en/3.2/ref/models/fields/#null>`__.
