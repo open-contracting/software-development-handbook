@@ -197,6 +197,12 @@ If the string is long, it might be easier to edit in the form:
    - Item 3
    """)
 
+Maintainers can find improper use of ``"""`` with this regular expression:
+
+.. code-block:: none
+
+   (?<!all|raw)(?<!dedent)(?<!execute)\((\n( *)(#.*)?)*"""
+
 Default values
 --------------
 
