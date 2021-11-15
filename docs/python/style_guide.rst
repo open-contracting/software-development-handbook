@@ -158,6 +158,29 @@ To correct any remaining occurrences of ``str.format()``, use these patterns and
    * - ``("[^"]*?{)(}[^"]*?{)(}[^']*?{)(}[^"]*?")\.format\(([\w.]+), ([\w.]+), ([\w.]+)\)``
      - ``f$1$5$2$6$3$7$4``
 
+Multiline strings
+-----------------
+
+For strings in which whitespace has no effect, like SQL statements:
+
+.. code-block:: python
+
+   cursor.execute("""
+       SELECT *
+       FROM table
+       WHERE id > 1000
+   """)
+
+For strings in which whitespace changes the output, like log messages:
+
+.. code-block:: python
+
+   logger.info(
+       "A line with up to 119 characters. Use consecutive strings, one on each line, without `+` operators or join "
+       "methods. Do not start a string with a space. Instead, append it to the previous string. If the message has "
+       "multiple sentences, do not break the line at punctuation."
+   )
+
 Default values
 --------------
 
