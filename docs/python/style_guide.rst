@@ -161,7 +161,7 @@ To correct any remaining occurrences of ``str.format()``, use these patterns and
 Multiline strings
 -----------------
 
-For strings in which whitespace has no effect, like SQL statements:
+For cases in which whitespace has no effect, like SQL statements:
 
 .. code-block:: python
 
@@ -171,7 +171,7 @@ For strings in which whitespace has no effect, like SQL statements:
        WHERE id > 1000
    """)
 
-For strings in which whitespace changes the output, like log messages:
+For cases in which whitespace changes the output, like log messages:
 
 .. code-block:: python
 
@@ -180,6 +180,22 @@ For strings in which whitespace changes the output, like log messages:
        "methods. Do not start a string with a space. Instead, append it to the previous string. If the message has "
        "multiple sentences, do not break the line at punctuation."
    )
+
+If the string is long, it might be easier to edit in the form:
+
+.. code-block:: python
+
+   from textwrap import dedent
+
+   content = dedent("""\
+   # Heading
+
+   A long paragraph.
+
+   - Item 1
+   - Item 2
+   - Item 3
+   """)
 
 Default values
 --------------
