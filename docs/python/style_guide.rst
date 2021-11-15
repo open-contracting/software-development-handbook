@@ -32,9 +32,9 @@ String formatting
 
    Use Python's standard library instead of regular expressions or string methods to parse and construct filenames and URLs.
 
-   Use the `os.path <https://docs.python.org/3/library/os.path.html>`__ or `pathlib <https://docs.python.org/3/library/pathlib.html#module-pathlib>`__ module to parse or construct filenames. This promotes cross-platform support.
+   Use the `os.path <https://docs.python.org/3/library/os.path.html>`__ or `pathlib <https://docs.python.org/3/library/pathlib.html#module-pathlib>`__ module to parse or construct filenames, for cross-platform support.
 
-   Use the `urllib.parse <https://docs.python.org/3.8/library/urllib.parse.html>`__ module to parse and construct URLs, notably `urlsplit <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlsplit>`__ (not ``urlparse``), `parse_qs <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.parse_qs>`__, `urljoin <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urljoin>`__ and `urlencode <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlencode>`__. When constructing URLs, this ensures a properly encoded query string and avoids missing or extra ``/`` characters between the base URL and URL path. To replace part of a URL parsed with the ``urlsplit`` function, use its `_replace <https://docs.python.org/3/library/collections.html#collections.somenamedtuple._replace>`__ method. `See examples <https://docs.python.org/3.8/library/urllib.request.html#urllib-examples>`__.
+   Use the `urllib.parse <https://docs.python.org/3.8/library/urllib.parse.html>`__ module to parse and construct URLs, notably `urlsplit <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlsplit>`__ (not ``urlparse``), `parse_qs <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.parse_qs>`__, `urljoin <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urljoin>`__ and `urlencode <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlencode>`__. To replace part of a URL parsed with the ``urlsplit`` function, use its `_replace <https://docs.python.org/3/library/collections.html#collections.somenamedtuple._replace>`__ method. `See examples <https://docs.python.org/3.8/library/urllib.request.html#urllib-examples>`__.
 
 .. seealso::
 
@@ -62,7 +62,7 @@ is easier to write than:
 
 .. code-block:: python
 
-   message = f"""Is '{person["name"]}' correct?"""
+   message = f"""Is '{person["name"]}' correct?"""  # AVOID
 
 There are two cases in which f-strings and ``str.format()`` are not preferred:
 
@@ -97,13 +97,42 @@ Internationalization (i18n)
 
    To learn how to use or migrate between ``%`` and ``format()``, see `pyformat.info <https://pyformat.info/>`__.
 
-Maintainers can find improper formatting with this regular expression:
+Maintenance
+~~~~~~~~~~~
 
-.. code-block:: none
+Maintainers can find improper use with these regular expressions. Test directories and Sphinx ``conf.py`` files can be ignored, if needed.
 
-   [^\w\]]\.format\(
+-  ``%`` with unnamed placeholders, except for log messages, ``strftime()`` and `psycopg2.extras.execute_values() <https://www.psycopg.org/docs/extras.html#psycopg2.extras.execute_values>`__):
 
-To correct formatting, the following patterns and replacements can be used:
+   .. code-block:: none
+
+      (?<!info)(?<!debug|error)(?<!warning)(?<!critical|strftime)(?<!exception)(?<!execute_values)\((\n( *['"#].*)?)* *['"].*?%[^( ]
+
+-  ``%`` with named placeholders, except for translation strings and :ref:`SQL statements<sql-statements>`:
+
+   .. code-block:: none
+
+      (?<!\b[t_])(?<!one)(?<!pluck)(?<!gettext|execute)\((\n( *['"#].*)?)* *['"].*?%\(
+
+-  Log messages using f-strings or ``str.format()`` (case-sensitive):
+
+   .. code-block:: none
+
+      ^( *)(?:\S.*)?\b(?<!subparser\.)(?<!messages\.)_?(?:debug|info|warning|error|critical|exception)\((?:\n(\1 .+)?)*.*?{
+
+-  Translation strings using f-strings or ``str.format()``:
+
+   .. code-block:: none
+
+      ^( *)(?:\S.*)?(?:\b__?|gettext|lazy)\((?:\n(\1 .+)?)*.*?(?<!% ){
+
+-  Remaining occurrences of ``str.format()``:
+
+   .. code-block:: none
+
+      [^\w\]]\.format\(
+
+To correct remaining occurrences of ``str.format()``, the following patterns and replacements can be used:
 
 .. list-table::
    :header-rows: 1
