@@ -30,11 +30,11 @@ String formatting
 
 .. tip::
 
-   Use Python's standard library instead of regular expressions or string methods to parse and construct filenames and URLs.
+   Don't use regular expressions or string methods to parse and construct filenames and URLs.
 
    Use the `os.path <https://docs.python.org/3/library/os.path.html>`__ or `pathlib <https://docs.python.org/3/library/pathlib.html#module-pathlib>`__ module to parse or construct filenames, for cross-platform support.
 
-   Use the `urllib.parse <https://docs.python.org/3.8/library/urllib.parse.html>`__ module to parse and construct URLs, notably `urlsplit <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlsplit>`__ (not ``urlparse``), `parse_qs <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.parse_qs>`__, `urljoin <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urljoin>`__ and `urlencode <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlencode>`__. To replace part of a URL parsed with the ``urlsplit`` function, use its `_replace <https://docs.python.org/3/library/collections.html#collections.somenamedtuple._replace>`__ method. `See examples <https://docs.python.org/3.8/library/urllib.request.html#urllib-examples>`__.
+   Use the `urllib.parse <https://docs.python.org/3.8/library/urllib.parse.html>`__ module to parse and construct URLs, notably: `urlsplit <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlsplit>`__ (not ``urlparse``), `parse_qs <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.parse_qs>`__, `urljoin <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urljoin>`__ and `urlencode <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlencode>`__. To replace part of a URL parsed with the ``urlsplit`` function, use its `_replace <https://docs.python.org/3/library/collections.html#collections.somenamedtuple._replace>`__ method. `See examples <https://docs.python.org/3.8/library/urllib.request.html#urllib-examples>`__.
 
 .. seealso::
 
@@ -100,19 +100,25 @@ Internationalization (i18n)
 Maintenance
 ~~~~~~~~~~~
 
-Maintainers can find improper use with these regular expressions. Test directories and Sphinx ``conf.py`` files can be ignored, if needed.
+Maintainers can find improper formatting with these regular expressions. Test directories and Sphinx ``conf.py`` files can be ignored, if needed.
 
--  ``%`` with unnamed placeholders, except for log messages, ``strftime()`` and `psycopg2.extras.execute_values() <https://www.psycopg.org/docs/extras.html#psycopg2.extras.execute_values>`__):
+-  Unnamed placeholders, except for log messages, ``strftime()`` and `psycopg2.extras.execute_values() <https://www.psycopg.org/docs/extras.html#psycopg2.extras.execute_values>`__:
 
    .. code-block:: none
 
       (?<!info)(?<!debug|error)(?<!warning)(?<!critical|strftime)(?<!exception)(?<!execute_values)\((\n( *['"#].*)?)* *['"].*?%[^( ]
 
--  ``%`` with named placeholders, except for translation strings and :ref:`SQL statements<sql-statements>`:
+-  Named placeholders, except for translation strings and :ref:`SQL statements<sql-statements>`:
 
    .. code-block:: none
 
       (?<!\b[t_])(?<!one)(?<!pluck)(?<!gettext|execute)\((\n( *['"#].*)?)* *['"].*?%\(
+
+-  Named placeholders, with incorrect position of ``%`` operator (trailing space):
+
+   .. code-block:: none
+
+      %\(.+(?<!\) )% 
 
 -  Log messages using f-strings or ``str.format()`` (case-sensitive):
 
@@ -132,7 +138,7 @@ Maintainers can find improper use with these regular expressions. Test directori
 
       [^\w\]]\.format\(
 
-To correct remaining occurrences of ``str.format()``, the following patterns and replacements can be used:
+To correct any remaining occurrences of ``str.format()``, use these patterns and replacements:
 
 .. list-table::
    :header-rows: 1
