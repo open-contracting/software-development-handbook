@@ -4,6 +4,7 @@ Docker
 To simplify the :doc:`GitHub Actions workflow<build>`, put the :doc:`dockerfile` and :doc:`dockerignore` files in the root of the repository.
 
 .. toctree::
+   :maxdepth: 2
 
    dockerignore
    dockerfile
