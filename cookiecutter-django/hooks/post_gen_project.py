@@ -12,15 +12,13 @@ def get_random_secret_key():
 
 def set_secret_key(path):
     with open(path) as f:
-        text = f.read().replace('!!!SECRET_KEY!!!', get_random_secret_key())
-    with open(path, 'w') as f:
+        text = f.read().replace("!!!SECRET_KEY!!!", get_random_secret_key())
+    with open(path, "w") as f:
         f.write(text)
 
 
-def main():
-    set_secret_key(os.path.join("core", "settings.py"))
-
-    if "{{ cookiecutter.use_fathom }}".lower() == "y":
+def use_fathom(enabled):
+    if enabled:
         print(dedent(
             """
             {%- raw %}
@@ -38,6 +36,12 @@ def main():
         ))
     else:
         os.remove(os.path.join("core", "context_processors.py"))
+
+
+def main():
+    set_secret_key(os.path.join("core", "settings.py"))
+
+    use_fathom("{{ cookiecutter.use_fathom }}".lower() == "y")
 
 
 if __name__ == "__main__":
