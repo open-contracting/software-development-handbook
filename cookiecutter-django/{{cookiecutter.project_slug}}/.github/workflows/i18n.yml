@@ -13,10 +13,12 @@ jobs:
           python-version: 3.8
       - uses: actions/cache@v2
         with:
+          {%- raw %}
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt', 'setup.py') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+          {%- endraw %}
       - name: Install translate-toolkit
         run: |
           sudo apt update
