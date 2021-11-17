@@ -3,26 +3,40 @@ on: [push, pull_request]
 jobs:
   build:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+{%- if cookiecutter.os_independent == "y" %}
+    {%- raw %}
     runs-on: ${{ matrix.os }}
+    {%- endraw %}
+{%- else %}
+    runs-on: ubuntu-latest
+{%- endif %}
     strategy:
       matrix:
+{%- if cookiecutter.os_independent == "y" %}
         os: [macos-latest, windows-latest, ubuntu-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, 3.10, pypy-3.7]
+{%- endif %}
+        python-version: [3.6, 3.7, 3.8, 3.9, '3.10'{% if cookiecutter.pypy == "y" %}, pypy-3.7{% endif %}]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
+          {%- raw %}
           python-version: ${{ matrix.python-version }}
+          {%- endraw %}
       - id: pip-cache
         run: echo "::set-output name=dir::$(pip cache dir)"
       - uses: actions/cache@v2
         with:
+          {%- raw %}
           path: ${{ steps.pip-cache.outputs.dir }}
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt', 'setup.py') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+          {%- endraw %}
       - run: pip install .[test]
-      - run: pytest --cov PACKAGENAME
+      - run: pytest --cov {{ cookiecutter.package_name }}
       - env:
+          {%- raw %}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          {%- endraw %}
         run: coveralls --service=github

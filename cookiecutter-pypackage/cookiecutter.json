@@ -1,0 +1,12 @@
+{
+  "human_name": "Title Case",
+  "repository_name": "{{ cookiecutter.human_name|lower()|replace(' ', '-')|trim() }}",
+  "package_name": "{{ cookiecutter.human_name|lower()|replace(' ', '_')|replace('-', '_')|trim() }}",
+  "short_description": "Sentence case without a trailing period",
+  "os_independent": "y",
+  "pypy": "y",
+  "_copy_without_render": [
+    ".github/workflows/lint.yml",
+    ".github/workflows/pypi.yml"
+  ]
+}

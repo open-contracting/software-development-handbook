@@ -144,7 +144,7 @@ Add additional settings for:
 Template
 ~~~~~~~~
 
-This template is based on the `default settings.py file <https://github.com/django/django/blob/stable/3.2.x/django/conf/project_template/project_name/settings.py-tpl>`__. You can also refer to the `default Django settings <https://github.com/django/django/blob/stable/3.2.x/django/conf/global_settings.py>`__. Replace ``core`` with the project's module name:
+This template is based on the `default settings.py file <https://github.com/django/django/blob/stable/3.2.x/django/conf/project_template/project_name/settings.py-tpl>`__. You can also refer to the `default Django settings <https://github.com/django/django/blob/stable/3.2.x/django/conf/global_settings.py>`__. Replace ``core`` with the project's module name and remove the Jinja syntax if not using the Cookiecutter template:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/core/settings.py
    :language: python

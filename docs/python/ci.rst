@@ -151,9 +151,9 @@ If using `tox <http://tox.readthedocs.org>`__:
 
    Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.7 on Windows).
 
-If not using ``tox``, use this template, replacing ``PACKAGENAME``:
+If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_name }}`` and removing the Jinja syntax if not using the :doc:`Cookiecutter template<packages>`:
 
-.. literalinclude:: samples/ci/package.yml
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/.github/workflows/ci.yml
    :language: yaml
 
 Test :doc:`packages<packages>` on Python versions that aren't end-of-life, and on the latest version of PyPy. Test on Ubuntu, macOS and Windows (though :ref:`only Ubuntu<service-containers>` if a service container is needed).

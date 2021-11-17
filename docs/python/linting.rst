@@ -8,22 +8,13 @@ Configuration
 
 New projects should use `Black <https://black.readthedocs.io/en/stable/>`__. All projects must use `flake8 <https://flake8.pycqa.org/en/latest/>`__ and `isort <https://pycqa.github.io/isort/>`__ with line lengths of 119 (the Django standard). If using Black, `configure it <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html>`__ as follows:
 
-.. code-block:: toml
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/pyproject.toml
+   :language: yaml
    :caption: pyproject.toml
 
-   [tool.black]
-   line-length = 119
-
-   [tool.isort]
-   profile = 'black'
-   line_length = 119
-
-.. code-block:: ini
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/setup.cfg
+   :language: ini
    :caption: setup.cfg
-
-   [flake8]
-   max-line-length = 119
-   extend-ignore = E203
 
 Repositories should not modify or otherwise use ``setup.cfg``, ``pyproject.toml``, ``.editorconfig`` or tool-specific files, except to ignore generated files like database migrations.
 
@@ -43,12 +34,18 @@ Maintainers can find and compare configuration files with:
 Pre-commit hooks
 ----------------
 
-To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__ (add ``pre-commit`` to the :doc:`requirements_dev.in file<requirements>`. For example, if Black is configured as above:
+To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__ (add ``pre-commit`` to the :doc:`requirements_dev.in file<requirements>`. For example, if Black is configured as above, create a ``.pre-commit-config.yaml`` file:
 
-.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.pre-commit-config.yaml
-   :language: yaml
-   :caption: .pre-commit-config.yaml
-   :end-before: migrations
+-  For an application:
+
+   .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.pre-commit-config.yaml
+      :language: yaml
+      :end-before: migrations
+
+-  For a package:
+
+   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/.pre-commit-config.yaml
+      :language: yaml
 
 To ignore generated files, you can add, for example, ``exclude: /migrations/`` to the end of the file.
 
@@ -79,6 +76,7 @@ Create a ``.github/workflows/lint.yml`` file. As a base, use:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/workflows/lint.yml
    :language: yaml
+   :end-before: requirements_dev.txt
 
 See the `documentation <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the Bash scripts.
 

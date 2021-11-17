@@ -3,6 +3,13 @@ Packages
 
 All our packages should be distributed on PyPI.
 
+Use the Pypackage Cookiecutter template:
+
+.. code-block:: bash
+
+   pip install cookiecutter
+   cookiecutter gh:open-contracting/software-development-handbook --directory cookiecutter-pypackage
+
 .. seealso::
 
    Package-rated content in :ref:`Directory layout<layout-packages>`, :ref:`Testing<automated-testing>` and :ref:`Linting<linting-ci>`
@@ -10,10 +17,10 @@ All our packages should be distributed on PyPI.
 Metadata
 --------
 
-If the package is distributed on PyPI, use this template for the ``setup.py`` file, adding arguments like ``entry_points``, ``extras_require`` and ``namespace_packages`` as needed:
+If the package is distributed on PyPI, use this template for the ``setup.py`` file, adding arguments like ``entry_points`` and ``namespace_packages`` as needed, and removing the Jinja syntax if not using the Cookiecutter template:
 
-.. literalinclude:: samples/setup.py
-   :language: python
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/setup.py
+   :language: jinja
 
 If the package isn’t distributed on PyPI, use this template ``setup.py``:
 
@@ -32,7 +39,7 @@ If the package isn’t distributed on PyPI, use this template ``setup.py``:
 
 .. note::
 
-   We don't use ``pyproject.toml`` or ``setup.cfg`` for packaging, preferring a single ``setup.py`` file.
+   We don't use ``pyproject.toml`` or ``setup.cfg`` for metadata, preferring a single ``setup.py`` file.
 
 Reference: `Packaging and distributing projects <https://packaging.python.org/guides/distributing-packages-using-setuptools/>`__
 
@@ -50,8 +57,12 @@ Requirements
 Classifiers
 ~~~~~~~~~~~
 
--  If the package is tested on macOS, Windows and Ubuntu, use the ``'Operating System :: OS Independent'`` classifier, instead.
--  If the package is tested on PyPy, add the ``'Programming Language :: Python :: Implementation :: PyPy'`` classifier.
+``"Operating System :: OS Independent"``
+  The package is tested on macOS, Windows and Ubuntu.
+``"Operating System :: POSIX :: Linux"``
+  The package is tested on Ubuntu only.
+``"Programming Language :: Python :: Implementation :: PyPy"``
+  The package is tested on PyPy.
 
 Documentation
 -------------
@@ -73,7 +84,10 @@ Release process
 
 .. admonition:: One-time setup
 
-   Copy this `GitHub Actions workflow <https://raw.githubusercontent.com/open-contracting/ocds-babel/main/.github/workflows/pypi.yml>`__ to the new package's repository, to publish tagged releases to PyPI. Ensure that ``check-manifest`` is run in a workflow.
+   To publish tagged releases to PyPI, create a ``.github/workflows/pypi.yml`` file:
+
+   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/.github/workflows/pypi.yml
+      :language: yaml
 
    The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the TestPyPI user.
 
