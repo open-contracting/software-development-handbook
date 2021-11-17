@@ -11,12 +11,10 @@ jobs:
           python-version: 3.8
       - uses: actions/cache@v2
         with:
-          {%- raw %}
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt', 'setup.py') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-          {%- endraw %}
       - run: pip install -r requirements.txt
       # Check requirements.txt contains production requirements.
       - run: ./manage.py --help
@@ -30,7 +28,5 @@ jobs:
           ./manage.py check --fail-level WARNING
           coverage run --source core manage.py test
       - env:
-          {%- raw %}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          {%- endraw %}
         run: coveralls --service=github

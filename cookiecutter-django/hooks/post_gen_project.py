@@ -22,8 +22,8 @@ def main():
 
     if "{{ cookiecutter.use_fathom }}".lower() == "y":
         print(dedent(
-            {%- raw %}
             """
+            {%- raw %}
             Run python manage.py startapp and add a fathom.html file to its templates/ directory:
 
             {% if fathom.id %}
@@ -33,8 +33,8 @@ def main():
             Add before the end of the <head> element in your base template:
 
             {% include 'fathom.html' %}
-            """
             {%- endraw %}
+            """
         ))
     else:
         os.remove(os.path.join("core", "context_processors.py"))
