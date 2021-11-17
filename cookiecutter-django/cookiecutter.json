@@ -1,10 +1,10 @@
 {
-    "project_name": "Title Case",
-    "project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '-')|trim() }}",
-    "database_name": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-', '_')|trim() }}",
-    "application_name": "{{ cookiecutter.project_name|lower()|replace(' ', '_')|replace('-', '_')|trim() }}",
-    "use_fathom": "y",
-    "_copy_without_render": [
-        ".github/workflows/*.yml"
-    ]
+  "project_name": "Title Case",
+  "project_slug": "{{ cookiecutter.project_name|lower()|replace(' ', '-')|trim() }}",
+  "database_name": "{{ cookiecutter.project_slug|lower()|replace(' ', '_')|replace('-', '_')|trim() }}",
+  "application_name": "{{ cookiecutter.project_slug|lower()|replace(' ', '_')|replace('-', '_')|trim() }}",
+  "use_fathom": "y",
+  "_copy_without_render": [
+    ".github/workflows/*.yml"
+  ]
 }
