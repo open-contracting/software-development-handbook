@@ -19,4 +19,4 @@ ENV WEB_CONCURRENCY=2
 RUN python manage.py compilemessages
 
 EXPOSE 8000
-CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8000", "--worker-tmp-dir", "/dev/shm", "--threads", "2", "--name", "{{ project_slug }}"]
+CMD ["gunicorn", "core.wsgi", "--bind", "0.0.0.0:8000", "--worker-tmp-dir", "/dev/shm", "--threads", "2", "--name", "{{ cookiecutter.project_slug }}"]

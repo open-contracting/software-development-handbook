@@ -1,4 +1,4 @@
-{{ project_name }}
-==================
+{{ cookiecutter.project_name }}
+=
 
 .. include:: ../README.rst

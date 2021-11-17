@@ -91,7 +91,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.config(default="postgresql:///{{ database_name }}?application_name={{ application_name }}")
+    "default": dj_database_url.config(default="postgresql:///{{ cookiecutter.database_name }}?application_name={{ cookiecutter.application_name }}")
 }
 
 

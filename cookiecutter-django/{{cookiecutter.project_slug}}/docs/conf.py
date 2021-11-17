@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 
-project = "{{ project_name }}"
+project = "{{ cookiecutter.project_name }}"
 copyright = "{% now 'utc', '%Y' %}, Open Contracting Partnership"
 author = "Open Contracting Partnership"
 

@@ -1,7 +1,7 @@
 Dockerfile for Django
 =====================
 
-Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and ``{{ project_slug }}``, and another for static files.
+Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and ``{{ cookiecutter.project_slug }}``, and another for static files.
 
 .. warning::
 

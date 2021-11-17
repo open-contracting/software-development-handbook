@@ -21,6 +21,7 @@ Onboard consultants
 
 #. Add the new repositories to `Coveralls <https://coveralls.io/repos/new>`__
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
+#. Use the :doc:`Django Cookiecutter template<../python/django>`, if relevant
 
 If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself, or create a `custom role <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization>`__.
 
