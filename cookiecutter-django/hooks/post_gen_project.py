@@ -34,7 +34,7 @@ def main():
 
             {% include 'fathom.html' %}
             {%- endraw %}
-            """
+            """  # noqa: E501
         ))
     else:
         os.remove(os.path.join("core", "context_processors.py"))
