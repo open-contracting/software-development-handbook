@@ -19,7 +19,7 @@ Metadata
 
 If the package is distributed on PyPI, use this template for the ``setup.py`` file, adding arguments like ``entry_points`` and ``namespace_packages`` as needed, and removing the Jinja syntax if not using the Cookiecutter template:
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/setup.py
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/setup.py
    :language: jinja
 
 If the package isn’t distributed on PyPI, use this template ``setup.py``:
@@ -86,7 +86,7 @@ Release process
 
    To publish tagged releases to PyPI, create a ``.github/workflows/pypi.yml`` file:
 
-   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/.github/workflows/pypi.yml
+   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.github/workflows/pypi.yml
       :language: yaml
 
    The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the TestPyPI user.

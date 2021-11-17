@@ -153,7 +153,7 @@ If using `tox <http://tox.readthedocs.org>`__:
 
 If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_name }}`` and removing the Jinja syntax if not using the :doc:`Cookiecutter template<packages>`:
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/.github/workflows/ci.yml
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.github/workflows/ci.yml
    :language: yaml
 
 Test :doc:`packages<packages>` on Python versions that aren't end-of-life, and on the latest version of PyPy. Test on Ubuntu, macOS and Windows (though :ref:`only Ubuntu<service-containers>` if a service container is needed).

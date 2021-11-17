@@ -8,11 +8,11 @@ Configuration
 
 New projects should use `Black <https://black.readthedocs.io/en/stable/>`__. All projects must use `flake8 <https://flake8.pycqa.org/en/latest/>`__ and `isort <https://pycqa.github.io/isort/>`__ with line lengths of 119 (the Django standard). If using Black, `configure it <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html>`__ as follows:
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/pyproject.toml
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
    :language: yaml
    :caption: pyproject.toml
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/setup.cfg
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/setup.cfg
    :language: ini
    :caption: setup.cfg
 
@@ -44,7 +44,7 @@ To avoid pushing commits that fail formatting/linting checks, new projects shoul
 
 -  For a package:
 
-   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.project_slug}}/.pre-commit-config.yaml
+   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.pre-commit-config.yaml
       :language: yaml
 
 To ignore generated files, you can add, for example, ``exclude: /migrations/`` to the end of the file.
