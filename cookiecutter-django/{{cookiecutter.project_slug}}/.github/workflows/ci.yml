@@ -30,5 +30,7 @@ jobs:
           ./manage.py check --fail-level WARNING
           coverage run --source core manage.py test
       - env:
+          {%- raw %}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          {%- endraw %}
         run: coveralls --service=github
