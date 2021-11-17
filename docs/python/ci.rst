@@ -59,6 +59,7 @@ Set the image tag to the version used in production.
 
 .. code-block:: yaml
 
+       services:
          postgres:
            image: postgres:13
            env:
@@ -88,6 +89,7 @@ RabbitMQ
 
 .. code-block:: yaml
 
+       services:
          rabbitmq:
            image: rabbitmq:latest
            options: >-
@@ -105,6 +107,7 @@ Set the image tag to the version used in production.
 
 .. code-block:: yaml
 
+       services:
          elasticsearch:
            image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
            env:
