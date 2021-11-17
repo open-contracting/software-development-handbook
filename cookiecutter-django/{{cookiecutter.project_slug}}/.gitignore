@@ -1,0 +1,27 @@
+# Editor
+*.swp
+*~
+
+# Virtual environment
+/.ve
+/venv
+
+# Bytecode
+__pycache__
+*.pyc
+
+# Coverage
+/.coverage
+/htmlcov
+
+# Sphinx
+/docs/_build
+
+# Django
+/media
+/static
+*.mo
+
+# Node
+node_modules
+npm-debug.log

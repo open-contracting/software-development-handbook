@@ -45,32 +45,10 @@ Pre-commit hooks
 
 To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__ (add ``pre-commit`` to the :doc:`requirements_dev.in file<requirements>`. For example, if Black is configured as above:
 
-.. code-block:: yaml
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.pre-commit-config.yaml
+   :language: yaml
    :caption: .pre-commit-config.yaml
-
-   repos:
-     - repo: https://github.com/psf/black
-       rev: 21.5b2
-       hooks:
-         - id: black
-     - repo: https://github.com/pycqa/flake8
-       rev: 3.9.2
-       hooks:
-         - id: flake8
-     - repo: https://github.com/pycqa/isort
-       rev: 5.8.0
-       hooks:
-         - id: isort
-     - repo: https://github.com/jazzband/pip-tools
-       rev: 6.4.0
-       hooks:
-         - id: pip-compile
-           name: pip-compile requirements.in
-           files: ^requirements\.(in|txt)$
-         - id: pip-compile
-           name: pip-compile requirements_dev.in
-           files: ^requirements(_dev)?\.(in|txt)$
-           args: [requirements_dev.in]
+   :end-before: migrations
 
 To ignore generated files, you can add, for example, ``exclude: /migrations/`` to the end of the file.
 
@@ -99,7 +77,7 @@ Continuous integration
 
 Create a ``.github/workflows/lint.yml`` file. As a base, use:
 
-.. literalinclude:: samples/lint.yml
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/workflows/lint.yml
    :language: yaml
 
 See the `documentation <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the Bash scripts.

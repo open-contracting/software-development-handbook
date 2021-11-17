@@ -101,7 +101,7 @@ Using the template
 ~~~~~~~~~~~~~~~~~~
 
 `SECRET_KEY <https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-SECRET_KEY>`__
-  Replace ``{{ secret_key }}`` with:
+  Replace ``!!!SECRET_KEY!!!`` with:
 
   .. code-block:: bash
 
@@ -125,7 +125,7 @@ Using the template
 
   Then, make any corresponding changes to ``urls.py``, and ``MIDDLEWARE``, ``TEMPLATES``, ``STATIC_URL`` and ``AUTH_PASSWORD_VALIDATORS`` in ``settings.py``.
 `DATABASES <https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-DATABASES>`__
-  -  Replace ``{{ database_name }}`` and ``{{ app_name }}``.
+  -  Replace ``{{ database_name }}`` and ``{{ application_name }}``.
   -  Remember to add `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ to your :doc:`requirements file<requirements>`.
 `LOGGING <https://docs.djangoproject.com/en/3.2/ref/settings/#std:setting-LOGGING>`__
   See :doc:`logging`.
@@ -141,9 +141,9 @@ Add additional settings for:
 Template
 ~~~~~~~~
 
-This template is based on the `default settings.py file <https://github.com/django/django/blob/stable/3.2.x/django/conf/project_template/project_name/settings.py-tpl>`__. You can also refer to the `default Django settings <https://github.com/django/django/blob/stable/3.2.x/django/conf/global_settings.py>`__. Replace ``{{ project_name }}`` with the project's module name:
+This template is based on the `default settings.py file <https://github.com/django/django/blob/stable/3.2.x/django/conf/project_template/project_name/settings.py-tpl>`__. You can also refer to the `default Django settings <https://github.com/django/django/blob/stable/3.2.x/django/conf/global_settings.py>`__. Replace ``core`` with the project's module name:
 
-.. literalinclude:: samples/settings.py
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/core/settings.py
    :language: python
 
 .. seealso::

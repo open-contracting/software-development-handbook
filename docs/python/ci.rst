@@ -122,10 +122,14 @@ Applications
 
 Set the Ubuntu version and Python version to those used in production.
 
-If using :doc:`django`, use this template, replacing ``PROJECTNAME`` and ``APPNAME1``:
+If using :doc:`django`, use this template, replacing ``core`` if needed and adding app directories as comma-separated values after ``--source``:
 
-.. literalinclude:: samples/ci/django.yml
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/workflows/ci.yml
    :language: yaml
+
+.. note::
+
+   Remember to add ``__init__.py`` files to the ``management`` and ``management/commands`` directories within app directories. Otherwise, their coverage won't be calculated.
 
 Otherwise, use this template, replacing ``APPNAME1``:
 
@@ -182,15 +186,9 @@ Dependabot
 
 Keep GitHub Actions up-to-date with:
 
-.. code-block:: yaml
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/dependabot.yml
+   :language: yaml
    :caption: .github/dependabot.yml
-
-   version: 2
-   updates:
-     - package-ecosystem: "github-actions"
-       directory: "/"
-       schedule:
-         interval: "daily"
 
 Reference: `Configuration options for dependency updates <https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates>`__
 

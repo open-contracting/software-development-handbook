@@ -3,12 +3,12 @@ on: [push, pull_request]
 jobs:
   build:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.8
       - uses: actions/cache@v2
         with:
           path: ~/.cache/pip
@@ -26,7 +26,7 @@ jobs:
           ./manage.py migrate
           ./manage.py makemigrations --check --dry-run
           ./manage.py check --fail-level WARNING
-          coverage run --source PROJECTNAME,APPNAME1,APPNAME1/management/commands manage.py test
+          coverage run --source core manage.py test
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: coveralls --service=github

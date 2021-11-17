@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY", "{{ secret_key }}")
+SECRET_KEY = os.getenv("SECRET_KEY", "!!!SECRET_KEY!!!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not production
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "{{ project_name }}.urls"
+ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
     {
@@ -76,19 +76,22 @@ TEMPLATES = [
                 "django.template.context_processors.i18n",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+{% if cookiecutter.use_fathom == "y" -%}
+                "core.context_processors.from_settings",
+{%- endif %}
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
+WSGI_APPLICATION = "core.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.config(default="postgresql:///{{ database_name }}?application_name={{ app_name }}")
+    "default": dj_database_url.config(default="postgresql:///{{ database_name }}?application_name={{ application_name }}")
 }
 
 

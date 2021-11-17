@@ -1,17 +1,17 @@
 Dockerfile for Django
 =====================
 
-Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and ``PROJECTNAME``, and another for static files.
+Add one Dockerfile for the Django project, replacing ``core.wsgi`` if needed and ``{{ project_slug }}``, and another for static files.
 
 .. warning::
 
    When deploying Docker, remember to set the number of workers using a environment variable like ``GUNICORN_CMD_ARGS="--workers 3"``.
 
-.. literalinclude:: samples/Dockerfile_django
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/Dockerfile_django
    :language: docker
    :caption: Dockerfile_django
 
-.. literalinclude:: samples/Dockerfile_static
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/Dockerfile_static
    :language: docker
    :caption: Dockerfile_static
 

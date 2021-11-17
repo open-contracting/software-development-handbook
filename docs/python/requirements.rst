@@ -34,32 +34,13 @@ Get started
 
 A common starter ``requirements.in`` for :doc:`django` is:
 
-.. code-block:: none
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements.in
 
-   dj-database-url
-   django
-   psycopg2
-   sentry-sdk
+A common starter ``requirements_dev.in`` for linting in :doc:`django` is:
 
-A common starter ``requirements_dev.in`` for linting is:
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements_dev.in
 
-.. code-block:: none
-
-   -r requirements.txt
-   black
-   coveralls
-   flake8
-   isort
-   pip-tools
-   pre-commit
-
-If using Django, add:
-
-.. code-block:: none
-
-   coverage
-
-Otherwise, add:
+If not using Django, remove ``coverage`` and add:
 
 .. code-block:: none
 

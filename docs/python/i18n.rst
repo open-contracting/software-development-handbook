@@ -71,7 +71,7 @@ Create a ``.github/workflows/i18n.yml`` file.
 
 For a Django application, use the following. Change the ``python-version`` to match the version used to compile the :doc:`requirements_dev.txt file<requirements>`.
 
-.. literalinclude:: samples/i18n/django.yml
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/workflows/i18n.yml
    :language: yaml
 
 For a Babel project, adapt:

@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.8
       - uses: actions/cache@v2
         with:
           path: ~/.cache/pip
@@ -19,3 +19,5 @@ jobs:
             ${{ runner.os }}-pip-
       - run: curl -s -S --retry 3 $BASEDIR/tests/install.sh | bash -
       - run: curl -s -S --retry 3 $BASEDIR/tests/script.sh | bash -
+      - run: pip install -r requirements_dev.txt
+      - run: pytest /tmp/test_requirements.py

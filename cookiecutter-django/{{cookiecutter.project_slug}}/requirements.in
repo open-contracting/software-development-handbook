@@ -1,0 +1,4 @@
+dj-database-url
+django
+psycopg2
+sentry-sdk
