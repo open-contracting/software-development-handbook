@@ -76,7 +76,7 @@ TEMPLATES = [
                 "django.template.context_processors.i18n",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-{% if cookiecutter.use_fathom == "y" -%}
+{%- if cookiecutter.use_fathom == "y" %}
                 "core.context_processors.from_settings",
 {%- endif %}
             ],
