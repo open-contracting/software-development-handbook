@@ -7,6 +7,7 @@
    :caption: Contents
 
    api/index
+   contributing/index
    changelog
 
 Copyright (c) {% now 'utc', '%Y' %} Open Contracting Partnership, released under the BSD license
