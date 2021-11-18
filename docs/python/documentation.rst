@@ -84,6 +84,11 @@ Create a ReadTheDocs project
 #. Click *Finish*
 #. Click *Admin* then *Advanced Settings*
 
+   #. If the project is a package:
+
+      #. Check *Show version warning*
+      #. Check *Install Project*
+
    #. Uncheck *Enable PDF build*
    #. Uncheck *Enable EPUB build*
    #. Click *Save*
