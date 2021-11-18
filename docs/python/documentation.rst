@@ -82,14 +82,13 @@ Create a ReadTheDocs project
 
 #. Set *Programming language* to "Python"
 #. Click *Finish*
-#. Click *Admin*
-#. Click *Advanced Settings*
+#. Click *Admin* then *Advanced Settings*
 
    #. Uncheck *Enable PDF build*
    #. Uncheck *Enable EPUB build*
    #. Click *Save*
 
-#. Click *Notifications*
+#. Click *Admin* then *Email Notifications*
 
    #. Enter "sysadmin@open-contracting.org" in *Email*
    #. Click *Add*
