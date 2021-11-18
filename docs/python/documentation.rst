@@ -107,26 +107,16 @@ Create a ReadTheDocs project
 Configure the ReadTheDocs project
 ---------------------------------
 
-.. code-block:: yaml
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.readthedocs.yaml
+   :language: yaml
    :caption: .readthedocs.yaml
-
-   version: 2
-   build:
-     os: ubuntu-20.04
-     tools:
-       python: "3.9"
-   python:
-     install:
-       - requirements: docs/requirements.txt
-   sphinx:
-     fail_on_warning: true
 
 At present, Python 3.9 is used, because ReadTheDocs is not compatible with Python 3.10.
 
-.. code-block:: none
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/docs/requirements.txt
    :caption: docs/requirements.txt
 
-   sphinx>2,<4
+For an application, add ``-r ../requirements.txt`` at the top of the file.
 
 At present, ``sphinx-rtd-theme``'s CSS is not compatible with Sphinx 4 (which upgrades ``docutils``).
 
