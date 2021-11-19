@@ -84,11 +84,7 @@ Create a ReadTheDocs project
 #. Click *Finish*
 #. Click *Admin* then *Advanced Settings*
 
-   #. If the project is a package:
-
-      #. Check *Show version warning*
-      #. Check *Install Project*
-
+   #. If the project is a package, check *Show version warning*
    #. Uncheck *Enable PDF build*
    #. Uncheck *Enable EPUB build*
    #. Click *Save*
@@ -107,18 +103,27 @@ Create a ReadTheDocs project
 Configure the ReadTheDocs project
 ---------------------------------
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.readthedocs.yaml
-   :language: yaml
-   :caption: .readthedocs.yaml
+-  For an application:
 
-At present, Python 3.9 is used, because ReadTheDocs is not compatible with Python 3.10.
+   .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.readthedocs.yaml
+      :language: yaml
+      :caption: .readthedocs.yaml
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/docs/requirements.txt
-   :caption: docs/requirements.txt
+   .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/docs/requirements.txt
+      :caption: docs/requirements.txt
 
-For an application, add ``-r ../requirements.txt`` at the top of the file.
+-  For a package:
 
-At present, ``sphinx-rtd-theme``'s CSS is not compatible with Sphinx 4 (which upgrades ``docutils``).
+   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.readthedocs.yaml
+      :language: yaml
+      :caption: .readthedocs.yaml
+
+   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/docs/requirements.txt
+      :caption: docs/requirements.txt
+
+.. note::
+
+   At present, Python 3.9 is used, because ReadTheDocs is not compatible with Python 3.10. And Sphinx 3.x is used, because ``sphinx-rtd-theme``'s CSS is not compatible with Sphinx 4 (which upgrades ``docutils``).
 
 Redirect a ReadTheDocs project
 ------------------------------

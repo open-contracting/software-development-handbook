@@ -5,6 +5,7 @@ build:
     python: "3.9"
 python:
   install:
+    - path: .
     - requirements: docs/requirements.txt
 sphinx:
   fail_on_warning: true
