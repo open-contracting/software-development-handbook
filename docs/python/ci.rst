@@ -100,6 +100,12 @@ RabbitMQ
            ports:
              - 5672/tcp
 
+This connection string can be used:
+
+.. code-block:: none
+
+   amqp://127.0.0.1:${{ job.services.rabbitmq.ports[5672] }}
+
 Elasticsearch
 ^^^^^^^^^^^^^
 
