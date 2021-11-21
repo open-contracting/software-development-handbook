@@ -167,10 +167,10 @@ To correct any remaining occurrences of ``str.format()``, use these patterns and
    * - ``("[^"]*?{)(}[^"]*?{)(}[^']*?{)(}[^"]*?")\.format\(([\w.]+), ([\w.]+), ([\w.]+)\)``
      - ``f$1$5$2$6$3$7$4``
 
-Multiline strings
------------------
+Long strings
+------------
 
-For cases in which whitespace has no effect, like SQL statements:
+For cases in which whitespace has no effect, like SQL statements, use multi-line strings:
 
 .. code-block:: python
 
@@ -180,7 +180,7 @@ For cases in which whitespace has no effect, like SQL statements:
        WHERE id > 1000
    """)
 
-For cases in which whitespace changes the output, like log messages:
+For cases in which whitespace changes the output, like log messages, use consecutive strings:
 
 .. code-block:: python
 
@@ -190,7 +190,7 @@ For cases in which whitespace changes the output, like log messages:
        "multiple sentences, do not break the line at punctuation."
    )
 
-If the string is long, it might be easier to edit in the form:
+However, in some cases, it might be easier to edit in the form:
 
 .. code-block:: python
 
@@ -206,7 +206,7 @@ If the string is long, it might be easier to edit in the form:
    - Item 3
    """)
 
-Maintainers can find improper use of ``"""`` with this regular expression:
+Maintainers can find improper use of multi-line strings with this regular expression:
 
 .. code-block:: none
 
