@@ -48,6 +48,37 @@ Open http://localhost:8000/docs/_build/html/ in your web browser:
 
    Documentation is built in ``docs/_build/html``, to match the location when building with ``make html`` from the ``docs/`` directory.
 
+Check docstring style
+---------------------
+
+Use `pydocstyle <http://www.pydocstyle.org/en/stable/>`__ in new :doc:`packages<packages>`.
+
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
+   :language: toml
+   :caption: pyproject.toml
+
+These error codes are ignored:
+
+D100 Missing docstring in public module
+  Avoid generic docstrings for utility modules like ``util.py``.
+D104 Missing docstring in public package
+  Document the package in Sphinx, not in ``mypackage/__init__.py``.
+D200 One-line docstring should fit on one line with quotes
+  Allow one style for all docstrings. (Make diffs smaller if docstrings change.)
+D203 1 blank line required before class docstring
+  Incompatible with D211 (No blank lines allowed before class docstring).
+D205 1 blank line required between summary line and description
+  Allow summary line to be multiple lines, especially if it contains links or roles.
+D212 Multi-line docstring summary should start at the first line
+  Incompatible with D213 (Multi-line docstring summary should start at the second line).
+D400 First line should end with a period
+  See D205.
+D415 First line should end with a period, question mark, or exclamation point
+  Duplicative with D400 (First line should end with a period).
+
+Reference: `PEP 257 <https://www.python.org/dev/peps/pep-0257/>`__: `One-line Docstrings <One-line Docstrings
+>`__, `Multi-line Docstrings <https://www.python.org/dev/peps/pep-0257/#multi-line-docstrings>`__
+
 Check broken links
 ------------------
 

@@ -4,3 +4,7 @@ line-length = 119
 [tool.isort]
 profile = 'black'
 line_length = 119
+
+[tool.pydocstyle]
+match-dir = '(?!tests).*'
+ignore = 'D100,D104,D200,D203,D205,D212,D400,D415'
