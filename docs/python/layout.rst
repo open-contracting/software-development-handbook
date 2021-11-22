@@ -67,6 +67,7 @@ Filename conventions
 --------------------
 
 -  ``util`` for a generic module of helper functions, not ``utils``, ``tools`` or ``helper``.
+-  ``exceptions`` for a generic module of exception classes, not ``errors``.
 -  Use verbs for commands (like ``add_files.py``).
 -  Use nouns for workers (like ``checker.py``).
 
