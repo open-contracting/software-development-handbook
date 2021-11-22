@@ -16,37 +16,25 @@ Documentation
 Build documentation locally
 ---------------------------
 
-With Python 3 as your interpreter, install Python modules:
+Install requirements:
 
-.. code-block:: shell
+.. code-block:: bash
 
-   pip install sphinx sphinx_rtd_theme
+   pip install sphinx sphinx-autobuild sphinx-rtd-theme
 
 Build the HTML pages:
 
-.. code-block:: shell
+.. code-block:: bash
 
-   sphinx-build docs docs/_build/html
+   sphinx-autobuild -q docs docs/_build/html --watch .
 
-Run a web server:
-
-.. code-block:: shell
-
-   python -m http.server 8000
-
-Open http://localhost:8000/docs/_build/html/ in your web browser:
-
-.. code-block:: shell
-
-   open http://localhost:8000/docs/_build/html/
-
-.. note::
-
-   If you are using Python 3.7 or greater, you can pass ``-d docs/_build/html`` to the ``python`` command, and open http://localhost:8000/.
+Open http://127.0.0.1:8000/ in your web browser.
 
 .. note::
 
    Documentation is built in ``docs/_build/html``, to match the location when building with ``make html`` from the ``docs/`` directory.
+
+.. _check-docstring-style:
 
 Check docstring style
 ---------------------
@@ -76,8 +64,7 @@ D400 First line should end with a period
 D415 First line should end with a period, question mark, or exclamation point
   Duplicative with D400 (First line should end with a period).
 
-Reference: `PEP 257 <https://www.python.org/dev/peps/pep-0257/>`__: `One-line Docstrings <One-line Docstrings
->`__, `Multi-line Docstrings <https://www.python.org/dev/peps/pep-0257/#multi-line-docstrings>`__
+Reference: `PEP 257 <https://www.python.org/dev/peps/pep-0257/>`__: `One-line Docstrings <https://www.python.org/dev/peps/pep-0257/#one-line-docstrings>`__, `Multi-line Docstrings <https://www.python.org/dev/peps/pep-0257/#multi-line-docstrings>`__
 
 Check broken links
 ------------------
@@ -86,13 +73,13 @@ Sphinx's `linkcheck <https://www.sphinx-doc.org/en/master/usage/builders/index.h
 
 To check broken links, run:
 
-.. code-block:: shell
+.. code-block:: bash
 
    sphinx-build -q -b linkcheck docs _linkcheck
 
 Review the broken links in the ``_linkcheck/output.txt`` file:
 
-.. code-block:: shell
+.. code-block:: bash
 
    cat _linkcheck/output.txt
 
