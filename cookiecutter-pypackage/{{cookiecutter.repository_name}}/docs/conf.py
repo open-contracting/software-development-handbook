@@ -38,6 +38,7 @@ release = version
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
     "sphinx_rtd_theme",
 ]
@@ -71,3 +72,8 @@ autodoc_default_options = {
     "member-order": "bysource",
 }
 autodoc_typehints = "description"
+autodoc_type_aliases = {}
+
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+}

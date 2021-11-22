@@ -3,8 +3,6 @@ Documentation
 
 :doc:`packages` and applications *must* have documentation to describe their usage for an external audience. They *may* have documentation to describe how to contribute. Documentation is written using `Sphinx <https://www.sphinx-doc.org/en/master/>`__ in a ``docs`` directory.
 
-:doc:`packages` must have `Sphinx-style docstrings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists>`__ for public modules, classes and methods, so that Sphinx can automatically generate documentation and so that Python's `help() function <https://docs.python.org/3/library/functions.html#help>`__ can display useful output.
-
 .. seealso::
 
    :doc:`General documentation guide<../general/documentation>`
@@ -12,6 +10,23 @@ Documentation
 .. note::
 
    We can consider writing `Architecture Decision Records (ADRs) <https://github.blog/2020-08-13-why-write-adrs/>`__.
+
+.. _python-docstrings:
+
+Write docstrings
+----------------
+
+:doc:`packages` must have `Sphinx-style docstrings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists>`__ for public modules, classes and methods, so that Sphinx can automatically generate documentation and so that Python's `help() function <https://docs.python.org/3/library/functions.html#help>`__ can display useful output.
+
+Type hints are preferred to ``type``, ``rtype`` and ``vartype`` fields. Use `autodoc_type_aliases <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_type_aliases>`__ to simplify long type hints (`related <https://github.com/sphinx-doc/sphinx/issues/8934>`__). Use `intersphinx_mapping <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping>`__ to hyperlink types from other packages. See :ref:`python-type-hints`.
+
+.. note::
+
+   Sphinx does not read ``.pyi`` files, so all type hints must be in the ``.py`` files (`issue <https://github.com/sphinx-doc/sphinx/issues/7630>`__/`pull <https://github.com/sphinx-doc/sphinx/pull/4824>`__).
+
+.. seealso::
+
+   :ref:`check-docstring-style`
 
 Build documentation locally
 ---------------------------

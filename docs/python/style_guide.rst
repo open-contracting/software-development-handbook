@@ -28,6 +28,19 @@ Maintainers can find TODO comments with this command:
 
    grep -R -i --exclude-dir .git --exclude-dir .sass-cache --exclude-dir .tox --exclude-dir __pycache__ --exclude-dir _build --exclude-dir _static --exclude-dir build --exclude-dir dist --exclude-dir htmlcov --exclude-dir node_modules --exclude-dir sass --exclude-dir LC_MESSAGES --exclude app.js --exclude conf.py '\btodo\b' .
 
+.. _python-type-hints:
+
+Type hints
+----------
+
+Type hints are especially useful in :doc:`packages<packages>` for :ref:`documentation<python-docstrings>` using Sphinx and linting using `Mypy <http://mypy-lang.org>`__. Use of type hints is optional.
+
+.. note::
+
+   Since Mypy has many open issues for `relatively common scenarios <https://github.com/open-contracting/software-development-handbook/issues/9#issuecomment-975143550>`__, using Mypy to validate your type hints is optional.
+
+Reference: `typing – Support for type hints <https://docs.python.org/3/library/typing.html>`__
+
 Exception handling
 ------------------
 
