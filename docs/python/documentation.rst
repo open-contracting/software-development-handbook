@@ -18,6 +18,8 @@ Write docstrings
 
 :doc:`packages` must have `Sphinx-style docstrings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists>`__ for public modules, classes and methods, so that Sphinx can automatically generate documentation and so that Python's `help() function <https://docs.python.org/3/library/functions.html#help>`__ can display useful output.
 
+Use the imperative mood (per `PEP 257 <https://www.python.org/dev/peps/pep-0257/#one-line-docstrings>`__) in new projects. If an existing project uses the present tense, stay consistent.
+
 Type hints are preferred to ``type``, ``rtype`` and ``vartype`` fields. Use `autodoc_type_aliases <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_type_aliases>`__ to simplify long type hints (`related <https://github.com/sphinx-doc/sphinx/issues/8934>`__). Use `intersphinx_mapping <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping>`__ to hyperlink types from other packages. See :ref:`python-type-hints`.
 
 .. note::
