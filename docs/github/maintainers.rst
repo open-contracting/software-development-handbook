@@ -20,6 +20,7 @@ Onboard consultants
    #. Set the *Permission level* to "Maintain"
 
 #. Add the new repositories to `Coveralls <https://coveralls.io/repos/new>`__
+#. Add the new repositories to `pre-commit ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
 #. Use the :doc:`Django Cookiecutter template<../python/django>`, if relevant
 
