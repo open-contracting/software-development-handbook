@@ -80,6 +80,17 @@ Environment variables
   Sets ``DEBUG = False``. Sets `HTTPS-related settings <https://docs.djangoproject.com/en/3.2/topics/security/#ssl-https>`__, if ``LOCAL_ACCESS`` is not set and ``ALLOWED_HOSTS`` is set.
 ``LOCAL_ACCESS``
   If set, HTTPS-related settings are not set.
+``DJANGO_PROXY``
+  If set, proxy-related settings are set. This requires the web server to be properly configured (see the warning about `SECURE_PROXY_SSL_HEADER <https://docs.djangoproject.com/en/3.2/ref/settings/#secure-proxy-ssl-header>`__). For example:
+
+  .. code-block:: apache
+
+     RequestHeader unset X-Forwarded-Proto
+     RequestHeader set X-Forwarded-Proto https env=HTTPS
+
+     ProxyPass / http://127.0.0.1:8000/
+     ProxyPassReverse / http://127.0.0.1:8000/
+
 ``ALLOWED_HOSTS``
   Set to a comma-separated list of `host names <https://docs.djangoproject.com/en/3.2/ref/settings/#allowed-hosts>`__. Localhost connections are always allowed.
 ``SECRET_KEY``

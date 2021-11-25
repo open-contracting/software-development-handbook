@@ -189,6 +189,11 @@ if production and not local_access:
         SECURE_HSTS_INCLUDE_SUBDOMAINS = True
         SECURE_HSTS_PRELOAD = True
 
+# https://docs.djangoproject.com/en/3.2/ref/settings/#secure-proxy-ssl-header
+if "DJANGO_PROXY" in os.environ:
+    USE_X_FORWARDED_HOST = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 
 # Dependency configuration
 
