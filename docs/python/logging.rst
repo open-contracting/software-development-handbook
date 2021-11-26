@@ -42,15 +42,36 @@ To configure the format in `Django <https://docs.djangoproject.com/en/3.2/topics
 
    Django's default `logging configuration <https://github.com/django/django/blob/main/django/utils/log.py>`__ configures the ``django`` and ``django.server`` loggers. To change those (for example, to set the level to ``DEBUG`` in development to `view database queries <https://docs.djangoproject.com/en/3.2/topics/logging/#examples>`__), add them to the above template.
 
-To configure the format in general:
+To configure the format in general, replacing ``MYMODULE``:
 
 .. code-block:: python
 
    import logging
+   import logging.config
 
-   logger = logging.getLogger(__name__)
-   formatter = logging.Formatter("%(asctime)s %(levelname)s [%(name)s:%(lineno)s] %(message)s")
-   logger.setFormatter(formatter)
+   logging.config.dictConfig(
+       {
+           "version": 1,
+           "disable_existing_loggers": False,
+           "formatters": {
+               "console": {
+                   "format": "%(asctime)s %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+               },
+           },
+           "handlers": {
+               "console": {
+                   "class": "logging.StreamHandler",
+                   "formatter": "console",
+               },
+           },
+           "loggers": {
+               "MYMODULE": {
+                   "handlers": ["console"],
+                   "level": "INFO",
+               },
+           },
+       }
+   )
 
 Reference: `Python's warnings.py format string <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L37>`__
 
