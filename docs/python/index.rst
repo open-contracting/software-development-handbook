@@ -1,7 +1,7 @@
 Python
 ======
 
-Code is written for Python 3.6 and above (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
+Applications are written for Python 3.8. Packages are written for non-end-of-life versions (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
 
 .. toctree::
    :maxdepth: 2
