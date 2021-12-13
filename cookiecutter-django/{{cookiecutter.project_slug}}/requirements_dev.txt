@@ -10,7 +10,7 @@ asgiref==3.4.1
     #   django
 backports.entry-points-selectable==1.1.1
     # via virtualenv
-black==21.10b0
+black==21.12b0
     # via -r requirements_dev.in
 certifi==2021.10.8
     # via
@@ -79,8 +79,6 @@ pytz==2021.3
     #   django
 pyyaml==6.0
     # via pre-commit
-regex==2021.11.10
-    # via black
 requests==2.26.0
     # via coveralls
 sentry-sdk==1.4.3
