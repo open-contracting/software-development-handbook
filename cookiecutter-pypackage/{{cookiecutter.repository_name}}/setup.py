@@ -23,9 +23,9 @@ setup(
             "pytest-cov",
         ],
         "docs": [
-            "Sphinx",
+            "furo",
+            "sphinx",
             "sphinx-autobuild",
-            "sphinx-rtd-theme",
         ],
     },
     classifiers=[

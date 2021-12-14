@@ -37,7 +37,7 @@ Install requirements:
 
 .. code-block:: bash
 
-   pip install sphinx sphinx-autobuild sphinx-rtd-theme
+   pip install furo sphinx-autobuild
 
 Build the HTML pages:
 
@@ -158,7 +158,7 @@ Configure the ReadTheDocs project
 
 .. note::
 
-   At present, Python 3.9 is used, because ReadTheDocs is not compatible with Python 3.10. And Sphinx 3.x is used, because ``sphinx-rtd-theme``'s CSS is not compatible with Sphinx 4 (which upgrades ``docutils``).
+   At present, Python 3.9 is used, because ReadTheDocs is not compatible with Python 3.10.
 
 Redirect a ReadTheDocs project
 ------------------------------
