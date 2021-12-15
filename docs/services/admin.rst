@@ -14,6 +14,10 @@ If a service is down, check its status page:
 * `Sentry <https://status.sentry.io>`__
 * `Transifex <https://status.transifex.com>`__
 
+.. note::
+
+   If you are a consultant, **do not** use or create your own organizational accounts on services like `Fixer <https://fixer.io>`__, `Prerender <https://prerender.io>`__, `Docker Hub <https://hub.docker.com>`__, etc. All organizational accounts must be owned by OCP.
+
 Airtable
 --------
 
