@@ -12,6 +12,7 @@ Naming
 
    *There are only two hard things in computer science: cache invalidation, naming things and off-by-one errors.*
 
+-  Use ``lower_snake_case`` for everything except constants (``UPPER_SNAKE_CASE``) and classes (``UpperCamelCase``).
 -  Use the same terminology as other projects. At minimum, don't use the same term for a different concept.
 -  Use terminology from `Enterprise Integration Patterns <https://www.enterpriseintegrationpatterns.com/patterns/messaging/>`__.
 -  Don't use "cute" names.

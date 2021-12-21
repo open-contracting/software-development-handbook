@@ -38,6 +38,7 @@ Models
 -  Use ``TextField``, not ``CharField``. There is `no performance difference <https://www.postgresql.org/docs/11/datatype-character.html>`__ in PostgreSQL.
 -  Do not use ``null=True`` with ``TextField`` or ``CharField``, `as recommended <https://docs.djangoproject.com/en/3.2/ref/models/fields/#null>`__.
 -  Do not use ``null=True`` with ``JSONField``, if possible. Instead, use ``default=dict``, ``default=list`` or  ``default=""``.
+-  Use the `pk property <https://docs.djangoproject.com/en/3.2/ref/models/instances/#the-pk-property>`__ and the `pk lookup shortcut <https://docs.djangoproject.com/en/3.2/topics/db/queries/#the-pk-lookup-shortcut>`__ instead of ``id``.
 
 Forms
 -----
@@ -169,9 +170,20 @@ This template is based on the `default settings.py file <https://github.com/djan
 Performance
 -----------
 
--  Read `Performance and optimization <https://docs.djangoproject.com/en/3.2/topics/performance/>`__
--  Read `Database access optimization <https://docs.djangoproject.com/en/3.2/topics/db/optimization/>`__
--  Read `Performance optimizations <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/#performance-optimizations>`__ in the Deployment checklist
+In order of importance:
+
+-  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do work in batches). For ``INSERT``, use the `bulk_create <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ method after the loop (or do work in batches).
+-  Use `select_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#select-related>`__ to reduce the number of queries on ``ForeignKey`` or ``OneToOneField`` relations.
+-  Use `prefetch_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#prefetch-related>`__ to reduce the number of queries on ``ManyToManyField`` and reverse ``ForeignKey`` relations.
+-  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
+-  Use `Django's cache framework <https://docs.djangoproject.com/en/3.2/topics/cache/>`__, and be sure to invalidate the cache when appropriate.
+-  Add indices to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
+
+Read:
+
+-  `Performance and optimization <https://docs.djangoproject.com/en/3.2/topics/performance/>`__
+-  `Database access optimization <https://docs.djangoproject.com/en/3.2/topics/db/optimization/>`__
+-  `Performance optimizations <https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/#performance-optimizations>`__ in the Deployment checklist
 
 Deployment
 ----------
