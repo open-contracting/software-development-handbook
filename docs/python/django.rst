@@ -172,13 +172,22 @@ Performance
 
 In order of importance:
 
--  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do work in batches). For ``INSERT``, use the `bulk_create <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ method after the loop (or do work in batches).
--  Use `select_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#select-related>`__ to reduce the number of queries on ``ForeignKey`` or ``OneToOneField`` relations.
--  Use `prefetch_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#prefetch-related>`__ to reduce the number of queries on ``ManyToManyField`` and reverse ``ForeignKey`` relations.
--  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
--  `Add tests <https://www.valentinog.com/blog/n-plus-one/>`__ to ensure the number of queries is as expected.
--  Use `Django's cache framework <https://docs.djangoproject.com/en/3.2/topics/cache/>`__, and be sure to invalidate the cache when appropriate.
--  Add indices to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
+-  Reduce the number of SQL queries:
+
+  -  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do the work in batches). For ``INSERT``, use the `bulk_create <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ method after the loop (or do the work in batches).
+  -  Use `select_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#select-related>`__ to reduce the number of queries on ``ForeignKey`` or ``OneToOneField`` relations.
+  -  Use `prefetch_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#prefetch-related>`__ to reduce the number of queries on ``ManyToManyField`` and reverse ``ForeignKey`` relations.
+  -  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
+  -  `Add tests <https://www.valentinog.com/blog/n-plus-one/>`__ to ensure the number of queries is as expected.
+
+-  Cache results:
+
+  -  Use `Django's cache framework <https://docs.djangoproject.com/en/3.2/topics/cache/>`__, and be sure to invalidate the cache when appropriate.
+
+-  Optimize queries:
+
+  -  Add indices to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
+  -  Use the `update_fields argument <https://docs.djangoproject.com/en/3.2/ref/models/instances/#ref-models-update-fields>`__ to the ``save()`` method for frequent operations.
 
 Read:
 
