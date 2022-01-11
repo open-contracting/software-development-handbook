@@ -3,6 +3,10 @@ Continuous integration
 
 Create a ``.github/workflows/docker.yml`` file.
 
+.. note::
+
+   This assumes there is already a :doc:`"CI" workflow <../python/ci>` that runs tests on the ``main`` branch.
+
 If you need to build multiple images, then for each image:
 
 #. Include a ``docker/build-push-action`` step.
