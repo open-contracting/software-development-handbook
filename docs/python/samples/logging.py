@@ -28,6 +28,7 @@ LOGGING = {
         "mymodule": {
            "handlers": ["console"],
            "level": "DEBUG",
+            "propagate": False,
         },
     },
 }
