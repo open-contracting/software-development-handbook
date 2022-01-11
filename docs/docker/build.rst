@@ -1,7 +1,7 @@
 Continuous integration
 ======================
 
-In most cases, you can add the job below to an existing :doc:`.github/workflows/ci.yml<../python/ci>` file.
+Create a ``.github/workflows/docker.yml`` file.
 
 If you need to build multiple images, then for each image:
 
@@ -13,7 +13,7 @@ If you need to build multiple images, then for each image:
 
 #. Add a suffix to the repository name under the ``tags`` key.
 
-.. literalinclude:: samples/ci.yml
+.. literalinclude:: samples/docker.yml
    :language: yaml
 
 .. note::
