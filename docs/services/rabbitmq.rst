@@ -34,38 +34,10 @@ Development
 
 In Python, use and contribute to `yapw <https://yapw.readthedocs.io/en/latest/>`__, our wrapper around `Pika <https://pika.readthedocs.io/en/stable/>`__, to interact with RabbitMQ, because implementing threads, error handling, signal handling, etc. in every project is repetitive and non-trivial. That said, if you need to use Pika directly, see the examples `in its documentation <https://pika.readthedocs.io/en/stable/examples.html>`__ and `on GitHub <https://github.com/pika/pika/tree/master/examples>`__. Don't use Celery, because its abstractions add inefficiencies, requiring `complex workarounds <http://blog.untrod.com/2015/03/how-celery-chord-synchronization-works.html>`__.
 
-Code style
-----------
+Environment variables
+---------------------
 
 Connect to the broker using a connection string stored in the ``RABBIT_URL`` environment variable.
-
-In Python:
-
-.. code-block:: python
-
-   import pika
-
-   RABBIT_URL = os.getenv("RABBIT_URL", "amqp://localhost")
-
-   connection = pika.BlockingConnection(pika.URLParameters(RABBIT_URL))
-
-To add query string parameters:
-
-.. code-block:: python
-
-   from urllib.parse import parse_qs, urlencode, urlsplit
-
-   import pika
-
-   RABBIT_URL = os.getenv("RABBIT_URL", "amqp://localhost")
-
-   parsed = urlsplit(RABBIT_URL)
-   query = parse_qs(parsed.query)
-   query.update({"blocked_connection_timeout": 600, "heartbeat": 300})
-
-   connection = pika.BlockingConnection(
-      pika.URLParameters(parsed._replace(query=urlencode(query, doseq=True)).geturl())
-   )
 
 Store the exchange name in the ``RABBIT_EXCHANGE_NAME`` environment variable - following the format ``{project}_{environment}`` or ``{project}_{service}_{environment}`` – and prefix routing keys by the exchange name. This makes it easy to create distinct exchanges for local development and test environments, and to create a new exchange whenever the message format changes, by suffixing a version number.
 
