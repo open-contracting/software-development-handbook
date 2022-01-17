@@ -54,9 +54,9 @@ Heartbeat
 
 If a consumer takes too long to process a message, the heartbeat might timeout, causing the connection to RabbitMQ to drop (for Python, see Pika's `readme <https://github.com/pika/pika/#requesting-message-acknowledgements-from-another-thread>`__ and `example <https://pika.readthedocs.io/en/latest/examples/heartbeat_and_blocked_timeouts.html>`__).
 
-Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/heartbeats.html>`__. The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/master/examples/basic_consumer_threaded.py>`__).
+Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/heartbeats.html>`__. The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/master/examples/basic_consumer_threaded.py>`__), like when using `yapw <https://yapw.readthedocs.io/en/latest/>`__.
 
-That said, from Datlab's experience, the RabbitMQ connection can be unreliable, regardless of the connection settings. In any case, for the Data Registry, most consumers are asynchronous and use two threads: one to manage the connection, another to process the message.
+That said, from Datlab's experience, the RabbitMQ connection can be unreliable, regardless of the connection settings.
 
 Acknowledgements
 ~~~~~~~~~~~~~~~~
