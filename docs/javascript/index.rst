@@ -19,6 +19,28 @@ Requirements
 
 Use `npm <https://docs.npmjs.com>`__, not ``yarn``. Set the Node version in ``package.json``, `as documented <https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines>`__.
 
+List outdated dependencies:
+
+.. code-block:: bash
+
+   npm outdated
+
+Upgrade outdated dependencies:
+
+.. code-block:: bash
+
+   npm update
+
+Upgrade Vue dependencies:
+
+.. code-block:: bash
+
+   vue upgrade --next
+
+.. note::
+
+   `npm audit <https://overreacted.io/npm-audit-broken-by-design/>`__ has false positives (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__). Use ``npm audit --production`` instead.
+
 To upgrade vulnerable dependencies:
 
 #. Check the version of Node:
