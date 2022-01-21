@@ -19,6 +19,33 @@ Requirements
 
 Use `npm <https://docs.npmjs.com>`__, not ``yarn``. Set the Node version in ``package.json``, `as documented <https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines>`__.
 
+To upgrade vulnerable dependencies:
+
+#. Check the version of Node:
+
+   .. code-block:: bash
+
+      node --version
+
+#. Upgrade npm:
+
+   .. code-block:: bash
+
+      npm install -g npm@latest
+
+#. Run:
+
+   .. code-block:: bash
+
+      npm audit fix
+
+#. Manually update version numbers in ``package.json``:
+
+   #. Find a "fix available" line
+   #. Read its following line ("Will install <package>@<version>")
+   #. Check the package's changelog for changes between the two versions
+   #. Update ``package.json``, and repeat
+
 Code style
 ----------
 
