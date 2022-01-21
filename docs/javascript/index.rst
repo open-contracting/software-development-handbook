@@ -6,6 +6,8 @@ Version
 
 Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature support in modern browsers <https://kangax.github.io/compat-table/es6/>`__). We don't support `Internet Explorer 11 <https://death-to-ie11.com>`__.
 
+Applications are written for Node 16 (LTS). Packages are written for non-end-of-life versions (`see the status of Node versions <https://endoflife.date/nodejs>`__).
+
 .. note::
 
    Don't use `CoffeeScript <https://coffeescript.org>`__. Unless the repository is a fork, use `Decaffeinate <https://decaffeinate-project.org>`__ to convert CoffeeScript to ECMAScript.
