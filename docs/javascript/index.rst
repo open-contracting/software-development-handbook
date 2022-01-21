@@ -37,6 +37,9 @@ Upgrade Vue dependencies:
 
    vue upgrade --next
 
+Vulnerabilities
+~~~~~~~~~~~~~~~
+
 .. note::
 
    `npm audit <https://overreacted.io/npm-audit-broken-by-design/>`__ has false positives (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__). Use ``npm audit --production`` instead.
