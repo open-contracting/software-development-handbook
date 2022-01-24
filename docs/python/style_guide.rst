@@ -46,6 +46,7 @@ Exception handling
 ------------------
 
 -  Do not use a bare ``except:`` or a generic ``except Exception:``. Use specific error classes to avoid handling exceptions incorrectly.
+-  Do not catch an exception and raise a new exception, *unless* the new exception has a special meaning (e.g. ``CommandError`` in Django).
 -  If an unexpected error occurs within a long-running worker, allow the worker to die. For example, if a worker is failing due to a broken connection, it should not survive to uselessly attempt to re-use that broken connection.
 
 String formatting
