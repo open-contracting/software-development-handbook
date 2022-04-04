@@ -42,7 +42,7 @@ Vulnerabilities
 
 .. admonition:: Dependabot alerts
 
-   If the Dependabot alert is for a build dependency (like ``node-sass``) or a test dependency (like ``mocha``), dismiss it with "Risk is tolerable for this project".
+   If the Dependabot alert is for a build dependency (like ``node-sass``) or a test dependency (like ``mocha``), you can dismiss it with "Risk is tolerable for this project". The npm ecosystem has `false positives <https://overreacted.io/npm-audit-broken-by-design/>`__.
 
 To check for vulnerable dependencies:
 
@@ -52,7 +52,7 @@ To check for vulnerable dependencies:
 
 .. note::
 
-   `npm audit <https://overreacted.io/npm-audit-broken-by-design/>`__ (without ``--production``) has false positives (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__).
+   ``npm audit`` (without ``--production``) has `false positives <https://overreacted.io/npm-audit-broken-by-design/>`__ (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__).
 
 To upgrade vulnerable dependencies:
 
