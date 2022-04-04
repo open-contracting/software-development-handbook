@@ -44,6 +44,10 @@ Vulnerabilities
 
    `npm audit <https://overreacted.io/npm-audit-broken-by-design/>`__ has false positives (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__). Use ``npm audit --production`` instead.
 
+.. admonition:: Dependabot alerts
+
+   If the Dependabot alert is for a build dependency (like ``node-sass``) or a test dependency (like ``mocha``), dismiss it with "Risk is tolerable for this project".
+
 To upgrade vulnerable dependencies:
 
 #. Check the version of Node:
