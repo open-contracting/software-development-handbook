@@ -40,13 +40,19 @@ Upgrade Vue dependencies:
 Vulnerabilities
 ~~~~~~~~~~~~~~~
 
-.. note::
-
-   `npm audit <https://overreacted.io/npm-audit-broken-by-design/>`__ has false positives (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__). Use ``npm audit --production`` instead.
-
 .. admonition:: Dependabot alerts
 
    If the Dependabot alert is for a build dependency (like ``node-sass``) or a test dependency (like ``mocha``), dismiss it with "Risk is tolerable for this project".
+
+To check for vulnerable dependencies:
+
+.. code-block:: bash
+
+   npm audit --production
+
+.. note::
+
+   `npm audit <https://overreacted.io/npm-audit-broken-by-design/>`__ (without ``--production``) has false positives (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__).
 
 To upgrade vulnerable dependencies:
 
