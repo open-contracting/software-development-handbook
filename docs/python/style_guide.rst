@@ -136,7 +136,7 @@ Maintainers can find improper formatting with these regular expressions. Test di
 
    .. code-block:: none
 
-      (?<!\b[t_])(?<!one)(?<!pluck)(?<!gettext|execute)\((\n( *['"#].*)?)* *['"].*?%\(
+      (?<!\b[t_])(?<!one|all)(?<!pluck)(?<!gettext|execute|sql\.SQL)\((\n( *['"#].*)?)* *['"].*?%\(
 
 -  Named placeholders, with incorrect position of ``%`` operator (trailing space):
 
@@ -144,11 +144,11 @@ Maintainers can find improper formatting with these regular expressions. Test di
 
       %\(.+(?<!\) )% 
 
--  Log messages using f-strings or ``str.format()`` (case-sensitive):
+-  Log messages using f-strings or ``str.format()`` (case-sensitive), ignoring the `extra keyword argument <https://docs.python.org/3/library/logging.html#logging.Logger.debug>`__, `ArgumentParser.error <https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.error>`__ and `Directive.error <https://docutils.sourceforge.io/docs/howto/rst-directives.html#error-handling>`__:
 
    .. code-block:: none
 
-      ^( *)(?:\S.*)?\b(?<!subparser\.)(?<!messages\.)_?(?:debug|info|warning|error|critical|exception)\((?:\n(\1 .+)?)*.*?{
+      ^( *)(?:\S.*)?\b(?<!self\.)(?<!subparser\.)_?(?:debug|info|warning|error|critical|exception)\((?:\n(\1 .+)?)*.*?(?<!extra=){
 
 -  Translation strings using f-strings or ``str.format()``:
 
