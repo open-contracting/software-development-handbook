@@ -72,6 +72,11 @@ The above broadly follows the spirit of `Choose Boring Technology <http://boring
    -  `Semantic compression <https://caseymuratori.com/blog_0015>`__
    -  `Complexity and granularity <https://caseymuratori.com/blog_0016>`__
 
+   Our approach to architecture is informed by:
+
+   -  `The Only Unbreakable Law <https://www.youtube.com/watch?v=5IUj1EZwpJY>`__
+   -  `How Do Committees Invent? <http://www.melconway.com/Home/Committees_Paper.html>`__
+
 Manage products and services responsibly
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
