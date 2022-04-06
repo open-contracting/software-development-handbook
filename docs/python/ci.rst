@@ -10,7 +10,7 @@ Automated tests
 
 Create a ``.github/workflows/ci.yml`` file, and use one of the base templates below.
 
--  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows>`__.
+-  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows>`__ and `Running a workflow based on the conclusion of another workflow <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow>`__, in particular.
 -  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
 -  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
 -  If a ``run:`` step is a single line, omit the ``name:`` key.
@@ -180,8 +180,6 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
            name: Test
            run: pytest --cov PACKAGENAME
 
-Reference: `Using pip to get cache location <https://github.com/actions/cache/blob/main/examples.md#using-pip-to-get-cache-location>`__
-
 Static files
 ~~~~~~~~~~~~
 
@@ -189,6 +187,18 @@ For example, the `Extension Registry <https://github.com/open-contracting/extens
 
 .. literalinclude:: samples/ci/static.yml
    :language: yaml
+
+Warnings
+--------
+
+The step that runs tests should either the ``-W`` option or the ``PYTHONWARNINGS`` environment variable to ``error``.
+
+.. tip::
+
+   The Python documentation describes `warning filter specifications <https://docs.python.org/3/library/warnings.html#the-warnings-filter>`__ as using regular expressions. However, this is only true when using the ``warnings`` module. If set using ``-W`` or ``PYTHONWARNINGS``, the message and module parts are escaped using ``re.escape``, and the module part is suffixed with a ``\Z`` anchor.
+
+..
+   warnoptions is created in https://github.com/python/cpython/blob/3.10/Python/initconfig.c and processed in https://github.com/python/cpython/blob/3.10/Lib/warnings.py
 
 Dependabot
 ----------

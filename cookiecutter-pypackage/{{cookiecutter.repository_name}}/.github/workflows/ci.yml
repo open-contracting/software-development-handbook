@@ -23,18 +23,10 @@ jobs:
           {%- raw %}
           python-version: ${{ matrix.python-version }}
           {%- endraw %}
-      - id: pip-cache
-        run: echo "::set-output name=dir::$(pip cache dir)"
-      - uses: actions/cache@v2
-        with:
-          {%- raw %}
-          path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt', 'setup.py') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-          {%- endraw %}
+          cache: pip
+          cache-dependency-path: setup.py
       - run: pip install .[test]
-      - run: pytest --cov {{ cookiecutter.package_name }}
+      - run: pytest -W error --cov {{ cookiecutter.package_name }}
       - env:
           {%- raw %}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
