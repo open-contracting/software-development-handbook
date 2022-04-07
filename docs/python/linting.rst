@@ -16,7 +16,7 @@ New projects should use `Black <https://black.readthedocs.io/en/stable/>`__. All
    :language: ini
    :caption: setup.cfg
 
-Repositories should not modify or otherwise use ``pyproject.toml``, ``setup.cfg``, ``.editorconfig`` or tool-specific files, except to ignore generated files like database migrations. ``pyproject.toml`` is preferred to tool-specific files.
+Repositories should not modify or otherwise use ``pyproject.toml``, ``setup.cfg``, ``.editorconfig`` or tool-specific files, except to ignore generated files like database migrations. ``pyproject.toml`` is preferred to tool-specific files; if it's not supported, ``setup.cfg`` is preferred – like for `Flake8 <https://github.com/PyCQA/flake8/issues/234>`__ and `Babel <https://github.com/python-babel/babel/issues/777>`__.
 
 Maintainers can find and compare configuration files with:
 
