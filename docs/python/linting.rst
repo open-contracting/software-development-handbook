@@ -49,6 +49,10 @@ To avoid pushing commits that fail formatting/linting checks, new projects shoul
 
 To ignore generated files, you can add, for example, ``exclude: /migrations/`` to the end of the file.
 
+.. note::
+
+   `pre-commit/pre-commit-hooks <https://github.com/pre-commit/pre-commit-hooks>`__ is not used in the templates, as the errors it covers are rarely encountered.
+
 Skipping linting
 ----------------
 
