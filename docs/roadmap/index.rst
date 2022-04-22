@@ -103,7 +103,7 @@ Outside our software development activity, we:
 -  Promote others' tools through our communications channels, like in `blog posts <https://www.open-contracting.org/2018/05/09/check-ocds-data-validates/>`__.
 -  Offer a `mailing list <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ through which others can share and promote their tools.
 -  Suggest others' tools, where appropriate, through the OCDS Helpdesk.
--  Maintain an `Open Contracting Tools Directory <https://www.open-contracting.org/resources/open-contracting-tools-directory/>`__, to promote tools authored by others.
+-  Monitor re-use of tools authored by others as an organizational indicator.
 -  Have bilateral calls with similar organizations about software development.
 
 Within our software development activity, we:
