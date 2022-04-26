@@ -74,3 +74,74 @@ A preferred package should meet the following criteria:
    -  The maintainer's other repositories can be considered if the repository is new or unpopular.
 
 `Snyk Open Source Advisor <https://snyk.io/advisor/>`__ might also be used to answer the above.
+
+License compliance
+------------------
+
+To ease license compliance and code reuse, avoid software distributed under `strong copyleft <https://en.wikipedia.org/wiki/Copyleft>`__ licenses.
+
+-  Use an alternative dependency.
+
+   -  `rfc3339-validator <https://pypi.org/project/rfc3339-validator/>`__, not `strict-rfc3339 <https://pypi.org/project/strict-rfc3339/>`__
+   -  `rfc3986-validator <https://pypi.org/project/rfc3986-validator/>`__, not `rfc3987 <https://pypi.org/project/rfc3987/>`__
+   -  `text-unidecode <https://pypi.org/project/text-unidecode/>`__, not `unidecode <https://pypi.org/project/Unidecode/>`__
+
+-  Make the dependency optional.
+
+   .. code-block:: python
+
+      try:
+          import some_gpl_package
+
+          using_some_gpl_package = True
+      except ImportError:
+          using_some_gpl_package = False
+
+      if using_some_gpl_package:
+          print("Some optional behavior")
+
+.. note::
+
+   This does not apply to software that is only used as a utility and is not linked to the code, like `transifex-client <https://pypi.org/project/transifex-client/>`__.
+
+To list the licenses under which installed packages are distributed:
+
+-  Install the packages
+
+-  Install `pip-licenses <https://pypi.org/project/pip-licenses/>`__:
+
+   .. code-block:: bash
+
+      pip install pip-licenses
+
+-  List the licenses:
+
+   .. code-block:: bash
+
+      pip-licenses --with-urls
+
+If you have virtual environments for multiple repositories, you can do a bulk operation:
+
+-  Install `pip-licenses <https://pypi.org/project/pip-licenses/>`__ in all virtual environments. For example, if using `pyenv-virtualenv <https://github.com/pyenv/pyenv-virtualenv>`__:
+
+   .. code-block:: fish
+
+      for env in (pyenv virtualenvs --skip-aliases --bare); pyenv activate $env; pip install pip-licenses; end
+
+-  Initialize a CSV file as the output file:
+
+   .. code-block:: bash
+
+      echo Venv,Name,Version,License,URL > licenses.csv
+
+-  Append licenses to the output file:
+
+   .. code-block:: fish
+
+      for env in (pyenv virtualenvs --skip-aliases --bare); pyenv activate $env; pip-licenses --format=csv --with-urls | tail -n +2 | sed "s`^`$env,`" >> licenses.csv; end
+
+-  Run this script from the `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts>`__ repository:
+
+   .. code-block:: bash
+
+      ./manage.py check-licenses licenses.csv

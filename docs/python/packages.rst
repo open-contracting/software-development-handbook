@@ -31,6 +31,7 @@ If the package isn’t distributed on PyPI, use this template ``setup.py``:
    setup(
        name='NAME',
        version='0.0.0',
+       license='BSD',
        packages=find_packages(),
        install_requires=[
            'REQUIREMENT',
