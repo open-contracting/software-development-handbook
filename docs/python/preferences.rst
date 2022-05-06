@@ -122,11 +122,14 @@ To list the licenses under which installed packages are distributed:
 
 If you have virtual environments for multiple repositories, you can do a bulk operation:
 
--  Install `pip-licenses <https://pypi.org/project/pip-licenses/>`__ in all virtual environments. For example, if using `pyenv-virtualenv <https://github.com/pyenv/pyenv-virtualenv>`__:
+-  Install `pip-licenses <https://pypi.org/project/pip-licenses/>`__ in all virtual environments. For example, if using `pyenv-virtualenv <https://github.com/pyenv/pyenv-virtualenv>`__ (fish shell):
 
    .. code-block:: fish
 
-      for env in (pyenv virtualenvs --skip-aliases --bare); pyenv activate $env; pip install pip-licenses; end
+      for env in (pyenv virtualenvs --skip-aliases --bare)
+          pyenv activate $env
+          pip install pip-licenses
+      end
 
 -  Initialize a CSV file as the output file:
 
@@ -138,7 +141,10 @@ If you have virtual environments for multiple repositories, you can do a bulk op
 
    .. code-block:: fish
 
-      for env in (pyenv virtualenvs --skip-aliases --bare); pyenv activate $env; pip-licenses --format=csv --with-urls | tail -n +2 | sed "s`^`$env,`" >> licenses.csv; end
+      for env in (pyenv virtualenvs --skip-aliases --bare)
+          pyenv activate $env
+          pip-licenses --format=csv --with-urls | tail -n +2 | sed "s`^`$env,`" >> licenses.csv
+      end
 
 -  Run this script from the `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts>`__ repository:
 
