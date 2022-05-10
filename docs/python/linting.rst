@@ -127,7 +127,7 @@ Optional linting
 
 .. note::
 
-   This section is provided for reference. In general, these are not worth the effort.
+   This section is provided for reference. In general, these are not worth the effort. Complexity is best measured by the effort required to read and modify code. This cannot be measured using techniques like cyclomatic complexity. Reducing cyclomatic complexity typically means extracting single-caller methods and/or using object-oriented programming, which frequently *increase* cognitive complexity. See the note under :ref:`create-products-sustainably`.
 
 flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/project/mccabe/>`__) is deactivated by default. A threshold of 10 or 15 is `recommended <https://en.wikipedia.org/wiki/Cyclomatic_complexity#Limiting_complexity_during_development>`__:
 
