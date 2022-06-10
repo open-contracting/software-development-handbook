@@ -36,3 +36,4 @@ Reference
 ---------
 
 -  `High Performance Browser Networking <https://hpbn.co>`__
+-  `Memray <https://bloomberg.github.io/memray/>`__ by Bloomberg
