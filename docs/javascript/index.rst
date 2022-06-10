@@ -14,6 +14,18 @@ To upgrade Node, change the ``node-version`` key in GitHub Actions workflows and
 
    Don't use `CoffeeScript <https://coffeescript.org>`__. Unless the repository is a fork, use `Decaffeinate <https://decaffeinate-project.org>`__ to convert CoffeeScript to ECMAScript.
 
+Preferences
+-----------
+
+Plain JavaScript is preferred to using jQuery, unless functionality depends on jQuery plugins. To replace jQuery in a project, refer to `You Might Not Need jQuery <http://youmightnotneedjquery.com>`__.
+
+Package manager
+  `npm <https://docs.npmjs.com>`__, the default package manager of Node.js. Do not use `yarn <https://yarnpkg.com>`__.
+User interface
+  `Vue <https://vuejs.org>`__ is preferred to `React <https://reactjs.org>`__. That said, do not use frameworks for simple interfaces.
+Formatter
+  `Standard <https://github.com/standard/standard>`__ and/or `Prettier <https://prettier.io>`__. Standard's JavaScript format is preferred to Prettier's. Prettier `supports more formats <https://prettier.io/docs/en/>`__.
+
 Requirements
 ------------
 
@@ -111,18 +123,6 @@ To transform older code to ECMAScript 6, use `lebab <https://github.com/lebab/le
 
 
 To transform newer code to ECMAScript 6, use `Babel <https://babeljs.io>`__ with the `defaults <https://babeljs.io/docs/en/babel-preset-env#no-targets>`__ query from `browserlist <https://github.com/browserslist/browserslist>`__.
-
-Preferences
------------
-
-Plain JavaScript is preferred to using jQuery, unless functionality depends on jQuery plugins. To replace jQuery in a project, refer to `You Might Not Need jQuery <http://youmightnotneedjquery.com>`__.
-
-Package manager
-  `npm <https://docs.npmjs.com>`__, the default package manager of Node.js. Do not use `yarn <https://yarnpkg.com>`__.
-User interface
-  `Vue <https://vuejs.org>`__ is preferred to `React <https://reactjs.org>`__.
-Formatter
-  `Standard <https://github.com/standard/standard>`__ and/or `Prettier <https://prettier.io>`__. Standard's JavaScript format is preferred to Prettier's. Prettier `supports more formats <https://prettier.io/docs/en/>`__.
 
 .. _javascript-ci:
 
