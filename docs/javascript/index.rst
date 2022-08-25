@@ -17,7 +17,7 @@ To upgrade Node, change the ``node-version`` key in GitHub Actions workflows and
 Preferences
 -----------
 
-Plain JavaScript is preferred to using jQuery, unless functionality depends on jQuery plugins. To replace jQuery in a project, refer to `You Might Not Need jQuery <http://youmightnotneedjquery.com>`__.
+Plain JavaScript is preferred to using jQuery, unless functionality depends on jQuery plugins. To replace jQuery in a project, refer to `You Might Not Need jQuery <http://youmightnotneedjquery.com>`__. Similarly, use the `Fetch <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`__ API instead of the `Axios <https://axios-http.com>`__ package, etc.
 
 Package manager
   `npm <https://docs.npmjs.com>`__, the default package manager of Node.js. Do not use `yarn <https://yarnpkg.com>`__.
