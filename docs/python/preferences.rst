@@ -41,8 +41,8 @@ Markdown parsing
   `markdown-it-py <https://pypi.org/project/markdown-it-py/>`__. Do not use `commonmark <https://pypi.org/project/commonmark/>`__, which is deprecated.
 Templating
   `Jinja <https://jinja.palletsprojects.com/>`__
-Asset packaging
-  `django-pipeline <https://django-pipeline.readthedocs.io/en/latest/>`__, unless a framework provides its own, like `Vue <https://cli.vuejs.org>`__. Do not use `django-compressor <https://django-compressor.readthedocs.io/en/stable/>`__, `webpack <https://webpack.js.org>`__, or similar.
+Asset management
+  Do not use `django-compressor <https://django-compressor.readthedocs.io/en/stable/>`__ or `django-pipeline <https://django-pipeline.readthedocs.io/en/latest/>`__, which are always behind NPM packages. See :ref:`javascript-preferences` for JavaScript.
 Translation
   `gettext <https://docs.python.org/3/library/gettext.html>`__, `Babel <http://babel.pocoo.org/en/latest/>`__ and `transifex-client <https://pypi.org/project/transifex-client/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/3.2/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
 Logging
