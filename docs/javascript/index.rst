@@ -27,6 +27,8 @@ User interface
   `Vue <https://vuejs.org>`__ is preferred to `React <https://reactjs.org>`__. That said, do not use frameworks for simple interfaces.
 Asset management
    `webpack <https://webpack.js.org>`__, unless a framework provides its own, like `Vue <https://cli.vuejs.org>`__.
+Sass
+   `sass <https://github.com/sass/dart-sass>`__ (dart-sass). Do not use `node-sass <https://github.com/sass/node-sass#node-sass>`__, which is deprecated.
 Formatter
   `Standard <https://github.com/standard/standard>`__ and/or `Prettier <https://prettier.io>`__. Standard's JavaScript format is preferred to Prettier's. Prettier `supports more formats <https://prettier.io/docs/en/>`__.
 
