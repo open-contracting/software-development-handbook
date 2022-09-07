@@ -23,7 +23,7 @@ production = os.getenv("DJANGO_ENV") == "production"
 local_access = "LOCAL_ACCESS" in os.environ or "ALLOWED_HOSTS" not in os.environ
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parents[1]
 
 
 # Quick-start development settings - unsuitable for production
