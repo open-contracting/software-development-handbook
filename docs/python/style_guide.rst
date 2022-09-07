@@ -60,6 +60,11 @@ String formatting
 
    Use the `urllib.parse <https://docs.python.org/3.8/library/urllib.parse.html>`__ module to parse and construct URLs, notably: `urlsplit <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlsplit>`__ (not ``urlparse``), `parse_qs <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.parse_qs>`__, `urljoin <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urljoin>`__ and `urlencode <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlencode>`__. To replace part of a URL parsed with the ``urlsplit`` function, use its `_replace <https://docs.python.org/3/library/collections.html#collections.somenamedtuple._replace>`__ method. `See examples <https://docs.python.org/3.8/library/urllib.request.html#urllib-examples>`__.
 
+..
+   To find unexpected use of pathlib or os.path around __file__:
+
+   (?<!os\.path\.dirname\(os\.path\.realpath\()__file__(?!\)\.resolve\(\)\.parent)
+
 .. seealso::
 
    How to construct :ref:`SQL statements<sql-statements>`

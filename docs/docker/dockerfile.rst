@@ -63,6 +63,8 @@ For reference, the default ``/etc/nginx/conf.d/default.conf`` file in the Nginx 
    :language: nginx
 
 ..
+   To update the samples/default.conf file:
+
    docker pull nginxinc/nginx-unprivileged
    docker run -it --entrypoint sh nginxinc/nginx-unprivileged
    $ cat /etc/nginx/conf.d/default.conf
