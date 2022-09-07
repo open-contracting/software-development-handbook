@@ -56,7 +56,7 @@ String formatting
 
    Don't use regular expressions or string methods to parse and construct filenames and URLs.
 
-   Use the `os.path <https://docs.python.org/3/library/os.path.html>`__ or `pathlib <https://docs.python.org/3/library/pathlib.html#module-pathlib>`__ module to parse or construct filenames, for cross-platform support.
+   Use the `pathlib <https://docs.python.org/3/library/pathlib.html#module-pathlib>`__ (or `os.path <https://docs.python.org/3/library/os.path.html>`__) module to parse or construct filenames, for cross-platform support.
 
    Use the `urllib.parse <https://docs.python.org/3.8/library/urllib.parse.html>`__ module to parse and construct URLs, notably: `urlsplit <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlsplit>`__ (not ``urlparse``), `parse_qs <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.parse_qs>`__, `urljoin <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urljoin>`__ and `urlencode <https://docs.python.org/3.8/library/urllib.parse.html#urllib.parse.urlencode>`__. To replace part of a URL parsed with the ``urlsplit`` function, use its `_replace <https://docs.python.org/3/library/collections.html#collections.somenamedtuple._replace>`__ method. `See examples <https://docs.python.org/3.8/library/urllib.request.html#urllib-examples>`__.
 
