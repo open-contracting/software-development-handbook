@@ -23,6 +23,7 @@ Most projects use `Bootstrap <https://getbootstrap.com>`__, some of which use Py
 Reminders
 ~~~~~~~~~
 
+-  Use a CSS framework's variables and utility classes, instead of creating new classes
 -  Avoid using too many font sizes on the same page. To check:
 
    .. code-block:: javascript
