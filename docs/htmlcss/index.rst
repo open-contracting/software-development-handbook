@@ -20,6 +20,21 @@ Most projects use `Bootstrap <https://getbootstrap.com>`__, some of which use Py
 -  `Tailwind <https://tailwindcss.com>`__, a `utility classes <https://adamwathan.me/css-utility-classes-and-separation-of-concerns/>`__ framework
 -  `Vuetify <https://vuetifyjs.com>`__, a `Material Design <https://material.io/design>`__ framework
 
+Reminders
+~~~~~~~~~
+
+-  Avoid using too many font sizes on the same page. To check:
+
+   .. code-block:: javascript
+
+      const sizes = {}
+      for (const element of document.getElementsByTagName('*')) {
+          const size = window.getComputedStyle(element).fontSize
+          if (!(size in sizes)) { sizes[size] = [] }
+              sizes[size].push(element)
+          }
+      sizes
+
 Code style
 ~~~~~~~~~~
 
