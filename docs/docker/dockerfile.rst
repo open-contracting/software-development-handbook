@@ -46,6 +46,10 @@ To `leverage the build cache <https://docs.docker.com/develop/develop-images/doc
 #. Switch to the non-root user
 #. Copy project files
 
+.. note::
+
+   For Node, set the working directory before copying requirements files.
+
 Base images
 -----------
 
