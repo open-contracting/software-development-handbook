@@ -39,14 +39,12 @@ To `leverage the build cache <https://docs.docker.com/develop/develop-images/doc
 
 #. Declare the base image
 #. Install system packages
+#. Create a non-root user
 #. Copy requirements files
 #. Install project dependencies
-#. Create a non-root user †
-#. Set the working directory †
-#. Switch to the non-root user †
+#. Set the working directory
+#. Switch to the non-root user
 #. Copy project files
-
-† For different languages, the instructions about the non-root user and working directory might appear in a different order.
 
 Base images
 -----------
