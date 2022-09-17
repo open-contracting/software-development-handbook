@@ -1,4 +1,4 @@
-FROM python:3.8 as build-stage-django
+FROM python:3.8 as build-stage
 
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
@@ -12,5 +12,5 @@ RUN python manage.py collectstatic --noinput
 
 FROM nginxinc/nginx-unprivileged:latest as production-stage
 USER root
-COPY --from=build-stage-django --chown=nginx:root /workdir/static /usr/share/nginx/html/static
+COPY --from=build-stage --chown=nginx:root /workdir/static /usr/share/nginx/html/static
 USER nginx
