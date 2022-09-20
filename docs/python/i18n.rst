@@ -42,6 +42,12 @@ Then, push the PO files to Transifex with:
 
    tx push -s
 
+If you made local changes to translations, push the translations to Transifex. For example:
+
+.. code:: bash
+
+   tx push -t -l en
+
 When ready, pull the translations from Transifex with:
 
 .. code:: bash
