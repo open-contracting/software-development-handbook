@@ -30,6 +30,16 @@ Filename conventions
 
 .. cookiecutter-django uses ``config`` as the project name, but a ``config.settings`` module is mind-bending.
 
+Model Template View
+-------------------
+
+The view should interact with the :ref:`models<django-models>` and return a context for the :ref:`template<templates>`, based on the request.
+
+-  A template is concerned with formatting the context provided by the view. Use `custom template tags and filters <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>`__ for complex formatting, instead of putting that logic in the view.
+-  A template should not perform user-based logic, like filtering which model instances to display. Instead, use a `custom manager <https://docs.djangoproject.com/en/3.2/topics/db/managers/>`__ (or `custom queryset <https://docs.djangoproject.com/en/3.2/topics/db/managers/#creating-a-manager-with-queryset-methods>`__) from the view.
+
+.. _django-models:
+
 Models
 ------
 
@@ -45,17 +55,20 @@ Forms
 
 -  Use ``help_text`` and ``label`` to describe fields.
 
+.. _django-templates:
+
+Templates
+---------
+
+-  If an `inclusion tag <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__ contains no logic other than returning a context, use an `include tag <https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#include>`__ instead.
+-  In many cases, you can achieve the same outcome using either `context processors <https://docs.djangoproject.com/en/3.2/ref/templates/api/#writing-your-own-context-processors>`__ or `inclusion tags <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__. If the variables that the template uses are constant (e.g. from a Django settings file), use a context processor. Otherwise, use an inclusion tag.
+
 Admin
 -----
 
 -  Configure list views for easy of use using ``list_display``, ``list_editable``, ``list_filter``
 -  Configure ``fieldsets`` (or ``fields`` if there are only a few) to group and order fields logically
 -  Configure ``readonly_fields``, so that the administrator knows whether to edit a field
-
-Templates
----------
-
--  In many cases, you can achieve the same outcome using either `context processors <https://docs.djangoproject.com/en/3.2/ref/templates/api/#writing-your-own-context-processors>`__ or `inclusion tags <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__. If the variables that the template uses are constant (e.g. from a Django settings file), use a context processor. Otherwise, use an inclusion tag.
 
 .. _django-settings:
 
