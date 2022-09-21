@@ -35,8 +35,9 @@ Model Template View
 
 The view should interact with the :ref:`models<django-models>` and return a context for the :ref:`template<templates>`, based on the request.
 
--  A template is concerned with formatting the context provided by the view. Use `custom template tags and filters <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>`__ for complex formatting, instead of putting that logic in the view.
--  A template should not perform user-based logic, like filtering which model instances to display. Instead, use a `custom manager <https://docs.djangoproject.com/en/3.2/topics/db/managers/>`__ (or `custom queryset <https://docs.djangoproject.com/en/3.2/topics/db/managers/#creating-a-manager-with-queryset-methods>`__) from the view.
+-  A view is concerned with fulfilling the request. Add new methods to models for complex or repeated processing, instead of putting that logic in the view.
+-  A template is concerned with formatting the context provided by the view. Use `custom template tags and filters <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>`__ for complex or repeated formatting, instead of putting that logic in the view.
+-  A template should not perform user-based logic, like filtering which model instances to display. Instead, use a `custom manager <https://docs.djangoproject.com/en/3.2/topics/db/managers/>`__ (or `custom queryset <https://docs.djangoproject.com/en/3.2/topics/db/managers/#creating-a-manager-with-queryset-methods>`__).
 
 .. _django-models:
 
