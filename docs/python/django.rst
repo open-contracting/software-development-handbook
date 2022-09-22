@@ -33,7 +33,7 @@ Filename conventions
 Model Template View
 -------------------
 
-The view should interact with the :ref:`models<django-models>` and return a context for the :ref:`template<templates>`, based on the request.
+The view should interact with the :ref:`models<django-models>` and return a context for the :ref:`template<django-templates>`, based on the request.
 
 -  A view is concerned with fulfilling the request. Add new methods to models for complex or repeated processing, instead of putting that logic in the view.
 -  A template is concerned with formatting the context provided by the view. Use `custom template tags and filters <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>`__ for complex or repeated formatting, instead of putting that logic in the view.
