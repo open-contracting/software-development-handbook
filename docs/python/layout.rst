@@ -41,10 +41,25 @@ Packages
 .. code-block:: none
 
    ├── PACKAGENAME
+   │   ├── __init__.py
+   │   ├── __main__.py
+   │   ├── commands
    │   └── static
    ├── docs
    └── tests
        └── fixtures
+
+.. note::
+
+   ``__main__.py`` is executed when the package is invoked directly from the command line using the ``-m`` flag. For example:
+
+   .. code-block:: bash
+
+      python -m ocdskit
+
+.. seealso::
+
+   `__main__.py in Python Packages <https://docs.python.org/3/library/__main__.html#main-py-in-python-packages>`__
 
 .. note::
 
