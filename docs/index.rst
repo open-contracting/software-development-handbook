@@ -12,6 +12,7 @@ A guide for developers of OCP's tools.
 
    general/index
    python/index
+   rust/index
    javascript/index
    shell/index
    sql/index
