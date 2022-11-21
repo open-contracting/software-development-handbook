@@ -19,6 +19,7 @@ If you're getting confusing compile errors, especially any involving type annota
 
 -  You wrote enough code. If you produce results that you don't use, the compiler still wants to determine their definite type. Adding more code to give the compiler a hint can spare adding optional type annotations.
 -  Your annotations are correct. If you change your code but don't change your annotations, the compiler might report errors that are distantly related to the misannotation.
+-  You duck type using trait objects: for example, ``Box<dyn Read>`` to use ``std::io:stdin()`` and ``File::open(file).unwrap()`` interchangeably. The compiler can't determine which traits are relevant across the two types.
 
 Continuous integration
 ----------------------
