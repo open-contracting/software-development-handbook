@@ -12,6 +12,11 @@ Preferences
 -  Prefer crates in the top 250 according to `lib.rs <https://lib.rs/std>`__
 -  Read the ``Cargo.toml`` files of OCP projects for inspiration
 
+Tips & tricks
+-------------
+
+-  If one arm of a ``match`` expression for a ``Result`` enum is an identity, use `map <https://doc.rust-lang.org/std/result/enum.Result.html#method.map>`__ or `map_err <https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err>`__ to pass through one variant while handling the other.
+
 Troubleshooting
 ---------------
 
@@ -47,3 +52,8 @@ Read:
    .. hint::
 
       Scroll up after the page loads to access the within-crate search bar
+
+Rust has no:
+
+-  `Exception <https://rust-cli.github.io/book/tutorial/errors.html#nicer-error-reporting>`__
+-  `Reflection <https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes>`__
