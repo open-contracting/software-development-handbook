@@ -36,6 +36,7 @@ Read:
 
 -  `The Rust Programming Language <https://doc.rust-lang.org/book/>`__
 -  `Command line apps in Rust <https://rust-cli.github.io/book/>`__
+-  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
 -  `docs.rs <https://docs.rs>`__ for crate documentation
 
    .. hint::
