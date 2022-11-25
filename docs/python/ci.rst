@@ -28,7 +28,7 @@ Continous integration
 Automated tests
 ---------------
 
-Create a ``.github/workflows/ci.yml`` file, and use one of the base templates below.
+Create a ``.github/workflows/ci.yml`` file, and use or adapt one of the :ref:`templates<python-ci-templates>` below.
 
 -  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows>`__ and `Running a workflow based on the conclusion of another workflow <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow>`__, in particular.
 -  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
@@ -67,7 +67,7 @@ The step that runs tests should either the ``-W`` option or the ``PYTHONWARNINGS
 Code coverage
 ~~~~~~~~~~~~~
 
-All the templates below use Coveralls, :doc:`as preferred<preferences>`.
+All the :ref:`templates<python-ci-templates>` below use Coveralls, :doc:`as preferred<preferences>`.
 
 .. tip::
 
@@ -157,6 +157,8 @@ Set the image tag to the version used in production.
              --health-retries 5
            ports:
              - 9200/tcp
+
+.. python-ci-templates:
 
 Templates
 ~~~~~~~~~
