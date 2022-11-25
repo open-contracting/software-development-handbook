@@ -158,7 +158,7 @@ Set the image tag to the version used in production.
            ports:
              - 9200/tcp
 
-.. python-ci-templates:
+.. _python-ci-templates:
 
 Templates
 ~~~~~~~~~
