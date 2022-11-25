@@ -5,6 +5,26 @@ Continous integration
 
    Workflows for linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`, for :ref:`releasing packages<python-package-release-process>` and for :ref:`checking translations<i18n-ci>`
 
+.. tip::
+
+   If a workflow has:
+
+   .. code-block:: yaml
+
+      on:
+        schedule:
+          - cron: "..."
+
+   Add a ``workflow_dispatch`` event, to be able to test the workflow by triggering it manually:
+
+   .. code-block:: yaml
+      :emphasize-lines: 2
+
+      on:
+        workflow_dispatch:
+        schedule:
+          - cron: "..."
+
 Automated tests
 ---------------
 
@@ -31,6 +51,18 @@ Create a ``.github/workflows/ci.yml`` file, and use one of the base templates be
       - run: sudo apt install gettext # WRONG
 
 Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
+
+Warnings
+~~~~~~~~
+
+The step that runs tests should either the ``-W`` option or the ``PYTHONWARNINGS`` environment variable to ``error``.
+
+.. tip::
+
+   The Python documentation describes `warning filter specifications <https://docs.python.org/3/library/warnings.html#the-warnings-filter>`__ as using regular expressions. However, this is only true when using the ``warnings`` module. If set using ``-W`` or ``PYTHONWARNINGS``, the message and module parts are escaped using ``re.escape``, and the module part is suffixed with a ``\Z`` anchor.
+
+..
+   warnoptions is created in https://github.com/python/cpython/blob/3.10/Python/initconfig.c and processed in https://github.com/python/cpython/blob/3.10/Lib/warnings.py
 
 Code coverage
 ~~~~~~~~~~~~~
@@ -126,8 +158,11 @@ Set the image tag to the version used in production.
            ports:
              - 9200/tcp
 
+Templates
+~~~~~~~~~
+
 Applications
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 Set the Ubuntu version and Python version to those used in production.
 
@@ -146,7 +181,7 @@ Otherwise, use this template, replacing ``APPNAME1``:
    :language: yaml
 
 Packages
-~~~~~~~~
+^^^^^^^^
 
 If using `tox <http://tox.readthedocs.org>`__:
 
@@ -181,24 +216,12 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
            run: pytest --cov PACKAGENAME
 
 Static files
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 For example, the `Extension Registry <https://github.com/open-contracting/extension_registry>`__ mainly contains static files. Tests are used to validate the files.
 
 .. literalinclude:: samples/ci/static.yml
    :language: yaml
-
-Warnings
---------
-
-The step that runs tests should either the ``-W`` option or the ``PYTHONWARNINGS`` environment variable to ``error``.
-
-.. tip::
-
-   The Python documentation describes `warning filter specifications <https://docs.python.org/3/library/warnings.html#the-warnings-filter>`__ as using regular expressions. However, this is only true when using the ``warnings`` module. If set using ``-W`` or ``PYTHONWARNINGS``, the message and module parts are escaped using ``re.escape``, and the module part is suffixed with a ``\Z`` anchor.
-
-..
-   warnoptions is created in https://github.com/python/cpython/blob/3.10/Python/initconfig.c and processed in https://github.com/python/cpython/blob/3.10/Lib/warnings.py
 
 Dependabot
 ----------
