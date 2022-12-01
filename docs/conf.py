@@ -56,7 +56,6 @@ linkcheck_anchors_ignore = [
     # GitHub readme headings.
     r'^(?:change-github-repository-configuration|commit-message-header|tests|unsafe-transforms)$',
 ]
-
 linkcheck_ignore = [
     # Localhost instructions.
     r'^http://localhost:8000',
