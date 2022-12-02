@@ -17,37 +17,31 @@ Use the Pypackage Cookiecutter template:
 Metadata
 --------
 
-If the package is distributed on PyPI, use this template for the ``setup.py`` file, adding arguments like ``entry_points`` and ``namespace_packages`` as needed, and removing the Jinja syntax if not using the Cookiecutter template:
+If the package is distributed on PyPI, use this template for the ``setup.cfg`` file, adding options like ``entry_points`` and ``namespace_packages`` as needed, and removing the Jinja syntax if not using the Cookiecutter template:
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/setup.py
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/setup.cfg
    :language: jinja
 
-If the package isn’t distributed on PyPI, use this template ``setup.py``:
+If the package isn’t distributed on PyPI, use this template ``setup.cfg``:
 
 .. code-block:: python
 
-   from setuptools import find_packages, setup
+   [metadata]
+   name = NAME
+   version = 0.0.0
+   license = BSD
 
-   setup(
-       name='NAME',
-       version='0.0.0',
-       license='BSD',
-       packages=find_packages(),
-       install_requires=[
-           'REQUIREMENT',
-       ],
-   )
-
-.. note::
-
-   We don't use ``pyproject.toml`` or ``setup.cfg`` for metadata, preferring a single ``setup.py`` file.
+   [options]
+   packages = find:
+   install_requires =
+       REQUIREMENT
 
 Reference: `Packaging and distributing projects <https://packaging.python.org/guides/distributing-packages-using-setuptools/>`__
 
 Requirements
 ~~~~~~~~~~~~
 
--  Use ``install_requires`` and ``extras_require`` in the ``setup.py`` file
+-  Use ``install_requires`` and ``extras_require`` in the ``setup.cfg`` file
 -  Do not use a ``requirements.txt`` file
 -  Sort requirements alphabetically
 
@@ -103,7 +97,7 @@ Release process
 #. Ensure that the package is ready for release:
 
    -  All tests pass on continuous integration
-   -  The version number is correct in ``setup.py`` and ``docs/conf.py`` (if present)
+   -  The version number is correct in ``setup.cfg`` and ``docs/conf.py`` (if present)
    -  The changelog is up-to-date and dated
 
 #. Tag the release, replacing ``x.y.z`` twice:

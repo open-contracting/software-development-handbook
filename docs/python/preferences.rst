@@ -15,7 +15,7 @@ Maintainers can find dependencies with:
 
 .. code-block:: bash
 
-   find . \( -name 'setup.py' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \; 
+   find . \( -name 'setup.cfg' -or -name 'requirements.in' \) -exec echo {} \; -exec cat {} \;
 
 Preferences
 -----------

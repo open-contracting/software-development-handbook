@@ -24,7 +24,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           {%- endraw %}
           cache: pip
-          cache-dependency-path: setup.py
+          cache-dependency-path: setup.cfg
       - run: pip install .[test]
       - run: pytest -W error --cov {{ cookiecutter.package_name }}
       - env:

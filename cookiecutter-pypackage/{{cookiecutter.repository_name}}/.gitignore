@@ -19,4 +19,5 @@ __pycache__
 
 # Distribution
 /*.egg-info
+/build
 /dist

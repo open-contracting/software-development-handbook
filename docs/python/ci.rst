@@ -201,7 +201,7 @@ If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_nam
 
 Test :doc:`packages<packages>` on Python versions that aren't end-of-life, and on the latest version of PyPy. Test on Ubuntu, macOS and Windows (though :ref:`only Ubuntu<service-containers>` if a service container is needed).
 
-If the package has optional support for `orjson <https://pypi.org/project/orjson/>`__, to test on PyPy, replace the ``pytest`` step with the following steps, replacing ``PACKAGENAME``: 
+If the package has optional support for `orjson <https://pypi.org/project/orjson/>`__, to test on PyPy, replace the ``pytest`` step with the following steps, replacing ``PACKAGENAME``:
 
 .. code-block:: yaml
 
@@ -295,7 +295,7 @@ Find repositories for Python packages but without ``pypi.yml`` files:
 
 .. code-block:: bash
 
-   find . -name setup.py -not -path '*/node_modules/*' -exec bash -c 'if grep long_description {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
+   find . -name setup.cfg -not -path '*/node_modules/*' -exec bash -c 'if grep long_description {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
 
 Find and compare ``i18n.yml`` files:
 

@@ -113,7 +113,7 @@ If the project is a :doc:`package<packages>`, add:
 
 .. code-block:: yaml
 
-         - run: pip install --upgrade check-manifest setuptools
+         - run: pip install --upgrade check-manifest
          - run: check-manifest
 
 Finally, add any project-specific linting, like in `notebooks-ocds <https://github.com/open-contracting/notebooks-ocds/blob/f9f42cac48f91564eba0da3c2a79ebdf7c3c43ad/.github/workflows/lint.yml#L22-L24>`__.
