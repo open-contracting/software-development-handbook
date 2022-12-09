@@ -88,11 +88,12 @@ Release process
 
    After publishing the first release to PyPI, :ref:`add additional owners <pypi-access>`.
 
-#. Ensure that you are on the ``main`` branch:
+#. Ensure that you are on an up-to-date ``main`` branch:
 
    .. code-block:: bash
 
       git checkout main
+      git pull --rebase
 
 #. Ensure that the package is ready for release:
 

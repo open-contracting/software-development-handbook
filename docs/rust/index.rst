@@ -39,6 +39,52 @@ Create a ``.github/workflows/ci.yml`` file. As a base, use:
 .. literalinclude:: samples/ci.yml
    :language: yaml
 
+Release process
+---------------
+
+#. Ensure that you are on an up-to-date ``main`` branch:
+
+   .. code-block:: bash
+
+      git checkout main
+      git pull --rebase
+
+#. Ensure that the package is ready for release:
+
+   -  All tests pass on continuous integration
+   -  The version number is correct in ``Cargo.toml``
+   -  The changelog is up-to-date and dated
+
+#. Tag the release, replacing ``x.y.z`` twice:
+
+   .. code-block:: bash
+
+      git tag -a x.y.z -m 'x.y.z release.'
+
+#. Push the release:
+
+   .. code-block:: bash
+
+      git push --follow-tags
+
+#. Edit the GitHub release that is created by GitHub Actions, to add the ``description`` value from ``Cargo.toml`` followed by the relevant section of the changelog.
+
+#. If the software has a formula in our `Homebrew tap <https://github.com/open-contracting/homebrew-tap/tree/main/Formula>`__, update the ``url`` and ``sha256`` values. For example, from the ``homebrew-tap`` directory, after updating the ``url`` values, prepare the ``sha256`` values for the ``ocdscardinal`` formula with:
+
+   .. code-block:: bash
+
+      grep --only-matching -E 'https://.+zip' Formula/ocdscardinal.rb | xargs -I{} sh -c 'curl -sSL {} | shasum -a 256'
+
+   Then, push the changes.
+
+#. Publish the crate:
+
+   .. code-block:: bash
+
+      cargo publish
+
+#. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ if relevant
+
 Reference
 ---------
 
