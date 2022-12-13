@@ -16,6 +16,12 @@ Reference: `Non-English as a Source Language <https://help.transifex.com/en/arti
 Add Transifex mapping
 ---------------------
 
+.. warning::
+
+   The ``tx config`` command is `not yet available <https://developers.transifex.com/docs/using-the-client>`__ in the Go Transifex Client:
+
+     later we will offer the ``tx config`` command to make editing the configuration more convenient
+
 For example, replacing ``TXPROJECT`` and ``APP``:
 
 .. code:: bash
