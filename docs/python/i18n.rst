@@ -16,17 +16,15 @@ Reference: `Non-English as a Source Language <https://help.transifex.com/en/arti
 Add Transifex mapping
 ---------------------
 
-.. warning::
+See `Adding resources in bulk <https://developers.transifex.com/docs/cli#adding-resources-in-bulk>`__.
 
-   The ``tx config`` command is `not yet available <https://developers.transifex.com/docs/using-the-client>`__ in the Go Transifex Client:
+.. note::
 
-     later we will offer the ``tx config`` command to make editing the configuration more convenient
+   For reference, the equivalent with the old Python Transifex Client, replacing ``TXPROJECT`` and ``APP``, was:
 
-For example, replacing ``TXPROJECT`` and ``APP``:
+   .. code:: bash
 
-.. code:: bash
-
-   tx config mapping -r TXPROJECT.django -f APP/locale/en_US/LC_MESSAGES/django.po -s en_US -t PO 'APP/locale/<lang>/LC_MESSAGES/django.po'
+      tx config mapping -r TXPROJECT.django -f APP/locale/en_US/LC_MESSAGES/django.po -s en_US -t PO 'APP/locale/<lang>/LC_MESSAGES/django.po'
 
 Translate with Transifex
 ------------------------
