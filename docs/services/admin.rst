@@ -117,6 +117,6 @@ Third-party developers can be added with the Admin or Member role to organizatio
 Transifex
 ---------
 
-Transifex is used by ODS for multiple clients. There should be at most two members with the `Project Maintainer and Team Manager <https://docs.transifex.com/teams/understanding-user-roles>`__ roles from OCP.
+Transifex is used by ODS for multiple clients. There should be at most two members with the `Project Maintainer and Team Manager <https://help.transifex.com/en/articles/6223416-understanding-user-roles>`__ roles from OCP.
 
 If we reach our collaborator limit, `manage collaborators <https://www.transifex.com/open-contracting-partnership-1/collaborators/>`__, removing those who were last seen more than 9 months ago.

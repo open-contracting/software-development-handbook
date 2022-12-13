@@ -7,7 +7,7 @@ Treat the source language as "developer" English, using the language code ``en_U
 
    If you are using the source language as "proper" English, then replace ``en_US`` with ``en`` in the commands and templates below.
 
-Reference: `Non-English as a Source Language <https://docs.transifex.com/localization-tips-workflows/non-english-as-a-source-language>`__
+Reference: `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__
 
 .. seealso::
 
