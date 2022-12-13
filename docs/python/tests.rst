@@ -20,7 +20,7 @@ To write clear tests:
 -  Use `pytest.fixture <https://docs.pytest.org/en/stable/fixture.html>`__ to re-use test scaffolding (like in `OCDS Merge <https://github.com/open-contracting/ocds-merge/blob/main/tests/conftest.py>`__ or `Kingfisher Colab <https://github.com/open-contracting/kingfisher-colab/blob/main/tests/conftest.py>`__).
 -  Use `unittest.TestCase <https://docs.python.org/3/library/unittest.html#unittest.TestCase>`__ to re-use testing logic, including:
 
-   -  Test methods (like `ViewTests <https://github.com/open-contracting/toucan/blob/main/tests/__init__.py>`__ in Toucan)
+   -  Test methods (like `ViewTests <https://github.com/open-contracting-archive/toucan/blob/main/tests/__init__.py>`__ in Toucan)
    -  Test scaffolding, using `setUp() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.setUp>`__ and `tearDown() <https://docs.python.org/3/library/unittest.html#unittest.TestCase.tearDown>`__
 
 -  Use `subTest() <https://docs.python.org/3/library/unittest.html#distinguishing-test-iterations-using-subtests>`__ from ``unittest`` (with `pytest-subtests <https://pypi.org/project/pytest-subtests/>`__ if using ``pytest``) to reduce duplication (like in `Pelican backend <https://github.com/open-contracting/pelican-backend/blob/main/tests/__init__.py>`__).
