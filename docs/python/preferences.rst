@@ -44,7 +44,7 @@ Templating
 Asset management
   Do not use `django-compressor <https://django-compressor.readthedocs.io/en/stable/>`__ or `django-pipeline <https://django-pipeline.readthedocs.io/en/latest/>`__, which are always behind NPM packages. See :ref:`javascript-preferences` for JavaScript.
 Translation
-  `gettext <https://docs.python.org/3/library/gettext.html>`__, `Babel <http://babel.pocoo.org/en/latest/>`__ and `transifex-client <https://pypi.org/project/transifex-client/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/3.2/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
+  `gettext <https://docs.python.org/3/library/gettext.html>`__ and `Babel <http://babel.pocoo.org/en/latest/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/3.2/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
 Logging
   `logging <https://docs.python.org/3/library/logging.html>`__
 Testing
@@ -104,7 +104,7 @@ To ease license compliance and code reuse, avoid software distributed under `str
 
 .. note::
 
-   This does not apply to software that is only used as a utility and is not linked to the code, like `transifex-client <https://pypi.org/project/transifex-client/>`__.
+   This does not apply to software that is only used as a utility and is not linked to the code, like `libsass <https://pypi.org/project/libsass/>`__.
 
 To list the licenses under which installed packages are distributed:
 

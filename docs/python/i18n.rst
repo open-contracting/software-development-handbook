@@ -13,11 +13,6 @@ Reference: `Non-English as a Source Language <https://docs.transifex.com/localiz
 
    :doc:`preferences`
 
-Configure Transifex
--------------------
-
-The first time you use Transifex, create a `~/.transifexrc file <https://docs.transifex.com/client/client-configuration#~/-transifexrc>`__ (replace ``USERNAME`` and ``PASSWORD``).
-
 Add Transifex mapping
 ---------------------
 
