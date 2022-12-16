@@ -56,6 +56,14 @@ Forms
 
 -  Use ``help_text`` and ``label`` to describe fields.
 
+Views
+-----
+
+-  Avoid setting cookies and using sessions, where possible.
+
+   - Set the user's language in the URL path, using the `i18n_patterns function <https://docs.djangoproject.com/en/3.2/topics/i18n/translation/#django.conf.urls.i18n.i18n_patterns>`__.
+   - Edit the `set_language <https://github.com/open-contracting/data-registry/blob/main/data_registry/i18n.py>`__ view to not use `CSRF protection <https://docs.djangoproject.com/en/3.2/ref/csrf/#django.views.decorators.csrf.csrf_exempt>`__.
+
 .. _django-templates:
 
 Templates
