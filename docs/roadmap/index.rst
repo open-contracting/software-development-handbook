@@ -7,8 +7,8 @@ Product and service families
 ----------------------------
 
 -  `Data Review Tool <https://ocds-data-review-tool.readthedocs.io/en/latest/>`__: An `online tool <https://standard.open-contracting.org/review/>`__ to report structural errors in OCDS data. It is primarily used by OCDS implementers to check their conformance to the standard. Its `library <https://github.com/open-contracting/lib-cove-ocds>`__ is used by Kingfisher to check for structural errors.
--  `Kingfisher <https://ocdsdeploy.readthedocs.io/en/latest/use/kingfisher.html>`__: A family of tools to `collect <https://kingfisher-collect.readthedocs.io/en/latest/>`__, `pre-process <https://kingfisher-process.readthedocs.io/en/latest/>`__, `summarize <https://kingfisher-summarize.readthedocs.io/en/latest/>`__ and `query <https://kingfisher-colab.readthedocs.io/en/latest/>`__ OCDS data. It is used internally by helpdesk analysts to provide feedback to OCDS publishers, and by data analysts to calculate indicators and do research. It serves as a data source for other tools.
--  `Pelican <https://www.open-contracting.org/2020/01/28/meet-pelican-our-new-tool-for-assessing-the-quality-of-open-contracting-data/>`__: An online tool to report quality issues in OCDS data, sourced from Kingfisher. It is used internally by helpdesk analysts to provide feedback to OCDS publishers, and by program managers to better understand a publisher's data.
+-  `Kingfisher <https://ocdsdeploy.readthedocs.io/en/latest/use/kingfisher.html>`__: A family of tools to `collect <https://kingfisher-collect.readthedocs.io/en/latest/>`__, `pre-process <https://kingfisher-process.readthedocs.io/en/latest/>`__, `summarize <https://kingfisher-summarize.readthedocs.io/en/latest/>`__ and `query <https://kingfisher-colab.readthedocs.io/en/latest/>`__ OCDS data. It is used internally by data support managers to provide feedback to OCDS publishers, and by data analysts to calculate indicators and do research. It serves as a data source for other tools.
+-  `Pelican <https://www.open-contracting.org/2020/01/28/meet-pelican-our-new-tool-for-assessing-the-quality-of-open-contracting-data/>`__: An online tool to report quality issues in OCDS data, sourced from Kingfisher. It is used internally by data support managers to provide feedback to OCDS publishers, and by program managers to better understand a publisher's data.
 -  `Spoonbill <https://github.com/open-contracting/spoonbill>`__: A command-line tool to transform OCDS data to tabular formats. It is an important tool for users who are more familiar with tabular formats.
 -  `Cardinal <https://github.com/open-contracting/cardinal>`__: A command-line tool to calculate red flags and procurement indicators from OCDS data.
 -  `OCDS Kit <https://ocdskit.readthedocs.io/en/latest/>`__: A suite of command-line tools and a Python library for working with OCDS data. It contains common functionality used by Kingfisher, for example.
@@ -34,11 +34,11 @@ Understand user needs
 
 It is of course of primary importance that our tools respond to user needs. See our development guide for `new software <https://docs.google.com/document/d/1uJ1WecaE860tIskFBgWTn2B1czNWtszLNzZRPqg2hh4/edit>`__ for how user research is integrated into our approach. We also:
 
--  Listen to users and document their needs, when they communicate through the `mailing list <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__, `GitHub repositories <https://github.com/open-contracting>`__, OCDS Helpdesk, community calls, in-person events, etc.
+-  Listen to users and document their needs, when they communicate through the `mailing list <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__, `GitHub repositories <https://github.com/open-contracting>`__, data support, community calls, in-person events, etc.
 -  Ask users about their needs, whether through the channels above, online surveys, phone interviews, or other methods
 -  Observe users interact with our tools, whether indirectly through web analytics or directly through usability testing
--  Reflect on what was heard and observed, whether during OCDS retreats, OCDS Helpdesk weekly calls, CRM issues, GitHub repositories, etc.
--  Promote the use of our tools and encourage feedback through the mailing list, GitHub repositories, and OCDS Helpdesk
+-  Reflect on what was heard and observed, whether during OCDS retreats, team meetings, CRM issues, GitHub repositories, etc.
+-  Promote the use of our tools and encourage feedback through the mailing list, GitHub repositories, and data support
 -  Recognize that our tools are only one part of a user's workflow and of a wider ecosystem
 -  Transfer knowledge from relevant domains, e.g. open data more broadly
 
@@ -105,7 +105,7 @@ Outside our software development activity, we:
 
 -  Promote others' tools through our communications channels, like in `blog posts <https://www.open-contracting.org/2018/05/09/check-ocds-data-validates/>`__.
 -  Offer a `mailing list <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ through which others can share and promote their tools.
--  Suggest others' tools, where appropriate, through the OCDS Helpdesk.
+-  Suggest others' tools, where appropriate, through data support.
 -  Monitor re-use of tools authored by others as an organizational indicator.
 -  Have bilateral calls with similar organizations about software development.
 
