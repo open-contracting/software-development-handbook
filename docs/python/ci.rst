@@ -1,5 +1,5 @@
-Continous integration
-=====================
+Continuous integration
+======================
 
 .. seealso::
 

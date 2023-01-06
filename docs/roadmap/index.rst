@@ -53,7 +53,7 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases i
 -  Use a `Quality Assurance Surveillance Plan (QASP) <https://docs.google.com/document/d/1s-PJSdX43_DMAcXYalG9Upm31XvWCp31j_QGCzFJ7qY/edit>`__ with consultants, which includes:
 
    -  Have test coverage above 90%, so that new developers can get involved without being overly concerned about breaking things.
-   -  Have :doc:`good documentation<../python/documentation>` for developers and users, making it easier to onboard new developers. (Writing documention during development also helps to identify and reduce complexity.)
+   -  Have :doc:`good documentation<../python/documentation>` for developers and users, making it easier to onboard new developers. (Writing documentation during development also helps to identify and reduce complexity.)
 
 -  Maintain this software development handbook, which includes:
 
