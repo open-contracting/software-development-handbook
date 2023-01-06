@@ -254,6 +254,20 @@ Maintainers can find simple if-statements with this regular expression:
 
    ^( *)if (.+) not in (.+):(?: *#.*)?\n(?: *#.*\n)* +\3\[\2\] = .+\n(?!(?: *#.*\n)*\1(else\b|elif\b|    \S))
 
+Input/Output
+------------
+
+.. code-block:: python
+
+   import sys
+
+   print('message', file=sys.stderr)
+   sys.stderr.write('message\n')  # WRONG
+
+.. seealso::
+
+   :doc:`file_formats`
+
 Functional style
 ----------------
 
@@ -297,17 +311,3 @@ If you are having trouble with the Python path, try running the script with ``py
 .. seealso::
 
    :doc:`Shell script guide<../shell/index>`
-
-Input/Output
-------------
-
-.. code-block:: python
-
-   import sys
-
-   print('message', file=sys.stderr)
-   sys.stderr.write('message\n')  # WRONG
-
-.. seealso::
-
-   :doc:`file_formats`
