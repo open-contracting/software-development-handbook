@@ -122,18 +122,43 @@ Finally, add any project-specific linting, like in `notebooks-ocds <https://gith
 
    Workflow files for linting :ref:`shell scripts<shell-ci>` and :ref:`Javascript files<javascript-ci>`
 
+.. _python-optional-linting:
+
 Optional linting
 ----------------
 
 .. note::
 
-   This section is provided for reference. In general, these are not worth the effort. Complexity is best measured by the effort required to read and modify code. This cannot be measured using techniques like cyclomatic complexity. Reducing cyclomatic complexity typically means extracting single-caller methods and/or using object-oriented programming, which frequently *increase* cognitive complexity. See the note under :ref:`create-products-sustainably`.
+   This section is provided for reference.
+
+`codespell <https://pypi.org/project/codespell/>`__ finds typographical errors. It is especially useful in repositories with lengthy documentation. Otherwise, all repositories can be periodically checked with:
+
+.. code-block:: bash
+
+   codespell -S '.git,.pytest_cache,cassettes,fixtures,_build,build,dist,target,locale,locales,vendor,node_modules,docson,htmlcov,redmine,schemaspy,*.csv,*.json,*.jsonl,*.map,*.po,european-union-support'
+
+..
+   Skip:
+
+   -  version control directories (.git)
+   -  cache directories (.pytest_cache)
+   -  test fixture directories (cassettes, fixtures)
+   -  built directories (_build, build, dist, htmlcov, target)
+   -  non-English directories (locale, locales)
+   -  generic third-party code (vendor, node_modules)
+   -  specific third-party code (docson, redmine, schemaspy)
+   -  non-code and non-documentation files
+   -  codespell-covered repositories (european-union-support)
 
 flake8's ``--max-complexity`` option (provided by `mccabe <https://pypi.org/project/mccabe/>`__) is deactivated by default. A threshold of 10 or 15 is `recommended <https://en.wikipedia.org/wiki/Cyclomatic_complexity#Limiting_complexity_during_development>`__:
 
 .. code-block:: bash
 
    flake8 . --max-line-length 119 --max-complexity 10
+
+.. note::
+
+   Complexity is best measured by the effort required to read and modify code. This cannot be measured using techniques like cyclomatic complexity. Reducing cyclomatic complexity typically means extracting single-caller methods and/or using object-oriented programming, which frequently *increase* cognitive complexity. See the note under :ref:`create-products-sustainably`.
 
 `pylint <https://pylint.org/>`__ and `pylint-django <https://pypi.org/project/pylint-django/>`__ provides useful, but noisy, feedback:
 
