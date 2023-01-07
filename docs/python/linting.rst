@@ -62,6 +62,7 @@ The errors that are allowed to be ignored are:
 
 -  ``E501 line too long`` for long strings, especially URLs
 -  ``F401 module imported but unused`` in a library's top-level ``__init__.py`` file
+-  ``E402 module level import not at top of file`` in a Django project's ``asgi.py`` file
 -  ``W291 Trailing whitespace`` in tests relating to trailing whitespace
 -  ``isort:skip`` if ``sys.path`` needs to be changed before an import
 
@@ -69,7 +70,7 @@ Maintainers can find unwanted comments with this regular expression:
 
 .. code-block:: none
 
-   # noqa(?!(: (E501|F401|W291)| isort:skip)\n)
+   # noqa(?!(: (E501|F401|E402|W291)| isort:skip)\n)
 
 .. _linting-ci:
 
