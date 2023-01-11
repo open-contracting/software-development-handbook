@@ -74,7 +74,7 @@ Periodically review `all projects <https://console.cloud.google.com/cloud-resour
 Drive
 ~~~~~
 
-All users with access to `this folder <https://drive.google.com/drive/folders/0B5mFIGaULYDdZTFWcTJ1MUpuZU0?resourcekey=0-E80ro7Qmv0n_h1wes-3Ztg>`__ should belong to OCP only.
+All users with access to `this folder <https://drive.google.com/drive/folders/0B5mFIGaULYDdZTFWcTJ1MUpuZU0>`__ should belong to OCP only.
 
 Groups
 ~~~~~~
