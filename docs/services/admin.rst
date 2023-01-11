@@ -74,7 +74,7 @@ Periodically review `all projects <https://console.cloud.google.com/cloud-resour
 Drive
 ~~~~~
 
-All users with access to `this folder <https://drive.google.com/drive/folders/0B79uNIOfT24eZTZqZjNNblVrek0>`__ should belong to OCP, Centro de Desarrollo Sostenible (CDS) and Open Data Services Co-operative Limited (ODS).
+All users with access to `this folder <https://drive.google.com/drive/folders/0B5mFIGaULYDdZTFWcTJ1MUpuZU0>`__ should belong to OCP only.
 
 Groups
 ~~~~~~
