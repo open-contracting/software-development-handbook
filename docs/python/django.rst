@@ -38,6 +38,7 @@ The view should interact with the :ref:`models<django-models>` and return a cont
 -  A view is concerned with fulfilling the request. Add new methods to models for complex or repeated processing, instead of putting that logic in the view.
 -  A template is concerned with formatting the context provided by the view. Use `custom template tags and filters <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/>`__ for complex or repeated formatting, instead of putting that logic in the view.
 -  A template should not perform user-based logic, like filtering which model instances to display. Instead, use a `custom manager <https://docs.djangoproject.com/en/3.2/topics/db/managers/>`__ (or `custom queryset <https://docs.djangoproject.com/en/3.2/topics/db/managers/#creating-a-manager-with-queryset-methods>`__).
+-  A model should not concern itself with other models' objects or with the filesystem.
 
 .. _django-models:
 
@@ -194,22 +195,23 @@ Performance
 
 In order of importance:
 
--  Reduce the number of SQL queries:
+-  Reduce the number of SQL queries (avoid `N+1 queries <https://docs.sentry.io/product/issues/issue-details/performance-issues/n-one-queries/>`__):
 
-  -  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do the work in batches). For ``INSERT``, use the `bulk_create <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ method after the loop (or do the work in batches).
-  -  Use `select_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#select-related>`__ to reduce the number of queries on ``ForeignKey`` or ``OneToOneField`` relations.
-  -  Use `prefetch_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#prefetch-related>`__ to reduce the number of queries on ``ManyToManyField`` and reverse ``ForeignKey`` relations.
-  -  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
-  -  `Add tests <https://www.valentinog.com/blog/n-plus-one/>`__ to ensure the number of queries is as expected.
+   -  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do the work in batches). For ``INSERT``, use the `bulk_create <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ method after the loop (or do the work in batches).
+   -  Use `select_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#select-related>`__ to reduce the number of queries on ``ForeignKey`` or ``OneToOneField`` relations.
+   -  Use `prefetch_related <https://docs.djangoproject.com/en/3.2/ref/models/querysets/#prefetch-related>`__ to reduce the number of queries on ``ManyToManyField`` and reverse ``ForeignKey`` relations.
+   -  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
+   -  Use `assertNumQueries <https://docs.djangoproject.com/en/3.2/topics/testing/tools/#django.test.TransactionTestCase.assertNumQueries>`__ in tests.
+   -  Set the ``django`` logger's level to ``DEBUG`` in development to add SQL queries to the ``runserver`` output.
 
 -  Cache results:
 
-  -  Use `Django's cache framework <https://docs.djangoproject.com/en/3.2/topics/cache/>`__, and be sure to invalidate the cache when appropriate.
+   -  Use `Django's cache framework <https://docs.djangoproject.com/en/3.2/topics/cache/>`__, and be sure to invalidate the cache when appropriate.
 
 -  Optimize queries:
 
-  -  Add indices to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
-  -  Use the `update_fields argument <https://docs.djangoproject.com/en/3.2/ref/models/instances/#ref-models-update-fields>`__ to the ``save()`` method for frequent operations.
+   -  Add indices to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
+   -  Use the `update_fields argument <https://docs.djangoproject.com/en/3.2/ref/models/instances/#ref-models-update-fields>`__ to the ``save()`` method for frequent operations.
 
 Read:
 
