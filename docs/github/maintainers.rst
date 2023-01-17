@@ -1,8 +1,37 @@
 For maintainers
 ===============
 
-Onboard consultants
--------------------
+Name a project
+--------------
+
+A product name should be:
+
+-  **Unique** within OCP
+
+   e.g. having two ‘scoping methodologies’ is confusing
+
+-  **Easy to spell and pronounce**
+
+   e.g. Shwowp became Buyosphere because no one could spell ‘Shwowp’
+   e.g. an unpronounceable acronym
+
+-  **Memorable**
+-  **Not competing** with another relevant or prominent thing
+-  **Not generic** unless only one thing fits the description
+
+   e.g. ocdsdata became OCDS Kingfisher
+   e.g. there will only ever be one OCDS Extension Registry
+
+-  **Not cryptic**
+
+   i.e. several hops of translation and analogy
+
+-  **Not grossly offensive** to relevant stakeholders 
+
+Furthermore, if the product is specific to OCDS, its full name should be prefixed with 'OCDS'.
+
+Onboard consultants or Start a project
+--------------------------------------
 
 #. Create `new repositories <https://github.com/orgs/open-contracting/repositories>`__, as needed by the consultants
 #. Run the `fix:lint_repos <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ and ``fix:protect_branches`` tasks, to configure the repository
@@ -30,6 +59,10 @@ Do not use `outside collaborators <https://docs.github.com/en/organizations/mana
 
 Per the `Software terms of reference (TOR) template <https://docs.google.com/document/d/13-_eFQrelLdj92MWTiqzAfO62in7Xxrv3DTcmRqvNjE/edit>`__, consultants should not have access to the production server. As such, do not add any members to the `Servers <https://github.com/orgs/open-contracting/teams/servers>`__ team.
 
+.. warning::
+
+   **NEVER** assign the Owner role to non-OCP staff. The Owner role has access to a private repository with multi-factor authentication backup codes. `Transferring a repository <https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/transferring-a-repository>`__ does not require the Owner role.
+
 .. tip::
 
    Update and then use the `org:members <https://github.com/open-contracting/standard-maintenance-scripts#github>`__, ``org:team_members``, ``org:team_repos`` and ``org:team_perms`` tasks to check the configuration.
@@ -37,10 +70,6 @@ Per the `Software terms of reference (TOR) template <https://docs.google.com/doc
 .. note::
 
    In order to protect the private deploy repositories, the `base permissions <https://github.com/organizations/open-contracting/settings/member_privileges>`__ for ``open-contracting`` members is *None*.
-
-.. warning::
-
-   **NEVER** assign the Owner role to non-OCP staff. The Owner role has access to a private repository with multi-factor authentication backup codes. `Transferring a repository <https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/transferring-a-repository>`__ does not require the Owner role.
 
 Offboard consultants
 --------------------
@@ -52,11 +81,15 @@ If the consultants are anticipated to contribute again, set the *Permission leve
 Add repository metadata
 -----------------------
 
-#. Add a description. The description should not describe the project’s status (‘draft’), because people frequently forget to update repository descriptions. Describe the status in the readme instead.
+#. Add a description. Do not describe the project’s status (‘draft’), because people frequently forget to update repository descriptions. Describe the status in the readme instead.
 #. Add a website to the repository, if relevant: for example, a link to a deployment of the tool or to its documentation.
 
 Protect branches
 ----------------
+
+.. tip::
+
+   Use the `fix:protect_branches <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task to protect branches.
 
 We don’t generally enable the following behaviors on `protected branches <https://docs.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches>`__ for the provided reasons:
 
@@ -68,10 +101,6 @@ If a repository needs multiple branches (like the standard and profiles), the ne
 .. seealso::
 
    Branch management of the `standard <https://ocds-standard-development-handbook.readthedocs.io/en/latest/standard/technical/repository.html>`__ and `profiles <https://ocds-standard-development-handbook.readthedocs.io/en/latest/profiles/technical/repository.html>`__ (including OC4IDS).
-
-.. tip::
-
-   Use the `fix:protect_branches <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task to protect branches.
 
 Archive a repository
 --------------------
