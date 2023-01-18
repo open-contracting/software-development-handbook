@@ -68,6 +68,7 @@ To configure the format in general, replacing ``MYMODULE``:
                "MYMODULE": {
                    "handlers": ["console"],
                    "level": "INFO",
+                   "propagate": False,
                },
            },
        }
