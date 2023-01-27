@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.10
 
 RUN groupadd -r runner && useradd --no-log-init -r -g runner runner
 

@@ -74,9 +74,9 @@ For reference, the default ``/etc/nginx/conf.d/default.conf`` file in the Nginx 
 System packages
 ---------------
 
-Before installing a system package, check whether it's included in a base image. For example, the ``psycopg2`` Python package `requires <https://www.psycopg.org/install/>`__ the ``libpq-dev`` system package. To check whether it's included, when using the `python:3.8 image <https://hub.docker.com/_/python>`__:
+Before installing a system package, check whether it's included in a base image. For example, the ``psycopg2`` Python package `requires <https://www.psycopg.org/install/>`__ the ``libpq-dev`` system package. To check whether it's included, when using the `python:3.10 image <https://hub.docker.com/_/python>`__:
 
-#. Find the tag on the DockerHub page of the base image (the ``3.8`` tag is under *Shared Tags*)
+#. Find the tag on the DockerHub page of the base image (the ``3.10`` tag is under *Shared Tags*)
 #. Click the link to view the Dockerfile
 #. Check the ``apt-get install`` commands for the package name
 #. If not found, look for ``FROM`` instructions
