@@ -1,18 +1,53 @@
 JavaScript
 ==========
 
-Version
--------
-
-Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature support in modern browsers <https://kangax.github.io/compat-table/es6/>`__). We don't support `Internet Explorer 11 <https://death-to-ie11.com>`__.
-
-Applications are written for Node 16 (LTS). Packages are written for non-end-of-life versions (`see the status of Node versions <https://endoflife.date/nodejs>`__).
-
-To upgrade Node, change the ``node-version`` key in GitHub Actions workflows and the ``node`` image in Dockerfiles. Check the relevant `changelog <https://github.com/nodejs/node/blob/master/CHANGELOG.md>`__ for breaking changes.
-
 .. note::
 
    Don't use `CoffeeScript <https://coffeescript.org>`__. Unless the repository is a fork, use `Decaffeinate <https://decaffeinate-project.org>`__ to convert CoffeeScript to ECMAScript.
+
+Version
+-------
+
+ECMAScript
+~~~~~~~~~~
+
+Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature support in modern browsers <https://kangax.github.io/compat-table/es6/>`__). We don't support `Internet Explorer 11 <https://death-to-ie11.com>`__.
+
+.. tip::
+
+   To transform older code to ECMAScript 6, use `lebab <https://github.com/lebab/lebab>`__, but be aware of its `bugs <https://github.com/lebab/lebab#unsafe-transforms>`__. There is a lebab `plugin <https://packagecontrol.io/packages/lebab>`__ for `Sublime Text <https://www.sublimetext.com>`__. Use these preferences (*Preferences* > *Package Settings* > *Lebab* > *Settings - User*):
+
+   .. code-block:: json
+
+      {
+        "transforms": [
+          "arrow",
+          "arrow-return",
+          "let",
+          "for-of",
+          "for-each",
+          "arg-rest",
+          "arg-spread",
+          "obj-method",
+          "obj-shorthand",
+          "no-strict",
+          "exponent",
+          "class",
+          "commonjs",
+          "template",
+          "default-param",
+          "includes"
+        ]
+      }
+
+   To transform newer code to ECMAScript 6, use `Babel <https://babeljs.io>`__ with the `defaults <https://babeljs.io/docs/en/babel-preset-env#no-targets>`__ query from `browserlist <https://github.com/browserslist/browserslist>`__.
+
+Node
+~~~~
+
+Applications are written for the latest LTS version of Node. Packages are written for non-end-of-life versions (`see the status of Node versions <https://endoflife.date/nodejs>`__).
+
+To upgrade Node, change the ``node-version`` key in GitHub Actions workflows and the ``node`` (or ``nikolaik/python-nodejs``) image in Dockerfiles. Check the relevant `changelog <https://github.com/nodejs/node/blob/master/CHANGELOG.md>`__ for breaking changes.
 
 .. _javascript-preferences:
 
@@ -102,33 +137,10 @@ To upgrade vulnerable dependencies:
 Code style
 ----------
 
-To transform older code to ECMAScript 6, use `lebab <https://github.com/lebab/lebab>`__, but be aware of its `bugs <https://github.com/lebab/lebab#unsafe-transforms>`__. There is a lebab `plugin <https://packagecontrol.io/packages/lebab>`__ for `Sublime Text <https://www.sublimetext.com>`__. Use these preferences (*Preferences* > *Package Settings* > *Lebab* > *Settings - User*):
+Vue
+~~~
 
-.. code-block:: json
-
-   {
-     "transforms": [
-       "arrow",
-       "arrow-return",
-       "let",
-       "for-of",
-       "for-each",
-       "arg-rest",
-       "arg-spread",
-       "obj-method",
-       "obj-shorthand",
-       "no-strict",
-       "exponent",
-       "class",
-       "commonjs",
-       "template",
-       "default-param",
-       "includes"
-     ]
-   }
-
-
-To transform newer code to ECMAScript 6, use `Babel <https://babeljs.io>`__ with the `defaults <https://babeljs.io/docs/en/babel-preset-env#no-targets>`__ query from `browserlist <https://github.com/browserslist/browserslist>`__.
+-  When navigating between "pages", respect native browser behaviors (open in new tab, etc.) by using an ``<a>`` link or ``<router-link>``.
 
 .. _javascript-ci:
 

@@ -95,7 +95,7 @@ Read:
 -  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
 -  `docs.rs <https://docs.rs>`__ for crate documentation
 
-   .. hint::
+   .. tip::
 
       Scroll up after the page loads to access the within-crate search bar
 
