@@ -24,6 +24,8 @@ Health
 
 For each product and service, `this spreadsheet <https://docs.google.com/spreadsheets/d/1MMqid2qDto_9-MLD_qDppsqkQy_6OP-Uo-9dCgoxjSg/edit#gid=0>`__ briefly describes its use, development status, future work and code quality, in order to give a high-level overview of its present status and future plans.
 
+.. _principles:
+
 Principles
 ----------
 
@@ -53,7 +55,7 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases i
 -  Use a `Quality Assurance Surveillance Plan (QASP) <https://docs.google.com/document/d/1s-PJSdX43_DMAcXYalG9Upm31XvWCp31j_QGCzFJ7qY/edit>`__ with consultants, which includes:
 
    -  Have test coverage above 90%, so that new developers can get involved without being overly concerned about breaking things.
-   -  Have :doc:`good documentation<../python/documentation>` for developers and users, making it easier to onboard new developers. (Writing documentation during development also helps to identify and reduce complexity.)
+   -  Have :doc:`good documentation<../python/documentation>` for developers and users, making it easier to onboard new developers. (Writing documentation during development helps identify and reduce complexity.)
 
 -  Maintain this software development handbook, which includes:
 

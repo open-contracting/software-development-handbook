@@ -23,7 +23,7 @@ DevOps
 Hosting
 -------
 
--  Bytemark (virtual private servers)
+-  Linode (virtual private servers)
 -  Hetzner (dedicated servers)
 -  AWS Simple Storage Service (S3) (storage)
 -  AWS Relational Database Service (RDS) (database)
@@ -37,6 +37,7 @@ Languages
 
 -  Python (backend)
 -  JavaScript (frontend)
+-  Rust (performance)
 -  Make (build)
 -  Bash (script)
 -  `reStructured Text <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__ (`Sphinx <https://www.sphinx-doc.org/en/master/>`__ documentation)

@@ -3,7 +3,7 @@ SQL
 
 .. seealso::
 
-   :doc:`PostgresQL guide<../services/postgresql>`
+   :doc:`PostgreSQL guide<../services/postgresql>`
 
 Name conventions
 ----------------
