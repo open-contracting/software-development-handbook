@@ -297,6 +297,11 @@ That said, it is fine to do:
 
    output = map(str, xs)
 
+Standard library
+----------------
+
+-  Use `@dataclass <https://docs.python.org/3/library/dataclasses.html>`__ for simple classes only. Using ``@dataclass`` with inheritance, mixins, class variables, etc. tends to increase complexity.
+
 .. _python-scripts:
 
 Scripts
