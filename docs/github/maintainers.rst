@@ -1,6 +1,10 @@
 For maintainers
 ===============
 
+.. seealso::
+
+   `GitHub Burndown <https://observablehq.com/@tmcw/github-burndown>`__ is a handy visualization of the longevity of issues over time.
+
 Name a project
 --------------
 
