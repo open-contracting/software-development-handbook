@@ -96,7 +96,7 @@ Read:
 
 -  `The Rust Reference <https://doc.rust-lang.org/reference/>`__
 
-   -  `Macros By Example <https://doc.rust-lang.org/reference/macros-by-example.html>`__
+   -  `Macros <https://doc.rust-lang.org/nightly/reference/macros.html>`__
 
 -  `Command line apps in Rust <https://rust-cli.github.io/book/>`__
 -  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
