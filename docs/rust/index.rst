@@ -94,6 +94,10 @@ Read:
 
    -  `Moving Captured Values Out of Closures and the Fn Traits <https://doc.rust-lang.org/book/ch13-01-closures.html#moving-captured-values-out-of-the-closure-and-the-fn-traits>`__
 
+-  `The Rust Reference <https://doc.rust-lang.org/reference/>`__
+
+   -  `Macros By Example <https://doc.rust-lang.org/reference/macros-by-example.html>`__
+
 -  `Command line apps in Rust <https://rust-cli.github.io/book/>`__
 -  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
 -  `docs.rs <https://docs.rs>`__ for crate documentation
