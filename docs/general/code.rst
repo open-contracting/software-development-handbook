@@ -8,33 +8,33 @@ Code
 Maintainability over readability
 --------------------------------
 
-For example, this code is very readable:
+For example, this code is very readable. Anyone can describe the output.
 
 .. code-block:: python
 
-   print(...)
-   print(...)
-   print(...)
-   print(...)
-   print(...)
+   print(0)
+   print(2)
+   print(4)
+   print(6)
+   print(8)
 
-However, it's not very maintainable. To change the step to 4, you need to change every line.
+However, it's not very maintainable. To change the step to 3, you need to change most lines.
 
 Compare:
 
 .. code-block:: python
 
-   for i in range(...):
-       print(...)
+   for i in range(0, 10, 2):
+       print(i)
 
-You only need to change one line. This code is very maintainable, and is less prone to typos.
+You only need to change one character. This code is very maintainable, and is less prone to typos.
 
 This may seem obvious, yet repetition like this is very common in outsourced projects.
 
 There are at least these exceptions to `DRY <https://en.wikipedia.org/wiki/Don%27t_repeat_yourself>`__:
 
--  The duplication is imperfect. (...)
--  Deduplication would involve nesting loops, which can be harder to read and more prone to errors.
+-  The duplication is imperfect. Deduplication would involve many branches, which can be harder to read and error-prone.
+-  Deduplication would involve nesting loops, which can be harder to read and error-prone.
 -  The project is young, and the API is unstable.
 -  The repetition is insubstantial.
 

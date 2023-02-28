@@ -64,6 +64,11 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases i
 
 -  Break big products (that change frequently) into small libraries (that change infrequently), so that a new developer isn't required to know as much to work on a product.
 -  Follow good practices so that code isn't more complex than needed: `YAGNI <https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it>`__, `KISS <https://en.wikipedia.org/wiki/KISS_principle>`__, `DRY <https://en.wikipedia.org/wiki/Don%27t_repeat_yourself>`__ (refactor regularly), `Unix philosophy <https://en.wikipedia.org/wiki/Unix_philosophy>`__ (limited responsibility, loose coupling), proper encapsulation, etc.
+
+   .. note::
+
+      However, don't sacrifice maintainability, readability or performance. See also :doc:`../general/code` and `"Clean" Code, Horrible Performance <https://www.youtube.com/watch?v=tD5NrevFtbU>`__.
+
 -  Use the latest versions of languages and dependencies, to postpone costly upgrades as far into the future as possible.
 -  Use tools properly and as intended. Don’t go for the quick fix.
 -  Anticipate needs with respect to performance and extensibility.
