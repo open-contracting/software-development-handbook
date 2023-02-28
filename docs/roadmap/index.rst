@@ -67,7 +67,7 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases i
 
    .. note::
 
-      However, don't sacrifice maintainability, readability or performance. See also :doc:`../general/code` and `"Clean" Code, Horrible Performance <https://www.youtube.com/watch?v=tD5NrevFtbU>`__.
+      However, don't sacrifice performance, maintainability or readability. See also :doc:`../general/code`, :ref:`object-oriented` and `"Clean" Code, Horrible Performance <https://www.youtube.com/watch?v=tD5NrevFtbU>`__.
 
 -  Use the latest versions of languages and dependencies, to postpone costly upgrades as far into the future as possible.
 -  Use tools properly and as intended. Don’t go for the quick fix.

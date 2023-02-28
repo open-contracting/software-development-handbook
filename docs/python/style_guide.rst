@@ -297,6 +297,25 @@ That said, it is fine to do:
 
    output = map(str, xs)
 
+.. _object-oriented:
+
+Object-oriented style
+---------------------
+
+Don't force polymorphism and inheritance, especially if it sacrifices performance, maintainability or readability.
+
+Python provides encapsulation via modules. As such, functions are preferred to classes where appropriate.
+
+.. seealso::
+
+   `"Clean" Code, Horrible Performance <https://www.youtube.com/watch?v=tD5NrevFtbU>`__
+
+Maintainers can find class hierarchies, excluding those imposed by dependencies (Click, Docutils, Django, Django REST Framework, and standard libraries), with this regular expression:
+
+.. code-block:: none
+
+   \bclass \S+\((?!(AdminConfig|AppConfig|Directive|Exception|SimpleTestCase|TestCase|TransactionTestCase|json\.JSONEncoder|yaml.SafeDumper)\b|(admin|ast|click|forms|migrations|models|nodes|serializers|template|views|viewsets)\.|\S+(Command|Error|Warning)\b)
+
 Standard library
 ----------------
 
