@@ -12,10 +12,24 @@ Preferences
 -  Prefer crates in the top 250 according to `lib.rs <https://lib.rs/std>`__
 -  Read the ``Cargo.toml`` files of OCP projects for inspiration
 
-Tips & tricks
--------------
+Code style
+----------
 
 -  If one arm of a ``match`` expression for a ``Result`` enum is an identity, use `map <https://doc.rust-lang.org/std/result/enum.Result.html#method.map>`__ or `map_err <https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err>`__ to pass through one variant while handling the other.
+
+Macros
+~~~~~~
+
+Prefer functions, but use macros if you need:
+
+-  Variadic arguments, like ``println!`` or ``vec!``.
+-  Code generation at the `item level <https://doc.rust-lang.org/stable/reference/items.html>`__, like creating structs.
+-  Code generation at the `expression level <https://doc.rust-lang.org/stable/reference/expressions.html>`__, like accessing struct fields dynamically.
+
+.. seealso::
+
+   -  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
+   -  `Macros <https://doc.rust-lang.org/nightly/reference/macros.html>`__ in The Rust Reference
 
 Troubleshooting
 ---------------
@@ -95,11 +109,7 @@ Read:
    -  `Moving Captured Values Out of Closures and the Fn Traits <https://doc.rust-lang.org/book/ch13-01-closures.html#moving-captured-values-out-of-the-closure-and-the-fn-traits>`__
 
 -  `The Rust Reference <https://doc.rust-lang.org/reference/>`__
-
-   -  `Macros <https://doc.rust-lang.org/nightly/reference/macros.html>`__
-
 -  `Command line apps in Rust <https://rust-cli.github.io/book/>`__
--  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
 -  `docs.rs <https://docs.rs>`__ for crate documentation
 
    .. tip::
