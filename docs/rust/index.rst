@@ -29,7 +29,12 @@ Prefer functions, but use macros if you need:
 .. seealso::
 
    -  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
-   -  `Macros <https://doc.rust-lang.org/nightly/reference/macros.html>`__ in The Rust Reference
+   -  `Macros <https://doc.rust-lang.org/nightly/reference/macros.html>`__ in *The Rust Reference*
+
+   Debugging:
+
+   -  `Debugging <https://veykril.github.io/tlborm/decl-macros/minutiae/debugging.html>`__ in *The Little Book of Rust Macros*
+   -  `cargo-expand <https://github.com/dtolnay/cargo-expand>`__
 
 Troubleshooting
 ---------------
