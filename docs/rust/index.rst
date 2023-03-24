@@ -12,10 +12,19 @@ Preferences
 -  Prefer crates in the top 250 according to `lib.rs <https://lib.rs/std>`__
 -  Read the ``Cargo.toml`` files of OCP projects for inspiration
 
+.. seealso::
+
+   -  `Serde documentation <https://serde.rs>`__
+
 Code style
 ----------
 
--  If one arm of a ``match`` expression for a ``Result`` enum is an identity, use `map <https://doc.rust-lang.org/std/result/enum.Result.html#method.map>`__ or `map_err <https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err>`__ to pass through one variant while handling the other.
+-  `Avoid matching an Option or Result <https://www.lurklurk.org/effective-rust/transform.html>`__. Instead, use `Option <https://doc.rust-lang.org/std/option/enum.Option.html>`__ and `Result <https://doc.rust-lang.org/std/result/enum.Result.html>`__ methods.
+-  `Don't panic <https://www.lurklurk.org/effective-rust/panic.html>`__. This includes ``panic!``, ``unreachable!``, ``unwrap()`` and ``expect()``.
+
+.. seealso::
+
+   -  `Common Message Styles <https://doc.rust-lang.org/std/error/index.html#common-message-styles>`__
 
 Macros
 ~~~~~~
@@ -29,7 +38,7 @@ Prefer functions, but use macros if you need:
 .. seealso::
 
    -  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
-   -  `Macros <https://doc.rust-lang.org/nightly/reference/macros.html>`__ in *The Rust Reference*
+   -  `Macros <https://doc.rust-lang.org/stable/reference/macros.html>`__ in *The Rust Reference*
 
    Debugging:
 
@@ -49,6 +58,10 @@ If errors relate to ownership, try:
 
 -  Using ``Arc<Mutex<T>>``, as discussed in sections `16.3 <https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct>`__ and `20.2 <https://doc.rust-lang.org/book/ch20-02-multithreaded.html#sending-requests-to-threads-via-channels>`__ of *The Rust Programming Language*.
 -  Using ``Option`` with ``take()``, as discussed in sections `17.3 <https://doc.rust-lang.org/book/ch17-03-oo-design-patterns.html#requesting-a-review-of-the-post-changes-its-state>`__ and `20.3 <https://doc.rust-lang.org/book/ch20-03-graceful-shutdown-and-cleanup.html#implementing-the-drop-trait-on-threadpool>`__ of *The Rust Programming Language*.
+
+.. seealso::
+
+   -  `Winning Fights agains the Borrow Checker <https://www.lurklurk.org/effective-rust/borrows.html#winning-fights-against-the-borrow-checker>`__
 
 Continuous integration
 ----------------------
@@ -107,21 +120,40 @@ Release process
 Reference
 ---------
 
-Read:
+Rust has no:
 
--  `The Rust Programming Language <https://doc.rust-lang.org/book/>`__
+-  `Exception <https://rust-cli.github.io/book/tutorial/errors.html#nicer-error-reporting>`__
+-  `Reflection <https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes>`__
 
-   -  `Moving Captured Values Out of Closures and the Fn Traits <https://doc.rust-lang.org/book/ch13-01-closures.html#moving-captured-values-out-of-the-closure-and-the-fn-traits>`__
+Introductions
+~~~~~~~~~~~~~
 
--  `The Rust Reference <https://doc.rust-lang.org/reference/>`__
+-  `The Rust Programming Language <https://doc.rust-lang.org/book/>`__: `Moving Captured Values Out of Closures and the Fn Traits <https://doc.rust-lang.org/book/ch13-01-closures.html#moving-captured-values-out-of-the-closure-and-the-fn-traits>`__
+-  `Exercism Rust Track <https://exercism.org/tracks/rust>`__: Read the most upvoted community solution after each exercise.
+-  `Unofficial community Discord <https://discord.gg/rust-lang-community>`__, in particular ``#rust-help`` and ``#rust-beginners``
+
+.. tip::
+
+   Use `Rust Playground <https://play.rust-lang.org/>`__ to test code snippets.
+
+..
+
+   I prefer Exercism to Rustlings (https://github.com/rust-lang/rustlings). Rustlings' exercises often repeat examples from The Rust Programming Language, and are often solved by the compiler's feedback.
+
+   I don't find it useful to read the examples in Rust by Example (https://doc.rust-lang.org/rust-by-example/), but I occasionally read it when it's a search result.
+
+Topics
+~~~~~~
+
 -  `Command line apps in Rust <https://rust-cli.github.io/book/>`__
+
+Reference
+~~~~~~~~~
+
+-  `The Rust Standard Library <https://doc.rust-lang.org/std/>`__
+-  `The Rust Reference <https://doc.rust-lang.org/reference/>`__
 -  `docs.rs <https://docs.rs>`__ for crate documentation
 
    .. tip::
 
       Scroll up after the page loads to access the within-crate search bar
-
-Rust has no:
-
--  `Exception <https://rust-cli.github.io/book/tutorial/errors.html#nicer-error-reporting>`__
--  `Reflection <https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes>`__
