@@ -61,7 +61,7 @@ If errors relate to ownership, try:
 
 .. seealso::
 
-   -  `Winning Fights agains the Borrow Checker <https://www.lurklurk.org/effective-rust/borrows.html#winning-fights-against-the-borrow-checker>`__
+   -  `Winning Fights against the Borrow Checker <https://www.lurklurk.org/effective-rust/borrows.html#winning-fights-against-the-borrow-checker>`__
 
 Continuous integration
 ----------------------
