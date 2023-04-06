@@ -1,7 +1,7 @@
 API
 ===
 
-.. todo::
+.. note::
 
    This page is a stub.
 
