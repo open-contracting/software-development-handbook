@@ -5,7 +5,6 @@ See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/refer
 
 If a service is down, check its status page:
 
-* `Airtable <https://status.airtable.com>`__
 * `Amazon Web Services <https://status.aws.amazon.com>`__
 * `GitHub <https://www.githubstatus.com>`__
 * `Google <https://www.google.com/appsstatus>`__
@@ -18,10 +17,6 @@ If a service is down, check its status page:
 
    If you are a consultant, **do not** use or create your own organizational accounts on services like `Fixer <https://fixer.io>`__, `Prerender <https://prerender.io>`__, `Docker Hub <https://hub.docker.com>`__, etc. All organizational accounts must be owned by OCP.
 
-Airtable
---------
-
-There should be a minimum of two `Owners <https://airtable.com/wspXFnEMMAgLMWfe0/workspace/billing>`__ from OCP only.
 
 Amazon Web Services
 -------------------
