@@ -40,6 +40,12 @@ The view should interact with the :ref:`models<django-models>` and return a cont
 -  A template should not perform user-based logic, like filtering which model instances to display. Instead, use a `custom manager <https://docs.djangoproject.com/en/3.2/topics/db/managers/>`__ (or `custom queryset <https://docs.djangoproject.com/en/3.2/topics/db/managers/#creating-a-manager-with-queryset-methods>`__).
 -  A model should not concern itself with other models' objects or with the filesystem.
 
+URLs
+----
+
+-  Use hyphens as separators in paths.
+-  Use hyphens as separators in `named URL patterns <https://docs.djangoproject.com/en/4.1/topics/http/urls/#naming-url-patterns>`__.
+
 .. _django-models:
 
 Models
