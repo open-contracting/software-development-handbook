@@ -77,6 +77,10 @@ Views
 Templates
 ---------
 
+.. seealso::
+
+   :doc:`../htmlcss/index`
+
 -  If an `inclusion tag <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__ contains no logic other than returning a context, use an `include tag <https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#include>`__ instead.
 -  In many cases, you can achieve the same outcome using either `context processors <https://docs.djangoproject.com/en/3.2/ref/templates/api/#writing-your-own-context-processors>`__ or `inclusion tags <https://docs.djangoproject.com/en/3.2/howto/custom-template-tags/#inclusion-tags>`__. If the variables that the template uses are constant (e.g. from a Django settings file), use a context processor. Otherwise, use an inclusion tag.
 
