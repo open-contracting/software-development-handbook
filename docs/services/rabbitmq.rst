@@ -39,7 +39,7 @@ Environment variables
 
 Connect to the broker using a connection string stored in the ``RABBIT_URL`` environment variable.
 
-Store the exchange name in the ``RABBIT_EXCHANGE_NAME`` environment variable - following the format ``{project}_{environment}`` or ``{project}_{service}_{environment}`` – and prefix routing keys by the exchange name. This makes it easy to create distinct exchanges for local development and test environments, and to create a new exchange whenever the message format changes, by suffixing a version number.
+Store the exchange name in the ``RABBIT_EXCHANGE_NAME`` environment variable - following the format ``{project}_{environment}`` or ``{project}_{service}_{environment}`` – and prefix routing keys by the exchange name. This makes it easy to create distinct exchanges for local development and test environments.
 
 Design decisions
 ----------------
