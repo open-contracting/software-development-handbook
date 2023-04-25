@@ -34,16 +34,28 @@ On each page of a public-facing website:
       -  `Facebook Sharing Debugger <https://developers.facebook.com/tools/debug/>`__
       -  `Twitter Card validator <https://cards-dev.twitter.com/validator>`__
 
+.. _css:
+
 CSS
 ---
+
+.. seealso::
+
+   The Data Registry's `webpack.config.js <https://github.com/open-contracting/data-registry/blob/main/webpack.config.js>`__ file, for compiling SCSS (Sass).
 
 Frameworks
 ~~~~~~~~~~
 
-Most projects use `Bootstrap <https://getbootstrap.com>`__, some of which use Python packages like `django-bootstrap5 <https://pypi.org/project/django-bootstrap5/>`__. Designers are free to use other frameworks like:
+Most projects use `Bootstrap <https://getbootstrap.com>`__. Designers are free to use other frameworks like:
 
 -  `Tailwind <https://tailwindcss.com>`__, a `utility classes <https://adamwathan.me/css-utility-classes-and-separation-of-concerns/>`__ framework
 -  `Vuetify <https://vuetifyjs.com>`__, a `Material Design <https://material.io/design>`__ framework
+
+When using Bootstrap, `customize <https://getbootstrap.com/docs/5.2/customize/sass/>`__ it and `@import only the components you need <https://getbootstrap.com/docs/5.2/customize/optimize/>`__.
+
+.. seealso::
+
+   The Data Registry's `_custom.scss` file <https://github.com/open-contracting/data-registry/blob/main/src/scss/_custom.scss>`__, for customizing Bootstrap.
 
 Reminders
 ~~~~~~~~~
