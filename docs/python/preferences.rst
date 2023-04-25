@@ -40,7 +40,7 @@ HTML parsing
 Markdown parsing
   `markdown-it-py <https://pypi.org/project/markdown-it-py/>`__. Do not use `commonmark <https://pypi.org/project/commonmark/>`__, which is deprecated.
 Templating
-  `Jinja <https://jinja.palletsprojects.com/>`__. Do not use CSS framework integration packages like ``django-bootstrap*``, as they tend to lag the most recent releases. See :doc:`../htmlcss`.
+  `Jinja <https://jinja.palletsprojects.com/>`__. Do not use CSS framework integration packages like ``django-bootstrap*``, as they tend to lag the most recent releases. See :doc:`../htmlcss/index`.
 Asset management
   Do not use `django-compressor <https://django-compressor.readthedocs.io/en/stable/>`__ or `django-pipeline <https://django-pipeline.readthedocs.io/en/latest/>`__, which are always behind NPM packages. See :ref:`javascript-preferences` for JavaScript.
 Translation
