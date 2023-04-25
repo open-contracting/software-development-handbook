@@ -19,4 +19,4 @@ When using :doc:`../python/django`, the workers are written as Django `managemen
 
 In other words, **nothing is a microservice**, where a `microservice <https://en.wikipedia.org/wiki/Microservices>`__ means a sub-service that is developed and deployed *independently* of others, as part of a service.
 
-Instead, we achieve loose coupling and proper encapsulation by other means: dividing program logic by UI responsibility (e.g. :ref`model-template-view`); organizing a set of features into an `application <https://docs.djangoproject.com/en/4.2/ref/applications/#projects-and-applications>`__, when using Django; and otherwise organizing code carefully.
+Instead, we achieve loose coupling and proper encapsulation by other means: dividing program logic by UI responsibility (e.g. :ref:`model-template-view`); organizing a set of features into an `application <https://docs.djangoproject.com/en/4.2/ref/applications/#projects-and-applications>`__, when using Django; and otherwise organizing code carefully.
