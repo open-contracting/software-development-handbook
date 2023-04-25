@@ -30,6 +30,8 @@ Filename conventions
 
 .. cookiecutter-django uses ``config`` as the project name, but a ``config.settings`` module is mind-bending.
 
+.. _model-template-view:
+
 Model Template View
 -------------------
 

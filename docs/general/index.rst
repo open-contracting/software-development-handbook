@@ -7,3 +7,4 @@ General
    preferences
    code
    api
+   architecture
