@@ -1,7 +1,9 @@
 Performance
 ===========
 
-This page presently only has reusable snippets.
+.. note::
+
+   This page is a stub. This page presently only has reusable snippets.
 
 .. seealso::
 
@@ -37,3 +39,4 @@ Reference
 
 -  `High Performance Browser Networking <https://hpbn.co>`__
 -  `Memray <https://bloomberg.github.io/memray/>`__ by Bloomberg
+-  `Computer, Enhance! course by Casey Muratori <https://www.computerenhance.com>`__
