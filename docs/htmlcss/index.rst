@@ -34,6 +34,10 @@ On each page of a public-facing website:
       -  `Facebook Sharing Debugger <https://developers.facebook.com/tools/debug/>`__
       -  `Twitter Card validator <https://cards-dev.twitter.com/validator>`__
 
+.. seealso::
+
+   -  `Faceted Navigation: Definition, Examples & SEO Best Practices <https://ahrefs.com/blog/faceted-navigation/>`__
+
 .. _css:
 
 CSS
