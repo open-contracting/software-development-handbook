@@ -71,6 +71,10 @@ For reference, the default ``/etc/nginx/conf.d/default.conf`` file in the Nginx 
    docker run -it --entrypoint sh nginxinc/nginx-unprivileged
    $ cat /etc/nginx/conf.d/default.conf
 
+.. seealso::
+
+   `nginx playground <https://nginx-playground.wizardzines.com>`__
+
 System packages
 ---------------
 

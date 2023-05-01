@@ -68,3 +68,4 @@ Reference
 
 -  `Shell Parameter Expansion <https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html>`__ (``##``, ``%%``, etc.)
 -  `Conditional Constructs <https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html>`__ (``=``, ``=~``, etc.)
+-  `Wizard Zines Bite Size series <https://wizardzines.com>`__
