@@ -59,6 +59,10 @@ If errors relate to ownership, try:
 -  Using ``Arc<Mutex<T>>``, as discussed in sections `16.3 <https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct>`__ and `20.2 <https://doc.rust-lang.org/book/ch20-02-multithreaded.html#sending-requests-to-threads-via-channels>`__ of *The Rust Programming Language*.
 -  Using ``Option`` with ``take()``, as discussed in sections `17.3 <https://doc.rust-lang.org/book/ch17-03-oo-design-patterns.html#requesting-a-review-of-the-post-changes-its-state>`__ and `20.3 <https://doc.rust-lang.org/book/ch20-03-graceful-shutdown-and-cleanup.html#implementing-the-drop-trait-on-threadpool>`__ of *The Rust Programming Language*.
 
+To reduce the number of allocations, try:
+
+-  Using ``mem::take`` or ``mem::replace`` (`Rust Design Patterns <https://rust-unofficial.github.io/patterns/idioms/mem-replace.html>`__).
+
 .. seealso::
 
    -  `Winning Fights against the Borrow Checker <https://www.lurklurk.org/effective-rust/borrows.html#winning-fights-against-the-borrow-checker>`__
