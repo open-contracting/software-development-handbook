@@ -143,10 +143,8 @@ Environment variables
   Set according to `Django's documentation <https://docs.djangoproject.com/en/3.2/ref/middleware/#http-strict-transport-security>`__.
 ``SENTRY_DSN``
   Set to the project's client key (DSN) from Sentry.
-``FATHOM_ANALYTICS_DOMAIN=kite.open-contracting.org``
-  Remember to configure your project to render the embed code (`example <https://github.com/open-contracting/data-registry/pull/160/files>`__).
-``FATHOM_ANALYTICS_ID``
-  Set to the site's ID from Fathom Analytics.
+``FATHOM_ANALYTICS_ID`` (and ``FATHOM_ANALYTICS_DOMAIN``)
+  Set to the site's ID (and custom domain) from Fathom Analytics. Remember to configure your project to render the embed code (`example <https://github.com/open-contracting/data-registry/pull/160/files>`__).
 
 Using the template
 ~~~~~~~~~~~~~~~~~~
