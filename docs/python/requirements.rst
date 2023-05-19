@@ -135,3 +135,5 @@ If a requirement is reported as unused but is required:
 #. If the package is optional – for example, it is imported in a ``try`` and ``except ImportError`` block – use the ``STANDARD_MAINTENANCE_SCRIPTS_IGNORE`` `environment variable <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
 #. If the package is used exclusively outside of application code – for example, as a command in the production environment or in a GitHub workflow, or in an `entry point <https://packaging.python.org/en/latest/specifications/entry-points/>`__ or as a Sphinx extension – use the ``STANDARD_MAINTENANCE_SCRIPTS_IGNORE`` environment variable.
+
+If the repository uses :ref:`linting-pre-commit`, and you see errors originating from ``pip``, it is likely that you need to upgrade ``pip-tools`` in both ``.pre-commit-config.yaml`` and ``requirements_dev.txt``.
