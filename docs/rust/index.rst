@@ -21,6 +21,8 @@ Preferences
 
    -  `Serde documentation <https://serde.rs>`__
 
+.. Candidates for preferences https://github.com/open-contracting/cardinal-rs/issues/4
+
 Code style
 ----------
 

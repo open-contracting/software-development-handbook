@@ -1,6 +1,13 @@
 Requirements
 ============
 
+.. admonition:: TLDR
+
+   -  When you ``import`` a package for the first time in your application code, add its name to ``requirements.in`` in alphabetical order.
+   -  When you ``import`` a package for the first time in your test code, that is never imported in your application code, add its name to ``requirements_dev.in`` in alphabetical order.
+   -  After updating a ``.in`` file, update the ``.txt`` files with ``pip-compile; pip-compile requirements_dev.in``. Never edit the ``.txt`` files directly.
+   -  To update your local environment, run ``pip-sync requirements_dev.txt``.
+
 Now that you have a :doc:`directory layout<layout>`, you can declare the project's requirements.
 
 The requirements of *applications* (not :doc:`packages<packages>`) are managed by four files:
@@ -111,3 +118,20 @@ Upgrade all requirements:
 
    pip-compile --upgrade
    pip-compile --upgrade requirements_dev.in
+
+Linting
+-------
+
+:ref:`Continuous integration<linting-ci>` runs `test_requirements.py <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/tests/test_requirements.py>`__, which checks whether any requirements are missing or unused.
+
+If a requirement is reported as unused but is required:
+
+#. Make sure that a related package sets extras correctly. For example, `moto <http://docs.getmoto.org/en/latest/docs/getting_started.html>`__ has optional dependencies for each AWS service. You must do, for example:
+
+   .. code-block:: none
+
+      moto[s3]
+
+#. If the package is optional – for example, it is imported in a ``try`` and ``except ImportError`` block – use the ``STANDARD_MAINTENANCE_SCRIPTS_IGNORE`` `environment variable <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
+
+#. If the package is used exclusively outside of application code – for example, as a command in the production environment or in a GitHub workflow, or in an `entry point <https://packaging.python.org/en/latest/specifications/entry-points/>`__ or as a Sphinx extension – use the ``STANDARD_MAINTENANCE_SCRIPTS_IGNORE`` environment variable.
