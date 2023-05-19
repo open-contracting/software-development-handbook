@@ -31,6 +31,8 @@ Maintainers can find and compare configuration files with:
    ed723d5329bb74ab24e978c6b0ba6d2095e8fa1e setup.cfg as above
    29418dd6acf27bb182036cf072790cb640f34c9c pytest.ini with doctests
 
+.. _linting-pre-commit:
+
 Pre-commit hooks
 ----------------
 
