@@ -28,6 +28,7 @@ Code style
 
 -  `Avoid matching an Option or Result <https://www.lurklurk.org/effective-rust/transform.html>`__. Instead, use `Option <https://doc.rust-lang.org/std/option/enum.Option.html>`__ and `Result <https://doc.rust-lang.org/std/result/enum.Result.html>`__ methods.
 -  `Don't panic <https://www.lurklurk.org/effective-rust/panic.html>`__. This includes ``panic!``, ``unreachable!``, ``unwrap()`` and ``expect()``.
+-  Use the same word for macro tokens as for local variables, if appropriate.
 
 .. seealso::
 
