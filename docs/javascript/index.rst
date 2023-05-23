@@ -144,6 +144,11 @@ Vue
 
 .. _javascript-ci:
 
+Internationalization (i18n)
+---------------------------
+
+See the `Transifex Native <https://developers.transifex.com/docs/native>`__ documentation for your framework.
+
 Continuous integration
 ----------------------
 

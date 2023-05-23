@@ -13,8 +13,23 @@ Reference: `Non-English as a Source Language <https://help.transifex.com/en/arti
 
    :doc:`preferences`
 
-Add Transifex mapping
----------------------
+Mark strings to translate
+-------------------------
+
+When using Django, use its `translation functions and template tags <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__. Otherwise, use `gettext.gettext() <https://docs.python.org/3/library/gettext.html>`__.
+
+Configure message extraction
+----------------------------
+
+When using Django, this step is already done. Otherwise, create a `babel.cfg file <https://babel.pocoo.org/en/latest/messages.html#extraction-method-mapping-and-configuration>`__, for example:
+
+.. code-block:: ini
+
+   [python: **.py]
+   [jinja2: **.html]
+
+Add the Transifex mapping
+-------------------------
 
 See `Adding resources in bulk <https://developers.transifex.com/docs/cli#adding-resources-in-bulk>`__.
 
@@ -31,9 +46,20 @@ Translate with Transifex
 
 Whenever text in the interface is added or updated, you must extract the strings to translate from the code files into PO files by running:
 
-.. code:: bash
+.. grid:: 2
 
-   django-admin makemessages -l en_US --no-obsolete
+   .. grid-item-card:: Django
+
+      .. code:: bash
+
+         django-admin makemessages -l en_US --no-obsolete
+
+   .. grid-item-card:: Python (example)
+
+      .. code:: bash
+
+         pybabel extract -F babel.cfg -o messages.pot .
+         pybabel update -i messages.pot -d locale
 
 Then, push the PO files to Transifex with:
 
@@ -55,9 +81,19 @@ When ready, pull the translations from Transifex with:
 
 Then, compile the PO files to MO files with:
 
-.. code:: bash
+.. grid:: 2
 
-   python manage.py compilemessages
+   .. grid-item-card:: Django
+
+      .. code:: bash
+
+         python manage.py compilemessages
+
+   .. grid-item-card:: Python (example)
+
+      .. code:: bash
+
+         pybabel compile -f -d locale
 
 Reference: Django `Translation <https://docs.djangoproject.com/en/3.2/topics/i18n/translation/>`__
 
