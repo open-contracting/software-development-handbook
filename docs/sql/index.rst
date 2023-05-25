@@ -31,7 +31,7 @@ Do not use ``LIMIT`` with ``OFFSET``. ``OFFSET`` becomes more inefficient as its
 Load and dump data
 ~~~~~~~~~~~~~~~~~~
 
-Use the `\copy <https://www.postgresql.org/docs/13/app-psql.html#APP-PSQL-META-COMMANDS-COPY>`__ meta-command instead of the `COPY <https://www.postgresql.org/docs/13/sql-copy.html>`__ command, so that file accessibility and privileges are those of the user, not the server – such that no SQL superuser privileges are required.
+Use the `\copy <https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY>`__ meta-command instead of the `COPY <https://www.postgresql.org/docs/current/sql-copy.html>`__ command, so that file accessibility and privileges are those of the user, not the server – such that no SQL superuser privileges are required.
 
 Code format
 -----------
