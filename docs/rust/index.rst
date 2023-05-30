@@ -53,6 +53,24 @@ Prefer functions, but use macros if you need:
    -  `Debugging <https://veykril.github.io/tlborm/decl-macros/minutiae/debugging.html>`__ in *The Little Book of Rust Macros*
    -  `cargo-expand <https://github.com/dtolnay/cargo-expand>`__
 
+Guard clauses
+~~~~~~~~~~~~~
+
+Code with too much indentation is hard to read. One option is to use guard clauses. For example:
+
+.. code-block:: rust
+
+   let Some(inner_value) = outer_value else {
+       return
+   };
+
+.. code-block:: rust
+
+   let inner_value = match outer_value {
+       Ok(o) => o,
+       Err(e) => return e,
+   };
+
 Troubleshooting
 ---------------
 
