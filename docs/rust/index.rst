@@ -52,6 +52,12 @@ Prefer functions, but use macros if you need:
 
    -  `Debugging <https://veykril.github.io/tlborm/decl-macros/minutiae/debugging.html>`__ in *The Little Book of Rust Macros*
    -  `cargo-expand <https://github.com/dtolnay/cargo-expand>`__
+   -  `proc-macro-error <https://crates.io/crates/proc_macro_error>`__
+
+   Crates:
+
+   -  `paste <https://docs.rs/paste/latest/paste/>`__, to use macro arguments to generate identifiers and strings.
+   -  To write procedural macros more easily: `quote <https://crates.io/crates/quote>`__, `proc_macro2 <https://crates.io/crates/proc_macro2>`__, `darling <https://crates.io/crates/darling>`__.
 
 Guard clauses
 ~~~~~~~~~~~~~
