@@ -1,8 +1,9 @@
 ci:
   autoupdate_schedule: quarterly
+  skip: [pip-compile]
 repos:
   - repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 23.3.0
     hooks:
       - id: black
   - repo: https://github.com/pycqa/flake8
@@ -15,7 +16,7 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/jazzband/pip-tools
-    rev: 6.8.0
+    rev: 6.13.0
     hooks:
       - id: pip-compile
         name: pip-compile requirements.in
