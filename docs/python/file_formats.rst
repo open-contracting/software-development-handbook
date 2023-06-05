@@ -16,15 +16,6 @@ In most cases, simply use the `standard library <https://docs.python.org/3/libra
    with open(path) as f:
        data = json.load(f)
 
-If (and only if) the code must support Python 3.5 or earlier, use:
-
-.. code-block:: python
-
-   from collections import OrderedDict
-
-   with open(path) as f:
-       data = json.load(f, object_pairs_hook=OrderedDict)
-
 For critical paths involving *small files*, use `orjson <https://pypi.org/project/orjson/>`__.
 
 .. note::
