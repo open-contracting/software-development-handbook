@@ -19,6 +19,7 @@ jobs:
         env:
           PYTHONWARNINGS: error
           DATABASE_URL: postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/postgres
+        shell: bash
         run: |
           ./manage.py migrate
           ./manage.py makemigrations --check --dry-run

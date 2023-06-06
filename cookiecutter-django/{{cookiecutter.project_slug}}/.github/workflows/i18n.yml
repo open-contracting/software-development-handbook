@@ -20,6 +20,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python manage.py makemessages -a
       - name: Count incomplete translations
+        shell: bash
         run: |
           output=$(find . -name LC_MESSAGES -not -path "*/en_US/*" -exec pocount --incomplete --short "{}" +)
           echo $output

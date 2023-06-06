@@ -21,6 +21,7 @@ jobs:
           pybabel extract -F babel.cfg -o locale/sphinx.pot -k '_ l_ lazy_gettext' .
           pybabel update -i locale/sphinx.pot -d locale -D sphinx
       - name: Count incomplete translations
+        shell: bash
         run: |
           output=$(find . -name LC_MESSAGES -exec pocount --incomplete --short "{}" +)
           echo $output

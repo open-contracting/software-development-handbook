@@ -208,6 +208,7 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
          # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
          - if: matrix.python-version != 'pypy-3.7'
            name: Test
+           shell: bash
            run: |
              coverage run --append --source=PACKAGENAME -m pytest
              pip install orjson
