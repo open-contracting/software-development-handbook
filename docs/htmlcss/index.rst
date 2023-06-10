@@ -59,7 +59,7 @@ When using Bootstrap, `customize <https://getbootstrap.com/docs/5.2/customize/sa
 
 .. seealso::
 
-   The Data Registry's `_custom.scss` file <https://github.com/open-contracting/data-registry/blob/main/src/scss/_custom.scss>`__, for customizing Bootstrap.
+   The Data Registry's `_custom.scss file <https://github.com/open-contracting/data-registry/blob/main/src/scss/_custom.scss>`__, for customizing Bootstrap.
 
 Reminders
 ~~~~~~~~~
