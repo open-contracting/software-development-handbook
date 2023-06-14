@@ -54,6 +54,10 @@ Coverage
 Documentation
   `Sphinx <https://www.sphinx-doc.org/en/master/>`__. Its Markdown extensions should only be used for OCDS documentation.
 
+.. tip::
+
+   `Jazzband <https://jazzband.co/projects?sorter=stargazers&order=desc>`__ packages are a good choice.
+
 Criteria
 --------
 
