@@ -31,13 +31,20 @@ For *large files*, use the `same techniques <https://ocdskit.readthedocs.io/en/l
 Output
 ~~~~~~
 
-Indent with 2 spaces, use UTF-8 characters, and preserve order of object pairs. Example:
+Indent with 2 spaces and use UTF-8 characters. Example:
 
 .. code-block:: python
 
-   with open(path, 'w') as f:
+   with open(path, "w") as f:
        json.dump(data, f, ensure_ascii=False, indent=2)
-       f.write('\n')
+       f.write("\n")
+
+Or, in a compact format:
+
+.. code-block:: python
+
+   with open(path, "w") as f:
+       json.dump(data, f, separators=(",", ":"))
 
 CSV
 ---
@@ -59,7 +66,7 @@ Use LF (``\n``) as the line terminator. Example:
 
 .. code-block:: python
 
-   with open(path, 'w') as f:
-       writer = csv.DictWriter(f, fieldnames, lineterminator='\n')
+   with open(path, "w") as f:
+       writer = csv.DictWriter(f, fieldnames, lineterminator="\n")
        writer.writeheader()
        writer.writerows(rows)
