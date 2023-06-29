@@ -70,7 +70,7 @@ linkcheck_ignore = [
     r'^https://(?:docs\.google\.com/(?:document|spreadsheets)/d|drive\.google\.com/drive/folders)/.+',
     r'^https://console\.cloud\.google\.com/.+\?organizationId=.+',
     r'^https://groups\.google\.com/a/open-contracting\.org/g/standard-discuss/members\?.+',
-    r'^https://github\.com/(?:organizations/open-contracting/settings/.+|orgs/open-contracting/teams|issues/assigned$)',
+    r'^https://github\.com/(?:organizations/open-contracting/settings/|orgs/open-contracting/teams|issues/assigned$)',
     r'^https://airtable\.com/.+/workspace/billing$',
     r'^https://coveralls\.io/repos/new$',
     r'^https://pypi\.org/manage/account/#api-tokens$',
