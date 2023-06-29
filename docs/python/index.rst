@@ -1,7 +1,7 @@
 Python
 ======
 
-Applications are written for Python 3.10. Packages are written for non-end-of-life versions (`see the status of Python branches <https://devguide.python.org/#branchstatus>`__).
+Applications are written for Python 3.10. Packages are written for non-end-of-life versions (`see the status of Python branches <https://devguide.python.org/versions/#versions>`__).
 
 .. toctree::
    :maxdepth: 2

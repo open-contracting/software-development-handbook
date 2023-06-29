@@ -10,7 +10,7 @@ Product and service families
 -  `Kingfisher <https://ocdsdeploy.readthedocs.io/en/latest/use/kingfisher.html>`__: A family of tools to `collect <https://kingfisher-collect.readthedocs.io/en/latest/>`__, `pre-process <https://kingfisher-process.readthedocs.io/en/latest/>`__, `summarize <https://kingfisher-summarize.readthedocs.io/en/latest/>`__ and `query <https://kingfisher-colab.readthedocs.io/en/latest/>`__ OCDS data. It is used internally by data support managers to provide feedback to OCDS publishers, and by data analysts to calculate indicators and do research. It serves as a data source for other tools.
 -  `Pelican <https://www.open-contracting.org/2020/01/28/meet-pelican-our-new-tool-for-assessing-the-quality-of-open-contracting-data/>`__: An online tool to report quality issues in OCDS data, sourced from Kingfisher. It is used internally by data support managers to provide feedback to OCDS publishers, and by program managers to better understand a publisher's data.
 -  `Spoonbill <https://github.com/open-contracting/spoonbill>`__: A command-line tool to transform OCDS data to tabular formats. It is an important tool for users who are more familiar with tabular formats.
--  `Cardinal <https://github.com/open-contracting/cardinal>`__: A command-line tool to calculate red flags and procurement indicators from OCDS data.
+-  `Cardinal <https://github.com/open-contracting/cardinal-rs>`__: A command-line tool to calculate red flags and procurement indicators from OCDS data.
 -  `OCDS Kit <https://ocdskit.readthedocs.io/en/latest/>`__: A suite of command-line tools and a Python library for working with OCDS data. It contains common functionality used by Kingfisher, for example.
 -  `Redash <https://redash.open-contracting.org>`__: A deployment of `Redash <https://redash.io>`__ to give users access to the Kingfisher database.
 -  `OCDS Documentation <https://standard.open-contracting.org/latest/en/>`__: The official documentation of the Open Contracting Data Standard.
@@ -73,7 +73,7 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases i
 -  Use tools properly and as intended. Don’t go for the quick fix.
 -  Anticipate needs with respect to performance and extensibility.
 
-The above broadly follows the spirit of `Choose Boring Technology <http://boringtechnology.club>`__, which applies `Maslow's hierarchy <https://en.wikipedia.org/wiki/Maslow's_hierarchy_of_needs>`__ in the context of software development. We try to ensure basic needs are always satisfied (*Is it tested? Is there a maintenance plan?*), so that we can spend more time on the big picture (*Is it achieving user goals? Is it achieving organizational goals?*).
+The above broadly follows the spirit of `Choose Boring Technology <https://boringtechnology.club>`__, which applies `Maslow's hierarchy <https://en.wikipedia.org/wiki/Maslow's_hierarchy_of_needs>`__ in the context of software development. We try to ensure basic needs are always satisfied (*Is it tested? Is there a maintenance plan?*), so that we can spend more time on the big picture (*Is it achieving user goals? Is it achieving organizational goals?*).
 
 .. note::
 
@@ -85,7 +85,7 @@ The above broadly follows the spirit of `Choose Boring Technology <http://boring
    Our approach to architecture is informed by:
 
    -  `The Only Unbreakable Law <https://www.youtube.com/watch?v=5IUj1EZwpJY>`__
-   -  `How Do Committees Invent? <http://www.melconway.com/Home/Committees_Paper.html>`__
+   -  `How Do Committees Invent? <https://www.melconway.com/Home/Committees_Paper.html>`__
 
 Manage products and services responsibly
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

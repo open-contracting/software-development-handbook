@@ -20,7 +20,7 @@ Most commits are made in pull requests, such that it's easy to find the discussi
 
 Reference:
 
-- `Angular Commit Message Format <https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit-message-header>`__
+- `Angular Commit Message Format <https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit-message-header>`__
 - `Conventional Commits <https://www.conventionalcommits.org/en/v1.0.0/>`__
 - `Write joyous git commit messages <https://joshuatauberer.medium.com/write-joyous-git-commit-messages-2f98891114c4>`__
 

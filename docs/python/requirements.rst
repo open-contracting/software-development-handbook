@@ -14,7 +14,7 @@ The requirements of *applications* (not :doc:`packages<packages>`) are managed b
 
 -  ``requirements.in`` names all direct requirements needed in the production environment, i.e. all packages ``import``'ed by the application.
 
-   -  If the application is incompatible with older or newer versions of a requirement, use the least specific `version specifier <https://www.python.org/dev/peps/pep-0440/#version-specifiers>`__ possible, for example:
+   -  If the application is incompatible with older or newer versions of a requirement, use the least specific `version specifier <https://peps.python.org/pep-0440/#version-specifiers>`__ possible, for example:
 
       -  Newer versions: ``foo>=1.2``, not ``foo>=1.2.3``
       -  Older versions: ``foo<2``
@@ -126,7 +126,7 @@ Linting
 
 If a requirement is reported as unused but is required:
 
-#. Make sure that a related package sets extras correctly. For example, `moto <http://docs.getmoto.org/en/latest/docs/getting_started.html>`__ has optional dependencies for each AWS service. You must do, for example:
+#. Make sure that a related package sets extras correctly. For example, `moto <https://docs.getmoto.org/en/latest/docs/getting_started.html>`__ has optional dependencies for each AWS service. You must do, for example:
 
    .. code-block:: none
 

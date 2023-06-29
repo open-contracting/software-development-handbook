@@ -30,7 +30,7 @@ Automated tests
 
 Create a ``.github/workflows/ci.yml`` file, and use or adapt one of the :ref:`templates<python-ci-templates>` below.
 
--  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows>`__ and `Running a workflow based on the conclusion of another workflow <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow>`__, in particular.
+-  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows>`__ and `Running a workflow based on the conclusion of another workflow <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow>`__, in particular.
 -  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
 -  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
 -  If a ``run:`` step is a single line, omit the ``name:`` key.
@@ -185,14 +185,14 @@ Otherwise, use this template, replacing ``APPNAME1``:
 Packages
 ^^^^^^^^
 
-If using `tox <http://tox.readthedocs.org>`__:
+If using `tox <https://tox.wiki/en/latest/>`__:
 
 .. literalinclude:: samples/ci/package-tox.yml
    :language: yaml
 
 .. note::
 
-   Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.9 on Windows).
+   Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.9 on Windows).
 
 If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_name }}`` and removing the Jinja syntax if not using the :doc:`Cookiecutter template<packages>`:
 
@@ -235,7 +235,7 @@ Keep GitHub Actions up-to-date with:
    :language: yaml
    :caption: .github/dependabot.yml
 
-Reference: `Configuration options for dependency updates <https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates>`__
+Reference: `Configuration options for dependency updates <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>`__
 
 Maintenance
 -----------

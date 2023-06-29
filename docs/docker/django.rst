@@ -75,7 +75,7 @@ Reference: `Signal Handling <https://docs.gunicorn.org/en/stable/signals.html>`_
 Other options
 ~~~~~~~~~~~~~
 
-``--bind 0.0.0.0:8000`` uses Docker's `default bind address for containers <https://docs.docker.com/network/iptables/#setting-the-default-bind-address-for-containers>`__ and Gunicorn's `default port <https://docs.gunicorn.org/en/stable/settings.html#bind>`__.
+``--bind 0.0.0.0:8000`` uses Docker's `default bind address for containers <https://docs.docker.com/network/packet-filtering-firewalls/#setting-the-default-bind-address-for-containers>`__ and Gunicorn's `default port <https://docs.gunicorn.org/en/stable/settings.html#bind>`__.
 
 ``--worker-tmp-dir /dev/shm`` avoids a `potential issue <https://docs.gunicorn.org/en/stable/faq.html#how-do-i-avoid-gunicorn-excessively-blocking-in-os-fchmod>`__.
 

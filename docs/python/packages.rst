@@ -36,7 +36,7 @@ If the package isn’t distributed on PyPI, use this template ``setup.cfg``:
    install_requires =
        REQUIREMENT
 
-Reference: `Packaging and distributing projects <https://packaging.python.org/guides/distributing-packages-using-setuptools/>`__
+Reference: `Packaging and distributing projects <https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/>`__
 
 Requirements
 ~~~~~~~~~~~~
@@ -115,4 +115,4 @@ Release process
 
 #. Announce on the `discussion group <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ if relevant
 
-Reference: `Publishing package distribution releases using GitHub Actions CI/CD workflows <https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>`__
+Reference: `Publishing package distribution releases using GitHub Actions CI/CD workflows <https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/>`__

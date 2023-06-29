@@ -57,15 +57,15 @@ Onboard consultants or Start a project
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
 #. Use the :doc:`Django Cookiecutter template<../python/django>`, if relevant
 
-If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself, or create a `custom role <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization>`__.
+If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself, or create a `custom role <https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization>`__.
 
-Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
+Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
 
 Per the `Software terms of reference (TOR) template <https://docs.google.com/document/d/13-_eFQrelLdj92MWTiqzAfO62in7Xxrv3DTcmRqvNjE/edit>`__, consultants should not have access to the production server. As such, do not add any members to the `Servers <https://github.com/orgs/open-contracting/teams/servers>`__ team.
 
 .. warning::
 
-   **NEVER** assign the Owner role to non-OCP staff. The Owner role has access to a private repository with multi-factor authentication backup codes. `Transferring a repository <https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/transferring-a-repository>`__ does not require the Owner role.
+   **NEVER** assign the Owner role to non-OCP staff. The Owner role has access to a private repository with multi-factor authentication backup codes. `Transferring a repository <https://docs.github.com/en/repositories/creating-and-managing-repositories/transferring-a-repository>`__ does not require the Owner role.
 
 .. tip::
 
@@ -95,7 +95,7 @@ Protect branches
 
    Use the `fix:protect_branches <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task to protect branches.
 
-We don’t generally enable the following behaviors on `protected branches <https://docs.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches>`__ for the provided reasons:
+We don’t generally enable the following behaviors on `protected branches <https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches>`__ for the provided reasons:
 
 -  **Require branches to be up to date before merging**: While this may avoid introducing errors, it slows development in an environment in which there are many simultaneous pull requests, because each would require an extra step before merging. If the automated tests fail after merging, the error can be corrected, or the changes can be reverted.
 -  **Require pull request reviews before merging**: While this is a best practice, it slows development as the team is not sufficiently large to staff it. It is okay, for example, for an author to self-merge a simple change. Authors may, of course, request reviews for significant changes.
@@ -118,9 +118,9 @@ Repositories that are no longer supported should be archived.
    -  Merged changes to the core standard, expressed as extension repositories (``ocds_upgrade_###``)
    -  Exploratory repositories from pre-1.0 and pre-2015
 
-#. Scan the repository’s open issues, milestones, pull requests and non-default branches in case any can be quickly closed, merged or deleted. Counter `GitHub’s recommendation <https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/about-archiving-repositories>`__, open issues and pull requests indicate the development status of a repository, and should be left open.
+#. Scan the repository’s open issues, milestones, pull requests and non-default branches in case any can be quickly closed, merged or deleted. Counter `GitHub’s recommendation <https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories>`__, open issues and pull requests indicate the development status of a repository, and should be left open.
 #. Change the repository’s description to describe the reason for archival. If the repository has been superseded, change it to “Superseded by [owner]/[repository]” and change the URL to the new repository’s URL.
 #. Run the `fix:archive_repos REPOS=repo1,repo2 <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task on the repository.
 #. Move the archive to the ``open-contracting-archive`` organization.
-#. `Archive <https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/about-archiving-repositories>`__ the repository through its settings.
+#. `Archive <https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories>`__ the repository through its settings.
 #. Run the `local:badges <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task.

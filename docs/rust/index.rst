@@ -166,7 +166,7 @@ Introductions
 
 -  `The Rust Programming Language <https://doc.rust-lang.org/book/>`__: `Moving Captured Values Out of Closures and the Fn Traits <https://doc.rust-lang.org/book/ch13-01-closures.html#moving-captured-values-out-of-the-closure-and-the-fn-traits>`__
 -  `Exercism Rust Track <https://exercism.org/tracks/rust>`__: Read the most upvoted community solution after each exercise.
--  `Unofficial community Discord <https://discord.gg/rust-lang-community>`__, in particular ``#rust-help`` and ``#rust-beginners``
+-  `Unofficial community Discord <https://discord.com/invite/rust-lang-community>`__, in particular ``#rust-help`` and ``#rust-beginners``
 
 .. tip::
 

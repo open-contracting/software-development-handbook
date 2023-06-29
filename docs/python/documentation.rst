@@ -18,7 +18,7 @@ Write docstrings
 
 :doc:`packages` must have `Sphinx-style docstrings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists>`__ for public modules, classes and methods, so that Sphinx can automatically generate documentation and so that Python's `help() function <https://docs.python.org/3/library/functions.html#help>`__ can display useful output.
 
-Use the imperative mood (per `PEP 257 <https://www.python.org/dev/peps/pep-0257/#one-line-docstrings>`__) in new projects. If an existing project uses the present tense, stay consistent.
+Use the imperative mood (per `PEP 257 <https://peps.python.org/pep-0257/#one-line-docstrings>`__) in new projects. If an existing project uses the present tense, stay consistent.
 
 Type hints are preferred to ``type``, ``rtype`` and ``vartype`` fields. Use `autodoc_type_aliases <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_type_aliases>`__ to simplify long type hints (`related <https://github.com/sphinx-doc/sphinx/issues/8934>`__). Use `intersphinx_mapping <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping>`__ to hyperlink types from other packages. See :ref:`python-type-hints`.
 
@@ -56,7 +56,7 @@ Open http://127.0.0.1:8000/ in your web browser.
 Check docstring style
 ---------------------
 
-Use `pydocstyle <http://www.pydocstyle.org/en/stable/>`__ in new :doc:`packages<packages>`.
+Use `pydocstyle <https://www.pydocstyle.org/en/stable/>`__ in new :doc:`packages<packages>`.
 
 .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
    :language: toml
@@ -81,7 +81,7 @@ D400 First line should end with a period
 D415 First line should end with a period, question mark, or exclamation point
   Duplicative with D400 (First line should end with a period).
 
-Reference: `PEP 257 <https://www.python.org/dev/peps/pep-0257/>`__: `One-line Docstrings <https://www.python.org/dev/peps/pep-0257/#one-line-docstrings>`__, `Multi-line Docstrings <https://www.python.org/dev/peps/pep-0257/#multi-line-docstrings>`__
+Reference: `PEP 257 <https://peps.python.org/pep-0257/>`__: `One-line Docstrings <https://peps.python.org/pep-0257/#one-line-docstrings>`__, `Multi-line Docstrings <https://peps.python.org/pep-0257/#multi-line-docstrings>`__
 
 Check broken links
 ------------------

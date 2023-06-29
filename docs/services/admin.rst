@@ -5,11 +5,11 @@ See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/refer
 
 If a service is down, check its status page:
 
-* `Amazon Web Services <https://status.aws.amazon.com>`__
+* `Amazon Web Services <https://health.aws.amazon.com/phd/status>`__
 * `GitHub <https://www.githubstatus.com>`__
-* `Google <https://www.google.com/appsstatus>`__
+* `Google <https://www.google.com/appsstatus/dashboard/>`__
 * `PyPI <https://status.python.org>`__
-* `ReadTheDocs <http://status.readthedocs.com>`__
+* `ReadTheDocs <https://status.readthedocs.com>`__
 * `Sentry <https://status.sentry.io>`__
 * `Transifex <https://status.transifex.com>`__
 
@@ -25,7 +25,7 @@ There should be a minimum of two `IAM users <https://console.aws.amazon.com/iam/
 GitHub
 ------
 
-There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization>`__ from OCP. Owners do not need to be added to teams.
+There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization>`__ from OCP. Owners do not need to be added to teams.
 
 .. tip::
 
@@ -105,6 +105,6 @@ Third-party developers can be added with the Admin or Member role to organizatio
 Transifex
 ---------
 
-There should be a minimum of two `Administrators <https://www.transifex.com/open-contracting-partnership-1/settings/>`__ users from OCP only.
+There should be a minimum of two `Administrators <https://app.transifex.com/open-contracting-partnership-1/settings/>`__ users from OCP only.
 
-If we reach our collaborator limit, `manage collaborators <https://www.transifex.com/open-contracting-partnership-1/collaborators/>`__, removing those who were last seen more than 9 months ago.
+If we reach our collaborator limit, `manage collaborators <https://app.transifex.com/open-contracting-partnership-1/collaborators/>`__, removing those who were last seen more than 9 months ago.

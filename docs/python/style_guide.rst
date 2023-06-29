@@ -36,7 +36,7 @@ Maintainers can find TODO comments with this command:
 Type hints
 ----------
 
-Type hints are especially useful in :doc:`packages<packages>` for :ref:`documentation<python-docstrings>` using Sphinx and linting using `Mypy <http://mypy-lang.org>`__. Use of type hints is optional.
+Type hints are especially useful in :doc:`packages<packages>` for :ref:`documentation<python-docstrings>` using Sphinx and linting using `Mypy <https://mypy-lang.org>`__. Use of type hints is optional.
 
 .. note::
 
@@ -71,7 +71,7 @@ String formatting
 
    How to construct :ref:`SQL statements<sql-statements>`
 
-`Format strings <https://docs.python.org/3/reference/lexical_analysis.html#f-strings>`__ (f-strings), introduced in Python 3.6 via `PEP 498 <https://www.python.org/dev/peps/pep-0498/>`__, are preferred for interpolation of variables:
+`Format strings <https://docs.python.org/3/reference/lexical_analysis.html#f-strings>`__ (f-strings), introduced in Python 3.6 via `PEP 498 <https://peps.python.org/pep-0498/>`__, are preferred for interpolation of variables:
 
 .. code-block:: python
 

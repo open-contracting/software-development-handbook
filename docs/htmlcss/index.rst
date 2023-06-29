@@ -53,7 +53,7 @@ Frameworks
 Most projects use `Bootstrap <https://getbootstrap.com>`__. Designers are free to use other frameworks like:
 
 -  `Tailwind <https://tailwindcss.com>`__, a `utility classes <https://adamwathan.me/css-utility-classes-and-separation-of-concerns/>`__ framework
--  `Vuetify <https://vuetifyjs.com>`__, a `Material Design <https://material.io/design>`__ framework
+-  `Vuetify <https://vuetifyjs.com>`__, a `Material Design <https://m3.material.io>`__ framework
 
 When using Bootstrap, `customize <https://getbootstrap.com/docs/5.2/customize/sass/>`__ it and `@import only the components you need <https://getbootstrap.com/docs/5.2/customize/optimize/>`__.
 
@@ -82,12 +82,12 @@ Code style
 
 Style CSS code using `Prettier <https://prettier.io>`__ with 2-space indentation. In terms of naming conventions, options include:
 
--  `Block Element Modifier (BEM) <http://getbem.com>`__
+-  `Block Element Modifier (BEM) <https://getbem.com>`__
 
 Development
 ~~~~~~~~~~~
 
--  `Tachyons X-ray <http://tachyons.io/xray/>`__ to align objects to a grid
+-  `Tachyons X-ray <https://tachyons.io/xray/>`__ to align objects to a grid
 
 Reference
 ---------

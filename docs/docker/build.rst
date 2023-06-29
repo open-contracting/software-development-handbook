@@ -22,7 +22,7 @@ If you need to build multiple images, then for each image:
 
 .. note::
 
-   The `docker/build-push-action <https://github.com/docker/build-push-action>`__ step uses `BuildKit <https://docs.docker.com/engine/reference/builder/#buildkit>`__ by default.
+   The `docker/build-push-action <https://github.com/docker/build-push-action>`__ step uses `BuildKit <https://docs.docker.com/build/buildkit/>`__ by default.
 
 ..
    The following would simplify the workflow somewhat. However, it would not work when building multiple images, producing an inconsistent approach across repositories.

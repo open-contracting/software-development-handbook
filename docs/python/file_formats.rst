@@ -26,7 +26,7 @@ For *large files*, use the `same techniques <https://ocdskit.readthedocs.io/en/l
 
 .. note::
 
-   ijson uses `Yajl <http://lloyd.github.io/yajl/>`__. `simdjson <https://simdjson.org>`__ is limited to `files smaller than 4 GB <https://github.com/simdjson/simdjson/issues/128>`__ and has no `streaming API <https://github.com/simdjson/simdjson/issues/670>`__.
+   ijson uses `Yajl <https://lloyd.github.io/yajl/>`__. `simdjson <https://simdjson.org>`__ is limited to `files smaller than 4 GB <https://github.com/simdjson/simdjson/issues/128>`__ and has no `streaming API <https://github.com/simdjson/simdjson/issues/670>`__.
 
 Output
 ~~~~~~
