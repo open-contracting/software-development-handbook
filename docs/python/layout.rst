@@ -6,7 +6,7 @@ A first step of a new project is to define its directory layout.
 Applications
 ------------
 
-Applications should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/3.2/intro/tutorial01/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/3.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/3.2/ref/django-admin/#startapp>`__.
+Applications should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/4.2/intro/tutorial01/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startapp>`__.
 
 .. tip::
 
@@ -25,7 +25,7 @@ If no framework is used, prefer a smaller number of directories, like in `Kingfi
    └── tests
        └── fixtures
 
-Components should be logically distinct units, like `apps <https://docs.djangoproject.com/en/3.2/ref/applications/>`__ in Django.
+Components should be logically distinct units, like `apps <https://docs.djangoproject.com/en/4.2/ref/applications/>`__ in Django.
 
 .. seealso::
 

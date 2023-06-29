@@ -112,7 +112,7 @@ Logging
 
      logger.debug("hello %s", "world")
 Internationalization (i18n)
-  String extraction in most projects is done by the ``xgettext`` command, which doesn't support f-strings. To have a single syntax for translated strings, use named placeholders and the ``%`` operator, as recommended by `Django <https://docs.djangoproject.com/en/3.2/topics/i18n/translation/#standard-translation>`__. For example:
+  String extraction in most projects is done by the ``xgettext`` command, which doesn't support f-strings. To have a single syntax for translated strings, use named placeholders and the ``%`` operator, as recommended by `Django <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/#standard-translation>`__. For example:
 
   .. code-block:: python
 

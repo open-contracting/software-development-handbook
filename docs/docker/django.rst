@@ -46,7 +46,7 @@ When using the ``gthreads`` worker class, a main thread `handles the heartbeat <
 Number of threads
 ~~~~~~~~~~~~~~~~~
 
-Ensure your code is thread safe. Notably, `psycopg2 cursors are not thread safe <https://www.psycopg.org/docs/cursor.html>`__, though this isn't a concern for typical usage of `Django <https://docs.djangoproject.com/en/3.2/ref/databases/>`__.
+Ensure your code is thread safe. Notably, `psycopg2 cursors are not thread safe <https://www.psycopg.org/docs/cursor.html>`__, though this isn't a concern for typical usage of `Django <https://docs.djangoproject.com/en/4.2/ref/databases/>`__.
 
 `When using threads <https://docs.gunicorn.org/en/stable/design.html#how-many-threads>`__, the application is loaded by the worker and some memory is shared between its threads (thus consuming less memory than additional workers would).
 

@@ -1,4 +1,4 @@
-# https://docs.djangoproject.com/en/3.2/topics/logging/#django-security
+# https://docs.djangoproject.com/en/4.2/topics/logging/#django-security
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,

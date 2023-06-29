@@ -33,14 +33,14 @@ In most cases, the other `placeholders <https://docs.python.org/3/library/loggin
 -  ``%(funcName)s``, unless ``%(name)s``, ``%(lineno)s`` and ``%(message)s`` are insufficient to locate the relevant code.
 -  ``%(process)s`` and ``%(thread)s``, unless the log messages from different processes/threads are written to the same location.
 
-To configure the format in `Django <https://docs.djangoproject.com/en/3.2/topics/logging/#configuring-logging>`__:
+To configure the format in `Django <https://docs.djangoproject.com/en/4.2/topics/logging/#configuring-logging>`__:
 
 .. literalinclude:: samples/logging.py
    :language: python
 
 .. note::
 
-   Django's default `logging configuration <https://github.com/django/django/blob/main/django/utils/log.py>`__ configures the ``django`` and ``django.server`` loggers. To change those (for example, to set the level to ``DEBUG`` in development to `view database queries <https://docs.djangoproject.com/en/3.2/topics/logging/#examples>`__), add them to the above template.
+   Django's default `logging configuration <https://github.com/django/django/blob/main/django/utils/log.py>`__ configures the ``django`` and ``django.server`` loggers. To change those (for example, to set the level to ``DEBUG`` in development to `view database queries <https://docs.djangoproject.com/en/4.2/topics/logging/#examples>`__), add them to the above template.
 
 To configure the format in general, replacing ``MYMODULE``:
 

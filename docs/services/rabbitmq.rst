@@ -94,7 +94,7 @@ Database commits
 
 If the consumer callback performs database operations, then all database operations before each message publication should be performed in a transaction. This ensures that, if the database operations fail and the incoming message is not acknowledged, then they have a chance to succeed when that message is redelivered, since no partial work had been committed. This guidance applies to *each* message publication, so that work is committed before the related message is published for further processing.
 
-The message publication should not be within the transaction block, if using a ``with`` statement with `psycopg2 <https://www.psycopg.org/docs/usage.html#with-statement>`__ or `Django <https://docs.djangoproject.com/en/3.2/topics/db/transactions/#django.db.transaction.atomic>`__. This ensures that the commit completes (e.g. without integrity errors), before a message is published for further processing.
+The message publication should not be within the transaction block, if using a ``with`` statement with `psycopg2 <https://www.psycopg.org/docs/usage.html#with-statement>`__ or `Django <https://docs.djangoproject.com/en/4.2/topics/db/transactions/#django.db.transaction.atomic>`__. This ensures that the commit completes (e.g. without integrity errors), before a message is published for further processing.
 
 Unused features
 ---------------

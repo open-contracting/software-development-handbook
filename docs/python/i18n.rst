@@ -95,7 +95,7 @@ Then, compile the PO files to MO files with:
 
          pybabel compile -f -d locale
 
-Reference: Django `Translation <https://docs.djangoproject.com/en/3.2/topics/i18n/translation/>`__
+Reference: Django `Translation <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__
 
 .. _i18n-ci:
 
