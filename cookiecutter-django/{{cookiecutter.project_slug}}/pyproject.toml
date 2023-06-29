@@ -6,3 +6,6 @@ exclude = '/(migrations|node_modules)/'
 profile = 'black'
 line_length = 119
 skip = ['migrations']
+
+[tool.coverage.run]
+omit = ['*/migrations/*']
