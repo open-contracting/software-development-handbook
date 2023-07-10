@@ -60,6 +60,7 @@ Models
 -  Do not use ``null=True`` with ``TextField`` or ``CharField``, `as recommended <https://docs.djangoproject.com/en/4.2/ref/models/fields/#null>`__.
 -  Do not use ``null=True`` with ``JSONField``, if possible. Instead, use ``default=dict``, ``default=list`` or  ``default=""``.
 -  Use the `pk property <https://docs.djangoproject.com/en/4.2/ref/models/instances/#the-pk-property>`__ and the `pk lookup shortcut <https://docs.djangoproject.com/en/4.2/topics/db/queries/#the-pk-lookup-shortcut>`__ instead of ``id``.
+-  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
 
 Forms
 -----
@@ -211,7 +212,7 @@ In order of importance:
    -  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do the work in batches). For ``INSERT``, use the `bulk_create <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ method after the loop (or do the work in batches).
    -  Use `select_related <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#select-related>`__ to reduce the number of queries on ``ForeignKey`` or ``OneToOneField`` relations.
    -  Use `prefetch_related <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#prefetch-related>`__ to reduce the number of queries on ``ManyToManyField`` and reverse ``ForeignKey`` relations.
-   -  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
+   -  Use `count <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#count>`__ if you only need to count. However, if you also need to use the result of the queryset, use ``len()``.
    -  Use `assertNumQueries <https://docs.djangoproject.com/en/4.2/topics/testing/tools/#django.test.TransactionTestCase.assertNumQueries>`__ in tests.
    -  Set the ``django`` logger's level to ``DEBUG`` in development to add SQL queries to the ``runserver`` output.
 
@@ -223,6 +224,10 @@ In order of importance:
 
    -  Add indices to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
    -  Use the `update_fields argument <https://docs.djangoproject.com/en/4.2/ref/models/instances/#ref-models-update-fields>`__ to the ``save()`` method for frequent operations.
+
+-  Minimize memory usage:
+
+   -  Use `iterator <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#iterator>`__ when iterating over a queryset whose result is only accessed this once.
 
 Read:
 
