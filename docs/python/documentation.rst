@@ -124,6 +124,11 @@ Create a ReadTheDocs project
    #. Uncheck *Enable EPUB build*
    #. Click *Save*
 
+#. Click *Admin* then *Maintainers*, and for each of "yolile" and "jpmckinney":
+
+   #. Enter the username in *Add maintainer*
+   #. Click *Add*
+
 #. Click *Admin* then *Email Notifications*
 
    #. Enter "sysadmin@open-contracting.org" in *Email*
