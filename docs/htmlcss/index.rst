@@ -65,6 +65,7 @@ Reminders
 ~~~~~~~~~
 
 -  Use a CSS framework's variables and utility classes, instead of creating new classes
+-  Conform to WCAG 2.1 at Level AA for `contrast <https://color.adobe.com/create/color-contrast-analyzer>`__
 -  Avoid using too many font sizes on the same page. To check:
 
    .. code-block:: javascript
