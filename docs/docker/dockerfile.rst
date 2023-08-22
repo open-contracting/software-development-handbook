@@ -59,17 +59,21 @@ For Node, use the default image, `as recommended <https://hub.docker.com/_/node/
 
 For a web server, use the `nginxinc/nginx-unprivileged:latest <https://hub.docker.com/r/nginxinc/nginx-unprivileged>`__ image. Note that the default port is changed to 8080 (instead of 80).
 
-For reference, the default ``/etc/nginx/conf.d/default.conf`` file in the Nginx image is:
+Set ``server_tokens off;`` to prevent false positives from penetration tests (Ubuntu backports security patches, without changing version numbers).
 
-.. literalinclude:: samples/default.conf
-   :language: nginx
+.. note::
 
-..
-   To update the samples/default.conf file:
+   For reference, the default ``/etc/nginx/conf.d/default.conf`` file in the Nginx image is:
 
-   docker pull nginxinc/nginx-unprivileged
-   docker run -it --entrypoint sh nginxinc/nginx-unprivileged
-   $ cat /etc/nginx/conf.d/default.conf
+   .. literalinclude:: samples/default.conf
+      :language: nginx
+
+   ..
+      To update the samples/default.conf file:
+
+      docker pull nginxinc/nginx-unprivileged
+      docker run -it --entrypoint sh nginxinc/nginx-unprivileged
+      $ cat /etc/nginx/conf.d/default.conf
 
 .. seealso::
 
