@@ -8,13 +8,46 @@ Configuration
 
 New projects should use `Black <https://black.readthedocs.io/en/stable/>`__. All projects must use `flake8 <https://flake8.pycqa.org/en/latest/>`__ and `isort <https://pycqa.github.io/isort/>`__ with line lengths of 119 (the Django standard). If using Black, `configure it <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html>`__ as follows:
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
-   :language: yaml
-   :caption: pyproject.toml
+.. tab-set::
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/setup.cfg
-   :language: ini
-   :caption: setup.cfg
+   .. tab-item:: Python
+
+      .. code-block:: yaml
+         :caption: pyproject.toml
+
+         [tool.black]
+         line-length = 119
+
+         [tool.isort]
+         profile = 'black'
+         line_length = 119
+
+      .. code-block:: ini
+         :caption: setup.cfg
+
+         [flake8]
+         max-line-length = 119
+         extend-ignore = E203
+
+   .. tab-item:: Package
+
+      .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
+         :language: yaml
+         :caption: pyproject.toml
+
+      .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/setup.cfg
+         :language: ini
+         :caption: setup.cfg
+
+   .. tab-item:: Django
+
+      .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/pyproject.toml
+         :language: yaml
+         :caption: pyproject.toml
+
+      .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/setup.cfg
+         :language: ini
+         :caption: setup.cfg
 
 Repositories should not modify or otherwise use ``pyproject.toml``, ``setup.cfg``, ``.editorconfig`` or tool-specific files, except to ignore generated files like database migrations. ``pyproject.toml`` is preferred to tool-specific files; if it's not supported, ``setup.cfg`` is preferred – like for `Flake8 <https://github.com/PyCQA/flake8/issues/234>`__ and `Babel <https://github.com/python-babel/babel/issues/777>`__.
 
@@ -38,16 +71,18 @@ Pre-commit hooks
 
 To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__ (add ``pre-commit`` to the :doc:`requirements_dev.in file<requirements>`. For example, if Black is configured as above, create a ``.pre-commit-config.yaml`` file:
 
--  For an application:
+.. tab-set::
 
-   .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.pre-commit-config.yaml
-      :language: yaml
-      :end-before: migrations
+   .. tab-item:: Application
 
--  For a package:
+      .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.pre-commit-config.yaml
+         :language: yaml
+         :end-before: migrations
 
-   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.pre-commit-config.yaml
-      :language: yaml
+   .. tab-item:: Package
+
+      .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.pre-commit-config.yaml
+         :language: yaml
 
 To ignore generated files, you can add, for example, ``exclude: /migrations/`` to the end of the file.
 

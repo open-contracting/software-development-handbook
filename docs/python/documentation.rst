@@ -143,23 +143,25 @@ Create a ReadTheDocs project
 Configure the ReadTheDocs project
 ---------------------------------
 
--  For an application:
+.. tab-set::
 
-   .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.readthedocs.yaml
-      :language: yaml
-      :caption: .readthedocs.yaml
+   .. tab-item:: Application
 
-   .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/docs/requirements.txt
-      :caption: docs/requirements.txt
+      .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.readthedocs.yaml
+         :language: yaml
+         :caption: .readthedocs.yaml
 
--  For a package:
+      .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/docs/requirements.txt
+         :caption: docs/requirements.txt
 
-   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.readthedocs.yaml
-      :language: yaml
-      :caption: .readthedocs.yaml
+   .. tab-item:: Package
 
-   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/docs/requirements.txt
-      :caption: docs/requirements.txt
+      .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.readthedocs.yaml
+         :language: yaml
+         :caption: .readthedocs.yaml
+
+      .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/docs/requirements.txt
+         :caption: docs/requirements.txt
 
 .. note::
 
