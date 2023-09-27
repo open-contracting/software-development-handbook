@@ -65,6 +65,18 @@ Periodically review `all projects <https://console.cloud.google.com/cloud-resour
 -  Pelican (IAM user)
 -  Website Search (API key)
 
+If an administrator lacks access to a project, run, for example:
+
+.. code-block:: bash
+
+   gcloud projects add-iam-policy-binding ocds-172716 --member user:jmckinney@open-contracting.org --role roles/owner
+
+If the user interface lacks access to an organization, run, for example:
+
+.. code-block:: bash
+
+   gcloud organizations add-iam-policy-binding organizations/1015889055088 --member domain:open-contracting.org --role roles/recommender.viewer
+
 Drive
 ~~~~~
 
