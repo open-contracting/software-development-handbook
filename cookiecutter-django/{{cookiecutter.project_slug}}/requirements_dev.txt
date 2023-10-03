@@ -97,7 +97,7 @@ tomli==1.2.2
     #   pep517
 typing-extensions==4.0.0
     # via black
-urllib3==1.26.15
+urllib3==1.26.17
     # via
     #   -r requirements.txt
     #   requests
