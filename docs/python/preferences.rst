@@ -4,7 +4,7 @@ Preferred packages
 We have preferences for :doc:`requirements<requirements>` in order to:
 
 -  Limit the number of packages with which developers need to be familiar.
--  Re-use code (like Click) instead of writing new code (with argparse).
+-  Reuse code (like Click) instead of writing new code (with argparse).
 
 For applications, we prefer all-inclusive and opinionated packages, because they:
 
