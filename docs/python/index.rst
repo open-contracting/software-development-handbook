@@ -1,7 +1,9 @@
 Python
 ======
 
-Applications are written for the latest stable version of Python. Packages are written for non-end-of-life versions (`see the status of Python branches <https://devguide.python.org/versions/#versions>`__).
+Applications are written for the latest stable Python version. Packages are written for non-end-of-life versions (`see the status of Python branches <https://devguide.python.org/versions/#versions>`__).
+
+Applications are upgraded to, at minimum, the Python version in the `latest Ubuntu LTS version <https://packages.ubuntu.com>`__ (search for the "python3" package within the LTS suite).
 
 .. toctree::
    :maxdepth: 2
