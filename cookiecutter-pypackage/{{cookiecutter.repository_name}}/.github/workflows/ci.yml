@@ -15,7 +15,7 @@ jobs:
 {%- if cookiecutter.os_independent == "y" %}
         os: [macos-latest, windows-latest, ubuntu-latest]
 {%- endif %}
-        python-version: [3.7, 3.8, 3.9, '3.10', '3.11'{% if cookiecutter.pypy == "y" %}, pypy-3.9{% endif %}]
+        python-version: [3.8, 3.9, '3.10', '3.11', '3.12'{% if cookiecutter.pypy == "y" %}, pypy-3.9{% endif %}]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
