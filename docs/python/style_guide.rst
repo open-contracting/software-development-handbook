@@ -44,8 +44,19 @@ Type hints are especially useful in :doc:`packages<packages>` for :ref:`document
 
 Reference: `typing – Support for type hints <https://docs.python.org/3/library/typing.html>`__
 
-Exception handling
-------------------
+Exceptions
+----------
+
+-  Do not raise `built-in exceptions <https://docs.python.org/3/library/exceptions.html>`__. Define specific exceptions in an ``exceptions.py`` module. For example:
+
+   .. code-block:: python
+
+      class ProjectNameError(Exception):
+          """Base class for exceptions from within this package/application"""
+
+
+      class SpecificNameError(ProjectNameError):
+          """Raised if this clear condition is true"""
 
 -  Do not use a bare ``except:`` or a generic ``except Exception:``. Use specific error classes to avoid handling exceptions incorrectly.
 -  Do not catch an exception and raise a new exception, *unless* the new exception has a special meaning (e.g. ``CommandError`` in Django).
