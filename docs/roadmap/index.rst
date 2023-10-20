@@ -18,6 +18,7 @@ Product and service families
 
 -  Evaluation
 
+   -  `Data Review Tool <https://ocds-data-review-tool.readthedocs.io/en/latest/>`__: An `online tool <https://review.standard.open-contracting.org/>`__ to report structural errors in OCDS data. It is primarily used by OCDS implementers to check their conformance to the standard. Its `library <https://github.com/open-contracting/lib-cove-ocds>`__ is used by Kingfisher to check for structural errors.
    -  `Pelican <https://www.open-contracting.org/2020/01/28/meet-pelican-our-new-tool-for-assessing-the-quality-of-open-contracting-data/>`__: An online tool to report quality issues in OCDS data, sourced from Kingfisher. It is used internally by data support managers to provide feedback to OCDS publishers, and by program managers to better understand a publisher's data.
 
 -  Pre-processing
@@ -29,7 +30,6 @@ Product and service families
 -  Publication
 
    -  `OCDS Documentation <https://standard.open-contracting.org/latest/en/>`__: The official documentation of the Open Contracting Data Standard.
-   -  `Data Review Tool <https://ocds-data-review-tool.readthedocs.io/en/latest/>`__: An `online tool <https://review.standard.open-contracting.org/>`__ to report structural errors in OCDS data. It is primarily used by OCDS implementers to check their conformance to the standard. Its `library <https://github.com/open-contracting/lib-cove-ocds>`__ is used by Kingfisher to check for structural errors.
 
 Together, these tools connect with different steps of the hypothesis for change expressed in the `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__.
 
