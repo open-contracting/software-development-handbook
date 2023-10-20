@@ -6,16 +6,21 @@ OCP prepares a software roadmap each fiscal year. This page documents common con
 Product and service families
 ----------------------------
 
--  `Data Registry <https://data.open-contracting.org/>`__: An online tool to find and access public procurement datasets that are available in the OCDS format.
--  `Data Review Tool <https://ocds-data-review-tool.readthedocs.io/en/latest/>`__: An `online tool <https://review.standard.open-contracting.org/>`__ to report structural errors in OCDS data. It is primarily used by OCDS implementers to check their conformance to the standard. Its `library <https://github.com/open-contracting/lib-cove-ocds>`__ is used by Kingfisher to check for structural errors.
--  `Kingfisher <https://ocdsdeploy.readthedocs.io/en/latest/use/kingfisher.html>`__: A family of tools to `collect <https://kingfisher-collect.readthedocs.io/en/latest/>`__, `pre-process <https://kingfisher-process.readthedocs.io/en/latest/>`__, `summarize <https://kingfisher-summarize.readthedocs.io/en/latest/>`__ and `query <https://kingfisher-colab.readthedocs.io/en/latest/>`__ OCDS data. It is used internally by data support managers to provide feedback to OCDS publishers, and by data analysts to calculate indicators and do research. It serves as a data source for other tools.
--  `Pelican <https://www.open-contracting.org/2020/01/28/meet-pelican-our-new-tool-for-assessing-the-quality-of-open-contracting-data/>`__: An online tool to report quality issues in OCDS data, sourced from Kingfisher. It is used internally by data support managers to provide feedback to OCDS publishers, and by program managers to better understand a publisher's data.
--  `Credere <https://credere.open-contracting.org/>`__: A tool that facilitates the participation of Micro, Small, and Medium businesses (MSMEs) in the Colombian public procurement market.
--  `Spoonbill <https://github.com/open-contracting/spoonbill>`__: A command-line tool to transform OCDS data to tabular formats. It is an important tool for users who are more familiar with tabular formats.
--  `Cardinal <https://github.com/open-contracting/cardinal-rs>`__: A command-line tool to calculate red flags and procurement indicators from OCDS data.
--  `OCDS Kit <https://ocdskit.readthedocs.io/en/latest/>`__: A suite of command-line tools and a Python library for working with OCDS data. It contains common functionality used by Kingfisher, for example.
--  `Redash <https://redash.open-contracting.org>`__: A deployment of `Redash <https://redash.io>`__ to give users access to the Kingfisher database.
--  `OCDS Documentation <https://standard.open-contracting.org/latest/en/>`__: The official documentation of the Open Contracting Data Standard.
+-  Application
+   -  `Credere <https://credere.open-contracting.org/>`__: A online service that facilitates the participation of Micro, Small, and Medium businesses (MSMEs) in the Colombian public procurement market.
+-  Use
+   -  `Data Registry <https://data.open-contracting.org/>`__: An online tool to find and access public procurement datasets that are available in the OCDS format.
+   -  `Cardinal <https://github.com/open-contracting/cardinal-rs>`__: A command-line tool to calculate red flags and procurement indicators from OCDS data.
+   -  `Redash <https://redash.open-contracting.org>`__: A deployment of `Redash <https://redash.io>`__ to give users access to the Kingfisher database.
+-  Evaluation
+   -  `Kingfisher <https://ocdsdeploy.readthedocs.io/en/latest/use/kingfisher.html>`__: A family of tools to `collect <https://kingfisher-collect.readthedocs.io/en/latest/>`__, `pre-process <https://kingfisher-process.readthedocs.io/en/latest/>`__, `summarize <https://kingfisher-summarize.readthedocs.io/en/latest/>`__ and `query <https://kingfisher-colab.readthedocs.io/en/latest/>`__ OCDS data. It is used internally by data support managers to provide feedback to OCDS publishers, and by data analysts to calculate indicators and do research. It serves as a data source for other tools.
+   -  `Pelican <https://www.open-contracting.org/2020/01/28/meet-pelican-our-new-tool-for-assessing-the-quality-of-open-contracting-data/>`__: An online tool to report quality issues in OCDS data, sourced from Kingfisher. It is used internally by data support managers to provide feedback to OCDS publishers, and by program managers to better understand a publisher's data.
+-  Pre-processing
+   -  `OCDS Kit <https://ocdskit.readthedocs.io/en/latest/>`__: A suite of command-line tools and a Python library for working with OCDS data. It contains common functionality used by Kingfisher, for example.
+   -  `Spoonbill <https://github.com/open-contracting/spoonbill>`__: A command-line tool to transform OCDS data to tabular formats. It is an important tool for users who are more familiar with tabular formats.
+-  Publication
+   -  `OCDS Documentation <https://standard.open-contracting.org/latest/en/>`__: The official documentation of the Open Contracting Data Standard.
+   -  `Data Review Tool <https://ocds-data-review-tool.readthedocs.io/en/latest/>`__: An `online tool <https://review.standard.open-contracting.org/>`__ to report structural errors in OCDS data. It is primarily used by OCDS implementers to check their conformance to the standard. Its `library <https://github.com/open-contracting/lib-cove-ocds>`__ is used by Kingfisher to check for structural errors.
 
 Together, these tools connect with different steps of the hypothesis for change expressed in the `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__.
 
