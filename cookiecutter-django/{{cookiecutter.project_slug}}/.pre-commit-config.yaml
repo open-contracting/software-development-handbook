@@ -3,11 +3,11 @@ ci:
   skip: [pip-compile]
 repos:
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.9.1
     hooks:
       - id: black
   - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         additional_dependencies: [flake8-comprehensions]
@@ -16,7 +16,7 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/jazzband/pip-tools
-    rev: 6.13.0
+    rev: 7.3.0
     hooks:
       - id: pip-compile
         name: pip-compile requirements.in
