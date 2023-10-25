@@ -57,7 +57,7 @@ Onboard consultants or Start a project
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
 #. Use the :doc:`Django Cookiecutter template<../python/django>`, if relevant
 
-If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself, or create a `custom role <https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization>`__.
+If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself.
 
 Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
 
