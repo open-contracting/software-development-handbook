@@ -24,7 +24,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: '[github-actions] pre-commit autoupdate'
-          push_options: --force
       - shell: bash
         run: curl -s -S --retry 3 $BASEDIR/tests/install.sh | bash -
       - shell: bash

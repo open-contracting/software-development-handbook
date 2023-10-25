@@ -69,7 +69,7 @@ Maintainers can find and compare configuration files with:
 Pre-commit hooks
 ----------------
 
-To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__ (add ``pre-commit`` to the :doc:`requirements_dev.in file<requirements>`. For example, if Black is configured as above, create a ``.pre-commit-config.yaml`` file:
+To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__ (add ``pre-commit`` to the :doc:`requirements_dev.in file<requirements>`). For example, if Black is configured as above, create a ``.pre-commit-config.yaml`` file:
 
 .. tab-set::
 

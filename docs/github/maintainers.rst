@@ -52,6 +52,11 @@ Onboard consultants or Start a project
    #. Add the new repositories
    #. Set the *Permission level* to "Maintain"
 
+#. If using the ``stefanzweifel/git-auto-commit-action`` action in the ``lint.yml`` workflow:
+
+   #. Add the new repositories to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team
+   #. Set the *Permission level* to "Admin"
+
 #. Add the new repositories to `Coveralls <https://coveralls.io/repos/new>`__
 #. Add the new repositories to `pre-commit ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
@@ -74,6 +79,12 @@ Per the `Software terms of reference (TOR) template <https://docs.google.com/doc
 .. note::
 
    In order to protect the private deploy repositories, the `base permissions <https://github.com/organizations/open-contracting/settings/member_privileges>`__ for ``open-contracting`` members is *None*.
+
+.. admonition:: pre-commit.ci workaround
+
+   pre-commit.ci `disallows network connections <https://github.com/pre-commit-ci/issues/issues/55>`__. As such, the ``pip-compile`` pre-commit hook is configured to be skipped in the ``ci`` section of the :ref:`.pre-commit-config.yaml file<linting-pre-commit>`, and is run by the :ref`lint.yml workflow<linting-ci>`, instead.
+
+   This workflow auto fixes requirements files. To do so, it uses a personal access token of the ``ocp-deploy`` user with a ``repo:public_repo`` scope. The ``ocp-deploy`` user is the only member of the Robots team. As above, this team needs to be a repository administrator to push the auto fixes to protected branches.
 
 Offboard consultants
 --------------------
