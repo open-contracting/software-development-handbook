@@ -6,10 +6,12 @@ jobs:
   build:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
+    env:
+      PAT: ${{ secrets.PAT }}
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT || github.token }}
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
@@ -21,7 +23,8 @@ jobs:
         continue-on-error: true
         with:
           extra_args: pip-compile --files ${{ steps.changed-files.outputs.all_changed_files }}
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - if: ${{ env.PAT }}
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: '[github-actions] pre-commit autoupdate'
       - shell: bash
