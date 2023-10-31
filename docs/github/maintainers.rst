@@ -40,6 +40,11 @@ Onboard consultants or Start a project
 #. Create `new repositories <https://github.com/orgs/open-contracting/repositories>`__, as needed by the consultants
 #. Run the `fix:lint_repos <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ and ``fix:protect_branches`` tasks, to configure the repository
 #. Create a `new team <https://github.com/orgs/open-contracting/teams>`__ named after the consultants' organization
+
+   .. note::
+
+      Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
+
 #. From the *Members* tab:
 
    #. Invite the Project Manager
@@ -52,6 +57,10 @@ Onboard consultants or Start a project
    #. Add the new repositories
    #. Set the *Permission level* to "Maintain"
 
+      .. note::
+
+         If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself.
+
 #. If using the ``stefanzweifel/git-auto-commit-action`` action in the ``lint.yml`` workflow:
 
    #. Add the new repositories to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team
@@ -62,9 +71,6 @@ Onboard consultants or Start a project
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
 #. Use the :doc:`Django Cookiecutter template<../python/django>`, if relevant
 
-If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself.
-
-Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
 
 Per the `Software terms of reference (TOR) template <https://docs.google.com/document/d/13-_eFQrelLdj92MWTiqzAfO62in7Xxrv3DTcmRqvNjE/edit>`__, consultants should not have access to the production server. As such, do not add any members to the `Servers <https://github.com/orgs/open-contracting/teams/servers>`__ team.
 
@@ -82,7 +88,7 @@ Per the `Software terms of reference (TOR) template <https://docs.google.com/doc
 
 .. admonition:: pre-commit.ci workaround
 
-   pre-commit.ci `disallows network connections <https://github.com/pre-commit-ci/issues/issues/55>`__. As such, the ``pip-compile`` pre-commit hook is configured to be skipped in the ``ci`` section of the :ref:`.pre-commit-config.yaml file<linting-pre-commit>`, and is run by the :ref`lint.yml workflow<linting-ci>`, instead.
+   pre-commit.ci `disallows network connections <https://github.com/pre-commit-ci/issues/issues/55>`__. As such, the ``pip-compile`` pre-commit hook is configured to be skipped in the ``ci`` section of the :ref:`.pre-commit-config.yaml file<linting-pre-commit>`, and is run by the :ref:`lint.yml workflow<linting-ci>`, instead.
 
    This workflow auto fixes requirements files. To do so, it uses a personal access token of the ``ocp-deploy`` user with a ``repo:public_repo`` scope. The ``ocp-deploy`` user is the only member of the Robots team. As above, this team needs to be a repository administrator to push the auto fixes to protected branches.
 
