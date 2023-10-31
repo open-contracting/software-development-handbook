@@ -16,15 +16,15 @@ A product name should be:
 
 -  **Easy to spell and pronounce**
 
-   e.g. Shwowp became Buyosphere because no one could spell ‘Shwowp’
-   e.g. an unpronounceable acronym
+   | e.g. Shwowp became Buyosphere because no one could spell ‘Shwowp’
+   | e.g. an unpronounceable acronym
 
 -  **Memorable**
 -  **Not competing** with another relevant or prominent thing
 -  **Not generic** unless only one thing fits the description
 
-   e.g. ocdsdata became OCDS Kingfisher
-   e.g. there will only ever be one OCDS Extension Registry
+   | e.g. ocdsdata became OCDS Kingfisher
+   | e.g. there will only ever be one OCDS Extension Registry
 
 -  **Not cryptic**
 
