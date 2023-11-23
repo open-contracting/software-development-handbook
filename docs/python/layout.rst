@@ -6,7 +6,7 @@ A first step of a new project is to define its directory layout.
 Applications
 ------------
 
-Applications should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/4.2/intro/tutorial01/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__or `FastAPI <https://fastapi.tiangolo.com/tutorial/bigger-applications/#an-example-file-structure>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startapp>`__.
+Applications should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/4.2/intro/tutorial01/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__ or `FastAPI <https://fastapi.tiangolo.com/tutorial/bigger-applications/#an-example-file-structure>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startapp>`__.
 
 .. tip::
 
