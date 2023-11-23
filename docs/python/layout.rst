@@ -78,6 +78,22 @@ Static files
 
 -  Don't mix static files with Python files in the same directory.
 
+Module files
+------------
+
+-  Use a single module for all models.
+-  If a module defines names that are imported by only one other module, merge the modules unless:
+
+   - The module is a convention of a framework (for example, the files created by the `startapp <https://docs.djangoproject.com/en/4.2/intro/tutorial01/#creating-the-polls-app>`__ command in Django).
+   - There is a divide in terms of responsibility (for example, model and view).
+
+-  Don't split a module only to reduce its length.
+
+.. seealso::
+
+   -  :ref:`fat-models`
+   -  `FastAPI documentation <https://sqlmodel.tiangolo.com/tutorial/code-structure/#single-module-for-models>`__
+
 Filename conventions
 --------------------
 
