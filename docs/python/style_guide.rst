@@ -9,6 +9,11 @@ You may also refer to common guidance like the `Google Python Style Guide <https
 
    :ref:`Organization-wide spell-checking<python-optional-linting>`
 
+Built-in functions
+------------------
+
+-  Never use relative ``import``.
+
 Naming
 ------
 
