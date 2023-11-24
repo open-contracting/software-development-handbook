@@ -27,3 +27,7 @@ Fat models
 ----------
 
 If a function performs `CRUD operations <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__ and accepts only a database session and instance values as arguments, add this function as a method on the model's class.
+
+`Code smells <https://en.wikipedia.org/wiki/Code_smell>`__ for skinny models:
+
+-  Calling database session methods outside a model's class (for example, ``COMMIT``)
