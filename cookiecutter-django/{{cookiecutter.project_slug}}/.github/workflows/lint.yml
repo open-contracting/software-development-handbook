@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.PAT || github.token }}
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '{{ cookiecutter.python_version }}'
           cache: pip
           cache-dependency-path: '**/requirements*.txt'
       - id: changed-files
