@@ -114,62 +114,12 @@ Maintainers can find unwanted comments with this regular expression:
 Continuous integration
 ----------------------
 
-Create a ``.github/workflows/lint.yml`` file. As a base, use:
-
-.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/workflows/lint.yml
-   :language: yaml
-   :end-before: requirements_dev.txt
-
-.. note::
-
-   If a repository – like an OCDS extension – has no dependency file, the ``actions/cache`` action must be used instead of the ``cache`` input:
-
-   .. code-block:: yaml
-
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip
-
-See the `documentation <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the Bash scripts.
-
-If the project uses pre-commit, `add the repository to pre-commit.ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__ to check and fix any issues.
-
-Otherwise, if the project uses Black, add:
-
-.. code-block:: yaml
-
-         - run: pip install black
-         - run: black --check .
-
-Unless the project is documentation only (like a handbook or a standard):
-
--  For an application, change the ``python-version`` to match the version used to compile the :doc:`requirements_dev.txt file<requirements>`, and add:
-
-   .. code-block:: yaml
-
-            - run: pip install -r requirements_dev.txt
-            - run: pytest /tmp/test_requirements.py
-
--  For a package, add:
-
-   .. code-block:: yaml
-
-            - run: pip install .[test]
-            - run: pytest /tmp/test_requirements.py
-
-If the project is a :doc:`package<packages>`, add:
-
-.. code-block:: yaml
-
-         - run: pip install --upgrade check-manifest
-         - run: check-manifest
-
-Finally, add any project-specific linting, like in `notebooks-ocds <https://github.com/open-contracting/notebooks-ocds/blob/f9f42cac48f91564eba0da3c2a79ebdf7c3c43ad/.github/workflows/lint.yml#L22-L24>`__.
+Create a ``.github/workflows/lint.yml`` file. The :doc:`django` and :doc:`Pypackage<packages>` Cookiecutter templates contain default workflows.
 
 .. seealso::
 
-   Workflow files for linting :ref:`shell scripts<shell-ci>` and :ref:`Javascript files<javascript-ci>`
+   - Workflow files for linting :ref:`shell scripts<shell-ci>` and :ref:`Javascript files<javascript-ci>`
+   - `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the Bash scripts
 
 .. _python-optional-linting:
 

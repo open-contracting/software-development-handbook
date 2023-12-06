@@ -61,16 +61,15 @@ Onboard consultants or Start a project
 
          If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself.
 
-#. If using the ``stefanzweifel/git-auto-commit-action`` action in the ``lint.yml`` workflow:
+#. If using the ``stefanzweifel/git-auto-commit-action`` action in the ``lint.yml`` workflow, like in the :doc:`../python/django` Cookiecutter template:
 
    #. Add the new repositories to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team
    #. Set the *Permission level* to "Admin"
 
-#. Add the new repositories to `Coveralls <https://coveralls.io/repos/new>`__
 #. Add the new repositories to `pre-commit ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
+#. Add the new repositories to `Coveralls <https://coveralls.io/repos/new>`__
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
 #. Use the :doc:`Django Cookiecutter template<../python/django>`, if relevant
-
 
 Per the `Software terms of reference (TOR) template <https://docs.google.com/document/d/13-_eFQrelLdj92MWTiqzAfO62in7Xxrv3DTcmRqvNjE/edit>`__, consultants should not have access to the production server. As such, do not add any members to the `Servers <https://github.com/orgs/open-contracting/teams/servers>`__ team.
 

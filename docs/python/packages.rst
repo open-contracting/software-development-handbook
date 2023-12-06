@@ -3,7 +3,7 @@ Packages
 
 All our packages should be distributed on PyPI.
 
-Use the Pypackage Cookiecutter template:
+Use the Pypackage Cookiecutter template, and `add the repository to pre-commit.ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__:
 
 .. code-block:: bash
 
