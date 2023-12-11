@@ -51,6 +51,14 @@ URLs
 -  Use hyphens as separators in `named URL patterns <https://docs.djangoproject.com/en/4.2/topics/http/urls/#naming-url-patterns>`__.
 -  Use `Django REST Framework <https://www.django-rest-framework.org>`__, instead of writing REST endpoints by hand. (See :doc:`preferences`.)
 
+Sitemap
+~~~~~~~
+
+Public sites should serve a ``sitemap.xml`` file.
+
+-  Do not set ``changefreq`` or ``priority``. (`"Google ignores priority and changefreq values." <https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap>`__)
+-  Do not use ``django.contrib.sitemaps.ping_google()``. (`"Sitemaps ping endpoint is going away." <https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping>`__)
+
 .. _django-models:
 
 Models
@@ -174,6 +182,8 @@ Using the template
     Remove, unless using ``django.contrib.admin``, ``django.contrib.auth``, ``django.contrib.messages`` or anonymous sessions (check for occurrences of ``session``).
   `django.contrib.staticfiles <https://docs.djangoproject.com/en/4.2/ref/contrib/staticfiles/>`__ (`how-to <https://docs.djangoproject.com/en/4.2/howto/static-files/>`__)
     Remove, unless the project contains static files.
+  `django.contrib.sitemaps <https://docs.djangoproject.com/en/4.2/ref/contrib/sitemaps/>`__
+    Remove, if the application is private. (Added by the Cookiecutter template.)
 
   Then, make any corresponding changes to ``urls.py``, and ``MIDDLEWARE``, ``TEMPLATES``, ``STATIC_URL`` and ``AUTH_PASSWORD_VALIDATORS`` in ``settings.py``.
 `DATABASES <https://docs.djangoproject.com/en/4.2/ref/settings/#std:setting-DATABASES>`__
