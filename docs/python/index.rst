@@ -21,6 +21,7 @@ Applications are upgraded to, at minimum, the Python version in the `latest Ubun
    file_formats
    style_guide
    i18n
+   a11y
    packages
    performance
 

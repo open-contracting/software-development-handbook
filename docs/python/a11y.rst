@@ -1,0 +1,49 @@
+Accessibility (a11y)
+====================
+
+Public sites should check for accessibility issues, using `Pa11y <https://pa11y.org>`__.
+
+Automated tests
+---------------
+
+Create a ``pa11y.default.json`` file for the default `configuration <https://github.com/pa11y/pa11y#configuration>`__, for example:
+
+.. code-block:: json
+
+   {
+     "defaults": {}
+   }
+
+Create a ``pa11y.mobile.json`` file for the mobile configuration, for example:
+
+.. code-block:: json
+
+   {
+     "viewport": {
+       "width": 320,
+       "height": 480,
+       "deviceScaleFactor": 2,
+       "isMobile": true
+     }
+   }
+
+Test individual URLs with `pa11y <https://github.com/pa11y/pa11y>`__, for example:
+
+.. code-block:: bash
+
+   pa11y -c pa11y.default.json http://127.0.0.1:8000
+
+If the site has a :ref:`sitemap<django-sitemap>`, use `pa11y-ci <>`__, for example:
+
+.. code-block:: bash
+
+   pa11y-ci -c pa11y.default.json -s http://127.0.0.1:8000/sitemap.xml
+
+.. _a11y-ci:
+
+Continuous integration
+----------------------
+
+.. note::
+
+   This section is a stub. For now, see the Data Registry's `a11y.yml <https://github.com/open-contracting/data-registry/blob/main/.github/workflows/a11y.yml>`__ workflow file.

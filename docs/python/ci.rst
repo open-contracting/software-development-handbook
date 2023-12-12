@@ -3,7 +3,12 @@ Continuous integration
 
 .. seealso::
 
-   Workflows for linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`, for :ref:`releasing packages<python-package-release-process>` and for :ref:`checking translations<i18n-ci>`
+   Workflows for:
+
+   -  Linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`
+   - :ref:`Releasing packages<python-package-release-process>`
+   - :ref:`Checking translations<i18n-ci>`
+   - :ref:`Checking accessibility<a11y-ci>`
 
 .. tip::
 
