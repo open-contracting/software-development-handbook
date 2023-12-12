@@ -33,7 +33,7 @@ Test individual URLs with `pa11y <https://github.com/pa11y/pa11y>`__, for exampl
 
    pa11y -c pa11y.default.json http://127.0.0.1:8000
 
-If the site has a :ref:`sitemap<django-sitemap>`, use `pa11y-ci <>`__, for example:
+If the site has a :ref:`sitemap<django-sitemap>`, use `pa11y-ci <https://github.com/pa11y/pa11y-ci>`__, for example:
 
 .. code-block:: bash
 
