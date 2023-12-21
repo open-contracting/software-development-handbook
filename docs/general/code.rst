@@ -146,3 +146,20 @@ For example, Pelican frontend's tag system had 6 classes and 35 methods before `
            def xpath(...):
 
 An exception is if the API is very complex. For example, Kingfisher Collect's `BaseSpider <https://github.com/open-contracting/kingfisher-collect/blob/main/kingfisher_scrapy/base_spiders/base_spider.py>`__ has 20+ attributes, some of which can produce an incoherent state. Checking for incoherence and raising an exception is an assist to developers.
+
+Periodic maintenance
+--------------------
+
+If a workaround is needed for an issue in a dependency, link to the issue in the dependency.
+
+Periodically, scan all repositories for such links and check whether the workaround can be removed:
+
+.. code-block:: none
+
+   https://github.com/(?!open-contracting|eForms/)[^/]+/[^/]+/(?:issues|pull)/
+
+You can ignore these file paths:
+
+.. code-block:: none
+
+   -*.po,-*.map,-sass/bootstrap/bootstrap/*,-static/lib/bootstrap/*,-CHANGELOG.md
