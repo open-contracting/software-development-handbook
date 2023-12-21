@@ -64,7 +64,7 @@ Criteria
 A preferred package should meet the following criteria:
 
 -  It is properly released: its readme is rendered on PyPI, a changelog is maintained, tags are used, etc.
--  It supports the most recent version of Python and frameworks (if relevant), like Django or Sphinx. Counter-example: `django-tastypie <https://github.com/django-tastypie/django-tastypie/pull/1623>`__ (since resolved).
+-  It supports the most recent version of Python and frameworks (if relevant), like Django or Sphinx.
 
    -  Simple libraries might not need new releases for new Python versions.
 
@@ -74,7 +74,7 @@ A preferred package should meet the following criteria:
    -  *Tested*: Check its CI badges, GitHub Actions tab, or CI configuration.
    -  *Documented*: Check its documentation website.
 
--  Its issue tracker demonstrates that the maintainers are responsive. Counter-example: `django-environ <https://github.com/joke2k/django-environ/pull/291>`__ (since resolved).
+-  Its issue tracker demonstrates that the maintainers are responsive.
 
    -  The repository is not described as archived or unmaintained.
    -  The maintainer's other repositories can be considered if the repository is new or unpopular.
