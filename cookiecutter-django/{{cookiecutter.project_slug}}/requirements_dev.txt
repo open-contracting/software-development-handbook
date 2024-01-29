@@ -12,6 +12,8 @@ backports-entry-points-selectable==1.1.1
     # via virtualenv
 black==21.12b0
     # via -r requirements_dev.in
+build==1.0.3
+    # via pip-tools
 certifi==2023.7.22
     # via
     #   -r requirements.txt
@@ -55,17 +57,17 @@ mypy-extensions==0.4.3
     # via black
 nodeenv==1.6.0
     # via pre-commit
+packaging==23.2
+    # via build
 pathspec==0.9.0
     # via black
-pep517==0.12.0
-    # via pip-tools
-pip-tools==6.4.0
+pip-tools==7.3.0
     # via -r requirements_dev.in
 platformdirs==2.4.0
     # via
     #   black
     #   virtualenv
-pre-commit==2.15.0
+pre-commit==3.6.0
     # via -r requirements_dev.in
 psycopg2==2.9.2
     # via -r requirements.txt
@@ -73,6 +75,8 @@ pycodestyle==2.8.0
     # via flake8
 pyflakes==2.4.0
     # via flake8
+pyproject-hooks==1.0.0
+    # via build
 pytz==2021.3
     # via
     #   -r requirements.txt
@@ -89,12 +93,8 @@ sqlparse==0.4.4
     # via
     #   -r requirements.txt
     #   django
-toml==0.10.2
-    # via pre-commit
 tomli==1.2.2
-    # via
-    #   black
-    #   pep517
+    # via black
 typing-extensions==4.0.0
     # via black
 urllib3==2.0.7
