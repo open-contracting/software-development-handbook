@@ -8,7 +8,7 @@ Product and service families
 
 -  Application
 
-   -  `Credere <https://credere.open-contracting.org/>`__: A online service that facilitates the participation of Micro, Small, and Medium businesses (MSMEs) in the Colombian public procurement market.
+   -  `Credere <https://credere.open-contracting.org/>`__: An online service that facilitates the participation of Micro, Small, and Medium businesses (MSMEs) in the Colombian public procurement market.
 
 -  Use
 
