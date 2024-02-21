@@ -1,4 +1,4 @@
 dj-database-url
-django
+django<5
 psycopg2
 sentry-sdk

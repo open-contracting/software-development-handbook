@@ -10,7 +10,7 @@ certifi==2023.7.22
     # via sentry-sdk
 dj-database-url==2.1.0
     # via -r requirements.in
-django==4.2.9
+django==4.2.10
     # via
     #   -r requirements.in
     #   dj-database-url
