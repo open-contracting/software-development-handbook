@@ -44,15 +44,6 @@ This makes it easy to know what the changes in a branch are about.
 Configuration
 -------------
 
-Add the following to your ``~/.config/git/ignore`` file:
-
-.. code-block:: none
-
-   /coverage
-   .DS_Store
-   .sass_cache
-   *.pyc
-
 We recommend using:
 
 .. code-block:: bash
@@ -112,3 +103,32 @@ If you sign commits, `tell Git about your signing key <https://docs.github.com/e
 .. seealso::
 
    `Popular git config options <https://jvns.ca/blog/2024/02/16/popular-git-config-options/>`__
+
+Excluded paths
+--------------
+
+Add the following to your ``~/.config/git/ignore`` file:
+
+.. code-block:: none
+
+   .DS_Store
+   *.pyc
+
+In general, use the repository's ``.gitignore`` file, to not rely on each user having configured global exclusions.
+
+Common excluded paths include:
+
+.. code-block:: none
+
+   *.mo
+   *.swp
+   *~
+   /*.egg-info
+   /.coverage
+   /.ve
+   /build
+   /dist
+   /docs/_build
+   /htmlcov
+   __pycache__
+   node_modules
