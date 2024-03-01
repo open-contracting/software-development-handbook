@@ -4,30 +4,70 @@ Git
 Configuration
 -------------
 
+Add the following to your ``~/.config/git/ignore`` file:
+
+.. code-block:: none
+
+   /coverage
+   .DS_Store
+   .sass_cache
+   *.pyc
+
 We recommend using:
 
 .. code-block:: bash
 
+   # Create a "main" branch (instead of a "master" branch) when creating repositories.
    git config --global init.defaultBranch main
+
+   # Use --set-upstream (-u) with `git push` by default.
    git config --global push.autoSetupRemote true
+
+   # Ignore the commits in this file (if it exists), like code formatting or file renaming.
+   git config --global blame.ignoreRevsFile .git-blame-ignore-revs
+
+   # See demo at https://ductile.systems/zdiff3/
    git config --global merge.conflictstyle zdiff3
+
+   # Display dates as 2001-02-03 04:05:06 instead of Sat Feb 3 04:05:06 2001.
+   git config --global log.date iso
+
+   # Detect moved lines better.
    git config --global diff.algorithm histogram
+   # Use different colors for moved lines (minimum 20 characters).
    git config --global diff.colorMoved default
+   # Allow indentation changes when detecting moved lines.
    git config --global diff.colorMovedWS allow-indentation-change
 
-You might also like (requires installing `difftastic <https://difftastic.wilfred.me.uk/installation.html>`__):
+   # Delete branches/tags locally that were deleted remotely (e.g. after merge on GitHub).
+   git config --global fetch.prune true
+   git config --global fetch.pruneTags true
 
-.. code-block:: bash
-
-   git config --global diff.tool difftastic
+You might also like `delta <https://github.com/dandavison/delta#readme>`__ (`installed separately <https://difftastic.wilfred.me.uk/installation.html>`__).
 
 If you sign commits, `tell Git about your signing key <https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key>`__, for example:
 
 .. code-block:: bash
 
-   git config --global user.signingkey 3AA5C34371567BD2
    git config --global commit.gpgsign true
-   git config --global gpg.program $(which gpg)
+
+.. tab-set::
+
+   .. tab-item:: SSH key
+
+      .. code-block:: bash
+
+         git config --global --unset gpg.program
+         git config --global gpg.format ssh
+         git config --global user.signingkey ~/.ssh/id_rsa.pub
+
+   .. tab-item:: GPG key
+
+      .. code-block:: bash
+
+         git config --global --unset gpg.format
+         git config --global user.signingkey 3AA5C34371567BD2
+         git config --global gpg.program $(which gpg)
 
 .. seealso::
 
