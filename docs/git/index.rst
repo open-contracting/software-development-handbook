@@ -83,7 +83,7 @@ We recommend using:
    git config --global fetch.prune true
    git config --global fetch.pruneTags true
 
-You might also like `delta <https://github.com/dandavison/delta#readme>`__ (`installed separately <https://difftastic.wilfred.me.uk/installation.html>`__).
+You might also like `delta <https://github.com/dandavison/delta#readme>`__ (`installed separately <https://dandavison.github.io/delta/installation.html>`__).
 
 If you sign commits, `tell Git about your signing key <https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key>`__, for example:
 
@@ -98,8 +98,8 @@ If you sign commits, `tell Git about your signing key <https://docs.github.com/e
       .. code-block:: bash
 
          git config --global --unset gpg.program
-         git config --global gpg.format ssh
          git config --global user.signingkey ~/.ssh/id_rsa.pub
+         git config --global gpg.format ssh
 
    .. tab-item:: GPG key
 
