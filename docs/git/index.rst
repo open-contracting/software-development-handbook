@@ -54,9 +54,6 @@ We recommend using:
    # Use --set-upstream (-u) with `git push` by default.
    git config --global push.autoSetupRemote true
 
-   # Ignore the commits in this file (if it exists), like code formatting or file renaming.
-   git config --global blame.ignoreRevsFile .git-blame-ignore-revs
-
    # See demo at https://ductile.systems/zdiff3/
    git config --global merge.conflictstyle zdiff3
 
