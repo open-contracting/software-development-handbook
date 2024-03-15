@@ -1,9 +1,16 @@
-JavaScript
-==========
+JavaScript and TypeScript
+=========================
 
 .. note::
 
    Don't use `CoffeeScript <https://coffeescript.org>`__. Unless the repository is a fork, use `Decaffeinate <https://decaffeinate-project.org>`__ to convert CoffeeScript to ECMAScript.
+
+.. _javascript-license:
+
+License
+-------
+
+Use the `MIT license <https://choosealicense.com/licenses/mit/>`__.
 
 Version
 -------

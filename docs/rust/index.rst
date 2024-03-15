@@ -1,6 +1,13 @@
 Rust
 ====
 
+.. _rust-license:
+
+License
+-------
+
+Use the `MIT license <https://choosealicense.com/licenses/mit/>`__.
+
 Development
 -----------
 

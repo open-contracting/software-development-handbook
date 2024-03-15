@@ -3,8 +3,9 @@ General
 
 .. toctree::
 
+   license
    documentation
    preferences
    code
-   api
    architecture
+   api
