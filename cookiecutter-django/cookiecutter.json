@@ -5,6 +5,7 @@
   "application_name": "{{ cookiecutter.project_slug|lower()|replace(' ', '_')|replace('-', '_')|trim() }}",
   "python_version": "3.11",
   "use_fathom": "y",
+  "continuous_deployment": "n",
   "_copy_without_render": [
     ".github/workflows/*.yml"
   ]

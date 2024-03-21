@@ -38,10 +38,16 @@ def use_fathom(enabled):
         os.remove(os.path.join("core", "context_processors.py"))
 
 
+def continuous_deployment(enabled):
+    if enabled:
+        os.remove(os.path.join(".github", "workflows", "automerge.yml"))
+
+
 def main():
     set_secret_key(os.path.join("core", "settings.py"))
 
     use_fathom("{{ cookiecutter.use_fathom }}".lower() == "y")
+    continuous_deployment("{{ cookiecutter.continuous_deployment }}".lower() == "y")
 
 
 if __name__ == "__main__":
