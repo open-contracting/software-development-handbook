@@ -180,7 +180,6 @@ Introductions
    Use `Rust Playground <https://play.rust-lang.org/>`__ to test code snippets.
 
 ..
-
    I prefer Exercism to Rustlings (https://github.com/rust-lang/rustlings). Rustlings' exercises often repeat examples from The Rust Programming Language, and are often solved by the compiler's feedback.
 
    I don't find it useful to read the examples in Rust by Example (https://doc.rust-lang.org/rust-by-example/), but I occasionally read it when it's a search result.
