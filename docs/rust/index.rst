@@ -198,4 +198,4 @@ Reference
 
    .. tip::
 
-      Scroll up after the page loads to access the within-crate search bar
+      Scroll up after the page loads to access the within-crate search bar.
