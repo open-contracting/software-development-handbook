@@ -47,6 +47,7 @@ Onboard consultants or Start a project
 
 #. From the *Members* tab:
 
+   #. Remove yourself from the team
    #. Invite the Project Manager
    #. Once the invitation is accepted, set their role to Maintainer
    #. Ask them to invite the rest of their team
