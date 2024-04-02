@@ -5,10 +5,6 @@ PostgreSQL
 
    The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/index.html>`__ documentation covers many topics relating to PostgreSQL, including: configuration, maintenance, and usage by clients. This page addresses topics relating to software development.
 
-.. seealso::
-
-   :doc:`SQL language guide<../sql/index>`
-
 Connect to a database
 ---------------------
 
@@ -29,13 +25,34 @@ To set the search path for a PostgreSQL connection, append to the connection str
    ?currentSchema=myschema,public
 
 Identify the client
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Database administrators need to identify the sources of queries, in order to notify developers of inefficient queries or alert users whose queries will be interrupted by maintenance. For example:
 
 -  Django applications set the `application_name <https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-APPLICATION-NAME>`__ query string parameter in the PostgreSQL `connection URI <https://www.postgresql.org/docs/current/libpq-connect.html#id-1.7.3.8.3.6>`__, or use a service-specific user
 -  Kingfisher Summarize uses the `psycopg2 <https://www.psycopg.org/docs/>`__ package, and adds ``/* kingfisher-summarize {identifier} */`` as a comment to expensive queries
 -  Kingfisher Colab uses the `ipython-sql <https://pypi.org/project/ipython-sql/>`__ package, and adds the Google Colaboratory notebook URL as a comment to all queries
+
+Define tables
+-------------
+
+-  In PostgreSQL, use ``TEXT`` instead of other character types, as there is `no performance difference <https://www.postgresql.org/docs/current/datatype-character.html>`__.
+-  Use ``NOT NULL`` with character types, `as recommended by Django <https://docs.djangoproject.com/en/4.2/ref/models/fields/#null>`__.
+-  Use ``NOT NULL`` with JSON types, and set the default to an empty object, array or string.
+
+.. seealso::
+
+   :ref:`Django models<django-models>`
+
+Name conventions
+~~~~~~~~~~~~~~~~
+
+-  Timestamp columns: ``created_at``, ``updated_at`` and ``deleted_at``. (Some projects use ``created`` and ``modified``.)
+
+Load (or dump) data
+-------------------
+
+Use the `\copy <https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS-COPY>`__ meta-command instead of the `COPY <https://www.postgresql.org/docs/current/sql-copy.html>`__ command, so that file accessibility and privileges are those of the user, not the server – such that no SQL superuser privileges are required.
 
 .. _sql-statements:
 
@@ -134,9 +151,52 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
       cur.execute(SQL("SELECT * FROM {}".format('collection'))  # AVOID
 
+Paginate rows
+~~~~~~~~~~~~~
+
+Do not use ``LIMIT`` with ``OFFSET``. ``OFFSET`` becomes more inefficient as its value increases. Instead, filter on the table's primary key, which has near-constant performance. For example:
+
+.. code-block:: sql
+
+   SELECT id, mycolumn
+   FROM mytable
+   WHERE
+       id > %s
+       AND myfilter = %s
+   ORDER BY id
+   LIMIT 1000
+
+Format code
+-----------
+
+Format SQL files with `pg_format <https://github.com/darold/pgFormatter>`__, which has web and command-line interfaces.
+
+Web
+~~~
+
+#. Open https://sqlformat.darold.net
+#. Paste your SQL text
+#. Set *Functions* to *Lower case*
+#. Click *Format my code*
+
+CLI
+~~~
+
+On macOS, using `Homebrew <https://brew.sh>`__, install it with:
+
+.. code-block:: bash
+
+   brew install pgformatter
+
+Then, change into the project's directory and run, for example:
+
+.. code-block:: bash
+
+   find . -name '*.sql' -exec pg_format -f 1 -o {} {} \;
+
 .. _postgresql-erd:
 
-Generate Entity Relationship Diagram
+Generate entity relationship diagram
 ------------------------------------
 
 #. Install `SchemaSpy <https://schemaspy.readthedocs.io/en/latest/installation.html>`__
@@ -151,3 +211,8 @@ Run SchemaSpy, using appropriate values for the ``-db`` (database name), ``-s`` 
    java -jar schemaspy.jar -t pgsql -dp postgresql.jar -host localhost -db DATABASE -s SCHEMA -u USER -p PASSWORD -o schemaspy -norows
 
 Use either the ``schemaspy/diagrams/summary/relationships.real.compact.png`` or ``schemaspy/diagrams/summary/relationships.real.large.png`` file and check the ``schemaspy/diagrams/orphans/`` directory.
+
+Reference
+---------
+
+-  `Improve slow queries <https://ocdsdeploy.readthedocs.io/en/latest/use/databases.html#improve-slow-queries>`__
