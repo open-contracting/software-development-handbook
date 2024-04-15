@@ -43,8 +43,6 @@ Admin
 
 There should be a minimum of two `Super Admin <https://admin.google.com/open-contracting.org/AdminHome?hl=en#DomainSettings/notab=1&role=9170516996784129&subtab=roles>`__ users from OCP only.
 
-*Less secure apps* is set to “Allow users to manage their access to less secure apps” for the open-contracting.org domain, and `Allow less secure apps <https://myaccount.google.com/lesssecureapps>`__ is set to “ON” for the data@open-contracting.org user, so that Redmine can fetch mail.
-
 Analytics
 ~~~~~~~~~
 
@@ -88,6 +86,13 @@ Groups
 -  `standard-discuss <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ (`owners <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Aowner>`__, `managers <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Amanager>`__)
 
 There should be a minimum of two `Owner <https://support.google.com/a/answer/167094?hl=en>`__ members from OCP only.
+
+Linode
+------
+
+There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with Full account access from OCP.
+
+Third-party managers of Linode servers can be added.
 
 .. _pypi-access:
 
