@@ -72,7 +72,7 @@ Messages can be redelivered, and consumers must handle message redelivery gracef
 
 To limit cascading redelivery – that is, where a consumer publishes messages but fails before acknowledging the received message, then receives the redelivered message and publishes messages, again – publish messages immediately before acknowledging the received message: that is, after any potential failure.
 
-To be idempotent, make state changes as late as possible: for example, write to the database immediately before publishing any messages and acknowledging the message. The worker should be as **stateless* as possible. It should not make changes to its internal state that carry over between received messages, since messages can arrive in any order.
+To be idempotent, make state changes as late as possible: for example, write to the database immediately before publishing any messages and acknowledging the message. The worker should be as **stateless** as possible. It should not make changes to its internal state that carry over between received messages, since messages can arrive in any order.
 
 The simplest form of deduplication is to delete previously written rows before writing new rows to the database.
 
