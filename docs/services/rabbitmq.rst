@@ -58,6 +58,17 @@ Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/heartbeats
 
 That said, from Datlab's experience, the RabbitMQ connection can be unreliable, regardless of the connection settings.
 
+Idempotence
+~~~~~~~~~~~
+
+Messages can be redelivered, and consumers must handle message redelivery gracefully. It is `recommended <https://www.rabbitmq.com/docs/reliability#consumer-side>`__ to design consumers to be idempotent, rather than to explicitly perform deduplication.
+
+To limit cascading redelivery – that is, where a consumer publishes messages but fails before acknowledging the received message, then receives the redelivered message and publishes messages, again – publish messages immediately before acknowledging the received message: that is, after any potential failure.
+
+To be idempotent, make state changes as late as possible: for example, write to the database immediately before publishing any messages and acknowledging the message.
+
+The simplest form of deduplication is to delete previously written rows before writing new rows to the database.
+
 Acknowledgements
 ~~~~~~~~~~~~~~~~
 
