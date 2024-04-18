@@ -306,6 +306,15 @@ To access the default database:
 
    -  `django-admin and manage.py <https://docs.djangoproject.com/en/4.2/ref/django-admin/>`__
 
+To `log SQL statements <https://docs.djangoproject.com/en/4.2/ref/logging/#django-db-backends>`__, add this under ``"loggers"`` in ``settings.py``:
+
+.. code-block:: python
+
+           "django.db.backends": {
+               "level": "DEBUG",
+               "handlers": ["console"],
+           },
+
 Learning
 ~~~~~~~~
 
