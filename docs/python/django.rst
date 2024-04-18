@@ -311,8 +311,9 @@ To `log SQL statements <https://docs.djangoproject.com/en/4.2/ref/logging/#djang
 .. code-block:: python
 
            "django.db.backends": {
-               "level": "DEBUG",
                "handlers": ["console"],
+               "level": "DEBUG",
+               "propagate": False,
            },
 
 Learning
