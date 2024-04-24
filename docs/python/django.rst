@@ -49,7 +49,7 @@ URLs
 
 -  Use hyphens as separators in paths.
 -  Use hyphens as separators in `named URL patterns <https://docs.djangoproject.com/en/4.2/topics/http/urls/#naming-url-patterns>`__.
--  Use `Django REST Framework <https://www.django-rest-framework.org>`__, instead of writing REST endpoints by hand. (See :doc:`preferences`.)
+-  Use `Django REST Framework <https://www.django-rest-framework.org>`__, instead of writing endpoints by hand. (See :doc:`preferences`.)
 
 .. _django-sitemap:
 

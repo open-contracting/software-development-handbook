@@ -91,6 +91,8 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases i
 
 The above broadly follows the spirit of `Choose Boring Technology <https://boringtechnology.club>`__, which applies `Maslow's hierarchy <https://en.wikipedia.org/wiki/Maslow's_hierarchy_of_needs>`__ in the context of software development. We try to ensure basic needs are always satisfied (*Is it tested? Is there a maintenance plan?*), so that we can spend more time on the big picture (*Is it achieving user goals? Is it achieving organizational goals?*).
 
+.. similar, but hard to read: https://grugbrain.dev
+
 .. note::
 
    Our approach to refactoring is similar to that expressed in these posts:
