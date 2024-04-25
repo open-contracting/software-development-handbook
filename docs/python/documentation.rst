@@ -120,8 +120,6 @@ Create a ReadTheDocs project
 #. Click *Admin* then *Advanced Settings*
 
    #. If the project is a package, check *Show version warning*
-   #. Uncheck *Enable PDF build*
-   #. Uncheck *Enable EPUB build*
    #. Click *Save*
 
 #. Click *Admin* then *Maintainers*, and for each of "yolile" and "jpmckinney":
