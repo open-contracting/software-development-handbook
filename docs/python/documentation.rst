@@ -117,11 +117,6 @@ Create a ReadTheDocs project
 
 #. Set *Programming language* to "Python"
 #. Click *Finish*
-#. Click *Admin* then *Advanced Settings*
-
-   #. If the project is a package, check *Show version warning*
-   #. Click *Save*
-
 #. Click *Admin* then *Maintainers*, and for each of "yolile" and "jpmckinney":
 
    #. Enter the username in *Add maintainer*
