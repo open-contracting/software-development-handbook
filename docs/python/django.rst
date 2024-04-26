@@ -113,6 +113,15 @@ Admin
 -  Configure ``fieldsets`` (or ``fields`` if there are only a few) to group and order fields logically
 -  Configure ``readonly_fields``, so that the administrator knows whether to edit a field
 
+Management commands
+-------------------
+
+-  Use ``self.stdout`` and ``self.stderr`` to `write output <https://docs.djangoproject.com/en/4.2/howto/custom-management-commands/>`__ for the user.
+
+   .. note::
+
+      If implementing a worker (i.e. daemon), use Python logging, instead.
+
 .. _django-settings:
 
 Settings
@@ -166,8 +175,8 @@ Environment variables
 ``FATHOM_ANALYTICS_ID`` (and ``FATHOM_ANALYTICS_DOMAIN``)
   Set to the site's ID (and custom domain) from Fathom Analytics. Remember to configure your project to render the embed code (`example <https://github.com/open-contracting/data-registry/pull/160/files>`__).
 
-Using the template
-~~~~~~~~~~~~~~~~~~
+Using the settings template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `SECRET_KEY <https://docs.djangoproject.com/en/4.2/ref/settings/#std:setting-SECRET_KEY>`__
   Replace ``!!!SECRET_KEY!!!`` with:
@@ -209,8 +218,8 @@ Add additional settings for:
 
 .. _django-template:
 
-Template
-~~~~~~~~
+Settings template
+~~~~~~~~~~~~~~~~~
 
 This template is based on the `default settings.py file <https://github.com/django/django/blob/stable/3.2.x/django/conf/project_template/project_name/settings.py-tpl>`__. You can also refer to the `default Django settings <https://github.com/django/django/blob/stable/3.2.x/django/conf/global_settings.py>`__. Replace ``core`` with the project's module name and remove the Jinja syntax if not using the Cookiecutter template:
 
