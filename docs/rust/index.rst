@@ -193,6 +193,17 @@ Topics
 
 -  `Command line apps in Rust <https://rust-cli.github.io/book/>`__
 
+Memory container cheatsheet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: https://media.githubusercontent.com/media/usagi/rust-memory-container-cs/master/3840x2160/rust-memory-container-cs-3840x2160-light-back-high-contrast.png
+   :class: only-light
+
+.. image:: https://media.githubusercontent.com/media/usagi/rust-memory-container-cs/master/3840x2160/rust-memory-container-cs-3840x2160-dark-back-high-contrast.png
+   :class: only-dark
+
+From `usagi/rust-memory-container-cs <https://github.com/usagi/rust-memory-container-cs>`__.
+
 Reference
 ^^^^^^^^^
 
