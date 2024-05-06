@@ -239,7 +239,12 @@ In order of importance:
 
 -  Reduce the number of SQL queries (avoid `N+1 queries <https://docs.sentry.io/product/issues/issue-details/performance-issues/n-one-queries/>`__):
 
-   -  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do the work in batches). For ``INSERT``, use the `bulk_create <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ method after the loop (or do the work in batches).
+   -  Avoid queries inside a loop. For ``SELECT``, perform a single query before the loop (or do the work in batches). For ``INSERT``and ``UPDATE``, use the `bulk_create <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_create>`__ and `bulk_update <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#django.db.models.query.QuerySet.bulk_update>`__ methods after the loop (or do the work in batches).
+
+      .. warning::
+
+         Read the caveats for the ``bulk_*`` methods in the Django documentation.
+
    -  Use `select_related <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#select-related>`__ to reduce the number of queries on ``ForeignKey`` or ``OneToOneField`` relations.
    -  Use `prefetch_related <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#prefetch-related>`__ to reduce the number of queries on ``ManyToManyField`` and reverse ``ForeignKey`` relations.
    -  Use `count <https://docs.djangoproject.com/en/4.2/ref/models/querysets/#count>`__ if you only need to count. However, if you also need to use the result of the queryset, use ``len()``.
