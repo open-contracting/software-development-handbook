@@ -3,6 +3,8 @@ File formats
 
 We read and write a lot of CSV and JSON files. Their format should be consistent.
 
+.. _format-json:
+
 JSON
 ----
 
