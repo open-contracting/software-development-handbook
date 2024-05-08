@@ -49,16 +49,20 @@ Bindings
 
 *Consumers declare and bind queues, not publishers*. To reduce coupling, a publisher does not control how its messages are routed: it simply sets the routing key. Each consumer then declares its own queue to read from, and it sets the routing keys that the queue binds to. As such, any number of consumers can read a publisher's messages; if no consumer reads the messages, they are undelivered, by design. This pattern makes it easier to re-order, add or remove consumers.
 
+.. _rabbitmq-heartbeat:
+
 Heartbeat
 ~~~~~~~~~
 
-If a consumer takes too long to process a message, the heartbeat might timeout, causing the connection to RabbitMQ to drop (for Python, see Pika's `readme <https://github.com/pika/pika/#requesting-message-acknowledgements-from-another-thread>`__ and `example <https://pika.readthedocs.io/en/latest/examples/heartbeat_and_blocked_timeouts.html>`__).
+If a consumer processes a message in the same thread as the `heartbeat <https://www.rabbitmq.com/heartbeats.html>`__, the heartbeat can timeout if the processing is slow, causing the connection to RabbitMQ to drop (for Python, see Pika's `readme <https://github.com/pika/pika/#requesting-message-acknowledgements-from-another-thread>`__).
 
-Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/heartbeats.html>`__. The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/main/examples/basic_consumer_threaded.py>`__), like when using `yapw <https://yapw.readthedocs.io/en/latest/>`__.
-
-That said, from Datlab's experience, the RabbitMQ connection can be unreliable, regardless of the connection settings.
+The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/main/examples/basic_consumer_threaded.py>`__), like when using `yapw <https://yapw.readthedocs.io/en/latest/>`__. Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/heartbeats.html>`__.
 
 .. https://github.com/open-contracting/data-registry/issues/140
+
+.. seealso::
+
+   :ref:`Acknowledgement timeouts<rabbitmq-acknowledgment>`, if processing is slow before acknowledgement.
 
 Consumer prefetch
 ~~~~~~~~~~~~~~~~~
@@ -83,6 +87,8 @@ If the consumer callback performs database operations, then all database operati
 
 The message publication should not be within the transaction block, if using a ``with`` statement with `psycopg2 <https://www.psycopg.org/docs/usage.html#with-statement>`__ or `Django <https://docs.djangoproject.com/en/4.2/topics/db/transactions/#django.db.transaction.atomic>`__. This ensures that the commit completes (e.g. without integrity errors), before a message is published for further processing.
 
+.. _rabbitmq-acknowledgment:
+
 Acknowledgements
 ~~~~~~~~~~~~~~~~
 
@@ -91,7 +97,7 @@ Usually, a message is ack'd once processing is complete. In some cases, a messag
 -  *When processing is long*: If a message is not ack'd on a channel within the `acknowledgement timeout <https://www.rabbitmq.com/consumers.html#acknowledgement-timeout>`__ (30 minutes by default), the broker closes the channel. This might cause unexpected errors the next time the consumer uses the channel.
 -  *When processing isn't atomic*: After some initial work, a consumer might perform work and publish messages in chunks, like when implementing the `Splitter pattern <https://www.enterpriseintegrationpatterns.com/patterns/messaging/Sequencer.html>`__. If it encounters an error in one chunk, the consumer cannot easily "retry" the original message, without encountering integrity errors and publishing duplicate messages. As such, the message is ack'd after the initial work ("point-of-no-return").
 
-If a consumer is interrupted or fails before a message is ack'd, the broker `automatically requeues <https://www.rabbitmq.com/confirms.html#automatic-requeueing>`__ the message, once either the acknowledgement timeout or the `heartbeat timeout <https://www.rabbitmq.com/heartbeats.html>`__ is reached, at which time the consumer is considered buggy, stuck or unavailable by the broker.
+If a consumer is interrupted or fails before a message is ack'd, the broker `automatically requeues <https://www.rabbitmq.com/confirms.html#automatic-requeueing>`__ the message, once either the acknowledgement timeout or the :ref:`heartbeat timeout<rabbitmq-heartbeat>` is reached, at which time the consumer is considered buggy, stuck or unavailable by the broker.
 
 When an exception is raised:
 
