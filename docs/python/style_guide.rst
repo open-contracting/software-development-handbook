@@ -82,11 +82,11 @@ Warnings
 
       The `warnings.warn_explicit() <https://docs.python.org/3/library/warnings.html#warnings.warn_explicit>`__ function calls `category(message) <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L345>`__. If the ``_init__`` method is overridden with additional required arguments, a ``TypeError`` is raised, like ``MyWarning.__init__() missing 2 required positional arguments``.
 
-      Because the original warning class is unavailable, you can't do:
+      Because the additional required arguments are unavailable, you can't do:
 
       .. code:: python
 
-         warnings.warn(MyWarning(w.message, ...))  # MyWarning is indeterminable
+         warnings.warn(category(w.message, var1, var2))  # var1 and var2 are indeterminable
 
 -  Call ``warnings.warn(message, category=MyWarning)``, not ``warnings.warn(MyWarning(message))``, to avoid the temptation to add required positional arguments to the ``__init__`` method.
 -  ``warnings.catch_warnings(record=True)`` catches all warnings. To reissue warnings you aren't interested in:
