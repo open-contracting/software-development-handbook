@@ -67,6 +67,50 @@ Exceptions
 -  Do not catch an exception and raise a new exception, *unless* the new exception has a special meaning (e.g. ``CommandError`` in Django).
 -  If an unexpected error occurs within a long-running worker, allow the worker to die. For example, if a worker is failing due to a broken connection, it should not survive to uselessly attempt to reuse that broken connection.
 
+Warnings
+--------
+
+
+https://docs.python.org/3/library/warnings.html#warnings.warn
+
+-  Do not add or override any methods in a `Warning <https://docs.python.org/3/library/warnings.html>`__ subclass. In particular, do not add required positional arguments to the ``__init__`` method.
+
+   .. admonition:: Why?
+
+      The `warnings.catch_warnings(record=True) <https://docs.python.org/3/library/warnings.html#warnings.catch_warnings>`__ context manager catches instances of ``warnings.WarningMessage``, not instances of the original warning classes. To reissue a warning, you need to do, like in `Apache Airflow <https://github.com/apache/airflow/blob/main/airflow/utils/warnings.py>`__:
+
+      .. code:: python
+
+         warnings.warn_explicit(w.message, w.category, w.filename, w.lineno, source=w.source)
+
+      The `warnings.warn_explicit() <https://docs.python.org/3/library/warnings.html#warnings.warn_explicit>`__ function calls `category(message) <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L345>`__. If the ``_init__`` method is overridden with additional required arguments, a ``TypeError`` is raised, like ``MyWarning.__init__() missing 2 required positional arguments``. Since the original warning class is unavailable, you can't do:
+
+      .. code:: python
+
+         warnings.warn(MyWarning(w.message, ...))  # MyWarning is indeterminable
+
+-  Call ``warnings.warn(message, category=MyWarning)``, not ``warnings.warn(MyWarning(message))``, to avoid the temptation to add required positional arguments to the ``__init__`` method.
+-  ``warnings.catch_warnings(record=True)`` catches all warnings. To reissue warnings you aren't interested in:
+
+   .. code-block:: python
+
+      with warnings.catch_warnings(record=True) as wlist:
+          warnings.simplefilter("always", category=MyWarning)
+
+          ...
+
+      for w in wlist:
+          if issubclass(w.category, MyWarning):
+              ...
+          else:
+              warnings.warn_explicit(w.message, w.category, w.filename, w.lineno, source=w.source)
+
+-  Subclass from the `UserWarning <https://docs.python.org/3/library/exceptions.html#UserWarning>`__ class, not the ``Warning`` class.
+
+.. seealso::
+
+   `Default warning message f-string <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L37>`__
+
 String formatting
 -----------------
 

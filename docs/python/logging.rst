@@ -74,8 +74,6 @@ To configure the format in general, replacing ``MYMODULE``:
        }
    )
 
-Reference: `Python's warnings.py format string <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L37>`__
-
 Methods
 -------
 
