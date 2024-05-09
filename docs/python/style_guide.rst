@@ -70,9 +70,6 @@ Exceptions
 Warnings
 --------
 
-
-https://docs.python.org/3/library/warnings.html#warnings.warn
-
 -  Do not add or override any methods in a `Warning <https://docs.python.org/3/library/warnings.html>`__ subclass. In particular, do not add required positional arguments to the ``__init__`` method.
 
    .. admonition:: Why?
