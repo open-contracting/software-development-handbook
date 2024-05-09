@@ -83,7 +83,9 @@ https://docs.python.org/3/library/warnings.html#warnings.warn
 
          warnings.warn_explicit(w.message, w.category, w.filename, w.lineno, source=w.source)
 
-      The `warnings.warn_explicit() <https://docs.python.org/3/library/warnings.html#warnings.warn_explicit>`__ function calls `category(message) <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L345>`__. If the ``_init__`` method is overridden with additional required arguments, a ``TypeError`` is raised, like ``MyWarning.__init__() missing 2 required positional arguments``. Since the original warning class is unavailable, you can't do:
+      The `warnings.warn_explicit() <https://docs.python.org/3/library/warnings.html#warnings.warn_explicit>`__ function calls `category(message) <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L345>`__. If the ``_init__`` method is overridden with additional required arguments, a ``TypeError`` is raised, like ``MyWarning.__init__() missing 2 required positional arguments``.
+
+      Because the original warning class is unavailable, you can't do:
 
       .. code:: python
 
