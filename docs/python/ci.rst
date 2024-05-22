@@ -119,7 +119,7 @@ Use the `mccutchen/go-httpbin image <https://hub.docker.com/r/mccutchen/go-httpb
 
 .. note::
 
-   Services include `httpbin <https://httpbingo.org>`__, `RequestBin <https://requestbin.com/docs/>`__, `Postman Echo <https://learning.postman.com/docs/developer/echo-api/>`__, `PostBin <https://www.toptal.com/developers/postbin/>`__, etc.
+   Services to mock APIs include `httpbin <https://httpbingo.org>`__, `RequestBin <https://requestbin.com/docs/>`__, `Postman Echo <https://learning.postman.com/docs/developer/echo-api/>`__, `PostBin <https://www.toptal.com/developers/postbin/>`__, etc.
 
 PostgreSQL
 ^^^^^^^^^^
