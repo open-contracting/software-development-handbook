@@ -4,9 +4,9 @@ Shell script
 Directory layout
 ----------------
 
-For builds that involve independent command-line tools, use `Make <https://www.gnu.org/software/make/>`__, and follow DataMade's `Making Data Guidelines <https://github.com/datamade/data-making-guidelines>`__ and Clark Grubb's `Makefile Style Guide <https://clarkgrubb.com/makefile-style-guide>`__. Examples: `standard_profile_template <https://github.com/open-contracting/standard_profile_template>`__
+For builds that involve independent command-line tools, use `Make <https://www.gnu.org/software/make/>`__, and follow DataMade's `Making Data Guidelines <https://github.com/datamade/data-making-guidelines>`__ and Clark Grubb's `Makefile Style Guide <https://clarkgrubb.com/makefile-style-guide>`__, for example: `standard_profile_template <https://github.com/open-contracting/standard_profile_template>`__
 
-If a repository has scripts to set itself up and/or update itself, follow GitHub's `Scripts to Rule Them All <https://github.com/github/scripts-to-rule-them-all>`__. Examples: `deploy <https://github.com/open-contracting/deploy/tree/main/script>`__, `standard_profile_template <https://github.com/open-contracting/standard_profile_template/tree/latest/script>`__
+If a repository has scripts to set itself up and/or update itself, follow GitHub's `Scripts to Rule Them All <https://github.com/github/scripts-to-rule-them-all>`__, for example: `deploy <https://github.com/open-contracting/deploy/tree/main/script>`__ and `standard_profile_template <https://github.com/open-contracting/standard_profile_template/tree/latest/script>`__
 
 Filename conventions
 ~~~~~~~~~~~~~~~~~~~~
@@ -23,6 +23,8 @@ Reference: `The Set Builtin <https://www.gnu.org/software/bash/manual/html_node/
 Code style
 ----------
 
+Check ``/bin/sh`` scripts using `checkbashisms <https://manpages.debian.org/stable/devscripts/checkbashisms.1.en.html>`__.
+
 Check shell scripts using `shellcheck <https://www.shellcheck.net>`__.
 
 Style shell scripts using `shfmt <https://github.com/mvdan/sh>`__: for example, ``shfmt -w -i 4 -sr (shfmt -f .)``.
@@ -30,7 +32,7 @@ Style shell scripts using `shfmt <https://github.com/mvdan/sh>`__: for example, 
 Use:
 
 -  ``[ ]`` instead of ``test``
--  ``[ ]`` instead of ``[[ ]]``, `unless required <https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions>`__
+-  ``[ ]`` instead of ``[[ ]]`` in Bash, `unless required <https://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions>`__
 -  ``$NAME`` instead of ``${NAME}``, unless followed by a word character
 -  Subshells to temporarily change directory, for example:
 
