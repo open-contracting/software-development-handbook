@@ -10,7 +10,7 @@ A guide for developers of OCP's tools.
 This work is licensed under a `Creative Commons Attribution 4.0 International License <https://creativecommons.org/licenses/by/4.0/>`__.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    general/index
    python/index
