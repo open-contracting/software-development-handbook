@@ -57,8 +57,8 @@ Create a ``.github/workflows/ci.yml`` file, and use or adapt one of the :ref:`te
 
 Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
 
-Warnings
-~~~~~~~~
+Python warnings
+~~~~~~~~~~~~~~~
 
 The step that runs tests should either the ``-W`` option or the ``PYTHONWARNINGS`` environment variable to ``error``.
 
@@ -88,6 +88,38 @@ If the workflow requires `service containers <https://docs.github.com/en/actions
 .. note::
 
    Service containers are `only available on Ubuntu runners <https://docs.github.com/en/actions/using-containerized-services/about-service-containers#about-service-containers>`__.
+
+Mock APIs
+^^^^^^^^^
+
+Use the `mccutchen/go-httpbin image <https://hub.docker.com/r/mccutchen/go-httpbin>`__ to mock APIs. For example:
+
+.. code-block:: yaml
+
+       steps:
+         # ...
+         - env:
+             TEST_URL: http://localhost:${{ job.services.httpbin.ports[8080] }}
+           run: pytest -W error --cov mymodule
+       services:
+         httpbin:
+           image: mccutchen/go-httpbin:latest
+           ports:
+             - 8080/tcp
+
+.. code-block:: python
+
+   import requests
+
+   TEST_URL = os.getenv("TEST_URL", "http://httpbingo.org")
+
+
+   def test_200():
+       assert requests.get(f"{TEST_URL}/status/200").status_code == 200
+
+.. note::
+
+   Services include `httpbin <https://httpbingo.org>`__, `RequestBin <https://requestbin.com/docs/>`__, `Postman Echo <https://learning.postman.com/docs/developer/echo-api/>`__, `PostBin <https://www.toptal.com/developers/postbin/>`__, etc.
 
 PostgreSQL
 ^^^^^^^^^^
