@@ -18,11 +18,11 @@ Preferences
 
 -  Prefer crates in the top 250 according to `lib.rs <https://lib.rs/std>`__
 -  Read the ``Cargo.toml`` files of OCP projects for inspiration
--  Us unstable features instead of related crates. For example:
+-  Us unstable language features or compiler flags instead of related crates. For example:
 
    -  `let_chains <https://doc.rust-lang.org/unstable-book/language-features/let-chains.html>`__ instead of `if_chain <https://docs.rs/if_chain/latest/if_chain/>`__
    -  `once_cell <https://doc.rust-lang.org/std/cell/struct.OnceCell.html>`__ instead of `once_cell <https://docs.rs/once_cell/latest/once_cell/>`__ (crate) or `lazy_static <https://docs.rs/lazy_static/latest/lazy_static/>`__
-   -  `unix_sigpipe <https://doc.rust-lang.org/beta/unstable-book/language-features/unix-sigpipe.html>`__ instead of `calm_io <https://github.com/myrrlyn/calm_io>`__
+   -  `on-broken-pipe <https://doc.rust-lang.org/nightly/unstable-book/compiler-flags/on-broken-pipe.html>`__ instead of `calm_io <https://github.com/myrrlyn/calm_io>`__
 
 .. seealso::
 
