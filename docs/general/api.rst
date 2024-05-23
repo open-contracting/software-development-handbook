@@ -1,9 +1,17 @@
-API
-===
+Library and Web API
+===================
 
 .. note::
 
    This page is a stub.
+
+Library API
+-----------
+
+Take a documentation-driven development approach. That is, write the public documentation first, then write the code. In doing so, you can surface complexities that can be simplified, and otherwise work through many design issues.
+
+Web API
+-------
 
 Follow best practices for authoring APIs. Some tips:
 
