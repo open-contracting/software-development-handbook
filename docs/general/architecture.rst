@@ -11,9 +11,9 @@ Monoliths
 At present:
 
 -  Each of our services can run on a single server.
--  Each service has at most two repositories: backend and frontend, excluding non-service dependencies.
--  Each service's codebase has at most 3000 relevant lines, according to `Coveralls <https://coveralls.io>`__.
--  Each service's Docker Compose file defines the containers for the backend, frontend and workers (if any).
+-  A service has at most 2 repositories: backend and frontend, excluding non-service dependencies.
+-  A service's codebase has at most 3000 relevant lines, according to `Coveralls <https://coveralls.io>`__.
+-  A service's Docker Compose file defines the containers for the backend, frontend and any workers.
 
 When using :doc:`../python/django`, the workers are written as Django `management commands <https://docs.djangoproject.com/en/4.2/howto/custom-management-commands/>`__. In other cases, the workers are written as Click commands, sharing code with other commands.
 
