@@ -277,18 +277,23 @@ Reference: `Configuration options for dependency updates <https://docs.github.co
 Maintenance
 -----------
 
+.. seealso::
+
+   -  :ref:`JavaScript CI maintenance<javascript-ci>`
+   -  :ref:`Shell scripts CI maintenance<shell-ci>`
+
 Find unexpected workflows:
 
 .. code-block:: bash
 
-   find . -path '*/workflows/*' ! -name ci.yml ! -name lint.yml ! -name mypy.yml ! -name js.yml ! -name shell.yml ! -name spellcheck.yml ! -name i18n.yml ! -name pypi.yml ! -name docker.yml ! -path '*/node_modules/*' ! -path '*/vendor/*'
+   find . -path '*/workflows/*' ! -name automerge.yml ! -name ci.yml ! -name lint.yml ! -name mypy.yml ! -name js.yml ! -name shell.yml ! -name spellcheck.yml ! -name i18n.yml ! -name pypi.yml ! -name docker.yml ! -path '*/node_modules/*' ! -path '*/vendor/*'
 
 Find ``ci.yml`` files without ``lint.yml`` files, and vice versa:
 
 .. code-block:: bash
 
    find . \( -name lint.yml \) -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name ci.yml) ]]; then echo {}; fi' \;
-   find . \( -name ci.yml \) -not -path '*/node_modules/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name lint.yml) ]]; then echo {}; fi' \;
+   find . \( -name ci.yml \) ! -path '*/node_modules/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name lint.yml) ]]; then echo {}; fi' \;
 
 Find and compare ``lint.yml`` files:
 
@@ -305,24 +310,6 @@ Find and compare ``lint.yml`` files:
    953ef7f0815d49226fd2d05db8df516fff2e3fdb black + application
    dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4 black + package
 
-Find and compare ``js.yml`` files:
-
-.. code-block:: bash
-
-   find . -name js.yml -exec bash -c 'echo $(tail -r {} | tail +2 | tail -r | shasum - | cut -d" " -f1) {}' \;
-
-Find and compare ``shell.yml`` files:
-
-.. code-block:: bash
-
-   find . -name shell.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
-
-Find repositories with shell scripts but without ``shell.yml`` files:
-
-.. code-block:: bash
-
-   find . \( -path '*/script/*' -o -name '*.sh' \) -not -path '*/node_modules/*' -not -path '*/vendor/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name shell.yml) ]]; then echo {}; fi' \;
-
 Find and compare ``pypi.yml`` files:
 
 .. code-block:: bash
@@ -333,7 +320,7 @@ Find repositories for Python packages but without ``pypi.yml`` files:
 
 .. code-block:: bash
 
-   find . -name setup.cfg -not -path '*/node_modules/*' -exec bash -c 'if grep long_description {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
+   find . -name setup.cfg ! -path '*/node_modules/*' -exec bash -c 'if grep long_description {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
 
 Find and compare ``i18n.yml`` files:
 
@@ -345,7 +332,7 @@ Find repositories with ``LC_MESSAGES`` directories but without ``i18n.yml`` file
 
 .. code-block:: bash
 
-   find . -name LC_MESSAGES -not -path '*/en/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name i18n.yml) ]]; then echo {}; fi' \;
+   find . -name LC_MESSAGES ! -path '*/en/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name i18n.yml) ]]; then echo {}; fi' \;
 
 Reference
 ---------

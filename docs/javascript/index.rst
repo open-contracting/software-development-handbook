@@ -149,12 +149,12 @@ Vue
 
 -  When navigating between "pages", respect native browser behaviors (open in new tab, etc.) by using an ``<a>`` link or ``<router-link>``.
 
-.. _javascript-ci:
-
 Internationalization (i18n)
 ---------------------------
 
 See the `Transifex Native <https://developers.transifex.com/docs/native>`__ documentation for your framework.
+
+.. _javascript-ci:
 
 Continuous integration
 ----------------------
@@ -163,6 +163,15 @@ Create a ``.github/workflows/js.yml`` file. As a base, use:
 
 .. literalinclude:: samples/js.yml
    :language: yaml
+
+Maintenance
+~~~~~~~~~~~
+
+Find and compare ``js.yml`` files:
+
+.. code-block:: bash
+
+   find . -name js.yml -exec bash -c 'echo $(tail -r {} | tail +2 | tail -r | shasum - | cut -d" " -f1) {}' \;
 
 Reference
 ---------

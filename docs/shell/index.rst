@@ -74,6 +74,21 @@ Create a ``.github/workflows/shell.yml`` file with:
 .. literalinclude:: samples/shell.yml
    :language: yaml
 
+Maintenance
+~~~~~~~~~~~
+
+Find repositories with shell scripts but without ``shell.yml`` files:
+
+.. code-block:: bash
+
+   find . \( -path '*/script/*' -o -name '*.sh' \) ! -path '*/.mypy_cache/*' ! -path '*/node_modules/*' ! -path '*/vendor/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name shell.yml) ]]; then echo {}; fi' \;
+
+Find and compare ``shell.yml`` files:
+
+.. code-block:: bash
+
+   find . -name shell.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
+
 Reference
 ---------
 
