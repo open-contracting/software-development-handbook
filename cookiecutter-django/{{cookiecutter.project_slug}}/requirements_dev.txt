@@ -27,11 +27,11 @@ click==8.0.3
     # via
     #   black
     #   pip-tools
-coverage==6.1.2
+coverage[toml]==6.1.2
     # via
     #   -r requirements_dev.in
     #   coveralls
-coveralls==3.3.1
+coveralls==4.0.1
     # via -r requirements_dev.in
 distlib==0.3.3
     # via virtualenv
@@ -83,7 +83,7 @@ pyproject-hooks==1.0.0
     # via build
 pyyaml==6.0
     # via pre-commit
-requests==2.31.0
+requests==2.32.2
     # via coveralls
 sentry-sdk==1.14.0
     # via -r requirements.txt
@@ -97,6 +97,7 @@ tomli==1.2.2
     # via
     #   black
     #   build
+    #   coverage
     #   pip-tools
     #   pyproject-hooks
 typing-extensions==4.9.0
