@@ -134,7 +134,7 @@ Optional linting
 
 .. code-block:: bash
 
-   codespell -S '.git,.pytest_cache,cassettes,fixtures,_build,build,dist,target,locale,locales,vendor,node_modules,docson,htmlcov,redmine,schemaspy,*.csv,*.json,*.jsonl,*.map,*.po,european-union-support'
+   codespell -S '.git,.pytest_cache,cassettes,fixtures,_build,build,dist,target,locale,locales,vendor,node_modules,docson,htmlcov,schemaspy,*.csv,*.json,*.jsonl,*.map,*.po,european-union-support'
 
 ..
    Skip:
@@ -145,7 +145,7 @@ Optional linting
    -  built directories (_build, build, dist, htmlcov, target)
    -  non-English directories (locale, locales)
    -  generic third-party code (vendor, node_modules)
-   -  specific third-party code (docson, redmine, schemaspy)
+   -  specific third-party code (docson, htmlcov, schemaspy)
    -  non-code and non-documentation files
    -  codespell-covered repositories (european-union-support)
 

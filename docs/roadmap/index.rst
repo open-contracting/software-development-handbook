@@ -55,7 +55,7 @@ It is of course of primary importance that our tools respond to user needs. See 
 -  Listen to users and document their needs, when they communicate through the `mailing list <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__, `GitHub repositories <https://github.com/open-contracting>`__, data support, community calls, in-person events, etc.
 -  Ask users about their needs, whether through the channels above, online surveys, phone interviews, or other methods
 -  Observe users interact with our tools, whether indirectly through web analytics or directly through usability testing
--  Reflect on what was heard and observed, whether during OCDS retreats, team meetings, CRM issues, GitHub repositories, etc.
+-  Reflect on what was heard and observed, whether during OCDS retreats, team meetings, GitHub repositories, etc.
 -  Promote the use of our tools and encourage feedback through the mailing list, GitHub repositories, and data support
 -  Recognize that our tools are only one part of a user's workflow and of a wider ecosystem
 -  Transfer knowledge from relevant domains, e.g. open data more broadly
