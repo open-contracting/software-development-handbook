@@ -64,7 +64,6 @@ linkcheck_ignore = [
     # Returns 404 to linkcheck.
     r'^https://crates.io',
     # Redirects to login pages.
-    r'^https://(?:redash\.open-contracting\.org)',
     r'^https://(?:app\.usefathom\.com/#|console\.aws\.amazon\.com|readthedocs\.org/dashboard|sentry\.io/settings)/.+',
     r'^https://(?:admin\.google\.com|myaccount\.google\.com)/.+',
     r'^https://(?:docs\.google\.com/(?:document|spreadsheets)/d|drive\.google\.com/drive/folders)/.+',

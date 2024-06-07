@@ -14,7 +14,6 @@ Product and service families
 
    -  `Data Registry <https://data.open-contracting.org/>`__: An online tool to find and access public procurement datasets that are available in the OCDS format.
    -  `Cardinal <https://github.com/open-contracting/cardinal-rs>`__: A command-line tool to calculate red flags and procurement indicators from OCDS data.
-   -  `Redash <https://redash.open-contracting.org>`__: A deployment of `Redash <https://redash.io>`__ to give users access to the Kingfisher database.
 
 -  Evaluation
 
