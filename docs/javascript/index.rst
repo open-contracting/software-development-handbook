@@ -18,7 +18,7 @@ Version
 ECMAScript
 ~~~~~~~~~~
 
-Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature support in modern browsers <https://kangax.github.io/compat-table/es6/>`__). We don't support `Internet Explorer 11 <https://death-to-ie11.com>`__.
+Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature support in modern browsers <https://compat-table.github.io/compat-table/es6/>`__). We don't support `Internet Explorer 11 <https://death-to-ie11.com>`__.
 
 .. tip::
 
