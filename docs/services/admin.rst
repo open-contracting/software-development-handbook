@@ -8,6 +8,7 @@ If a service is down, check its status page:
 * `Amazon Web Services <https://health.aws.amazon.com/phd/status>`__
 * `Cloudflare <https://www.cloudflarestatus.com>`__
 * `GitHub <https://www.githubstatus.com>`__
+* `GoDaddy <https://status.godaddy.com>`__
 * `Google <https://www.google.com/appsstatus/dashboard/>`__
 * `Heroku <https://status.heroku.com>`__
 * `Linode <https://status.linode.com>`__
