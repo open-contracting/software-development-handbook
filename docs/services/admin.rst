@@ -10,7 +10,6 @@ If a service is down, check its status page:
 * `GitHub <https://www.githubstatus.com>`__
 * `GoDaddy <https://status.godaddy.com>`__
 * `Google <https://www.google.com/appsstatus/dashboard/>`__
-* `Heroku <https://status.heroku.com>`__
 * `Linode <https://status.linode.com>`__
 * `PyPI <https://status.python.org>`__
 * `ReadTheDocs <https://status.readthedocs.com>`__
@@ -104,11 +103,6 @@ Groups
 -  `standard-discuss <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ (`owners <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Aowner>`__, `managers <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Amanager>`__)
 
 There should be a minimum of two `Owner <https://support.google.com/a/answer/167094?hl=en>`__ members from OCP only.
-
-Heroku
-------
-
-There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" to "All domains".
 
 Linode
 ------
