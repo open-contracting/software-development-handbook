@@ -6,8 +6,11 @@ See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/refer
 If a service is down, check its status page:
 
 * `Amazon Web Services <https://health.aws.amazon.com/phd/status>`__
+* `Cloudflare <https://www.cloudflarestatus.com>`__
 * `GitHub <https://www.githubstatus.com>`__
 * `Google <https://www.google.com/appsstatus/dashboard/>`__
+* `Heroku <https://status.heroku.com>`__
+* `Linode <https://status.linode.com>`__
 * `PyPI <https://status.python.org>`__
 * `ReadTheDocs <https://status.readthedocs.com>`__
 * `Sentry <https://status.sentry.io>`__
