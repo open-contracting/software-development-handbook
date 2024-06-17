@@ -27,7 +27,7 @@ Cloudflare
 
 There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" to "All domains".
 
-Third-party managers of static websites can be added.
+Third-party sysadmins can be added.
 
 GitHub
 ------
@@ -41,6 +41,13 @@ There should be a minimum of two `owners <https://docs.github.com/en/organizatio
 .. seealso::
 
    :doc:`GitHub for maintainers<../github/maintainers>`
+
+GoDaddy
+-------
+
+There should be a minimum of two `accounts <https://sso.godaddy.com/access>`__ from OCP only at the "Products, Domains, & Purchase" access level.
+
+Third-party sysadmins can be added.
 
 Google
 ------
@@ -94,12 +101,17 @@ Groups
 
 There should be a minimum of two `Owner <https://support.google.com/a/answer/167094?hl=en>`__ members from OCP only.
 
+Heroku
+------
+
+There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" to "All domains".
+
 Linode
 ------
 
 There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with Full account access from OCP.
 
-Third-party managers of Linode servers can be added.
+Third-party sysadmins can be added.
 
 .. _pypi-access:
 
@@ -117,7 +129,7 @@ ReadTheDocs
 
 There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with the Maintainer role from OCP.
 
-Third-party maintainers of PyPI packages can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
+Third-party maintainers can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
 
 Sentry
 ------
