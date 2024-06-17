@@ -22,10 +22,17 @@ Amazon Web Services
 
 There should be a minimum of two `IAM users <https://console.aws.amazon.com/iam/home?region=us-east-1#/home>`__ in the administrators group from OCP only. `The root user should not be used <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html>`__.
 
+Cloudflare
+----------
+
+There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" to "All domains".
+
+Third-party managers of static websites can be added.
+
 GitHub
 ------
 
-There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization>`__ from OCP. Owners do not need to be added to teams.
+There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization>`__ from OCP only. Owners do not need to be added to teams.
 
 .. tip::
 
