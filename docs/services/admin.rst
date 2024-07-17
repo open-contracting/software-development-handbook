@@ -11,6 +11,7 @@ If a service is down, check its status page:
 * `GoDaddy <https://status.godaddy.com>`__
 * `Google <https://www.google.com/appsstatus/dashboard/>`__
 * `Linode <https://status.linode.com>`__
+* `Microsoft Azure <https://azure.status.microsoft/en-ca/status>`__
 * `PyPI <https://status.python.org>`__
 * `ReadTheDocs <https://status.readthedocs.com>`__
 * `Sentry <https://status.sentry.io>`__
@@ -108,6 +109,13 @@ Linode
 ------
 
 There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with Full account access from OCP.
+
+Third-party sysadmins can be added.
+
+Microsoft Azure
+---------------
+
+There should be a minimum of two `users <https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers>`__ with the Global Administrator role from OCP.
 
 Third-party sysadmins can be added.
 
