@@ -85,7 +85,7 @@ pyyaml==6.0
     # via pre-commit
 requests==2.32.2
     # via coveralls
-sentry-sdk==1.14.0
+sentry-sdk==2.10.0
     # via -r requirements.txt
 six==1.16.0
     # via virtualenv
