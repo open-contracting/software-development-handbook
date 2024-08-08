@@ -61,9 +61,9 @@ Memory
 
    When profiling a Django project, ensure ``DEBUG = False``: for example, by running ``env DJANGO_ENV=production``.
 
-There are broadly two use cases: reduce memory consumption (like in data processing) and fix memory leaks (like in long-running processes). Tools for reducing memory consumption typically measure peaks and draw flamegraphs; that said, they also can be used for memory leaks, by `generating work that leaks memory <https://pythonspeed.com/articles/python-server-memory-leaks/>`__.
+Memory profilers have two use cases: reduce memory consumption (like in data processing) and fix memory leaks (like in long-running processes). Tools for reducing memory consumption typically measure peaks and draw flamegraphs; that said, they also can be used for memory leaks, by `generating work that leaks memory <https://pythonspeed.com/articles/python-server-memory-leaks/>`__.
 
-To evaluate memory usage in production, learn the differences between `heap memory and resident memory <https://bloomberg.github.io/memray/memory.html>`__. In particular, `resident memory is not freed immediately <https://bloomberg.github.io/memray/memory.html#memory-is-not-freed-immediately>`__.
+When evaluating memory usage in production, remember the differences between `heap memory and resident memory <https://bloomberg.github.io/memray/memory.html>`__. In particular, `resident memory is not freed immediately <https://bloomberg.github.io/memray/memory.html#memory-is-not-freed-immediately>`__.
 
 -  `tracemalloc — Trace memory allocations <https://docs.python.org/3/library/tracemalloc.html>`__
 -  `memray <https://bloomberg.github.io/memray/>`__ to diagnose peak memory, using `attach <https://bloomberg.github.io/memray/attach.html>`__ for a running process, including `live reporting <https://bloomberg.github.io/memray/live.html>`__
