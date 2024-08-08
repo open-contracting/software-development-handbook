@@ -304,6 +304,10 @@ Development
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
+.. seealso::
+
+   `pdb — The Python Debugger <https://docs.python.org/3/library/pdb.html>`__
+
 To access a Python shell with Django configured:
 
 .. code-block:: shell

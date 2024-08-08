@@ -28,33 +28,62 @@ Once a hotspot is found, the solution might be to:
 -  Process in parallel: for example, distributing work to multiple threads, like we do with :doc:`../services/rabbitmq`
 -  Replace it entirely: for example, using the :ref:`orjson<format-json>` package instead of the ``json`` library
 
+.. seealso::
+
+   -  `Scalene <https://pypi.org/project/scalene/>`__ for CPU, GPU and memory statistical profiling
+   -  `Austin <https://github.com/P403n1x87/austin>`__ for CPU and memory statistical profiling
+   -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, in a running program
+   -  `psutil <https://pypi.org/project/psutil/>`__
+
 CPU
 ~~~
 
-For example:
+-  `The Python Profilers <https://docs.python.org/3/library/profile.html>`__ for deterministing profiling, for example:
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   cat packages.json | python -m cProfile -o code.prof ocdskit/__main__.py compile > /dev/null
-   gprof2dot -f pstats code.prof | dot -Tpng -o output.png
-   open output.png
+      cat packages.json | python -m cProfile -o code.prof ocdskit/__main__.py compile > /dev/null
+      gprof2dot -f pstats code.prof | dot -Tpng -o output.png
+      open output.png
 
-To see where a running program is spending its time, use `py-spy top <https://github.com/benfred/py-spy>`__.
+-  `yappi <https://pypi.org/project/yappi/>`__ for deterministing profiling of multiple threads or asynchronous code
+-  `py-spy <https://github.com/benfred/py-spy>`__'s ``top`` to measure lines, instead of functions, in a running program
+-  `line-profiler <https://pypi.org/project/line-profiler/>`__ to measure lines, instead of functions
+-  `timeit <https://docs.python.org/3/library/timeit.html>`__ to measure a code snippet
+-  `pyinstrument <https://pypi.org/project/pyinstrument/>`__ for `statistical profiling <https://pyinstrument.readthedocs.io/en/latest/how-it-works.html>`__
+
+.. pprofile not updated since 2021. https://pypi.org/project/pprofile/
 
 Memory
 ~~~~~~
 
-For example:
+.. tip::
 
-.. code-block:: shell
+   When profiling a Django project, ensure ``DEBUG = False``: for example, by running ``env DJANGO_ENV=production``.
 
-   pip install memory_profiler matplotlib
-   time mprof run libcoveoc4ids data.json
-   mprof plot
+There are broadly two use cases: reduce memory consumption (like in data processing) and fix memory leaks (like in long-running processes). Tools for reducing memory consumption typically measure peaks and draw flamegraphs; that said, they also can be used for memory leaks, by `generating work that leaks memory <https://pythonspeed.com/articles/python-server-memory-leaks/>`__.
+
+-  `tracemalloc — Trace memory allocations <https://docs.python.org/3/library/tracemalloc.html>`__
+-  `memray <https://bloomberg.github.io/memray/>`__
+-  `filprofiler <https://pypi.org/project/filprofiler/>`__ to diagnose peak memory
+
+..
+
+   `memory-profiler <https://pypi.org/project/memory-profiler/>`__ is unmaintained. Use psrecord instead, unless profiling individual functions.
+
+   These are maintained, but not developed:
+
+   -  `pympler <https://pypi.org/project/Pympler/>`__'s `muppy <https://pympler.readthedocs.io/en/latest/muppy.html#muppy>`__ provides information like gc, tracemalloc and weakref
+   -  `guppy3 <https://pypi.org/project/guppy3/>`__ provides information like gc, tracemalloc and weakref, but has limited documentation
+   -  `objgraph <https://pypi.org/project/objgraph/>`__, to plot memory references, in order to find memory leaks
+
+.. seealso::
+
+   -  `gc — Garbage Collector interface <https://docs.python.org/3/library/gc.html>`__
+   -  `weakref — Weak references <https://docs.python.org/3/library/weakref.html>`__
 
 Reference
 ---------
 
 -  `High Performance Browser Networking <https://hpbn.co>`__
--  `Memray <https://bloomberg.github.io/memray/>`__ by Bloomberg
 -  `Computer, Enhance! course by Casey Muratori <https://www.computerenhance.com>`__
