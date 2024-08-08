@@ -37,7 +37,7 @@ See `Adding resources in bulk <https://developers.transifex.com/docs/cli#adding-
 
    For reference, the equivalent with the old Python Transifex Client, replacing ``TXPROJECT`` and ``APP``, was:
 
-   .. code:: bash
+   .. code-block:: bash
 
       tx config mapping -r TXPROJECT.django -f APP/locale/en_US/LC_MESSAGES/django.po -s en_US -t PO 'APP/locale/<lang>/LC_MESSAGES/django.po'
 
@@ -46,54 +46,46 @@ Translate with Transifex
 
 Whenever text in the interface is added or updated, you must extract the strings to translate from the code files into PO files by running:
 
-.. grid:: 2
+.. code-block:: bash
+   :caption: Django
 
-   .. grid-item-card:: Django
+   django-admin makemessages -l en_US --no-obsolete
 
-      .. code:: bash
+.. code-block:: bash
+   :caption: Python (example)
 
-         django-admin makemessages -l en_US --no-obsolete
-
-   .. grid-item-card:: Python (example)
-
-      .. code:: bash
-
-         pybabel extract -F babel.cfg -o messages.pot .
-         pybabel update -i messages.pot -d locale
+   pybabel extract -F babel.cfg -o messages.pot .
+   pybabel update -i messages.pot -d locale
 
 Then, push the PO files to Transifex with:
 
-.. code:: bash
+.. code-block:: bash
 
    tx push -s
 
 If you made local changes to translations, push the translations to Transifex. For example:
 
-.. code:: bash
+.. code-block:: bash
 
    tx push -t -l en
 
 When ready, pull the translations from Transifex with:
 
-.. code:: bash
+.. code-block:: bash
 
    tx pull -f -a
 
 Then, compile the PO files to MO files with:
 
-.. grid:: 2
+.. code-block:: bash
+   :caption: Django
 
-   .. grid-item-card:: Django
+   python manage.py compilemessages
 
-      .. code:: bash
+.. code-block:: bash
+   :caption: Python (example)
 
-         python manage.py compilemessages
-
-   .. grid-item-card:: Python (example)
-
-      .. code:: bash
-
-         pybabel compile -f -d locale
+   pybabel compile -f -d locale
 
 Reference: Django `Translation <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__
 

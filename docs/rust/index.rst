@@ -30,6 +30,13 @@ Preferences
 
 .. Candidates for preferences https://github.com/open-contracting/cardinal-rs/issues/4
 
+Performance
+-----------
+
+.. seealso::
+
+   `coz <https://github.com/plasma-umass/coz>`__ profiler
+
 Code style
 ----------
 
@@ -151,14 +158,14 @@ If you're getting confusing compile errors, especially any involving type annota
 -  Your annotations are correct. If you change your code but don't change your annotations, the compiler might report errors that are distantly related to the misannotation.
 -  You duck type using trait objects: for example, ``Box<dyn Read>`` to use ``std::io:stdin()`` and ``File::open(file).unwrap()`` interchangeably. The compiler can't determine which traits are relevant across the two types.
 
-If errors relate to ownership, try:
+If errors relate to ownership, try using:
 
--  Using ``Arc<Mutex<T>>``, as discussed in sections `16.3 <https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct>`__ and `20.2 <https://doc.rust-lang.org/book/ch20-02-multithreaded.html#sending-requests-to-threads-via-channels>`__ of *The Rust Programming Language*.
--  Using ``Option`` with ``take()``, as discussed in sections `17.3 <https://doc.rust-lang.org/book/ch17-03-oo-design-patterns.html#requesting-a-review-of-the-post-changes-its-state>`__ and `20.3 <https://doc.rust-lang.org/book/ch20-03-graceful-shutdown-and-cleanup.html#implementing-the-drop-trait-on-threadpool>`__ of *The Rust Programming Language*.
+-  ``Arc<Mutex<T>>``, as discussed in sections `16.3 <https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct>`__ and `20.2 <https://doc.rust-lang.org/book/ch20-02-multithreaded.html#sending-requests-to-threads-via-channels>`__ of *The Rust Programming Language*.
+-  ``Option`` with ``take()``, as discussed in sections `17.3 <https://doc.rust-lang.org/book/ch17-03-oo-design-patterns.html#requesting-a-review-of-the-post-changes-its-state>`__ and `20.3 <https://doc.rust-lang.org/book/ch20-03-graceful-shutdown-and-cleanup.html#implementing-the-drop-trait-on-threadpool>`__ of *The Rust Programming Language*.
 
-To reduce the number of allocations, try:
+To reduce the number of allocations, try using:
 
--  Using ``mem::take`` or ``mem::replace`` (`Rust Design Patterns <https://rust-unofficial.github.io/patterns/idioms/mem-replace.html>`__).
+-  ``mem::take`` or ``mem::replace`` (`Rust Design Patterns <https://rust-unofficial.github.io/patterns/idioms/mem-replace.html>`__).
 
 .. seealso::
 

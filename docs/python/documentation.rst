@@ -102,8 +102,11 @@ Review the broken links in the ``_linkcheck/output.txt`` file:
 
 .. _readthedocs:
 
-Create a ReadTheDocs project
-----------------------------
+ReadTheDocs
+-----------
+
+Create a project
+~~~~~~~~~~~~~~~~
 
 #. Sign in to `ReadTheDocs <https://readthedocs.org/dashboard/>`__
 #. Click *Import a Project*
@@ -133,8 +136,8 @@ Create a ReadTheDocs project
    #. Uncheck *Active*
    #. Click *Save*
 
-Configure the ReadTheDocs project
----------------------------------
+Configure the project
+~~~~~~~~~~~~~~~~~~~~~
 
 .. tab-set::
 
@@ -160,8 +163,8 @@ Configure the ReadTheDocs project
 
    At present, Python 3.9 is used, because ReadTheDocs is not compatible with Python 3.10.
 
-Redirect a ReadTheDocs project
-------------------------------
+Redirect a project
+~~~~~~~~~~~~~~~~~~
 
 #. Replace ``docs/_templates/layout.html`` with the below, replacing ``SUBDOMAIN``:
 

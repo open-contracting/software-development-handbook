@@ -76,7 +76,7 @@ Warnings
 
       The `warnings.catch_warnings(record=True) <https://docs.python.org/3/library/warnings.html#warnings.catch_warnings>`__ context manager catches instances of ``warnings.WarningMessage``, not instances of the original warning classes. To reissue a warning, you need to do, like in `Apache Airflow <https://github.com/apache/airflow/blob/main/airflow/utils/warnings.py>`__:
 
-      .. code:: python
+      .. code-block:: python
 
          warnings.warn_explicit(w.message, w.category, w.filename, w.lineno, source=w.source)
 
@@ -84,7 +84,7 @@ Warnings
 
       Because the additional required arguments are unavailable, you can't do:
 
-      .. code:: python
+      .. code-block:: python
 
          warnings.warn(category(w.message, var1, var2))  # var1 and var2 are indeterminable
 
