@@ -31,8 +31,8 @@ Once a hotspot is found, the solution might be to:
 .. seealso::
 
    -  `Scalene <https://pypi.org/project/scalene/>`__ for CPU, GPU and memory statistical profiling
-   -  `Austin <https://github.com/P403n1x87/austin>`__ for CPU and memory statistical profiling
-   -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, in a running program
+   -  `Austin <https://github.com/P403n1x87/austin>`__ for CPU and memory statistical profiling, including running processes
+   -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, in a running process
    -  `psutil <https://pypi.org/project/psutil/>`__
 
 CPU
@@ -47,7 +47,7 @@ CPU
       open output.png
 
 -  `yappi <https://pypi.org/project/yappi/>`__ for deterministing profiling of multiple threads or asynchronous code
--  `py-spy <https://github.com/benfred/py-spy>`__'s ``top`` to measure lines, instead of functions, in a running program
+-  `py-spy <https://github.com/benfred/py-spy>`__'s ``top`` to measure lines, instead of functions, in a running process
 -  `line-profiler <https://pypi.org/project/line-profiler/>`__ to measure lines, instead of functions
 -  `timeit <https://docs.python.org/3/library/timeit.html>`__ to measure a code snippet
 -  `pyinstrument <https://pypi.org/project/pyinstrument/>`__ for `statistical profiling <https://pyinstrument.readthedocs.io/en/latest/how-it-works.html>`__
@@ -63,8 +63,10 @@ Memory
 
 There are broadly two use cases: reduce memory consumption (like in data processing) and fix memory leaks (like in long-running processes). Tools for reducing memory consumption typically measure peaks and draw flamegraphs; that said, they also can be used for memory leaks, by `generating work that leaks memory <https://pythonspeed.com/articles/python-server-memory-leaks/>`__.
 
+To evaluate memory usage in production, learn the differences between `heap memory and resident memory <https://bloomberg.github.io/memray/memory.html>`__. In particular, `resident memory is not freed immediately <https://bloomberg.github.io/memray/memory.html#memory-is-not-freed-immediately>`__.
+
 -  `tracemalloc — Trace memory allocations <https://docs.python.org/3/library/tracemalloc.html>`__
--  `memray <https://bloomberg.github.io/memray/>`__
+-  `memray <https://bloomberg.github.io/memray/>`__ to diagnose peak memory, using `attach <https://bloomberg.github.io/memray/attach.html>`__ for a running process, including `live reporting <https://bloomberg.github.io/memray/live.html>`__
 -  `filprofiler <https://pypi.org/project/filprofiler/>`__ to diagnose peak memory
 
 ..
