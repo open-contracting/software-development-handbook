@@ -55,7 +55,7 @@ Whenever text in the interface is added or updated, you must extract the strings
    :caption: Python (example)
 
    pybabel extract -F babel.cfg -o messages.pot .
-   pybabel update -i messages.pot -d locale
+   pybabel update -N -i messages.pot -d locale
 
 Then, push the PO files to Transifex with:
 
