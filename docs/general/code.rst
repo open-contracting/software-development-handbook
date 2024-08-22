@@ -5,6 +5,27 @@ Code
 
    :ref:`principles`
 
+Clarity over brevity
+--------------------
+
+The intention and logic of the code should be obvious. Avoid "clever" code.
+
+Avoid writing code that targets more conditions than intended. For example:
+
+.. code-block:: python
+
+   if not amount:
+       raise MissingAmountError
+
+This condition passes if ``amount`` is ``None``, ``False``, ``0``, ``0.0``, ``""``, ``b""``, or an empty collection (``dict``, ``list``, ``set``, ``tuple``, etc.). A careful reader will consider all these possibilities – which takes extra effort. If the expected type of ``amount`` is ``float``, the reader will wonder, "Is amount never 0.0, or is this a bug?" If the only other expected type of ``amount`` is ``NoneType``, the code is clearer with:
+
+.. code-block:: python
+
+   if amount is None:
+       raise MissingAmountError
+
+A careful reader now has no cognitive overhead. (The performance is also optimal.)
+
 Maintainability over readability
 --------------------------------
 
@@ -33,7 +54,7 @@ This may seem obvious, yet repetition like this is very common in outsourced pro
 
 There are at least these exceptions to `DRY <https://en.wikipedia.org/wiki/Don%27t_repeat_yourself>`__:
 
--  The duplication is imperfect. Deduplication would involve many branches, which can be harder to read and error-prone.
+-  The duplication is imperfect. Deduplication would involve many branches or deep call stacks, which can be harder to read and error-prone.
 -  Deduplication would involve nesting loops, which can be harder to read and error-prone.
 -  The project is young, and the API is unstable.
 -  The repetition is insubstantial.
