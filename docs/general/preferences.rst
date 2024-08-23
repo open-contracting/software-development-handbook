@@ -58,12 +58,24 @@ Web servers
 Miscellaneous
 -------------
 
--  Power BI (business intelligence)
--  AWS Simple Email Service (SES) (email)
--  RabbitMQ (message broker)
--  Memcached (page caching)
--  Transifex (translation)
+-  Amazon Web Services (non-compute), including:
+
+   -  CloudFront (content delivery network)
+   -  Cognito (identity provider)
+   -  Relational Database Service (RDS)
+   -  Simple Email Service (SES)
+   -  Simple Notification Service (SNS)
+   -  Simple Storage Service (S3)
+
+   CloudWatch and Identity and Access Management (IAM) are used to monitor and access the above.
+
+   .. note:: OCP has `AWS credits from TechSoup <https://www.techsoup.org/amazon-web-services>`__.
+
 -  Fathom (web analytics)
+-  Memcached (page caching)
+-  Power BI (business intelligence)
+-  RabbitMQ (message broker)
+-  Transifex (translation) for collaboration, otherwise gettext
 
 Reference
 ---------
