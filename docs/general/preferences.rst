@@ -58,6 +58,7 @@ Web servers
 Miscellaneous
 -------------
 
+-  Power BI (business intelligence)
 -  AWS Simple Email Service (SES) (email)
 -  RabbitMQ (message broker)
 -  Memcached (page caching)
