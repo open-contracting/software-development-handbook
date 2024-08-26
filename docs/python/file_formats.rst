@@ -22,7 +22,7 @@ For critical paths involving *small files*, use `orjson <https://pypi.org/projec
 
 .. note::
 
-   We can switch to the `Python bindings for simdjson <https://github.com/TkTech/pysimdjson>`__.
+   We can switch to the `Python bindings for simdjson <https://pypi.org/project/cysimdjson/>`__. Read the *Trade-offs* section.
 
 For *large files*, use the `same techniques <https://ocdskit.readthedocs.io/en/latest/contributing.html#streaming>`__ as OCDS Kit to stream input using `ijson <https://pypi.org/project/ijson/>`__, stream output using `iterencode <https://docs.python.org/3/library/json.html#json.JSONEncoder.iterencode>`__, and postpone evaluation using iterators. See its `brief tutorial <https://ocdskit.readthedocs.io/en/latest/library.html#working-with-streams>`__ on streaming and reuse its `default method <https://ocdskit.readthedocs.io/en/latest/_modules/ocdskit/util.html>`__.
 
