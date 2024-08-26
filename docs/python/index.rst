@@ -33,7 +33,7 @@ Applications are upgraded to, at minimum, the Python version in the `latest Ubun
    style_guide
    i18n
    a11y
-   packages
    performance
+   packages
 
 Reference: `18F Python Development Guide <https://engineering.18f.gov/python/>`__
