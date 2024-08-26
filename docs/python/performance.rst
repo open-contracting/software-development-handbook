@@ -32,7 +32,7 @@ Once a hotspot is found, the solution might be to:
 
    -  `Scalene <https://pypi.org/project/scalene/>`__ for CPU, GPU and memory statistical profiling
    -  `Austin <https://github.com/P403n1x87/austin>`__ for CPU and memory statistical profiling, including running processes
-   -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, in a running process
+   -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, including running processes
    -  `psutil <https://pypi.org/project/psutil/>`__
 
 CPU
@@ -70,7 +70,6 @@ When evaluating memory usage in production, remember the differences between `he
 -  `filprofiler <https://pypi.org/project/filprofiler/>`__ to diagnose peak memory
 
 ..
-
    `memory-profiler <https://pypi.org/project/memory-profiler/>`__ is unmaintained. Use psrecord instead, unless profiling individual functions.
 
    These are maintained, but not developed:
