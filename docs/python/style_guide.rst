@@ -156,7 +156,7 @@ is easier to write than:
 
 There are two cases in which f-strings and ``str.format()`` are not preferred:
 
-.. _string-logging:
+.. _string-logging-i18n:
 
 Logging
   `"Formatting of message arguments is deferred until it cannot be avoided." <https://docs.python.org/3/howto/logging.html#optimization>`__ If you write:

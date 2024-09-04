@@ -43,7 +43,7 @@ Templating
   `Jinja <https://jinja.palletsprojects.com/>`__. Do not use CSS framework integration packages like ``django-bootstrap*``, as they tend to lag the most recent releases. See :doc:`../htmlcss/index`.
 Asset management
   Do not use `django-compressor <https://django-compressor.readthedocs.io/en/stable/>`__ or `django-pipeline <https://django-pipeline.readthedocs.io/en/latest/>`__, which are always behind NPM packages. See :ref:`javascript-preferences` for JavaScript.
-Translation
+Internationalization (i18n)
   `gettext <https://docs.python.org/3/library/gettext.html>`__ and `Babel <https://babel.pocoo.org/en/latest/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/4.2/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
 Logging
   `logging <https://docs.python.org/3/library/logging.html>`__

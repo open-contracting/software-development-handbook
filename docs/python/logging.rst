@@ -5,7 +5,7 @@ An application should use (but not over-use) logging to make it easier to debug 
 
 .. seealso::
 
-   Logging section of the :ref:`String formatting style guide<string-logging>`
+   Logging section of the :ref:`String formatting style guide<string-logging-i18n>`
 
 .. _logging-name:
 

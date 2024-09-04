@@ -1,22 +1,26 @@
 Internationalization (i18n)
 ===========================
 
+.. seealso::
+
+   :doc:`preferences` for Internationalization (i18n)
+
 Treat the source language as "developer" English, using the language code ``en_US``. Then, use Transifex to translate the "developer" English to "proper" English, using the language code ``en``.
 
 .. note::
 
-   If you are using the source language as "proper" English, then replace ``en_US`` with ``en`` in the commands and templates below.
+   If using the source language as "proper" English, then replace ``en_US`` with ``en`` in the commands and templates below.
 
 Reference: `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__
-
-.. seealso::
-
-   :doc:`preferences`
 
 Mark strings to translate
 -------------------------
 
 When using Django, use its `translation functions and template tags <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__. Otherwise, use `gettext.gettext() <https://docs.python.org/3/library/gettext.html>`__.
+
+.. seealso::
+
+   :ref:`Internationalization (i18n) string formatting <string-logging-i18n>`
 
 Configure message extraction
 ----------------------------
