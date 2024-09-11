@@ -49,8 +49,6 @@ Logging
   `logging <https://docs.python.org/3/library/logging.html>`__
 Testing
   `pytest <https://docs.pytest.org/>`__, unless a framework uses another, like `Django <https://docs.djangoproject.com/en/4.2/topics/testing/>`__ (unittest).
-Coverage
-  `Coveralls <https://coveralls-python.readthedocs.io/en/latest/>`__
 Documentation
   `Sphinx <https://www.sphinx-doc.org/en/master/>`__. Its Markdown extensions should only be used for OCDS documentation.
 

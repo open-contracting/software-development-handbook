@@ -12,7 +12,5 @@ jobs:
           cache: pip
           cache-dependency-path: '**/requirements*.txt'
       - run: pip install -r requirements_dev.txt
-      - run: pytest --cov APPNAME1
-      - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: coveralls --service=github
+      - run: coverage run --source=APPNAME1 -m pytest -W error
+      - uses: coverallsapp/github-action@v2

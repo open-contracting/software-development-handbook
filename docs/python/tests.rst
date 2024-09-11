@@ -44,7 +44,7 @@ Otherwise, pytest is :doc:`preferred<preferences>`. For applications:
 
 .. code-block:: shell
 
-   pip-sync requirements_dev.txt
+   pip install -r requirements_dev.txt
    pytest
 
 For :doc:`packages<packages>`:

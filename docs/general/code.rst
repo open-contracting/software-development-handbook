@@ -177,7 +177,7 @@ Periodically, scan all repositories for such links and check whether the workaro
 
 .. code-block:: none
 
-   https://github.com/(?!open-contracting|eForms/)[^/]+/[^/]+/(?:issues|pull)/
+   (?<! <|\]\()https://github.com/(?!open-contracting|eForms/)[^/]+/[^/]+/(?:issues|pull)/
 
 You can ignore these file paths:
 

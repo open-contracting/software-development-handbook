@@ -56,7 +56,7 @@ Open http://127.0.0.1:8000/ in your web browser.
 Check docstring style
 ---------------------
 
-Use `pydocstyle <https://www.pydocstyle.org/en/stable/>`__ in new :doc:`packages<packages>`.
+Use `Ruff <https://docs.astral.sh/ruff/>`__ in new :doc:`packages<packages>`.
 
 .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
    :language: toml

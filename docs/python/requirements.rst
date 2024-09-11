@@ -20,24 +20,22 @@ The requirements of *applications* (not :doc:`packages<packages>`) are managed b
       -  Older versions: ``foo<2``
       -  Versions range: ``foo>=1.2,<2``
 
--  ``requirements_dev.in`` names all direct requirements needed exclusively in the development environment, and not in the production environment, e.g. ``pytest`` or ``pip-tools`` itself.
+-  ``requirements_dev.in`` names all direct requirements needed exclusively in the development environment, and not in the production environment, e.g. ``pytest``.
 
    -  This file should include the direct requirements needed in the production environment, by having a first line of ``-r requirements.txt``.
 
--  ``requirements.txt`` names all direct and indirect requirements needed in the production environment, all locked to specific versions by `pip-tools <https://pypi.org/project/pip-tools/>`__.
--  ``requirements_dev.txt`` names all direct and indirect requirements needed in the development environment, all locked to specific versions by ``pip-tools``.
+-  ``requirements.txt`` names all direct and indirect requirements needed in the production environment, all locked to specific versions by `uv <https://docs.astral.sh/uv/>`__.
+-  ``requirements_dev.txt`` names all direct and indirect requirements needed in the development environment, all locked to specific versions by ``uv``.
 
 This ensures that:
 
 -  All environments use the same versions of production requirements, to ensure consistent and replicable deployments and to avoid errors or surprises during or after deployment due to differences between versions (e.g. a new version of Django requires upgrading application code).
--  Different developers and continuous integration use the same versions of development requirements, to avoid test failures due to differences between versions (e.g. a new version of pytest requires upgrading test code, or a new version of flake8 has stricter linting rules).
+-  Different developers and continuous integration use the same versions of development requirements, to avoid test failures due to differences between versions (e.g. a new version of pytest requires upgrading test code, or a new version of ruff has stricter linting rules).
 
 Get started
 -----------
 
-.. code-block:: bash
-
-   pip install pip-tools
+`Install uv<https://docs.astral.sh/uv/getting-started/installation/>`__.
 
 A common starter ``requirements.in`` for :doc:`django` is:
 
@@ -47,12 +45,11 @@ A common starter ``requirements_dev.in`` for linting in :doc:`django` is:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements_dev.in
 
-If not using Django, remove ``coverage`` and add:
+If not using Django, add:
 
 .. code-block:: none
 
    pytest
-   pytest-cov
 
 Add a requirement
 -----------------

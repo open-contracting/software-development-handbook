@@ -1,8 +1,2 @@
 -r requirements.txt
-black
 coverage
-coveralls
-flake8
-isort
-pip-tools
-pre-commit

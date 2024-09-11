@@ -11,6 +11,8 @@ Collaboration
 -  Google Meet (audio/video calling)
 -  Slack (instant messaging)
 
+.. _devops:
+
 DevOps
 ------
 

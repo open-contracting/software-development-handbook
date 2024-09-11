@@ -2,13 +2,69 @@
 requires = ["setuptools>=61.2"]
 build-backend = "setuptools.build_meta"
 
-[tool.black]
+[project]
+name = "{{ cookiecutter.package_name }}"
+version = "0.0.1"
+authors = [{name = "Open Contracting Partnership", email = "data@open-contracting.org"}]
+description = "{{ cookiecutter.short_description }}"
+readme = "README.rst"
+license = {text = "BSD"}
+urls = {Homepage = "https://github.com/open-contracting/{{ cookiecutter.repository_name }}"}
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+{%- if cookiecutter.os_independent == "y" %}
+    "Operating System :: OS Independent",
+{%- else %}
+    "Operating System :: POSIX :: Linux",
+{%- endif %}
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+{%- if cookiecutter.pypy == "y" %}
+    "Programming Language :: Python :: Implementation :: PyPy",
+{%- endif %}
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "coverage",
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+exclude = [
+    "tests",
+    "tests.*",
+]
+
+[tool.ruff]
 line-length = 119
+target-version = "py39"
 
-[tool.isort]
-profile = 'black'
-line_length = 119
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "ANN", "COM", "EM",
+  # https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+  "W191", "D206", "Q000", "Q001", "Q002", "Q003", "ISC001",
+  "D203", "D212",  # ignore incompatible rules
+  "D200", "D205",  # documentation preferences
+  "C901", "PLR091",  # complexity preferences
+]
 
-[tool.pydocstyle]
-match_dir = '(?!tests).*'
-ignore = 'D100,D104,D200,D203,D205,D212,D400,D415'
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["copyright"]
+
+[tool.ruff.lint.per-file-ignores]
+"docs/conf.py" = ["INP001"]  # no __init__.py file
+"tests/*" = [
+  "D",  # docstring
+  "ARG001",  # pytest fixtures
+  "PLR0913",  # Too many arguments
+  "PLR2004",  # Magic value used
+  "S101",  # assert
+]

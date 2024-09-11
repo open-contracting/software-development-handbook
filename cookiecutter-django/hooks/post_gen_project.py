@@ -19,8 +19,9 @@ def set_secret_key(path):
 
 def use_fathom(enabled):
     if enabled:
-        print(dedent(
-            """
+        print(
+            dedent(
+                """
             {%- raw %}
             Run python manage.py startapp and add a fathom.html file to its templates/ directory:
 
@@ -33,7 +34,8 @@ def use_fathom(enabled):
             {% include 'fathom.html' %}
             {%- endraw %}
             """  # noqa: E501
-        ))
+            )
+        )
     else:
         os.remove(os.path.join("core", "context_processors.py"))
 

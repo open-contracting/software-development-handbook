@@ -7,13 +7,13 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
-        python-version: [3.8, 3.9, '3.10', '3.11', '3.12', pypy-3.9]
+        python-version: [3.8, 3.9, '3.10', '3.11', '3.12', pypy-3.10]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install tox
-      - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: tox
+      - run: pip install coverage tox
+      - run: tox -- coverage run --source=PACKAGENAME --append -m pytest
+      - run: coverage lcov
+      - uses: coverallsapp/github-action@v2

@@ -72,11 +72,7 @@ The step that runs tests should either the ``-W`` option or the ``PYTHONWARNINGS
 Code coverage
 ~~~~~~~~~~~~~
 
-All the :ref:`templates<python-ci-templates>` below use Coveralls, :doc:`as preferred<preferences>`.
-
-.. tip::
-
-   If needed, you can `combine coverage results from multiple jobs <https://coveralls-python.readthedocs.io/en/latest/usage/configuration.html#github-actions-support>`__.
+All the :ref:`templates<python-ci-templates>` below use Coveralls, :ref:`as preferred<devops>`.
 
 .. _service-containers:
 
@@ -100,7 +96,7 @@ Use the `mccutchen/go-httpbin image <https://hub.docker.com/r/mccutchen/go-httpb
          # ...
          - env:
              TEST_URL: http://localhost:${{ job.services.httpbin.ports[8080] }}
-           run: pytest -W error --cov mymodule
+           run: coverage run --source=MODULENAME -m pytest -W error
        services:
          httpbin:
            image: mccutchen/go-httpbin:latest
@@ -229,7 +225,7 @@ If using `tox <https://tox.wiki/en/latest/>`__:
 
 .. note::
 
-   Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.9 on Windows).
+   Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.10 on Windows).
 
 If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_name }}`` and removing the Jinja syntax if not using the :doc:`Cookiecutter template<packages>`:
 
@@ -243,17 +239,17 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
 .. code-block:: yaml
 
          # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
-         - if: matrix.python-version != 'pypy-3.9'
+         - if: matrix.python-version != 'pypy-3.10'
            name: Test
            shell: bash
            run: |
-             coverage run --append --source=PACKAGENAME -m pytest
+             coverage run --source=PACKAGENAME --append -m pytest
              pip install orjson
-             coverage run --append --source=PACKAGENAME -m pytest
+             coverage run --source=PACKAGENAME --append -m pytest
              pip uninstall -y orjson
-         - if: matrix.python-version == 'pypy-3.9'
+         - if: matrix.python-version == 'pypy-3.10'
            name: Test
-           run: pytest --cov PACKAGENAME
+           run: coverage run --source=PACKAGENAME -m pytest
 
 Static files
 ^^^^^^^^^^^^
@@ -300,15 +296,6 @@ Find and compare ``lint.yml`` files:
 .. code-block:: bash
 
    find . -name lint.yml -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "9773a893d136df0dc82deddedd8af8563969c04a 9222eac95ab63f3c2d983ba3cf4629caea53a72e fc3eff616a7e72f41c96e48214d244c9058dbc83 953ef7f0815d49226fd2d05db8df516fff2e3fdb dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
-
-..
-   The shasums are:
-
-   9773a893d136df0dc82deddedd8af8563969c04a basic
-   9222eac95ab63f3c2d983ba3cf4629caea53a72e application
-   fc3eff616a7e72f41c96e48214d244c9058dbc83 package
-   953ef7f0815d49226fd2d05db8df516fff2e3fdb black + application
-   dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4 black + package
 
 Find and compare ``pypi.yml`` files:
 
