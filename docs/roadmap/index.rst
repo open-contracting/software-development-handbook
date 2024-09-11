@@ -46,6 +46,8 @@ Principles
 
 This section serves to clarify important considerations, not establish a comprehensive philosophy.
 
+.. seealso:: `Manifesto for Agile Software Development <https://agilemanifesto.org>`_, prior to its professionalization.
+
 Understand user needs
 ~~~~~~~~~~~~~~~~~~~~~
 
