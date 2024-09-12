@@ -122,6 +122,8 @@ Management commands
 
       If implementing a worker (i.e. daemon), use Python logging, instead.
 
+-  Remember to add ``__init__.py`` files to the ``management`` and ``management/commands`` directories within app directories. Otherwise, their coverage won't be calculated.
+
 .. _django-settings:
 
 Settings

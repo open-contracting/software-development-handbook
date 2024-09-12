@@ -1,10 +1,6 @@
 Performance
 ===========
 
-.. note::
-
-   This page is a stub. This page presently only has reusable snippets.
-
 .. seealso::
 
    :ref:`Django performance<django-performance>`

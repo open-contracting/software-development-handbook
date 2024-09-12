@@ -1,7 +1,9 @@
 Documentation
 =============
 
-:doc:`packages` and applications *must* have documentation to describe their usage for an external audience. They *may* have documentation to describe how to contribute. Documentation is written using `Sphinx <https://www.sphinx-doc.org/en/master/>`__ in a ``docs`` directory.
+:doc:`packages` and applications *must* have documentation to describe their usage for an external audience. They *may* have documentation to describe how to contribute.
+
+Documentation is written using `Sphinx <https://www.sphinx-doc.org/en/master/>`__ in a ``docs`` directory.
 
 .. seealso::
 
@@ -16,11 +18,11 @@ Documentation
 Write docstrings
 ----------------
 
-:doc:`packages` must have `Sphinx-style docstrings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists>`__ for public modules, classes and methods, so that Sphinx can automatically generate documentation and so that Python's `help() function <https://docs.python.org/3/library/functions.html#help>`__ can display useful output.
+:doc:`packages` must have `Sphinx-style docstrings <https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#info-field-lists>`__ for public modules, classes and methods, so that Sphinx can generate documentation and so that Python's `help() function <https://docs.python.org/3/library/functions.html#help>`__ can display useful output.
 
 Use the imperative mood (per `PEP 257 <https://peps.python.org/pep-0257/#one-line-docstrings>`__) in new projects. If an existing project uses the present tense, stay consistent.
 
-Type hints are preferred to ``type``, ``rtype`` and ``vartype`` fields. Use `autodoc_type_aliases <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_type_aliases>`__ to simplify long type hints (`related <https://github.com/sphinx-doc/sphinx/issues/8934>`__). Use `intersphinx_mapping <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping>`__ to hyperlink types from other packages. See :ref:`python-type-hints`.
+Type hints are preferred to ``type``, ``rtype`` and ``vartype`` fields. Use `autodoc_type_aliases <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_type_aliases>`__ to simplify long type hints (`related <https://github.com/sphinx-doc/sphinx/issues/8934>`__). Use `intersphinx_mapping <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping>`__ to link types from other packages. See :ref:`python-type-hints`.
 
 .. note::
 
@@ -37,7 +39,7 @@ Install requirements:
 
 .. code-block:: bash
 
-   pip install furo sphinx-autobuild
+   pip install sphinx-autobuild -r docs/requirements.txt
 
 Build the HTML pages:
 
@@ -49,7 +51,7 @@ Open http://127.0.0.1:8000/ in your web browser.
 
 .. note::
 
-   Documentation is built in ``docs/_build/html``, to match the location when building with ``make html`` from the ``docs/`` directory.
+   Documentation is built in ``docs/_build/html``, like when building with ``make html`` from the ``docs/`` directory.
 
 .. _check-docstring-style:
 
@@ -58,9 +60,8 @@ Check docstring style
 
 Use `Ruff <https://docs.astral.sh/ruff/>`__ in new :doc:`packages<packages>`.
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
-   :language: jinja
-   :caption: pyproject.toml
+.. literalinclude:: samples/pyproject-ruff.toml
+   :language: toml
 
 These error codes are ignored:
 
@@ -158,10 +159,6 @@ Configure the project
 
       .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/docs/requirements.txt
          :caption: docs/requirements.txt
-
-.. note::
-
-   At present, Python 3.9 is used, because ReadTheDocs is not compatible with Python 3.10.
 
 Redirect a project
 ~~~~~~~~~~~~~~~~~~

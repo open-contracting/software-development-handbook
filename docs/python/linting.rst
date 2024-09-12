@@ -8,40 +8,17 @@ Configuration
 
 New projects should use the `Ruff <https://docs.astral.sh/ruff/>`__ formatter and linter, with line lengths of 119 (the Django coding style until 4.0), configured as follows:
 
-.. tab-set::
+.. literalinclude:: samples/pyproject-ruff.toml
+   :language: toml
 
-   .. tab-item:: Python
-
-      .. code-block:: yaml
-         :caption: pyproject.toml
-
-         [tool.ruff]
-         line-length = 119
-         target-version = "py311"
-
-         [tool.ruff.lint]
-         select = ["E", "C4", "F", "I", "W"]
-
-   .. tab-item:: Package
-
-      .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
-         :language: jinja
-         :caption: pyproject.toml
-
-   .. tab-item:: Django
-
-      .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/pyproject.toml
-         :language: jinja
-         :caption: pyproject.toml
-
-Do not use ``setup.cfg``, ``setup.py``, ``.editorconfig`` or tool-specific files like ``.coveragerc``.
+In general, add all configuration to ``pyproject.toml``. Do not use ``setup.cfg``, ``setup.py``, ``.editorconfig`` or tool-specific files like ``.coveragerc`` or ``pytest.ini``.
 
 .. _linting-pre-commit:
 
 Pre-commit hooks
 ----------------
 
-To avoid pushing commits that fail formatting/linting checks, new projects should use `pre-commit <https://pre-commit.com>`__. For example, if Ruff is configured as above, create a ``.pre-commit-config.yaml`` file:
+To avoid pushing commits that fail formatting or linting checks, new projects should use `pre-commit <https://pre-commit.com>`__. For example, if Ruff is configured as above, create a ``.pre-commit-config.yaml`` file:
 
 .. tab-set::
 
@@ -62,11 +39,11 @@ To avoid pushing commits that fail formatting/linting checks, new projects shoul
 Skipping linting
 ----------------
 
-``noqa``, ``isort:skip`` and ``type: ignore`` comments should be kept to a minimum, and should reference the specific error, to avoid shadowing another error: for example, ``# noqa: E501`` or ``# type: ignore[attr-defined]``.
+``noqa``, ``isort:skip`` and ``type: ignore`` comments should be avoided, and should reference the specific error if used, to avoid shadowing another error: for example, ``# noqa: E501`` or ``# type: ignore[attr-defined]``.
 
 The errors that are allowed to be ignored per line are:
 
--  ``E501 line too long`` for long strings, especially URLs
+-  ``E501 line too long`` for long strings
 -  ``F401 module imported but unused`` in a library's top-level ``__init__.py`` file
 -  ``E402 module level import not at top of file`` in a Django project's ``asgi.py`` file
 -  ``W291 Trailing whitespace`` in tests relating to trailing whitespace
@@ -116,4 +93,6 @@ Optional linting
 
 .. admonition:: Complexity rules
 
-   Complexity is best measured by the effort required to read and modify code. This cannot be measured using techniques like `cyclomatic complexity <https://en.wikipedia.org/wiki/Cyclomatic_complexity>`__. Reducing cyclomatic complexity typically means extracting single-caller methods and/or using object-oriented programming, which frequently *increases* cognitive complexity. See the note under :ref:`create-products-sustainably`.
+   Complexity is best measured by the effort required to read and modify code. This cannot be measured using techniques like `cyclomatic complexity <https://en.wikipedia.org/wiki/Cyclomatic_complexity>`__. Reducing cyclomatic complexity typically means extracting single-caller methods and/or using object-oriented programming, which frequently *increases* cognitive complexity.
+
+   See the note under :ref:`create-products-sustainably`.

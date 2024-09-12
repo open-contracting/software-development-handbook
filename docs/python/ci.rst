@@ -60,7 +60,7 @@ Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/action
 Python warnings
 ~~~~~~~~~~~~~~~
 
-The step that runs tests should either the ``-W`` option or the ``PYTHONWARNINGS`` environment variable to ``error``.
+The step that runs tests should set either the ``-W`` option or the ``PYTHONWARNINGS`` environment variable to ``error``.
 
 .. tip::
 
@@ -203,12 +203,12 @@ Set the Ubuntu version and Python version to those used in production.
 
 If using :doc:`django`, use this template, replacing ``core`` if needed and adding app directories as comma-separated values after ``--source``:
 
-.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/workflows/ci.yml
-   :language: yaml
-
 .. note::
 
    Remember to add ``__init__.py`` files to the ``management`` and ``management/commands`` directories within app directories. Otherwise, their coverage won't be calculated.
+
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/.github/workflows/ci.yml
+   :language: yaml
 
 Otherwise, use this template, replacing ``APPNAME1``:
 
@@ -225,7 +225,7 @@ If using `tox <https://tox.wiki/en/latest/>`__:
 
 .. note::
 
-   Do not use ``tox`` to test multiple Python versions. Use the `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions, instead. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.10 on Windows).
+   Use `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions to test multiple Python versions, not ``tox``. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.10 on Windows).
 
 If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_name }}`` and removing the Jinja syntax if not using the :doc:`Cookiecutter template<packages>`:
 

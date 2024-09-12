@@ -23,7 +23,6 @@ builtins-ignorelist = ["copyright"]
 
 [tool.ruff.lint.per-file-ignores]
 "docs/conf.py" = ["INP001"]  # no __init__.py file
-"*/management/commands/*" = ["INP001"]  # no __init__.py file
 "*/migrations/*" = ["E501"]
 "tests/*" = [
   "D",  # docstring

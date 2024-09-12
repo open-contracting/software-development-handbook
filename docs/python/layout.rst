@@ -51,19 +51,15 @@ Packages
 
 .. note::
 
-   ``__main__.py`` is executed when the package is invoked directly from the command line using the ``-m`` flag. For example:
+   ``__main__.py`` is `executed <https://docs.python.org/3/library/__main__.html#main-py-in-python-packages>`__ when the package is invoked directly from the command line using the ``-m`` flag. For example:
 
    .. code-block:: bash
 
       python -m ocdskit
 
-.. seealso::
-
-   `__main__.py in Python Packages <https://docs.python.org/3/library/__main__.html#main-py-in-python-packages>`__
-
 .. note::
 
-   We don't use the `src/ layout <https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure>`__. Although a `single blog post <https://blog.ionelmc.ro/2015/02/24/the-problem-with-packaging-in-python/>`__ and a few passionate developers have popularized the idea, in practice, we rarely encounter the problems it solves, and our use of :ref:`check-manifest<python-package-release-process>` and `test_requirements.py <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/tests/test_requirements.py>`__ guard against those problems.
+   We don't use the `src/ layout <https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure>`__ (`more <https://blog.ionelmc.ro/2015/02/24/the-problem-with-packaging-in-python/>`__). In practice, we rarely encounter the problems it solves, and our use of :ref:`check-manifest<python-package-release-process>` and `test_requirements.py <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/tests/test_requirements.py>`__ guard against those problems.
 
 Modules
 -------
@@ -71,7 +67,7 @@ Modules
 -  Use a single module for all models.
 -  If a module defines names that are imported by only one other module, merge the modules unless:
 
-   - The module is a convention of a framework (for example, the files created by the `startapp <https://docs.djangoproject.com/en/4.2/intro/tutorial01/#creating-the-polls-app>`__ command in Django).
+   - It is a convention of a framework (for example, the files created by Django's `startapp <https://docs.djangoproject.com/en/4.2/intro/tutorial01/#creating-the-polls-app>`__ command).
    - There is a divide in terms of responsibility (for example, model and view).
 
 -  Don't split a module only to reduce its length.
