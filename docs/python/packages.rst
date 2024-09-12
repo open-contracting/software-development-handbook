@@ -7,8 +7,14 @@ Use the Pypackage Cookiecutter template, and `add the repository to pre-commit.c
 
 .. code-block:: bash
 
-   pip install cookiecutter
+   uv tool install cookiecutter
    cookiecutter gh:open-contracting/software-development-handbook --directory cookiecutter-pypackage
+
+   uv venv -p 3.9
+   uv pip install -e .[test]
+
+   uv tool install pre-commit
+   pre-commit install
 
 .. seealso::
 

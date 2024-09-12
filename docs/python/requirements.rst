@@ -5,8 +5,18 @@ Requirements
 
    -  When you ``import`` a package for the first time in your application code, add its name to ``requirements.in`` in alphabetical order.
    -  When you ``import`` a package for the first time in your test code, that is never imported in your application code, add its name to ``requirements_dev.in`` in alphabetical order.
-   -  After updating a ``.in`` file, update the ``.txt`` files with ``pip-compile; pip-compile requirements_dev.in``. Never edit the ``.txt`` files directly.
-   -  To update your local environment, run ``pip-sync requirements_dev.txt``.
+   -  After updating a ``.in`` file, update the ``.txt`` files with:
+
+      .. code-block:: bash
+
+         uv pip compile requirements.in -o requirements.txt
+         uv pip compile requirements_dev.in -o requirements_dev.txt
+
+   -  To update your local environment, run:
+
+      .. code-block:: bash
+
+         uv pip sync requirements_dev.txt
 
 Now that you have a :doc:`directory layout<layout>`, you can declare the project's requirements.
 
@@ -37,6 +47,18 @@ Get started
 
 `Install uv <https://docs.astral.sh/uv/getting-started/installation/>`__.
 
+Virtual environment
+~~~~~~~~~~~~~~~~~~~
+
+Create a ``.python-version`` file (for example, containing ``3.11``), then run:
+
+.. code-block:: bash
+
+   uv venv
+
+Requirements files
+~~~~~~~~~~~~~~~~~~
+
 A common starter ``requirements.in`` for :doc:`django` is:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements.in
@@ -58,10 +80,8 @@ Add the requirement in alphabetical order to the appropriate ``.in`` file. Then,
 
 .. code-block:: bash
 
-   pip-compile
-   pip-compile requirements_dev.in
-
-If running ``pip-compile`` introduces unexpected differences, upgrade ``pip-tools`` to the latest version, and check that you are using the same version of Python as for other runs.
+   uv pip compile requirements.in -o requirements.txt
+   uv pip compile requirements_dev.in -o requirements_dev.txt
 
 .. seealso::
 
@@ -85,36 +105,34 @@ psycopg2
 Install requirements
 --------------------
 
-In development:
-
 .. code-block:: bash
 
-   pip-sync requirements_dev.txt
-
-In production:
-
-.. code-block:: bash
-
-   pip-sync -q --pip-args "--exists-action w"
+   uv pip sync requirements_dev.txt
 
 Upgrade requirements
 --------------------
 
 Requirements should be periodically updated, both for security updates and to better distribute the maintenance burden of upgrading versions over time.
 
-Upgrade one requirement, for example:
+Upgrade one requirement in ``requirements.in``, for example:
 
 .. code-block:: bash
 
-   pip-compile -P requests
-   pip-compile -P requests requirements_dev.in
+   uv pip compile -P requests requirements.in -o requirements.txt
+   uv pip compile requirements_dev.in -o requirements_dev.txt
 
-Upgrade all requirements:
+Upgrade one requirement in ``requirements_dev.in``, for example:
 
 .. code-block:: bash
 
-   pip-compile --upgrade
-   pip-compile --upgrade requirements_dev.in
+   uv pip compile -P pytest requirements_dev.in -o requirements_dev.txt
+
+Upgrade all requirements (rare):
+
+.. code-block:: bash
+
+   uv pip compile -U requirements.in -o requirements.txt
+   uv pip compile -U requirements_dev.in -o requirements_dev.txt
 
 Linting
 -------
@@ -132,5 +150,3 @@ If a requirement is reported as unused but is required:
 #. If the package is optional – for example, it is imported in a ``try`` and ``except ImportError`` block – use the ``STANDARD_MAINTENANCE_SCRIPTS_IGNORE`` `environment variable <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__.
 
 #. If the package is used exclusively outside of application code – for example, as a command in the production environment or in a GitHub workflow, or in an `entry point <https://packaging.python.org/en/latest/specifications/entry-points/>`__ or as a Sphinx extension – use the ``STANDARD_MAINTENANCE_SCRIPTS_IGNORE`` environment variable.
-
-If the repository uses :ref:`linting-pre-commit`, and you see errors originating from ``pip``, it is likely that you need to upgrade ``pip-tools`` in both ``.pre-commit-config.yaml`` and ``requirements_dev.txt``.

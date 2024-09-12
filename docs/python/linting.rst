@@ -34,6 +34,12 @@ To avoid pushing commits that fail formatting or linting checks, new projects sh
 
 .. note::
 
+   Applications set the correct Python version in the  `default_language_version <https://pre-commit.com/#top_level-default_language_version>`__ section. Otherwise, pre-commit.ci (or the ``pre-commit`` command locally) can use the incorrect Python version for the ``pip-compile`` hook.
+
+   pre-commit.ci `disallows network connections <https://github.com/pre-commit-ci/issues/issues/55>`__. As such, the ``pip-compile`` hook is configured to be skipped in the ``ci`` section, and is run by the :ref:`lint.yml workflow<linting-ci>`, instead.
+
+.. note::
+
    `pre-commit/pre-commit-hooks <https://github.com/pre-commit/pre-commit-hooks>`__ is not used in the templates, as the errors it covers are rarely encountered.
 
 Skipping linting

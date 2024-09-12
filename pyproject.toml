@@ -1,3 +1,7 @@
+[project]
+name = "software-development-handbook"
+version = "0.0.0"
+
 [tool.ruff]
 # https://github.com/astral-sh/ruff/issues/9381
 extend-exclude = ["cookiecutter-django", "cookiecutter-pypackage"]

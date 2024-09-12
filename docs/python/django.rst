@@ -5,8 +5,14 @@ Use the Django Cookiecutter template, and `add the repository to pre-commit.ci <
 
 .. code-block:: bash
 
-   pip install cookiecutter
+   uv tool install cookiecutter
    cookiecutter gh:open-contracting/software-development-handbook --directory cookiecutter-django
+
+   uv venv
+   uv pip sync requirements_dev.txt
+
+   uv tool install pre-commit
+   pre-commit install
 
 For the ``stefanzweifel/git-auto-commit-action`` action, add the repository to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team, and set the *Permission level* to "Admin".
 
