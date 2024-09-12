@@ -59,7 +59,7 @@ Check docstring style
 Use `Ruff <https://docs.astral.sh/ruff/>`__ in new :doc:`packages<packages>`.
 
 .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
-   :language: toml
+   :language: jinja
    :caption: pyproject.toml
 
 These error codes are ignored:

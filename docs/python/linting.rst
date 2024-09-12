@@ -25,13 +25,13 @@ New projects should use the `Ruff <https://docs.astral.sh/ruff/>`__ formatter an
    .. tab-item:: Package
 
       .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
-         :language: yaml
+         :language: jinja
          :caption: pyproject.toml
 
    .. tab-item:: Django
 
       .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/pyproject.toml
-         :language: yaml
+         :language: jinja
          :caption: pyproject.toml
 
 Do not use ``setup.cfg``, ``setup.py``, ``.editorconfig`` or tool-specific files like ``.coveragerc``.
