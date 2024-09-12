@@ -24,7 +24,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           {%- endraw %}
           cache: pip
-          cache-dependency-path: setup.cfg
+          cache-dependency-path: pyproject.toml
       - run: pip install .[test]
       - run: coverage run --source={{ cookiecutter.package_name }} pytest -W error
       - uses: coverallsapp/github-action@v2

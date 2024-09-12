@@ -25,12 +25,17 @@ When using Django, use its `translation functions and template tags <https://doc
 Configure message extraction
 ----------------------------
 
-When using Django, this step is already done. Otherwise, create a `babel.cfg file <https://babel.pocoo.org/en/latest/messages.html#extraction-method-mapping-and-configuration>`__, for example:
+When using Django, this step is already done. Otherwise, create a `pyproject.toml file <https://babel.pocoo.org/en/latest/messages.html#extraction-method-mapping-and-configuration>`__, for example:
 
-.. code-block:: ini
+.. code-block:: toml
 
-   [python: **.py]
-   [jinja2: **.html]
+   [[tool.babel.mappings]]
+   method = "python"
+   pattern = "**.py"
+
+   [[tool.babel.mappings]]
+   method = "jinja2"
+   pattern = "**.html"
 
 Add the Transifex mapping
 -------------------------
@@ -58,7 +63,7 @@ Whenever text in the interface is added or updated, you must extract the strings
 .. code-block:: bash
    :caption: Python (example)
 
-   pybabel extract -F babel.cfg -o messages.pot .
+   pybabel extract -F pyproject.toml -o messages.pot .
    pybabel update -N -i messages.pot -d locale
 
 Then, push the PO files to Transifex with:

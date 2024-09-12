@@ -18,7 +18,7 @@ jobs:
       - run: pip install babel
       - name: Update catalogs
         run: |
-          pybabel extract -F babel.cfg -o messages.pot .
+          pybabel extract -F pyproject.toml -o messages.pot .
           pybabel update -N -i messages.pot -d locale
       - name: Count incomplete translations
         shell: bash

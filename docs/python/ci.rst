@@ -307,7 +307,7 @@ Find repositories for Python packages but without ``pypi.yml`` files:
 
 .. code-block:: bash
 
-   find . -name setup.cfg ! -path '*/node_modules/*' -exec bash -c 'if grep long_description {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
+   find . -name pyproject.toml ! -path '*/node_modules/*' -exec bash -c 'if grep classifiers {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
 
 Find and compare ``i18n.yml`` files:
 
