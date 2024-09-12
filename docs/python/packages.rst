@@ -17,31 +17,28 @@ Use the Pypackage Cookiecutter template, and `add the repository to pre-commit.c
 Metadata
 --------
 
-If the package is distributed on PyPI, use this template for the ``setup.cfg`` file, adding options like ``entry_points`` and ``namespace_packages`` as needed, and removing the Jinja syntax if not using the Cookiecutter template:
+If the package is distributed on PyPI, use this template for the ``pyproject.toml`` file, adding options like ``entry-points`` as needed, and removing the Jinja syntax if not using the Cookiecutter template:
 
-.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/setup.cfg
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/pyproject.toml
    :language: jinja
 
-If the package isn’t distributed on PyPI, use this template ``setup.cfg``:
+If the package isn’t distributed on PyPI, use this template ``pyproject.toml``:
 
 .. code-block:: python
 
-   [metadata]
-   name = NAME
-   version = 0.0.0
-   license = BSD
+   [project]
+   name = "NAME"
+   version = "0.0.0"
 
-   [options]
-   packages = find:
-   install_requires =
-       REQUIREMENT
+   [tool.setuptools.packages.find]
+   exclude = ["tests", "tests.*"]
 
 Reference: `Packaging and distributing projects <https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/>`__
 
 Requirements
 ~~~~~~~~~~~~
 
--  Use ``install_requires`` and ``extras_require`` in the ``setup.cfg`` file
+-  Use ``dependencies`` and ``optional-dependencies`` in the ``pyproject.toml`` file
 -  Do not use a ``requirements.txt`` file
 -  Sort requirements alphabetically
 
@@ -98,7 +95,7 @@ Release process
 #. Ensure that the package is ready for release:
 
    -  All tests pass on continuous integration
-   -  The version number is correct in ``setup.cfg`` and ``docs/conf.py`` (if present)
+   -  The version number is correct in ``pyproject.toml`` and ``docs/conf.py`` (if present)
    -  The changelog is up-to-date and dated
 
 #. Tag the release, replacing ``x.y.z`` twice:
