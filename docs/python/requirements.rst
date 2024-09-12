@@ -35,7 +35,7 @@ This ensures that:
 Get started
 -----------
 
-`Install uv<https://docs.astral.sh/uv/getting-started/installation/>`__.
+`Install uv <https://docs.astral.sh/uv/getting-started/installation/>`__.
 
 A common starter ``requirements.in`` for :doc:`django` is:
 
