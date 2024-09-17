@@ -3,15 +3,57 @@ Linting
 
 Before writing any code, set up formatters and linters.
 
+In general, add all project configuration to ``pyproject.toml``. Do not use ``setup.cfg``, ``setup.py``, ``.editorconfig`` or tool-specific files like ``.coveragerc`` or ``pytest.ini``.
+
 Configuration
 -------------
 
-New projects should use the `Ruff <https://docs.astral.sh/ruff/>`__ formatter and linter, with line lengths of 119 (the Django coding style until 4.0), configured as follows:
+New projects should use the `Ruff <https://docs.astral.sh/ruff/>`__ formatter and linter, with line lengths of 119 (the Django coding style until 4.0). A starting point, based on `script.sh in standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/tests/script.sh>`__:
 
 .. literalinclude:: samples/pyproject-ruff.toml
    :language: toml
 
-In general, add all configuration to ``pyproject.toml``. Do not use ``setup.cfg``, ``setup.py``, ``.editorconfig`` or tool-specific files like ``.coveragerc`` or ``pytest.ini``.
+With this starting point, check which rules fail:
+
+.. code-block:: bash
+
+   ruff check . --statistics
+
+And check individual failures, for example:
+
+.. code-block:: bash
+
+   ruff check . --select D400
+
+As general guidance:
+
+-  Fix failures, if possible.
+-  Use a ``# noqa: RULE`` comment if the failure is rare (for example, an ``S`` rule), or if it should be fixed, given more time. Add a short comment to explain the failure. For example: ``# noqa: S104 # Docker``
+-  Use ``per-file-ignores`` if the failures occur in a single (or a set of) files. For example: ``"*/__main__.py" = ["T201"]  # print``
+-  Use ``ignore`` if the failures occur in disparate files and are expected to occur in new code. For example: ``"TRY003",  # errors``
+-  Use `settings <https://docs.astral.sh/ruff/settings/>`__ where possible, instead of ignoring rules entirely. Notably, use:
+
+   -  `builtins-ignorelist <https://docs.astral.sh/ruff/settings/#lint_flake8-builtins_builtins-ignorelist>`__, instead of A002
+   -  `extend-immutable-calls <https://docs.astral.sh/ruff/settings/#lint_flake8-bugbear_extend-immutable-calls>`__, instead of B008
+   -  `allowed-confusables <https://docs.astral.sh/ruff/settings/#lint_allowed-confusables>`__, instead of RUF001
+   -  `extend-ignore-names <https://docs.astral.sh/ruff/settings/#lint_flake8-self_extend-ignore-names>`__, instead of SLF001
+
+``isort:skip`` and ``type: ignore`` comments should be avoided, and should reference the specific error if used, to avoid shadowing another error: for example, ``# type: ignore[attr-defined]``.
+
+.. admonition:: Complexity rules
+
+   We ignore the ``C901`` and all ``PLR091`` rules.
+
+   Complexity is best measured by the effort required to read and modify code. This cannot be measured using techniques like `cyclomatic complexity <https://en.wikipedia.org/wiki/Cyclomatic_complexity>`__. Reducing cyclomatic complexity typically means extracting single-caller methods and/or using object-oriented programming, which frequently *increases* cognitive complexity.
+
+   See the note under :ref:`create-products-sustainably`.
+
+..
+   Maintainers can check if docs/ and tests/ rules are included in projects without those directories
+
+   diff -u <(find . -type d -maxdepth 1 ! -name '*handbook' -exec test -f '{}'/pyproject.toml -a  -d '{}'/docs \; -print            | cut -d/ -f2 | sort) <(rg -c copyright */pyproject.toml | cut -d/ -f1 | sort)
+   diff -u <(find . -type d -maxdepth 1 ! -name '*handbook' -exec test -f '{}'/pyproject.toml -a  -d '{}'/docs \; -print            | cut -d/ -f2 | sort) <(rg -c docs/ */pyproject.toml | cut -d/ -f1 | sort)
+   diff -u <(find . -type d -maxdepth 1 -exec test -f '{}'/pyproject.toml -a \( -d '{}'/tests -o -d '{}'/backend/tests \) \; -print | cut -d/ -f2 | sort) <(rg -c tests/ */pyproject.toml | cut -d/ -f1 | sort)
 
 .. _linting-pre-commit:
 
@@ -42,25 +84,6 @@ To avoid pushing commits that fail formatting or linting checks, new projects sh
 
    `pre-commit/pre-commit-hooks <https://github.com/pre-commit/pre-commit-hooks>`__ is not used in the templates, as the errors it covers are rarely encountered.
 
-Skipping linting
-----------------
-
-``noqa``, ``isort:skip`` and ``type: ignore`` comments should be avoided, and should reference the specific error if used, to avoid shadowing another error: for example, ``# noqa: E501`` or ``# type: ignore[attr-defined]``.
-
-The errors that are allowed to be ignored per line are:
-
--  ``E501 line too long`` for long strings
--  ``F401 module imported but unused`` in a library's top-level ``__init__.py`` file
--  ``E402 module level import not at top of file`` in a Django project's ``asgi.py`` file
--  ``W291 Trailing whitespace`` in tests relating to trailing whitespace
--  ``isort:skip`` if ``sys.path`` needs to be changed before an import
-
-Maintainers can find unwanted comments with this regular expression:
-
-.. code-block:: none
-
-   # noqa(?!(: (E501|F401|E402|W291)| isort:skip)\n)
-
 .. _linting-ci:
 
 Continuous integration
@@ -73,10 +96,10 @@ Create a ``.github/workflows/lint.yml`` file. The :doc:`django` and :doc:`Pypack
    - Workflow files for linting :ref:`shell scripts<shell-ci>` and :ref:`Javascript files<javascript-ci>`
    - `standard-maintenance-scripts <https://github.com/open-contracting/standard-maintenance-scripts#tests>`__ to learn about the Bash scripts
 
-.. _python-optional-linting:
+.. _python-additional-linting:
 
-Optional linting
-----------------
+Additional linting
+------------------
 
 `codespell <https://pypi.org/project/codespell/>`__ finds typographical errors. It is especially useful in repositories with lengthy documentation. Otherwise, all repositories can be periodically checked with:
 
@@ -96,9 +119,3 @@ Optional linting
    -  specific third-party code (docson, htmlcov, schemaspy)
    -  non-code and non-documentation files
    -  codespell-covered repositories (european-union-support)
-
-.. admonition:: Complexity rules
-
-   Complexity is best measured by the effort required to read and modify code. This cannot be measured using techniques like `cyclomatic complexity <https://en.wikipedia.org/wiki/Cyclomatic_complexity>`__. Reducing cyclomatic complexity typically means extracting single-caller methods and/or using object-oriented programming, which frequently *increases* cognitive complexity.
-
-   See the note under :ref:`create-products-sustainably`.

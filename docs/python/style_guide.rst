@@ -7,7 +7,7 @@ You may also refer to common guidance like the `Google Python Style Guide <https
 
    The :doc:`../services/index` section contains Python-related content for :doc:`../services/postgresql` and :doc:`../services/rabbitmq`.
 
-   :ref:`Organization-wide spell-checking<python-optional-linting>`
+   :ref:`Organization-wide spell-checking<python-additional-linting>`
 
 Built-in functions
 ------------------
