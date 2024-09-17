@@ -29,6 +29,10 @@ To write clear tests:
 
    There are `important caveats <https://docs.pytest.org/en/stable/how-to/unittest.html>`__ to using ``pytest`` with ``unittest``.
 
+.. attention::
+
+   Remember to `seal() <https://docs.python.org/3/library/unittest.mock.html#unittest.mock.seal>`__ a mock, to avoid unexpected behavior (for example, an attribute evaluating to ``True`` because it returns a ``MagicMock``).
+
 .. _automated-testing:
 
 Run tests
