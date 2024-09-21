@@ -15,6 +15,6 @@ License
 
 .. seealso::
 
-   -  :ref:`javascript-license`
-   -  :ref:`python-license`
-   -  :ref:`rust-license`
+   -  :ref:`JavaScript license<javascript-license>`
+   -  :ref:`Python license<python-license>`
+   -  :ref:`Rust license<rust-license>`
