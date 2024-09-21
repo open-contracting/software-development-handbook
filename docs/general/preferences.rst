@@ -27,8 +27,6 @@ Hosting
 
 -  Linode (virtual private servers)
 -  Hetzner (dedicated servers)
--  AWS Simple Storage Service (S3) (storage)
--  AWS Relational Database Service (RDS) (database)
 -  ReadTheDocs (documentation)
 -  GitHub (code)
 -  GitHub Pages (static sites)
