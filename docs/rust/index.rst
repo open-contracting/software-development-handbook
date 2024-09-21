@@ -18,7 +18,7 @@ Preferences
 
 -  Prefer crates in the top 250 according to `lib.rs <https://lib.rs/std>`__
 -  Read the ``Cargo.toml`` files of OCP projects for inspiration
--  Us unstable language features or compiler flags instead of related crates. For example:
+-  Use unstable language features or compiler flags instead of related crates. For example:
 
    -  `let_chains <https://doc.rust-lang.org/unstable-book/language-features/let-chains.html>`__ instead of `if_chain <https://docs.rs/if_chain/latest/if_chain/>`__
    -  `once_cell <https://doc.rust-lang.org/std/cell/struct.OnceCell.html>`__ instead of `once_cell <https://docs.rs/once_cell/latest/once_cell/>`__ (crate) or `lazy_static <https://docs.rs/lazy_static/latest/lazy_static/>`__
