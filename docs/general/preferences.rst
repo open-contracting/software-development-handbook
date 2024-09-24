@@ -67,7 +67,7 @@ Miscellaneous
    -  Simple Notification Service (SNS)
    -  Simple Storage Service (S3)
 
-   CloudWatch and Identity and Access Management (IAM) are used to monitor and access the above.
+   CloudWatch and Identity and Access Management (IAM) are used to monitor and access these.
 
    .. note:: OCP has `AWS credits from TechSoup <https://www.techsoup.org/amazon-web-services>`__.
 
