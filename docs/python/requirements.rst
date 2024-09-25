@@ -109,6 +109,14 @@ Install requirements
 
    uv pip sync requirements_dev.txt
 
+.. tip::
+
+   If a package with C extensions fails to install, try installing from source, for example:
+
+   .. code-block:: bash
+
+      uv pip install --reinstall --no-cache --no-binary :all: lxml
+
 Upgrade requirements
 --------------------
 
