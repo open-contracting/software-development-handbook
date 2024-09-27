@@ -79,6 +79,16 @@ When evaluating memory usage in production, remember the differences between `he
    -  `gc — Garbage Collector interface <https://docs.python.org/3/library/gc.html>`__
    -  `weakref — Weak references <https://docs.python.org/3/library/weakref.html>`__
 
+Optimizations
+-------------
+
+-  Set `__slots__ <https://docs.python.org/3/reference/datamodel.html#slots>`__ on classes or `slots=True <https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass>`__ on dataclasses that are instantiated frequently.
+
+      "The space saved over using __dict__ can be significant. Attribute lookup speed can be significantly improved as well."
+
+   .. Can search for class in:
+      *.py,-commands/*,-migrations/*,-tests/*,-base_spiders/*,-spiders/*,-exceptions.py,-manage.py,-admin.py,-apps.py,-forms.py,-models.py,-routers.py,-views.py
+
 Reference
 ---------
 
