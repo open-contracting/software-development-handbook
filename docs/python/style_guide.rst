@@ -9,11 +9,6 @@ You may also refer to common guidance like the `Google Python Style Guide <https
 
    :ref:`Organization-wide spell-checking<python-additional-linting>`
 
-Built-in functions
-------------------
-
--  Never use relative ``import``.
-
 Naming
 ------
 
@@ -38,8 +33,8 @@ Maintainers can find TODO comments with this command:
 
 .. _python-type-hints:
 
-Type hints
-----------
+Type annotations
+----------------
 
 Type hints are especially useful in :doc:`packages<packages>` for :ref:`documentation<python-docstrings>` using Sphinx and linting using `Mypy <https://mypy-lang.org>`__. Use of type hints is optional.
 
@@ -110,7 +105,7 @@ Warnings
 
    `Default warning message f-string <https://github.com/python/cpython/blob/v3.10.0/Lib/warnings.py#L37>`__
 
-String formatting
+Formatted strings
 -----------------
 
 .. tip::
@@ -293,8 +288,33 @@ Maintainers can find improper use of multi-line strings with this regular expres
 
    (?<!all|raw)(?<!dedent)(?<!execute)\((\n( *)(#.*)?)*"""
 
+Data structures
+---------------
+
+.. admonition:: Reference
+
+   `Data Structures <https://docs.python.org/3/tutorial/datastructures.html>`__
+
+-  To test whether a value equals one of many literals, use a set (not a tuple or list), because a set is fastest. For example:
+
+   .. code-block:: python
+
+      if status in {"cancelled", "unsuccessful"}:
+          pass
+
+-  To iterate over manually composed values, use a tuple (not a list or dict), because a tuple is simplest, because it is immutable. For example:
+
+   .. code-block:: python
+
+      for subject, index, column in (
+          ("Buyer", 2, "buyer_id"),
+          ("ProcuringEntity", 3, "procuring_entity_id"),
+          ("Tenderer", 4, "tenderer_id"),
+      ):
+          pass
+
 Default values
---------------
+~~~~~~~~~~~~~~
 
 Use ``dict.setdefault`` instead of a simple if-statement. A simple if-statement has no ``elif`` or ``else`` branches, and a single statement in the ``if`` branch.
 
@@ -375,8 +395,21 @@ Maintainers can find class hierarchies, excluding those imposed by dependencies 
 
    \bclass \S+\((?!(AdminConfig|AppConfig|Directive|Exception|SimpleTestCase|TestCase|TransactionTestCase|json\.JSONEncoder|yaml.SafeDumper)\b|(admin|ast|click|forms|migrations|models|nodes|serializers|template|views|viewsets)\.|\S+(Command|Error|Warning)\b)
 
+Simple statements
+-----------------
+
+.. admonition:: Reference
+
+   `Simple statements <https://docs.python.org/3/reference/simple_stmts.html>`__
+
+-  Never use relative ``import``.
+
 Standard library
 ----------------
+
+.. admonition:: Reference
+
+   `The Python Standard Library <https://docs.python.org/3/library/>`__
 
 -  Use `@dataclass <https://docs.python.org/3/library/dataclasses.html>`__ for simple classes only. Using ``@dataclass`` with inheritance, mixins, class variables, etc. tends to increase complexity.
 
