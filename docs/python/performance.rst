@@ -47,7 +47,7 @@ CPU
 -  `vmprof <https://github.com/vmprof/vmprof-python>`__ is a statistic profiler, measures functions or lines, and supports threads and PyPy (and is aware of JIT).
 -  `timeit <https://docs.python.org/3/library/timeit.html>`__ is a deterministic profiler for code snippets.
 
-.. admonitions:: Other profilers
+.. admonition:: Other profilers
 
    -  `yappi <https://pypi.org/project/yappi/>`__ is a deterministic profiler, measures functions, supports threads and async, and has wall and CPU clocks.
    -  `pyinstrument <https://pypi.org/project/pyinstrument/>`__ is a `statistical profiler <https://pyinstrument.readthedocs.io/en/latest/how-it-works.html#statistical-profiling-not-tracing>`__, measures functions, and `supports async <https://pyinstrument.readthedocs.io/en/latest/how-it-works.html#async-profiling>`__ but `not threads <https://github.com/joerick/pyinstrument/issues/71>`__.
