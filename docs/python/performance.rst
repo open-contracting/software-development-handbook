@@ -92,6 +92,11 @@ Optimizations
    .. Can search for class in:
       *.py,-commands/*,-migrations/*,-tests/*,-base_spiders/*,-spiders/*,-exceptions.py,-manage.py,-admin.py,-apps.py,-forms.py,-models.py,-routers.py,-views.py
 
+.. seealso::
+
+   -  `array — Efficient arrays of numeric values <https://docs.python.org/3/library/array.html>`__
+   -  `struct — Interpret bytes as packed binary data <https://docs.python.org/3/library/struct.html>`__
+
 Reference
 ---------
 

@@ -23,9 +23,11 @@ Preferences
 Web framework
   `Django LTS <https://www.djangoproject.com/download/>`__, unless a newer version has desirable features. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://pythonhosted.org/Frozen-Flask/>`__.
 API
-  `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__. Do not use `Django Tastypie <https://django-tastypie.readthedocs.io/en/latest/>`__, which has fallen behind on Django and Python versions.
+  `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__. Do not use `Django Tastypie <https://django-tastypie.readthedocs.io/en/latest/>`__, which has at times fallen behind on Django and Python versions.
 Command-line interface
   `Click <https://click.palletsprojects.com/>`__, unless a framework provides its own, like `Django <https://docs.djangoproject.com/en/4.2/howto/custom-management-commands/>`__ or `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
+DataFrames
+  `Polars <https://pola.rs>`__, unless end-users are unfamiliar (`pandas <https://pandas.pydata.org/docs/>`__).
 Object Relational Mapper (ORM)
   Django. If you don't need an ORM, use `psycopg2 <https://www.psycopg.org/docs/>`__. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except with FastAPI or in low-level libraries with limited scope *where an ORM is needed*.
 
@@ -34,7 +36,7 @@ Object Relational Mapper (ORM)
      Use ``psycopg2`` in production, not ``psycopg2-binary``, `as recommended <https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary>`__. :ref:`See instructions<requirements-psycopg2>`.
 
 HTTP client
-  `Requests <https://docs.python-requests.org/en/latest/>`__, unless a framework uses another, like Scrapy (Twisted).
+  `Requests <https://docs.python-requests.org/en/latest/>`__ for synchronous code and `httpx <https://www.python-httpx.org>`__ for asynchronous code, unless a framework uses another, like Scrapy (Twisted).
 HTML parsing
   `lxml <https://pypi.org/project/lxml/>`__. Do not use `BeautifulSoup <https://pypi.org/project/BeautifulSoup/>`__.
 Templating
