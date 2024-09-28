@@ -34,7 +34,7 @@ Once a hotspot is found, the solution might be to:
 CPU
 ~~~
 
--  `The Python Profilers <https://docs.python.org/3/library/profile.html>`__ for deterministing profiling, for example:
+-  `cProfile <https://docs.python.org/3/library/profile.html>`__ is a deterministic profiler, measures functions, and lacks support for threads. For example:
 
    .. code-block:: shell
 
@@ -42,13 +42,15 @@ CPU
       gprof2dot -f pstats code.prof | dot -Tpng -o output.png
       open output.png
 
--  `yappi <https://pypi.org/project/yappi/>`__ for deterministing profiling of multiple threads or asynchronous code
--  `py-spy <https://github.com/benfred/py-spy>`__'s ``top`` to measure lines, instead of functions, in a running process
--  `line-profiler <https://pypi.org/project/line-profiler/>`__ to measure lines, instead of functions
--  `timeit <https://docs.python.org/3/library/timeit.html>`__ to measure a code snippet
--  `pyinstrument <https://pypi.org/project/pyinstrument/>`__ for `statistical profiling <https://pyinstrument.readthedocs.io/en/latest/how-it-works.html>`__
+-  `py-spy <https://github.com/benfred/py-spy>`__ is a statistical profiler, measures lines, and supports threads, subprocesses and native extensions. The ``top`` command can attach to a running process.
+-  `pprofile <https://pypi.org/project/pprofile/>`__ is a statistical profiler (and `very slow deterministic profiler <https://github.com/vpelletier/pprofile/blob/2.2.0/README.rst#L55-L59>`__), measures lines, and supports threads and PyPy.
+-  `timeit <https://docs.python.org/3/library/timeit.html>`__ is a deterministic profiler for code snippets.
 
-.. pprofile not updated since 2021. https://pypi.org/project/pprofile/
+.. admonitions:: Other profilers
+
+   -  `yappi <https://pypi.org/project/yappi/>`__ is a deterministic profiler, measures functions, supports threads and async, and has wall and CPU clocks.
+   -  `pyinstrument <https://pypi.org/project/pyinstrument/>`__ is a `statistical profiler <https://pyinstrument.readthedocs.io/en/latest/how-it-works.html#statistical-profiling-not-tracing>`__, measures functions, and `supports async <https://pyinstrument.readthedocs.io/en/latest/how-it-works.html#async-profiling>`__ but `not threads <https://github.com/joerick/pyinstrument/issues/71>`__.
+   -  `line-profiler <https://pypi.org/project/line-profiler/>`__ is a deterministic profiler, measures lines, requires decorators, and lacks support for threads.
 
 Memory
 ~~~~~~
