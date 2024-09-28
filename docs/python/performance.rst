@@ -27,7 +27,7 @@ Once a hotspot is found, the solution might be to:
 .. seealso::
 
    -  `Scalene <https://pypi.org/project/scalene/>`__ for CPU, GPU and memory statistical profiling
-   -  `Austin <https://github.com/P403n1x87/austin>`__ for CPU and memory statistical profiling, including running processes
+   -  `Austin <https://pypi.org/project/austin-dist/>`__ for CPU and memory statistical profiling, including running processes
    -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, including running processes
    -  `psutil <https://pypi.org/project/psutil/>`__
 
@@ -42,8 +42,9 @@ CPU
       gprof2dot -f pstats code.prof | dot -Tpng -o output.png
       open output.png
 
--  `py-spy <https://github.com/benfred/py-spy>`__ is a statistical profiler, measures lines, and supports threads, subprocesses and native extensions. The ``top`` command can attach to a running process.
+-  `py-spy <https://pypi.org/project/py-spy/>`__ is a statistical profiler, measures lines, and supports threads, subprocesses and native extensions. The ``top`` command can attach to a running process.
 -  `pprofile <https://pypi.org/project/pprofile/>`__ is a statistical profiler (and `very slow deterministic profiler <https://github.com/vpelletier/pprofile/blob/2.2.0/README.rst#L55-L59>`__), measures lines, and supports threads and PyPy.
+-  `vmprof <https://github.com/vmprof/vmprof-python>`__ is a statistic profiler, measures functions or lines, and supports threads and PyPy (and is aware of JIT).
 -  `timeit <https://docs.python.org/3/library/timeit.html>`__ is a deterministic profiler for code snippets.
 
 .. admonitions:: Other profilers
