@@ -151,7 +151,7 @@ Environment variables
 ~~~~~~~~~~~~~~~~~~~~~
 
 ``DJANGO_ENV=production``
-  Sets ``DEBUG = False``. Sets `HTTPS-related settings <https://docs.djangoproject.com/en/4.2/topics/security/#ssl-https>`__, if ``LOCAL_ACCESS`` is not set and ``ALLOWED_HOSTS`` is set.
+  Sets ``DEBUG = False``. Sets `HTTPS-related settings <https://docs.djangoproject.com/en/4.2/topics/security/#ssl-https>`__, if ``LOCAL_ACCESS`` is not set and ``ALLOWED_HOSTS`` is set. If using the Django Cookiecutter template, the :doc:`Dockerfile<../docker/django>` sets it.
 ``LOCAL_ACCESS``
   If set, HTTPS-related settings are not set.
 ``DJANGO_PROXY``
