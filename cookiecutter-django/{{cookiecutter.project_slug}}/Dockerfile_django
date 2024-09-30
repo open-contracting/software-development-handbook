@@ -1,3 +1,18 @@
+{% if cookiecutter.use_fathom == "y" -%}
+FROM python:{{ cookiecutter.python_version }} as build-stage
+
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+WORKDIR /workdir
+
+COPY . .
+
+ENV DJANGO_ENV=production
+
+RUN python manage.py collectstatic --noinput -v2
+
+{% endif -%}
 FROM python:{{ cookiecutter.python_version }}
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -12,6 +27,11 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 WORKDIR /workdir
 USER runner:runner
 COPY --chown=runner:runner . .
+{%- if cookiecutter.use_fathom == "y" %}
+
+# Django needs a copy of the staticfiles.json manifest file.
+COPY --from=build-stage --chown=runner:runner /workdir/static/staticfiles.json /workdir/static/staticfiles.json
+{%- endif %}
 
 ENV DJANGO_ENV=production
 ENV WEB_CONCURRENCY=2

@@ -143,6 +143,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOCALE_PATHS = glob(str(BASE_DIR / "**" / "locale"))
 
 STATIC_ROOT = BASE_DIR / "static"
+{%- if cookiecutter.use_fathom == "y" %}
+
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+    },
+}
+{%- endif %}
 
 # https://docs.djangoproject.com/en/4.2/topics/logging/#django-security
 LOGGING = {
