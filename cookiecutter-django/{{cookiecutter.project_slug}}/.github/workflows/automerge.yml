@@ -8,28 +8,28 @@ permissions:
   contents: write  # to merge the PR
 jobs:
   dependabot:
-    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+    if: ${{ "{{" }} github.event.pull_request.user.login == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - id: dependabot-metadata
         uses: dependabot/fetch-metadata@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - if: ${{ steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major' || steps.dependabot-metadata.outputs.package-ecosystem == 'github_actions' }}
+          github-token: ${{ "{{" }} secrets.GITHUB_TOKEN }}
+      - if: ${{ "{{" }} steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major' || steps.dependabot-metadata.outputs.package-ecosystem == 'github_actions' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr review --approve ${{ github.event.pull_request.html_url }}
-      - if: ${{ steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major' || steps.dependabot-metadata.outputs.package-ecosystem == 'github_actions' }}
+          GITHUB_TOKEN: ${{ "{{" }} secrets.GITHUB_TOKEN }}
+        run: gh pr review --approve ${{ "{{" }} github.event.pull_request.html_url }}
+      - if: ${{ "{{" }} steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major' || steps.dependabot-metadata.outputs.package-ecosystem == 'github_actions' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --auto --squash ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ "{{" }} secrets.GITHUB_TOKEN }}
+        run: gh pr merge --auto --squash ${{ "{{" }} github.event.pull_request.html_url }}
   precommit:
-    if: ${{ github.event.pull_request.user.login == 'pre-commit-ci[bot]' }}
+    if: ${{ "{{" }} github.event.pull_request.user.login == 'pre-commit-ci[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr review --approve ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ "{{" }} secrets.GITHUB_TOKEN }}
+        run: gh pr review --approve ${{ "{{" }} github.event.pull_request.html_url }}
       - env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --auto --squash ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ "{{" }} secrets.GITHUB_TOKEN }}
+        run: gh pr merge --auto --squash ${{ "{{" }} github.event.pull_request.html_url }}
