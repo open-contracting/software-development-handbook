@@ -3,7 +3,7 @@ PostgreSQL
 
 .. note::
 
-   The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/index.html>`__ documentation covers many topics relating to PostgreSQL, including: configuration, maintenance, and usage by clients. This page addresses topics relating to software development.
+   The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/>`__ documentation covers many topics relating to PostgreSQL, including: configuration, maintenance, and usage by clients. This page addresses topics relating to software development.
 
 Connect to a database
 ---------------------

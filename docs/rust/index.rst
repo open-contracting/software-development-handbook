@@ -47,7 +47,7 @@ Code style
 
 .. seealso::
 
-   -  `Common Message Styles <https://doc.rust-lang.org/std/error/index.html#common-message-styles>`__
+   -  `Common Message Styles <https://doc.rust-lang.org/std/error/#common-message-styles>`__
 
 Macros
 ~~~~~~

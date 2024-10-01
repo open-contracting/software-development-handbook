@@ -18,7 +18,7 @@ Locations of documentation
 
 External documentation can be accessed via the *Docs* links on `this page <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/badges.md>`__.
 
-Internal documentation can be accessed via the `User Guides <https://ocdsdeploy.readthedocs.io/en/latest/use/index.html>`__ in the ``deploy`` repository.
+Internal documentation can be accessed via the `User Guides <https://ocdsdeploy.readthedocs.io/en/latest/use/>`__ in the ``deploy`` repository.
 
 Documentation should be maximally proximate to the thing it is documenting. For example, to document what a method in software does, it's best to author that documentation as a heredoc in the method itself, instead of in a separate document.
 
