@@ -22,21 +22,29 @@ DevOps
 -  `Coveralls <https://coveralls.io/github/open-contracting>`__ (coverage reporting)
 
 Monitoring
-~~~~~~~~~~
+----------
 
--  `Prometheus <https://prometheus.io>`__ (service monitoring)
--  `Sentry <https://sentry.io>`__ (application errors)
--  `Ahrefs <https://ahrefs.com>`__ (SEO)
--  `SecurityScorecard <https://securityscorecard.com>`__ (cybersecurity)
--  `WordFence <https://www.wordfence.com>`__ (WordPress)
+.. seealso::
+
+   `Monitoring >https://ocdsdeploy.readthedocs.io/en/latest/reference/#monitoring>`__ in the Deploy documentation
+
+-  `Prometheus <https://prometheus.io>`__
+-  `Sentry <https://sentry.io>`__
+-  `Ahrefs <https://ahrefs.com>`__
+-  `SecurityScorecard <https://securityscorecard.com>`__
+-  `WordFence <https://www.wordfence.com>`__
 
 Hosting
 -------
 
--  Cloudflare (static sites)
--  Linode (virtual private servers)
--  Hetzner (dedicated servers)
--  ReadTheDocs (project documentation)
+.. seealso::
+
+   `Hosting >https://ocdsdeploy.readthedocs.io/en/latest/reference/#hosting>`__ in the Deploy documentation
+
+-  Cloudflare Pages
+-  Linode
+-  Hetzner
+-  ReadTheDocs
 
 Languages
 ---------
@@ -78,7 +86,7 @@ Miscellaneous
    .. note:: OCP has `AWS credits from TechSoup <https://www.techsoup.org/amazon-web-services>`__.
 
 -  Fathom (web analytics)
--  Fixer (currency conversion)
+-  Fixer.io (currency conversion)
 -  GoDaddy (registrar and DNS) `#340 <https://github.com/open-contracting/deploy/issues/340>`__
 -  Memcached (page caching)
 -  Power BI (business intelligence)
