@@ -6,7 +6,7 @@ We have preferences in order to limit the number of tools with which developers 
 Collaboration
 -------------
 
--  GitHub (issue tracking, `project board <https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards>`__)
+-  GitHub (version control, issue tracking, `project board <https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards>`__)
 -  Google Docs (collaborative editing)
 -  Google Meet (audio/video calling)
 -  Slack (instant messaging)
@@ -20,17 +20,16 @@ DevOps
 -  `Prometheus <https://prometheus.io>`__ (service monitoring)
 -  `Sentry <https://sentry.io>`__ (error tracking)
 -  `GitHub Actions <https://docs.github.com/en/actions>`__ (continuous testing)
+-  `GitHub Packages <https://docs.github.com/en/packages>`__ (Docker images)
 -  `Coveralls <https://coveralls.io/github/open-contracting>`__ (coverage reporting)
 
 Hosting
 -------
 
+-  Cloudflare (static sites)
 -  Linode (virtual private servers)
 -  Hetzner (dedicated servers)
--  ReadTheDocs (documentation)
--  GitHub (code)
--  GitHub Pages (static sites)
--  GitHub Packages (Docker images)
+-  ReadTheDocs (project documentation)
 
 Languages
 ---------
