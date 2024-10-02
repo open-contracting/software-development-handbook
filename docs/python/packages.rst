@@ -87,7 +87,7 @@ Release process
    .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.github/workflows/pypi.yml
       :language: yaml
 
-   The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the TestPyPI user.
+   The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the *opencontracting* Test PyPI user.
 
    After publishing the first release to PyPI, :ref:`add additional owners <pypi-access>`.
 

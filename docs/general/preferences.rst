@@ -20,6 +20,7 @@ DevOps
 -  `GitHub Actions <https://docs.github.com/en/actions>`__ (continuous testing)
 -  `GitHub Packages <https://docs.github.com/en/packages>`__ (Docker images)
 -  `Coveralls <https://coveralls.io/github/open-contracting>`__ (coverage reporting)
+-  `LastPass <https://lastpass.com/vault/>`__ (shared secrets)
 
 Monitoring
 ----------
@@ -86,7 +87,7 @@ Miscellaneous
    .. note:: OCP has `AWS credits from TechSoup <https://www.techsoup.org/amazon-web-services>`__.
 
 -  Fathom (web analytics)
--  Fixer.io (currency conversion)
+-  Fixer (currency conversion)
 -  GoDaddy (registrar and DNS) `#340 <https://github.com/open-contracting/deploy/issues/340>`__
 -  Memcached (page caching)
 -  Power BI (business intelligence)

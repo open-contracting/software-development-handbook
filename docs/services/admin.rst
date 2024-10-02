@@ -1,25 +1,39 @@
 Administrative access
 =====================
 
-See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/reference/index.html>`__ for access to self-hosted services.
+See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/use/>`__ for access to self-hosted services, like servers, PostgreSQL, Kingfisher, Pelican and Prometheus.
 
 If a service is down, check its status page:
 
-* `Amazon Web Services <https://health.aws.amazon.com/phd/status>`__
-* `Cloudflare <https://www.cloudflarestatus.com>`__
-* `GitHub <https://www.githubstatus.com>`__
-* `GoDaddy <https://status.godaddy.com>`__
-* `Google <https://www.google.com/appsstatus/dashboard/>`__
-* `Linode <https://status.linode.com>`__
-* `Microsoft Azure <https://azure.status.microsoft/en-ca/status>`__
-* `PyPI <https://status.python.org>`__
-* `ReadTheDocs <https://status.readthedocs.com>`__
-* `Sentry <https://status.sentry.io>`__
-* `Transifex <https://status.transifex.com>`__
+-  `Amazon Web Services <https://health.aws.amazon.com/phd/status>`__
+-  `Cloudflare <https://www.cloudflarestatus.com>`__
+-  `GitHub <https://www.githubstatus.com>`__
+-  `GoDaddy <https://status.godaddy.com>`__
+-  `Google <https://www.google.com/appsstatus/dashboard/>`__
+-  `Heroku <https://status.heroku.com>`__
+-  `Linode <https://status.linode.com>`__
+-  `Microsoft Azure <https://azure.status.microsoft/en-ca/status>`__
+-  `PyPI <https://status.python.org>`__
+-  `ReadTheDocs <https://status.readthedocs.com>`__
+-  `Sentry <https://status.sentry.io>`__
+-  `Transifex <https://status.transifex.com>`__
+-  `WordFence <https://status.wordfence.com>`__
+
+These :doc:`preferred services<../general/preferences>` don't have individual user accounts:
+
+-  Ahrefs (`requires account upgrade <https://app.ahrefs.com/pricing>`__)
+-  Fathom
+-  Fixer
+-  Hetzner
+-  LastPass (`requires account upgrade <https://www.lastpass.com/pricing>`__)
 
 .. note::
 
    If you are a consultant, **do not** use or create your own organizational accounts on services like `Fixer <https://fixer.io>`__, `Prerender <https://prerender.io>`__, `Docker Hub <https://hub.docker.com>`__, etc. All organizational accounts must be owned by OCP.
+
+.. seealso::
+
+   :doc:`../general/preferences`, for the context in which these services are used.
 
 Amazon Web Services
 -------------------
@@ -29,14 +43,19 @@ There should be a minimum of two `IAM users <https://console.aws.amazon.com/iam/
 Cloudflare
 ----------
 
-There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" to "All domains".
+There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" access to "All domains".
 
-Third-party sysadmins can be added.
+Third-party sysadmins can be added with "Administrator" access to "All domains".
 
 GitHub
 ------
 
 There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization>`__ from OCP only. Owners do not need to be added to teams.
+
+The ``ocp-deploy`` user generates `personal access tokens <https://github.com/settings/tokens>`__ to:
+
+-  read and write to `ocp-data <https://github.com/open-contracting-partnership/ocp-data>`__ from the `OCP Form Server <https://survey.open-contracting.org>`__ on :ref:`heroku` (fine-grained)
+-  auto-commit from :doc:`lint workflows<../github/maintainers>` to `selected repositories <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ (classic)
 
 .. tip::
 
@@ -49,22 +68,25 @@ There should be a minimum of two `owners <https://docs.github.com/en/organizatio
 GoDaddy
 -------
 
+.. seealso::
+
+   `DNS <https://ocdsdeploy.readthedocs.io/en/latest/deploy/services/dns.html>`__ in the Deploy documentation
+
 There should be a minimum of two `accounts <https://sso.godaddy.com/access>`__ from OCP only at the "Products, Domains, & Purchase" access level.
 
-Third-party sysadmins can be added.
+Third-party sysadmins can be added with "Delegate" access.
 
 Google
 ------
+
+.. note::
+
+   For web analytics, use `Fathom <https://app.usefathom.com/#/?range=last_7_days&site=61581>`__ instead.
 
 Admin
 ~~~~~
 
 There should be a minimum of two `Super Admin <https://admin.google.com/open-contracting.org/AdminHome?hl=en#DomainSettings/notab=1&role=9170516996784129&subtab=roles>`__ users from OCP only.
-
-Analytics
-~~~~~~~~~
-
-Use `Fathom <https://app.usefathom.com/#/?range=last_7_days&site=61581>`__ instead.
 
 Cloud Platform
 ~~~~~~~~~~~~~~
@@ -96,7 +118,7 @@ If the user interface lacks access to an organization, run, for example:
 Drive
 ~~~~~
 
-All users with access to `this folder <https://drive.google.com/drive/folders/0B5mFIGaULYDdZTFWcTJ1MUpuZU0>`__ should belong to OCP only.
+All users with access to the `Data & Technology folder <https://drive.google.com/drive/folders/0B5mFIGaULYDdZTFWcTJ1MUpuZU0>`__ should belong to OCP only.
 
 Groups
 ~~~~~~
@@ -105,26 +127,39 @@ Groups
 
 There should be a minimum of two `Owner <https://support.google.com/a/answer/167094?hl=en>`__ members from OCP only.
 
+.. _heroku:
+
+Heroku
+------
+
+For each app, a minimum of two `collaborators <https://devcenter.heroku.com/articles/collaborating#collaborator-permissions-for-apps-in-a-personal-account>`__ from OCP only, including the owner.
+
+Third-party sysadmins can be added with "Collaborator" access.
+
 Linode
 ------
 
 There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-standard-development-handbook/users/>`__ with Full account access from OCP.
 
-Third-party sysadmins can be added.
+Third-party sysadmins can be added with "Full" access.
 
 Microsoft Azure
 ---------------
 
+.. note::
+
+   Use Amazon Web Services, unless an application requires access to Microsoft-exclusive services like Power BI, or a partner requires Azure.
+
 There should be a minimum of two `users <https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers>`__ with the Global Administrator role from OCP.
 
-Third-party sysadmins can be added.
+Third-party sysadmins can be added with "Global Administrator" access.
 
 .. _pypi-access:
 
 PyPI
 ----
 
-For each package owned by the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ users from OCP, including ``opencontracting``.
+For each package, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ users from OCP, including the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, whose API token is used in `pypi.yml workflows <python-package-release-process>`__.
 
 Only users who are reasonably expected to upload releases should have the Maintainer role.
 
@@ -137,6 +172,13 @@ There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-
 
 Third-party maintainers can be added to the package's associated ReadTheDocs project, including organizational accounts (e.g. ``opendataservices``).
 
+SecurityScorecard
+-----------------
+
+The `Free Plan <https://securityscorecard.com/pricing-packages/>`__ has no `people management <https://support.securityscorecard.com/hc/en-us/articles/360056396951-Manage-users-and-permissions-in-SecurityScorecard>`__.
+
+Third-party sysadmins can be `added <https://platform.securityscorecard.io/#/getting-started>`__.
+
 Sentry
 ------
 
@@ -144,9 +186,30 @@ There should be a minimum of two `members <https://sentry.io/settings/open-contr
 
 Third-party developers can be added with the Admin or Member role to organization-specific `teams <https://sentry.io/settings/open-contracting-partnership/teams/>`__ for specific projects.
 
+Third-party sysadmins can be added with "Member" access.
+
+Test PyPI
+---------
+
+For each package, the `opencontracting <https://test.pypi.org/user/opencontracting/>`__ user can be the single Owner, whose API token is used in `pypi.yml workflows <python-package-release-process>`__.
+
 Transifex
 ---------
 
-There should be a minimum of two `Administrators <https://app.transifex.com/open-contracting-partnership-1/settings/>`__ users from OCP only.
+There should be a minimum of two `Administrators <https://app.transifex.com/open-contracting-partnership-1/settings/>`__ from OCP only.
 
 If we reach our collaborator limit, `manage collaborators <https://app.transifex.com/open-contracting-partnership-1/collaborators/>`__, removing those who were last seen more than 9 months ago.
+
+WordFence
+---------
+
+There should be a minimum of two `members <https://www.wordfence.com/central/teams>`__ from OCP. There can only be one Owner user.
+
+Third-party sysadmins can be added with "Member" access.
+
+WordPress (self-hosted)
+-----------------------
+
+There should be a minimum of two Administrator users from OCP.
+
+Third-party sysadmins can be added with "Administrator" access.
