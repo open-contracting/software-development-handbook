@@ -389,6 +389,12 @@ Python provides encapsulation via modules. As such, functions are preferred to c
 
    `"Clean" Code, Horrible Performance <https://www.youtube.com/watch?v=tD5NrevFtbU>`__
 
+.. epigraph::
+
+   The primary feature for easy maintenance is locality: Locality is that characteristic of source code that enables a programmer to understand that source by looking at only a small portion of it.
+
+   -- `Richard Gabriel <https://www.dreamsongs.com/Files/PatternsOfSoftware.pdf>`__
+
 Maintainers can find class hierarchies, excluding those imposed by dependencies (Click, Docutils, Django, Django REST Framework, and standard libraries), with this regular expression:
 
 .. code-block:: none
