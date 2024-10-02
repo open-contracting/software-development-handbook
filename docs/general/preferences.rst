@@ -27,7 +27,7 @@ Monitoring
 
 .. seealso::
 
-   `Monitoring >https://ocdsdeploy.readthedocs.io/en/latest/reference/#monitoring>`__ in the Deploy documentation
+   `Monitoring <https://ocdsdeploy.readthedocs.io/en/latest/reference/#monitoring>`__ in the Deploy documentation
 
 -  `Prometheus <https://prometheus.io>`__
 -  `Sentry <https://sentry.io>`__
@@ -40,7 +40,7 @@ Hosting
 
 .. seealso::
 
-   `Hosting >https://ocdsdeploy.readthedocs.io/en/latest/reference/#hosting>`__ in the Deploy documentation
+   `Hosting <https://ocdsdeploy.readthedocs.io/en/latest/reference/#hosting>`__ in the Deploy documentation
 
 -  Cloudflare Pages
 -  Linode
