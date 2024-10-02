@@ -141,7 +141,7 @@ LastPass
 
 There should be a minimum of two Manager users from OCP, including the ``sysadmin`` user.
 
-Third-party sysadmins can be added with "Member" access.
+Third-party sysadmins can be added with "Member" access to the "Servers" and "Sysadmin" folders.
 
 Linode
 ------
