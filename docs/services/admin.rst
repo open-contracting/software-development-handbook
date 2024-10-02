@@ -11,6 +11,7 @@ If a service is down, check its status page:
 -  `GoDaddy <https://status.godaddy.com>`__
 -  `Google <https://www.google.com/appsstatus/dashboard/>`__
 -  `Heroku <https://status.heroku.com>`__
+-  `LastPass <https://status.lastpass.com>`__
 -  `Linode <https://status.linode.com>`__
 -  `Microsoft Azure <https://azure.status.microsoft/en-ca/status>`__
 -  `PyPI <https://status.python.org>`__
@@ -25,7 +26,6 @@ These :doc:`preferred services<../general/preferences>` don't have individual us
 -  Fathom
 -  Fixer
 -  Hetzner
--  LastPass (`requires account upgrade <https://www.lastpass.com/pricing>`__)
 
 .. note::
 
@@ -135,6 +135,13 @@ Heroku
 For each app, a minimum of two `collaborators <https://devcenter.heroku.com/articles/collaborating#collaborator-permissions-for-apps-in-a-personal-account>`__ from OCP only, including the owner.
 
 Third-party sysadmins can be added with "Collaborator" access.
+
+LastPass
+--------
+
+There should be a minimum of two Manager users from OCP, including the ``sysadmin`` user.
+
+Third-party sysadmins can be added with "Member" access.
 
 Linode
 ------
