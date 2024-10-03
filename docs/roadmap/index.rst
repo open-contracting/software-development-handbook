@@ -84,7 +84,7 @@ It is important to avoid both vendor lock-in and personnel lock-in (i.e. cases i
 
    .. note::
 
-      However, don't sacrifice performance, maintainability or readability. See also :doc:`general code principles<../general/code>` and :ref:` avoiding object-oriented style<object-oriented>`.
+      However, don't sacrifice performance, maintainability or readability. See also :doc:`general code principles<../general/code>` and :ref:`avoiding object-oriented style<object-oriented>`.
 
 -  Use the latest versions of languages and dependencies, to postpone costly upgrades as far into the future as possible.
 -  Use tools properly and as intended. Don’t go for the quick fix.
