@@ -25,11 +25,42 @@ Comments
 -  Use sentence case, correct punctuation, and correct capitalization. Do not omit articles.
 -  Do not add ``TODO`` comments. Instead, create GitHub issues. TODO's are less visible to the team.
 
+You can use comments to:
+
+-  Describe **why** code is as it is.
+-  Link to relevant documentation or original sources.
+-  Add structure to long functions or consecutive lines of class attributes, for example.
+
+When not to use comments:
+
+-  Instead of describing **what** code does in a comment, describe it in a docstring (or not at all).
+-  Instead of describing a magic value in a comment, assign it to a constant.
+-  Where possible, use descriptive function names and variable names, to reduce the need for comments. However, in interpreted languages, don't extract single-caller methods or assign single-use variables just to transform a comment into code.
+
 Maintainers can find TODO comments with this command:
 
 .. code-block:: none
 
    grep -R -i --exclude-dir .git --exclude-dir .sass-cache --exclude-dir .tox --exclude-dir __pycache__ --exclude-dir _build --exclude-dir _static --exclude-dir build --exclude-dir dist --exclude-dir htmlcov --exclude-dir node_modules --exclude-dir sass --exclude-dir LC_MESSAGES --exclude app.js --exclude conf.py '\btodo\b' .
+
+Maintainers can find other comments with this regular expression:
+
+.. code-block:: none
+
+   (^#(?!!/)|  #)(?!:\s|\. | (isort|noqa|type): | https:)
+
+.. Ignore shebangs, class attribute docstrings, reStructuredText numbered list items in docstrings, isort/noqa/type comments, URLs.
+
+across these files (ignoring boilerplate and test files):
+
+.. code-block::
+
+   -conf.py,-settings.py,-migrations/*,-spiders/*,-tests/*,*.py
+
+Whitespace
+----------
+
+Use empty lines to group code into logical units (paragraphs). For example, tests follow an `Arrange, Act, Assert <https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#arranging-your-tests>`__ pattern. An empty line should separate each step.
 
 .. _python-type-hints:
 
