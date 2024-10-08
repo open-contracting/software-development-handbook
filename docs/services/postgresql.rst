@@ -3,14 +3,14 @@ PostgreSQL
 
 .. note::
 
-   The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/>`__ documentation covers many topics relating to PostgreSQL, including: configuration, maintenance, and usage by clients. This page addresses topics relating to software development.
+   The `Deploy <https://ocdsdeploy.readthedocs.io/en/latest/>`__ documentation covers many topics relating to PostgreSQL, including: `configuration <https://ocdsdeploy.readthedocs.io/en/latest/develop/update/postgres.html>`__, `maintenance <https://ocdsdeploy.readthedocs.io/en/latest/maintain/databases.html>`__, and `usage by clients <https://ocdsdeploy.readthedocs.io/en/latest/use/databases.html>`__. This page addresses topics relating to software development.
 
 Connect to a database
 ---------------------
 
 Connect to the database using a connection string stored in the ``DATABASE_URL`` environment variable.
 
-In Python, connect to the database using `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ if using :doc:`Django<../python/django>`, or `psycopg2.connect() <https://www.psycopg.org/docs/module.html#psycopg2.connect>`__ otherwise.
+In Python, connect to the database using `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ if using :doc:`Django<../python/django>`, or `psycopg2 <https://www.psycopg.org/docs/module.html#psycopg2.connect>`__ otherwise.
 
 To set the search path for a PostgreSQL connection, append to the connection string:
 
@@ -40,6 +40,7 @@ Define tables
 -  Use ``NOT NULL`` with character types, `as recommended by Django <https://docs.djangoproject.com/en/4.2/ref/models/fields/#null>`__.
 -  Use ``NOT NULL`` with JSON types, and set the default to an empty object, array or string.
 -  In Python, do not set default values to ``{}`` or ``[]``. In Django, use ``default=dict`` and ``default=list``. In Pydantic (including SQLModel), use ``default_factory=dict`` and ``default_factory=list``.
+-  JSON data often exceeds 2kb, and is therefore `TOASTed <https://www.postgresql.org/docs/current/storage-toast.html#STORAGE-TOAST-ONDISK>`__. If the application needs to SELECT a value from the JSON data, it is faster to extract that value to a column: for example, ``release_date``.
 
 .. seealso::
 
@@ -49,6 +50,16 @@ Name conventions
 ~~~~~~~~~~~~~~~~
 
 -  Timestamp columns: ``created_at``, ``updated_at`` and ``deleted_at``. (Some projects use ``created`` and ``modified``.)
+
+Define indexes
+--------------
+
+-  Add an index for every foreign key with a corresponding ``JOIN`` query. If the ``JOIN`` and/or ``WHERE`` clauses use multiple columns of the same table, create a multi-column index, with the most used column as the index's first column.
+-  Use `EXPLAIN <https://wiki.postgresql.org/wiki/Using_EXPLAIN>`__ to figure out why a query is slow. It could be due to a missing index (sequential scan), an unused index, or a slower plan (for example, using index scan instead of bitmap index scan)
+
+   .. note::
+
+      When using a tool like `Dalibo <https://explain.dalibo.com>`__ or `pgMustard <https://www.pgmustard.com>`__, follow these `instructions <https://www.pgmustard.com/getting-a-query-plan>`__ to get the query plan. Otherwise, if you don't know how slow the query is, omit the ``ANALYZE`` and ``BUFFERS`` options, to only plan and not execute the query.
 
 Load (or dump) data
 -------------------

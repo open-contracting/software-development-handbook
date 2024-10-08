@@ -265,7 +265,7 @@ In order of importance:
 
 -  Optimize queries:
 
-   -  Add indices to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
+   -  Add indexes to fields that are frequently used for filtering. To find slow queries, you can use the PostgreSQL log in production or the SQL panel of `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__ in development.
    -  Use the `update_fields argument <https://docs.djangoproject.com/en/4.2/ref/models/instances/#ref-models-update-fields>`__ to the ``save()`` method for frequent operations.
 
 -  Minimize memory usage:
