@@ -342,6 +342,8 @@ To `log SQL statements <https://docs.djangoproject.com/en/4.2/ref/logging/#djang
                "propagate": False,
            },
 
+.. _django-learn:
+
 Learning
 ~~~~~~~~
 

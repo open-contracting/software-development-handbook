@@ -171,6 +171,8 @@ To reduce the number of allocations, try using:
 
    -  `Winning Fights against the Borrow Checker <https://www.lurklurk.org/effective-rust/borrows.html#winning-fights-against-the-borrow-checker>`__
 
+.. _rust-learn:
+
 Learning
 ~~~~~~~~
 
