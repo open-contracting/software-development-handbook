@@ -6,11 +6,11 @@ certifi==2024.7.4
     # via sentry-sdk
 dj-database-url==2.1.0
     # via -r requirements.in
-django==4.2.15
+django==4.2.16
     # via
     #   -r requirements.in
     #   dj-database-url
-gunicorn==23.0.0
+gunicorn[setproctitle]==23.0.0
     # via -r requirements.in
 packaging==24.1
     # via gunicorn
