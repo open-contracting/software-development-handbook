@@ -77,31 +77,31 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > %(date)s", {'date': '2020-01-01'})
+      cur.execute("SELECT * FROM release WHERE release_date > %(date)s", {'date': '2020-01-01'})
 
    **DO NOT** use string interpolation (``%``):
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > '%(date)s'" % {'date': '2020-01-01'})  # WRONG
+      cur.execute("SELECT * FROM release WHERE release_date > '%(date)s'" % {'date': '2020-01-01'})  # WRONG
 
    **DO NOT** use string concatenation (``+``):
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > '" + '2020-01-01' + "'")  # WRONG
+      cur.execute("SELECT * FROM release WHERE release_date > '" + '2020-01-01' + "'")  # WRONG
 
    **AVOID** using literal values:
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > '2020-01-01'")  # AVOID
+      cur.execute("SELECT * FROM release WHERE release_date > '2020-01-01'")  # AVOID
 
    For example, if you forget that dates are represented as strings in SQL, you might do the following, which evaluates ``2020-12-31`` to ``1977``, which will match everything in the database:
 
    .. code-block:: python
 
-      cur.execute("SELECT * FROM data WHERE data->>'date' > 2020-12-31")  # BROKEN
+      cur.execute("SELECT * FROM release WHERE release_date > 2020-12-31")  # BROKEN
 
 -  Use named placeholders like ``%(collection_id)s``. This allows you to use the same placeholder multiple times in the query, while only having to pass a single parameter, and to edit and re-order your query without re-ordering your parameters.
 
