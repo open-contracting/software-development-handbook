@@ -84,6 +84,20 @@ To avoid pushing commits that fail formatting or linting checks, new projects sh
 
    `pre-commit/pre-commit-hooks <https://github.com/pre-commit/pre-commit-hooks>`__ is not used in the templates, as the errors it covers are rarely encountered.
 
+.. tip::
+
+   If you encounter an error like:
+
+   .. code-block:: none
+
+      RuntimeError: failed to find interpreter for Builtin discover of python_spec='python3.10'
+
+   pre-commit uses `virtualenv <https://virtualenv.pypa.io/en/latest/>`__ to `discover Python interpreters <https://virtualenv.pypa.io/en/latest/user_guide.html#python-discovery>`__. On macOS, install the missing version with Homebrew, instead of uv:
+
+   .. code-block:: bash
+
+      brew install python@3.10
+
 .. _linting-ci:
 
 Continuous integration
