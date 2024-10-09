@@ -71,6 +71,14 @@ Use the `\copy <https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-M
 Construct SQL statements
 ------------------------
 
+.. tip::
+
+   Add `SQLFluff <https://sqlfluff.com>`__ to `pre-commit <https://docs.sqlfluff.com/en/latest/production/pre_commit.html>`__ if a project contains SQL files.
+
+.. seealso::
+
+   `GitLab SQL Style Guide <https://handbook.gitlab.com/handbook/enterprise-data/platform/sql-style-guide/>`__
+
 Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`__ to avoid accidental errors and `SQL injection <https://en.wikipedia.org/wiki/SQL_injection>`__. The code samples below use the psycopg2 Python package.
 
 -  `Pass parameters to SQL queries <https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries>`__, using the second argument to the ``execute`` method. This adapts the Python value's type (like ``bool``, ``int``, ``str``) to the correct SQL representation:
@@ -181,30 +189,35 @@ Do not use ``LIMIT`` with ``OFFSET``. ``OFFSET`` becomes more inefficient as its
 Format code
 -----------
 
-Format SQL files with `pg_format <https://github.com/darold/pgFormatter>`__, which has web and command-line interfaces.
+Format SQL files with `SQLFluff <https://sqlfluff.com>`__.
 
-Web
-~~~
+.. code-block:: toml
+   :caption: pyproject.toml
 
-#. Open https://sqlformat.darold.net
-#. Paste your SQL text
-#. Set *Functions* to *Lower case*
-#. Click *Format my code*
+   [tool.sqlfluff.core]
+   dialect = "postgres"
+   exclude_rules = ["ST07"]
 
-CLI
-~~~
+   [tool.sqlfluff.rules.capitalisation.keywords]
+   capitalisation_policy = "upper"
 
-On macOS, using `Homebrew <https://brew.sh>`__, install it with:
+   [tool.sqlfluff.rules.capitalisation.literals]
+   capitalisation_policy = "upper"
 
-.. code-block:: bash
+   [tool.sqlfluff.rules.capitalisation.functions]
+   extended_capitalisation_policy = "lower"
 
-   brew install pgformatter
+   [tool.sqlfluff.rules.capitalisation.identifiers]
+   extended_capitalisation_policy = "lower"
 
-Then, change into the project's directory and run, for example:
+   [tool.sqlfluff.rules.capitalisation.types]
+   extended_capitalisation_policy = "lower"
 
-.. code-block:: bash
+   [tool.sqlfluff.rules.convention.casting_style]
+   preferred_type_casting_style = "shorthand"
 
-   find . -name '*.sql' -exec pg_format -f 1 -o {} {} \;
+   [tool.sqlfluff.rules.convention.not_equal]
+   preferred_not_equal_style = "ansi"
 
 .. _postgresql-erd:
 
