@@ -157,6 +157,10 @@ Microsoft
 
    Use Amazon Web Services instead of Azure, unless an application requires access to Microsoft-exclusive services like Power BI, or a partner requires it.
 
+.. tip::
+
+   Check *Fabric Capacity* in the Microsoft Fabric (Power BI) `Admin portal <https://app.powerbi.com/admin-portal/capacities/capacitiesList/dc?experience=power-bi>`__.
+
 There should be a minimum of two `users <https://admin.microsoft.com/#/rbac/directory/:/rbac/directory/62e90394-69f5-4237-9190-012177145e10/details/assigned>`__ with the Global Administrator role from OCP.
 
 Third-party sysadmins can be added with "Global Administrator" access.
