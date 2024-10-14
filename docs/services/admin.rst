@@ -150,14 +150,14 @@ There should be a minimum of two `users <https://readthedocs.org/dashboard/ocds-
 
 Third-party sysadmins can be added with "Full" access.
 
-Microsoft Azure
----------------
+Microsoft
+---------
 
 .. note::
 
-   Use Amazon Web Services, unless an application requires access to Microsoft-exclusive services like Power BI, or a partner requires Azure.
+   Use Amazon Web Services instead of Azure, unless an application requires access to Microsoft-exclusive services like Power BI, or a partner requires it.
 
-There should be a minimum of two `users <https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers>`__ with the Global Administrator role from OCP.
+There should be a minimum of two `users <https://admin.microsoft.com/#/rbac/directory/:/rbac/directory/62e90394-69f5-4237-9190-012177145e10/details/assigned>`__ with the Global Administrator role from OCP.
 
 Third-party sysadmins can be added with "Global Administrator" access.
 
