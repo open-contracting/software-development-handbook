@@ -16,8 +16,8 @@ RUN python manage.py collectstatic --noinput -v2
 FROM python:{{ cookiecutter.python_version }}
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-      gettext \
-   && rm -rf /var/lib/apt/lists/*
+        gettext \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -r runner && useradd --no-log-init -r -g runner runner
 
