@@ -3,7 +3,7 @@ Documentation
 
 :doc:`packages` and applications *must* have documentation to describe their usage for an external audience. They *may* have documentation to describe how to contribute.
 
-Documentation is written using `Sphinx <https://www.sphinx-doc.org/en/master/>`__ in a ``docs`` directory.
+Documentation is written using `Sphinx <https://www.sphinx-doc.org/en/master/>`__ in a ``docs/`` directory.
 
 .. seealso::
 

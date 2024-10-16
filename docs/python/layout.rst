@@ -6,13 +6,13 @@ A first step of a new project is to define its directory layout.
 Applications
 ------------
 
-Applications should follow the layout of the framework used, like `Django <https://docs.djangoproject.com/en/4.2/intro/tutorial01/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__ or `FastAPI <https://fastapi.tiangolo.com/tutorial/bigger-applications/#an-example-file-structure>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startapp>`__.
+Applications should follow the layout of the framework, like `Django <https://docs.djangoproject.com/en/4.2/intro/tutorial01/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__ or `FastAPI <https://fastapi.tiangolo.com/tutorial/bigger-applications/#an-example-file-structure>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startapp>`__.
 
 .. tip::
 
    Commit the generated files before making changes, so that the changes appear in the history.
 
-If no framework is used, prefer a smaller number of directories, like in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize>`__ or `Pelican backend <https://github.com/open-contracting/pelican-backend>`__. For example:
+If no framework is used, prefer a smaller number of directories, like in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize>`__ or `Pelican backend <https://github.com/open-contracting/pelican-backend>`__. Components should be logically distinct units, like `apps <https://docs.djangoproject.com/en/4.2/ref/applications/>`__ in Django. For example:
 
 .. code-block:: none
 
@@ -25,7 +25,7 @@ If no framework is used, prefer a smaller number of directories, like in `Kingfi
    └── tests
        └── fixtures
 
-Components should be logically distinct units, like `apps <https://docs.djangoproject.com/en/4.2/ref/applications/>`__ in Django.
+If the frontend is a single-page application (SPA), add it as a ``frontend/`` directory. Do not create a separate repository unless the frontend and backend are decoupled.
 
 .. seealso::
 
