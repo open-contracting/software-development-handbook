@@ -84,6 +84,8 @@ Test files
 
 -  Put `tests outside application code <https://docs.pytest.org/en/latest/explanation/goodpractices.html#choosing-a-test-layout-import-rules>`__. Do not add ``tests`` directories inside application code.
 -  Prefix filenames with ``test_``. Do not suffix basenames with ``_test``.
+-  Put pytest fixtures in the ``tests/conftest.py`` file. Do not import from this file.
+-  Put test utilities in the ``tests/__init__.py`` file.
 
 Static files
 ------------
