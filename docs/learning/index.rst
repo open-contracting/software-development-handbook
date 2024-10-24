@@ -12,6 +12,7 @@ Software development
 We recommend:
 
 -  `Computer, Enhance! <https://www.computerenhance.com>`__ Performance-Aware Programming Series
+-  `Wizard Zines <https://wizardzines.com>`__
 
 We have heard good things about:
 
