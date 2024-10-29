@@ -233,7 +233,7 @@ Run SchemaSpy, using appropriate values for the ``-db`` (database name), ``-s`` 
 
 .. code-block:: bash
 
-   java -jar schemaspy.jar -t pgsql -dp postgresql.jar -host localhost -db DATABASE -s SCHEMA -u USER -p PASSWORD -o schemaspy -norows
+   java -jar schemaspy.jar -t pgsql -dp postgresql.jar -o schemaspy -norows -host localhost -db DATABASE -s SCHEMA -u USER -p PASSWORD
 
 Use either the ``schemaspy/diagrams/summary/relationships.real.compact.png`` or ``schemaspy/diagrams/summary/relationships.real.large.png`` file and check the ``schemaspy/diagrams/orphans/`` directory.
 
