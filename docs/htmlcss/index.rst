@@ -7,7 +7,9 @@ HTML
 Code style
 ~~~~~~~~~~
 
-Style HTML code using `Biome <https://biomejs.dev>`__.
+Style CSS and JavaScript in HTML files using `Biome <https://biomejs.dev>`__.
+
+You can use `Prettier <https://prettier.io/docs/en/>`__ to style HTML while waiting for `Biome support <https://biomejs.dev/internals/language-support/>`__.
 
 .. code-block:: json
    :caption: biome.json
@@ -20,6 +22,9 @@ Style HTML code using `Biome <https://biomejs.dev>`__.
        "useIgnoreFile": true,
        "defaultBranch": "main"
      },
+     "organizeImports": {
+       "enabled": true
+     },
      "formatter": {
        "indentStyle": "space",
        "indentWidth": 4,
@@ -29,10 +34,14 @@ Style HTML code using `Biome <https://biomejs.dev>`__.
        "formatter": {
          "indentWidth": 2
        }
+     },
+     "linter": {
+       "enabled": true,
+       "rules": {
+         "recommended": true
+       }
      }
    }
-
-https://biomejs.dev/guides/integrate-in-editor/
 
 Search engine optimization (SEO)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -106,7 +115,7 @@ Reminders
 Code style
 ~~~~~~~~~~
 
-Style CSS code using `Prettier <https://prettier.io>`__ with 2-space indentation.
+Style CSS using `Biome <https://biomejs.dev/reference/configuration/#css>`__, with 2-space indentation.
 
 In terms of naming conventions, consider `Block Element Modifier (BEM) <https://getbem.com>`__.
 
