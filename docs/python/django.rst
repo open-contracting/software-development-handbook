@@ -77,6 +77,7 @@ Models
 -  Use ``TextField``, not ``CharField``. There is `no performance difference <https://www.postgresql.org/docs/current/datatype-character.html>`__ in PostgreSQL.
 -  Do not use ``null=True`` with ``TextField`` or ``CharField``, `as recommended <https://docs.djangoproject.com/en/4.2/ref/models/fields/#null>`__.
 -  Do not use ``null=True`` with ``JSONField``, if possible. Instead, use ``default=dict``, ``default=list`` or  ``default=""``.
+-  Use ``Meta.indexes``, not ``db_index=True``, with ``ForeignKey``, `as recommended <https://docs.djangoproject.com/en/4.2/ref/models/fields/#db-index>`__.
 -  Use the `pk property <https://docs.djangoproject.com/en/4.2/ref/models/instances/#the-pk-property>`__ and the `pk lookup shortcut <https://docs.djangoproject.com/en/4.2/topics/db/queries/#the-pk-lookup-shortcut>`__ instead of ``id``.
 -  The table related to a ``ManyToManyField`` field is not visible to the Django ORM. If you need to operate on it, create an explicit model with foreign keys to the other models, instead of operating on it via the other models.
 
