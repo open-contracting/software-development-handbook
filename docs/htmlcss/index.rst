@@ -43,6 +43,16 @@ You can use `Prettier <https://prettier.io/docs/en/>`__ to style HTML while wait
      }
    }
 
+Subresource integrity (SRI)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When using external packages:
+
+-  Reference a package's specific version on a content delivery network (CDN), like `unpkg <https://unpkg.com>`__, `jsDelivr <https://www.jsdelivr.com>`__, `cdnjs <https://cdnjs.com>`__ or the package's own CDN (like `Redocly <https://github.com/Redocly/redoc#add-an-html-element-to-the-page>`__)
+-  Use the `SRI Hash Generator <https://www.srihash.org>`__, as `recommended <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity#tools_for_generating_sri_hashes>`__ by MDN, with the default SHA-384 algorithm
+
+Reference: `Subresource Integrity <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity>`__ on MDN
+
 Search engine optimization (SEO)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
