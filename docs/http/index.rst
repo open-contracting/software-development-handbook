@@ -5,6 +5,7 @@ In order of preference, set these headers in:
 
 -  project code
 -  ``default.conf`` file, if the project includes a `Docker image running nginx <https://ocp-software-handbook.readthedocs.io/en/latest/docker/dockerfile.html#base-images>`__
+-  `_headers <https://developers.cloudflare.com/pages/configuration/headers/>`__ file, if hosting a static site on :ref:`Cloudflare Pages<cloudflare>`
 -  `deploy <https://github.com/open-contracting/deploy>`__ repository, if the project runs third-party code, like WordPress
 
 X-Content-Type-Options

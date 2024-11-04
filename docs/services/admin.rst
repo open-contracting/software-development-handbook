@@ -40,6 +40,8 @@ Amazon Web Services
 
 There should be a minimum of two `IAM users <https://console.aws.amazon.com/iam/home?region=us-east-1#/home>`__ in the administrators group from OCP only. `The root user should not be used <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html>`__.
 
+.. _cloudflare:
+
 Cloudflare
 ----------
 
