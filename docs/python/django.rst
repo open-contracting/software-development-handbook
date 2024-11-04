@@ -148,6 +148,8 @@ In other modules, import settings from ``django.conf``, `as recommended <https:/
 
    :doc:`Settings guide<settings>`, for the general approach to configuration
 
+.. _django-env:
+
 Environment variables
 ~~~~~~~~~~~~~~~~~~~~~
 
