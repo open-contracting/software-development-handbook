@@ -51,6 +51,13 @@ When using external packages:
 -  Reference a package's specific version on a content delivery network (CDN), like `unpkg <https://unpkg.com>`__, `jsDelivr <https://www.jsdelivr.com>`__, `cdnjs <https://cdnjs.com>`__ or the package's own CDN (like `Redocly <https://github.com/Redocly/redoc#add-an-html-element-to-the-page>`__)
 -  Use the `SRI Hash Generator <https://www.srihash.org>`__, as `recommended <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity#tools_for_generating_sri_hashes>`__ by MDN, with the default SHA-384 algorithm
 
+Some scripts cannot use subresource integrity:
+
+-  ``https://cdn.usefathom.com/script.js``
+-  ``https://fonts.googleapis.com/css?...`` (`reason <https://github.com/google/fonts/issues/473#issuecomment-331329601>`__ and `alternative <https://github.com/google/fonts/issues/473#issuecomment-2102946515>`__)
+-  ``https://use.typekit.net/xxxxxxx.js``
+-  ``https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX``
+
 Reference: `Subresource Integrity <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity>`__ on MDN
 
 Search engine optimization (SEO)
