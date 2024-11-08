@@ -1,5 +1,5 @@
 {% if cookiecutter.use_fathom == "y" -%}
-FROM python:{{ cookiecutter.python_version }} as build-stage
+FROM python:{{ cookiecutter.python_version }} AS build-stage
 
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
