@@ -90,6 +90,10 @@ Per the `Software terms of reference (TOR) template <https://docs.google.com/doc
 
    In order to protect the private deploy repositories, the `base permissions <https://github.com/organizations/open-contracting/settings/member_privileges>`__ for ``open-contracting`` members is *None*.
 
+.. note::
+
+   A `custom security configuration <https://docs.github.com/en/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration>`__ is applied to all new repositories.
+
 Offboard consultants
 --------------------
 
