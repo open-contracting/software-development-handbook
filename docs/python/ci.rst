@@ -282,7 +282,7 @@ Find unexpected workflows:
 
 .. code-block:: bash
 
-   find . -path '*/workflows/*' ! -name automerge.yml ! -name ci.yml ! -name lint.yml ! -name mypy.yml ! -name js.yml ! -name shell.yml ! -name spellcheck.yml ! -name i18n.yml ! -name pypi.yml ! -name docker.yml ! -path '*/node_modules/*' ! -path '*/vendor/*'
+   find . -path '*/workflows/*' ! -path '*/node_modules/*' ! -path '*/vendor/*' ! -name a11y.yml ! -name automerge.yml ! -name ci.yml ! -name deploy.yml ! -name docker.yml ! -name i18n.yml ! -name js.yml ! -name lint.yml ! -name pypi.yml ! -name shell.yml ! -name release.yml ! -name spellcheck.yml
 
 Find ``ci.yml`` files without ``lint.yml`` files, and vice versa:
 
