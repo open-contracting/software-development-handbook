@@ -164,15 +164,6 @@ Create a ``.github/workflows/js.yml`` file. As a base, use:
 .. literalinclude:: samples/js.yml
    :language: yaml
 
-Maintenance
-~~~~~~~~~~~
-
-Find and compare ``js.yml`` files:
-
-.. code-block:: bash
-
-   find . -name js.yml -exec bash -c 'echo $(tail -r {} | tail +2 | tail -r | shasum - | cut -d" " -f1) {}' \;
-
 Reference
 ---------
 
