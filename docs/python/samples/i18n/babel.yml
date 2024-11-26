@@ -4,25 +4,9 @@ on:
   push:
     branches: [main]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install translate-toolkit
-        run: |
-          sudo apt update
-          sudo apt install translate-toolkit
-      - run: pip install babel
-      - name: Update catalogs
-        run: |
-          pybabel extract -F pyproject.toml -o messages.pot .
-          pybabel update -N -i messages.pot -d locale
-      - name: Count incomplete translations
-        shell: bash
-        run: |
-          output=$(find . -name LC_MESSAGES -exec pocount --incomplete --short "{}" +)
-          echo $output
-          [ "$output" = "" ]
+  i18n:
+    uses: open-contracting/.github/.github/workflows/i18n-babel.yml@main
+    with:
+      command: |
+        pybabel extract -F pyproject.toml -o messages.pot .
+        pybabel update -N -i messages.pot -d locale
