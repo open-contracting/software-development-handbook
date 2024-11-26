@@ -239,7 +239,7 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
 .. code-block:: yaml
 
          # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
-         - if: matrix.python-version != 'pypy-3.10'
+         - if: ${{ matrix.python-version != 'pypy-3.10' }}
            name: Test
            shell: bash
            run: |
@@ -247,7 +247,7 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
              pip install orjson
              coverage run --source=PACKAGENAME --append -m pytest
              pip uninstall -y orjson
-         - if: matrix.python-version == 'pypy-3.10'
+         - if: ${{ matrix.python-version == 'pypy-3.10' }}
            name: Test
            run: coverage run --source=PACKAGENAME -m pytest
 
@@ -328,7 +328,7 @@ The following prevents GitHub Actions from running a workflow twice when pushing
 
 .. code-block:: yaml
 
-   if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+   if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository }}
 
 .. note::
 
