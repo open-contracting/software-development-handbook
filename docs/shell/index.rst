@@ -69,10 +69,22 @@ And:
 Continuous integration
 ----------------------
 
-Create a ``.github/workflows/shell.yml`` file with:
+Create a ``.github/workflows/shell.yml`` file. As a base, use:
 
 .. literalinclude:: samples/shell.yml
    :language: yaml
+
+.. tip::
+
+   In most cases, you can reuse the `shell <https://github.com/open-contracting/.github/blob/main/.github/workflows/shell.yml>`__ workflow. For example:
+
+   .. code-block:: yaml
+
+      jobs:
+        lint:
+          uses: open-contracting/.github/.github/workflows/shell.yml@main
+          with:
+            ignore: file.sh
 
 Maintenance
 ~~~~~~~~~~~
@@ -82,12 +94,6 @@ Find repositories with shell scripts but without ``shell.yml`` files:
 .. code-block:: bash
 
    find . \( -path '*/script/*' -o -name '*.sh' \) ! -path '*/.mypy_cache/*' ! -path '*/node_modules/*' ! -path '*/vendor/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name shell.yml) ]]; then echo {}; fi' \;
-
-Find and compare ``shell.yml`` files:
-
-.. code-block:: bash
-
-   find . -name shell.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
 
 Reference
 ---------

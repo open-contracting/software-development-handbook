@@ -59,7 +59,7 @@ Packages
 
 .. note::
 
-   We don't use the `src/ layout <https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure>`__ (`more <https://blog.ionelmc.ro/2015/02/24/the-problem-with-packaging-in-python/>`__). In practice, we rarely encounter the problems it solves, and our use of :ref:`check-manifest<python-package-release-process>` and `test_requirements.py <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/tests/test_requirements.py>`__ guard against those problems.
+   We don't use the `src/ layout <https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure>`__ (`more <https://blog.ionelmc.ro/2015/02/24/the-problem-with-packaging-in-python/>`__). In practice, we rarely encounter the problems it solves, and our use of `check-manifest <https://github.com/open-contracting/.github/blob/main/.github/workflows/lint.yml>`__ and `test_requirements.py <https://github.com/open-contracting/standard-maintenance-scripts/blob/main/tests/test_requirements.py>`__ guard against those problems.
 
 Modules
 -------

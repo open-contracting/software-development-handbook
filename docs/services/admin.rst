@@ -172,7 +172,7 @@ Third-party sysadmins can be added with "Global Administrator" access.
 PyPI
 ----
 
-For each package, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ users from OCP, including the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, whose API token is used in `pypi.yml workflows <python-package-release-process>`__.
+For each package, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ users from OCP, including the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
 
 Only users who are reasonably expected to upload releases should have the Maintainer role.
 
@@ -204,7 +204,7 @@ Third-party sysadmins can be added with "Member" access.
 Test PyPI
 ---------
 
-For each package, the `opencontracting <https://test.pypi.org/user/opencontracting/>`__ user can be the single Owner, whose API token is used in `pypi.yml workflows <python-package-release-process>`__.
+For each package, the `opencontracting <https://test.pypi.org/user/opencontracting/>`__ user can be the single Owner, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
 
 Transifex
 ---------

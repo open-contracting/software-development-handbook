@@ -5,8 +5,8 @@ Continuous integration
 
    Workflows for:
 
-   -  Linting :doc:`Python<linting>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`
-   - :ref:`Releasing packages<python-package-release-process>`
+   -  Linting :ref:`Python<linting-ci>`, :ref:`JavaScript<javascript-ci>` and :ref:`shell scripts<shell-ci>`
+   - :ref:`Releasing packages<pypi-ci>`
    - :ref:`Checking translations<i18n-ci>`
    - :ref:`Checking accessibility<a11y-ci>`
 
@@ -291,12 +291,6 @@ Find ``ci.yml`` files without ``lint.yml`` files, and vice versa:
    find . \( -name lint.yml \) -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name ci.yml) ]]; then echo {}; fi' \;
    find . \( -name ci.yml \) ! -path '*/node_modules/*' -exec bash -c 'if [[ -z $(find $(echo {} | cut -d/ -f2) -name lint.yml) ]]; then echo {}; fi' \;
 
-Find and compare ``lint.yml`` files:
-
-.. code-block:: bash
-
-   find . -name lint.yml -exec bash -c 'sha=$(shasum {} | cut -d" " -f1); if [[ ! "9773a893d136df0dc82deddedd8af8563969c04a 9222eac95ab63f3c2d983ba3cf4629caea53a72e fc3eff616a7e72f41c96e48214d244c9058dbc83 953ef7f0815d49226fd2d05db8df516fff2e3fdb dfe1c0d1fbdb18bb1e2b3bcfb1f0c10fe6b06bc4" =~ $sha ]]; then echo -e "\n\033[0;32m{}\033[0m"; echo $sha; cat {}; fi' \;
-
 Find and compare ``pypi.yml`` files:
 
 .. code-block:: bash
@@ -308,12 +302,6 @@ Find repositories for Python packages but without ``pypi.yml`` files:
 .. code-block:: bash
 
    find . -name pyproject.toml ! -path '*/node_modules/*' -exec bash -c 'if grep classifiers {} > /dev/null && [[ -z $(find $(echo {} | cut -d/ -f2) -name pypi.yml) ]]; then echo {}; fi' \;
-
-Find and compare ``i18n.yml`` files:
-
-.. code-block:: bash
-
-   find . -name i18n.yml -exec bash -c 'echo $(shasum {} | cut -d" " -f1) {}' \;
 
 Find repositories with ``LC_MESSAGES`` directories but without ``i18n.yml`` files:
 

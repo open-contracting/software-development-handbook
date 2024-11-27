@@ -1,11 +1,28 @@
 Continuous integration
 ======================
 
-Create a ``.github/workflows/docker.yml`` file.
+Create a ``.github/workflows/docker.yml`` file. As a base, use:
+
+.. literalinclude:: samples/docker.yml
+   :language: yaml
+
+.. tip::
+
+   In most cases, you can reuse either the `docker-single <https://github.com/open-contracting/.github/blob/main/.github/workflows/docker-single.yml>`__ or `docker-django <https://github.com/open-contracting/.github/blob/main/.github/workflows/docker-django.yml>`__ workflow. For example:
+
+   .. code-block:: yaml
+
+      jobs:
+        docker:
+         uses: open-contracting/.github/.github/workflows/docker-single.yml@main
 
 .. note::
 
    This assumes there is already a :doc:`"CI" workflow <../python/ci>` that runs tests on the ``main`` branch.
+
+.. note::
+
+   The `docker/build-push-action <https://github.com/docker/build-push-action>`__ step uses `BuildKit <https://docs.docker.com/build/buildkit/>`__ by default.
 
 If you need to build multiple images, then for each image:
 
@@ -16,13 +33,6 @@ If you need to build multiple images, then for each image:
    -  The path to the directory (`context <https://docs.docker.com/engine/context/working-with-contexts/>`__) with the ``context`` key
 
 #. Add a suffix to the repository name under the ``tags`` key.
-
-.. literalinclude:: samples/docker.yml
-   :language: yaml
-
-.. note::
-
-   The `docker/build-push-action <https://github.com/docker/build-push-action>`__ step uses `BuildKit <https://docs.docker.com/build/buildkit/>`__ by default.
 
 ..
    The following would simplify the workflow somewhat. However, it would not work when building multiple images, producing an inconsistent approach across repositories.

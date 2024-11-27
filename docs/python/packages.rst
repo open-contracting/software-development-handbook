@@ -75,21 +75,25 @@ The template reads the documentation from a ``README.rst`` file. To convert a ``
 
    :doc:`Python documentation guide<documentation>`
 
-.. _python-package-release-process:
+Publish releases
+----------------
+
+.. _pypi-ci:
+
+Continuous integration
+~~~~~~~~~~~~~~~~~~~~~~
+
+To publish tagged releases to PyPI, create a ``.github/workflows/pypi.yml`` file:
+
+.. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.github/workflows/pypi.yml
+   :language: yaml
+
+The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the *opencontracting* Test PyPI user.
+
+After publishing the first release to PyPI, :ref:`add additional owners <pypi-access>`.
 
 Release process
----------------
-
-.. admonition:: One-time setup
-
-   To publish tagged releases to PyPI, create a ``.github/workflows/pypi.yml`` file:
-
-   .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.github/workflows/pypi.yml
-      :language: yaml
-
-   The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the *opencontracting* Test PyPI user.
-
-   After publishing the first release to PyPI, :ref:`add additional owners <pypi-access>`.
+~~~~~~~~~~~~~~~
 
 #. Ensure that you are on an up-to-date ``main`` branch:
 

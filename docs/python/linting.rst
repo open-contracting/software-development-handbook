@@ -103,7 +103,9 @@ To avoid pushing commits that fail formatting or linting checks, new projects sh
 Continuous integration
 ----------------------
 
-Create a ``.github/workflows/lint.yml`` file. The :doc:`django` and :doc:`Pypackage<packages>` Cookiecutter templates contain default workflows.
+Create a ``.github/workflows/lint.yml`` file.
+
+The :doc:`django` and :doc:`Pypackage<packages>` Cookiecutter templates contain default workflows.
 
 .. seealso::
 

@@ -164,6 +164,18 @@ Create a ``.github/workflows/js.yml`` file. As a base, use:
 .. literalinclude:: samples/js.yml
    :language: yaml
 
+.. tip::
+
+   In most cases, you can reuse the `js <https://github.com/open-contracting/.github/blob/main/.github/workflows/js.yml>`__ workflow. For example:
+
+   .. code-block:: yaml
+
+      jobs:
+        lint:
+          uses: open-contracting/.github/.github/workflows/js.yml@main
+          with:
+            filenames: path/to/file.js
+
 Reference
 ---------
 
