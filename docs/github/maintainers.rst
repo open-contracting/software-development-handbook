@@ -69,7 +69,7 @@ Onboard consultants or Start a project
 
    .. note::
 
-      The ``PAT`` environment variable is a personal access token of the ``ocp-deploy`` user to access all repositories of the ``open-contracting`` organization with a *Contents* permission of *Read and write*. This user is the only member of the Robots team, which needs permission to push fixes to protected branches.
+      This permission level is required to **push fixes to protected branches**. The ``ocp-deploy`` user is the only member of the Robots team. The ``PAT`` environment variable is its personal access token to access all repositories of the ``open-contracting`` organization with a *Contents* permission of *Read and write*.
 
 #. Add the new repositories to `pre-commit ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
 #. Add the new repositories to `Coveralls <https://coveralls.io/repos/new>`__
