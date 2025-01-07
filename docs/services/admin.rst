@@ -49,6 +49,13 @@ There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0
 
 Third-party sysadmins can be added with "Administrator" access to "All domains".
 
+Figma
+-----
+
+There should be a minimum of two `admins <https://www.figma.com/files/team/967086771254173797/team-admin-console/members>`__ from OCP.
+
+You can sort by *Last active* and remove seats from users who were last active more than 6 months ago.
+
 GitHub
 ------
 
