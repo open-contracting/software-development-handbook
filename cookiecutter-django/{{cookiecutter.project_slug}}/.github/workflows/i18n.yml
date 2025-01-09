@@ -8,4 +8,4 @@ jobs:
     uses: open-contracting/.github/.github/workflows/i18n-django.yml@main
     with:
       source: en_US
-      python-version: {{ cookiecutter.python_version }}
+      python-version: '{{ cookiecutter.python_version }}'
