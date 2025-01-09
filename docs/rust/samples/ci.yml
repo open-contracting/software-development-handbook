@@ -2,7 +2,7 @@ name: CI
 on: [push, pull_request]
 jobs:
   build:
-    if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository }}
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -17,5 +17,5 @@ jobs:
       - run: cargo update
       - uses: taiki-e/install-action@cargo-llvm-cov
       - run: cargo llvm-cov --lcov --output-path coverage/lcov.info
-      - if: ${{ matrix.os == 'ubuntu-latest' }}
+      - if: matrix.os == 'ubuntu-latest'
         uses: coverallsapp/github-action@v2

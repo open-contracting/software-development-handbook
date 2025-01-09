@@ -2,9 +2,7 @@ name: CI
 on: [push, pull_request]
 jobs:
   build:
-    {%- raw %}
-    if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository }}
-    {%- endraw %}
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
 {%- if cookiecutter.os_independent == "y" %}
     {%- raw %}
     runs-on: ${{ matrix.os }}
