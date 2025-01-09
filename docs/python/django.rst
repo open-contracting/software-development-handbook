@@ -1,7 +1,7 @@
 Django
 ======
 
-Use the Django Cookiecutter template, and `add the repository to pre-commit.ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__:
+1. Use the Django Cookiecutter template:
 
 .. code-block:: bash
 
@@ -14,7 +14,8 @@ Use the Django Cookiecutter template, and `add the repository to pre-commit.ci <
    uv tool install pre-commit
    pre-commit install
 
-For the ``stefanzweifel/git-auto-commit-action`` action, add the repository to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team, and set the *Permission level* to "Admin".
+1. `Add the repository to pre-commit.ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
+1. Add the repository to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team, and set the *Permission level* to "Admin" (for the ``stefanzweifel/git-auto-commit-action`` action in the :ref:`lint workflow<linting-ci>`).
 
 .. _django-layout:
 
