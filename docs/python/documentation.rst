@@ -85,11 +85,14 @@ Create a project
    #. Enter the name of the repository in *Name*
    #. Paste the URL of the repository in *Repository URL*
    #. Enter "main" in *Default branch*
-   #. Check *Edit advanced project options*
    #. Click *Next*
 
-#. Set *Programming language* to "Python"
 #. Click *Finish*
+#. Click *Admin*:
+
+   #. Set *Programming language* to "Python"
+   #. Click *Save*
+
 #. Click *Admin* then *Maintainers*, and for each of "yolile" and "jpmckinney":
 
    #. Enter the username in *Add maintainer*
