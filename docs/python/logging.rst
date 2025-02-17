@@ -35,7 +35,7 @@ In most cases, the other `placeholders <https://docs.python.org/3/library/loggin
 
 To configure the format in `Django <https://docs.djangoproject.com/en/4.2/topics/logging/#configuring-logging>`__:
 
-.. literalinclude:: samples/logging.py
+.. literalinclude:: samples/log.py
    :language: python
 
 .. note::
