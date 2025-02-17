@@ -63,7 +63,7 @@ A common starter ``requirements.in`` for :doc:`django` is:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements.in
 
-A common starter ``requirements_dev.in`` for linting in :doc:`django` is:
+A common starter ``requirements_dev.in`` is:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements_dev.in
 

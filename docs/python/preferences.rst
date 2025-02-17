@@ -25,7 +25,7 @@ Web framework
 API
   `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__. Do not use `Django Tastypie <https://django-tastypie.readthedocs.io/en/latest/>`__, which has at times fallen behind on Django and Python versions.
 Command-line interface
-  `Click <https://click.palletsprojects.com/>`__, unless a framework has its own, like `Django <https://docs.djangoproject.com/en/4.2/howto/custom-management-commands/>`__ `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__ or `Typer <https://typer.tiangolo.com>`__ with FastAPI. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
+  `Click <https://click.palletsprojects.com/>`__, unless a framework has its own, like `Django <https://docs.djangoproject.com/en/4.2/howto/custom-management-commands/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__ or `Typer <https://typer.tiangolo.com>`__ with FastAPI. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
 DataFrames
   `Polars <https://pola.rs>`__, unless end-users are unfamiliar (`pandas <https://pandas.pydata.org/docs/>`__).
 Object Relational Mapper (ORM)
