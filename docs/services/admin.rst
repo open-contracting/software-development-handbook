@@ -145,6 +145,8 @@ For each app, a minimum of two `collaborators <https://devcenter.heroku.com/arti
 
 Third-party sysadmins can be added with "Collaborator" access.
 
+.. _hetzner-cloud:
+
 Hetzner Cloud
 -------------
 
