@@ -25,7 +25,7 @@ These :doc:`preferred services<../general/preferences>` don't have individual us
 -  Ahrefs (`requires account upgrade <https://app.ahrefs.com/pricing>`__)
 -  Fathom
 -  Fixer
--  Hetzner
+-  Hetzner (except :ref:`hetzner-cloud`)
 
 .. note::
 
@@ -144,6 +144,13 @@ Heroku
 For each app, a minimum of two `collaborators <https://devcenter.heroku.com/articles/collaborating#collaborator-permissions-for-apps-in-a-personal-account>`__ from OCP only, including the owner.
 
 Third-party sysadmins can be added with "Collaborator" access.
+
+Hetzner Cloud
+-------------
+
+There should be a minimum of two `admins <https://console.hetzner.cloud/projects/104976/security/members>`__ from OCP, including the ``sysadmin`` owner.
+
+Third-party sysadmins can be added with "Member" access.
 
 LastPass
 --------
