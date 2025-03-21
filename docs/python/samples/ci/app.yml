@@ -13,4 +13,4 @@ jobs:
           cache-dependency-path: '**/requirements*.txt'
       - run: pip install -r requirements_dev.txt
       - run: coverage run --source=APPNAME1 -m pytest -W error
-      - uses: coverallsapp/github-action@v2
+      - uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b # v2.3.6
