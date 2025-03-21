@@ -38,13 +38,13 @@ If you need to build multiple images, then for each image:
    The following would simplify the workflow somewhat. However, it would not work when building multiple images, producing an inconsistent approach across repositories.
 
       # https://github.com/docker/metadata-action#usage
-      - uses: docker/metadata-action@v3
+      - uses: docker/metadata-action@COMMIT # VERSION
         with:
           images: ghcr.io/${{ github.repository }}
           tags: |
             type=ref,event=tag
       # https://github.com/docker/build-push-action#usage
-      - uses: docker/build-push-action@v2
+      - uses: docker/build-push-action@COMMIT # VERSION
         with:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
