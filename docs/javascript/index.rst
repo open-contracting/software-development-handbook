@@ -144,6 +144,11 @@ To upgrade vulnerable dependencies:
 Code style
 ----------
 
+package.json
+~~~~~~~~~~~~
+
+-  Do not set the `scripts <https://docs.npmjs.com/cli/v11/using-npm/scripts>`__ property. Instead, document the full commands in the readme, to reduce indirection and obfuscation.
+
 Vue
 ~~~
 
