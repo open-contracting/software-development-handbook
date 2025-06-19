@@ -38,7 +38,7 @@ typing-extensions==4.12.2
     # via
     #   -r requirements.txt
     #   dj-database-url
-urllib3==2.2.3
+urllib3==2.5.0
     # via
     #   -r requirements.txt
     #   sentry-sdk
