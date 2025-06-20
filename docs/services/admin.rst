@@ -190,7 +190,7 @@ PyPI
 
 `Transfer <https://pypi.org/manage/organization/opencontracting/projects/>`__ all projects to the `opencontracting <https://pypi.org/org/opencontracting/>`__ organization.
 
-The organization should have a minimum of two `Owner <https://docs.pypi.org/organization-accounts/roles-entities/>`__ users from OCP, plus the `opencontracting <https://pypi.org/user/opencontracting/>`__ user in a Member role, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
+The organization should have a minimum of two `Owner <https://docs.pypi.org/organization-accounts/roles-entities/>`__ users from OCP, in addition to the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
 
 Only users who are reasonably expected to upload releases should have an organization role.
 
