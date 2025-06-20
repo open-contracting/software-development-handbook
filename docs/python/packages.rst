@@ -83,14 +83,21 @@ Publish releases
 Continuous integration
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To publish tagged releases to PyPI, create a ``.github/workflows/pypi.yml`` file:
+To publish tagged releases to PyPI, create a ``.github/workflows/pypi.yml`` file, which uses a `trusted publisher <https://docs.pypi.org/trusted-publishers/using-a-publisher/>`__:
 
 .. literalinclude:: ../../cookiecutter-pypackage/{{cookiecutter.repository_name}}/.github/workflows/pypi.yml
    :language: yaml
 
-The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the *opencontracting* Test PyPI user.
+The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the *opencontracting* `Test PyPI user <https://test.pypi.org/manage/account/#api-tokens>`__.
 
-After publishing the first release to PyPI, :ref:`transfer the project to the opencontracting organization <pypi-access>`.
+Before pushing this commit and running this workflow for the first time:
+
+-  `Add a pending publisher <https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/>`__ to the *opencontracting* user on `PyPI <https://pypi.org/manage/account/publishing/>`__ and `Test PyPI <https://test.pypi.org/manage/account/publishing/>`__
+
+If you manually published the project already:
+
+-  :ref:`Transfer the project to the opencontracting organization <pypi-access>`
+-  `Add a trusted publisher <https://docs.pypi.org/trusted-publishers/adding-a-publisher/>`__ to the project
 
 Release process
 ~~~~~~~~~~~~~~~
