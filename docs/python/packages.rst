@@ -90,7 +90,7 @@ To publish tagged releases to PyPI, create a ``.github/workflows/pypi.yml`` file
 
 The *open-contracting* organization sets the ``PYPI_API_TOKEN`` `organization secret <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ to the API token of the *opencontracting* `PyPI user <https://pypi.org/manage/account/#api-tokens>`__, and ``TEST_PYPI_API_TOKEN`` to that of the *opencontracting* Test PyPI user.
 
-After publishing the first release to PyPI, :ref:`add additional owners <pypi-access>`.
+After publishing the first release to PyPI, :ref:`transfer the project to the opencontracting organization <pypi-access>`.
 
 Release process
 ~~~~~~~~~~~~~~~

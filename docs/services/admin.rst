@@ -188,11 +188,13 @@ Third-party sysadmins can be added with "Global Administrator" access.
 PyPI
 ----
 
-For each package, there should be a minimum of two `Owner <https://pypi.org/help/#collaborator-roles>`__ users from OCP, including the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
+`Transfer <https://pypi.org/manage/organization/opencontracting/projects/>`__ all projects to the `opencontracting <https://pypi.org/org/opencontracting/>`__ organization.
 
-Only users who are reasonably expected to upload releases should have the Maintainer role.
+The organization should have a minimum of two `Owner <https://docs.pypi.org/organization-accounts/roles-entities/>`__ users from OCP, plus the `opencontracting <https://pypi.org/user/opencontracting/>`__ user in a Member role, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
 
-If a third-party organization maintains a package, there can be one user from that organization with the Owner role to add maintainers (e.g. ``OpenDataServices``).
+Only users who are reasonably expected to upload releases should have an organization role.
+
+If a third-party organization maintains a package, there can be one project collaborator (not organization member) from that organization with the Owner role on the specific project to add maintainers (e.g. ``OpenDataServices``).
 
 ReadTheDocs
 -----------
