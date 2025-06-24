@@ -83,6 +83,8 @@ Create a ``.github/workflows/shell.yml`` file. As a base, use:
       jobs:
         lint:
           uses: open-contracting/.github/.github/workflows/shell.yml@main
+          permissions:
+            contents: read
           with:
             ignore: file.sh
 

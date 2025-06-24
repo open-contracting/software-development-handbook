@@ -15,6 +15,8 @@ Create a ``.github/workflows/docker.yml`` file. As a base, use:
       jobs:
         docker:
          uses: open-contracting/.github/.github/workflows/docker-single.yml@main
+         permissions:
+           packages: write
 
 .. note::
 

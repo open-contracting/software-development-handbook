@@ -6,6 +6,8 @@ on:
 jobs:
   i18n:
     uses: open-contracting/.github/.github/workflows/i18n-babel.yml@main
+    permissions:
+      contents: read
     with:
       command: |
         pybabel extract -F pyproject.toml -o messages.pot .

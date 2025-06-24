@@ -8,3 +8,5 @@ on:
 jobs:
   docker:
     uses: open-contracting/.github/.github/workflows/docker-django.yml@main
+    permissions:
+      packages: write

@@ -178,6 +178,8 @@ Create a ``.github/workflows/js.yml`` file. As a base, use:
       jobs:
         lint:
           uses: open-contracting/.github/.github/workflows/js.yml@main
+          permissions:
+            contents: read
           with:
             filenames: path/to/file.js
 
