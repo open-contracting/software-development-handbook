@@ -79,8 +79,8 @@ Create a project
 ~~~~~~~~~~~~~~~~
 
 #. Sign in to `ReadTheDocs <https://readthedocs.org/dashboard/>`__
-#. Click *Import a Project*
-#. Click *Import Manually*
+#. Click *Add project*
+#. Click *Configure manually*
 
    #. Enter the name of the repository in *Name*
    #. Paste the URL of the repository in *Repository URL*
@@ -88,25 +88,21 @@ Create a project
    #. Click *Next*
 
 #. Click *Finish*
-#. Click *Admin*:
+#. Click *Settings*:
 
-   #. Set *Programming language* to "Python"
+   #. Set *Programming Language* to "Python"
    #. Click *Save*
 
-#. Click *Admin* then *Maintainers*, and for each of "yolile" and "jpmckinney":
+#. Click *Settings* then *Maintainers*, and for each of "yolile" and "jpmckinney":
 
-   #. Enter the username in *Add maintainer*
-   #. Click *Add*
+   #. Click *Add maintainer*
+   #. Enter the username in *Email address or username*
+   #. Click *Invite*
 
-#. Click *Admin* then *Email Notifications*
+#. Click *Settings* then *Email notifications*
 
+   #. Click *Add notification*
    #. Enter "sysadmin@open-contracting.org" in *Email*
-   #. Click *Add*
-
-#. Click *Edit Versions* (or *Versions*)
-
-   #. Click *Edit* for the *stable* version
-   #. Uncheck *Active*
    #. Click *Save*
 
 Configure the project
