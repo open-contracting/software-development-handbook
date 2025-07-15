@@ -73,9 +73,14 @@ Public sites should serve a ``sitemap.xml`` file.
 Models
 ------
 
--  Use ``from django.db import models``, `as convention <https://docs.djangoproject.com/en/4.2/ref/models/fields/>`__.
+-  Use ``from django.db import models``, `per convention <https://docs.djangoproject.com/en/4.2/ref/models/fields/>`__.
 -  Use ``help_text`` and ``verbose_name`` to describe fields.
 -  Use ``TextField``, not ``CharField``. There is `no performance difference <https://www.postgresql.org/docs/current/datatype-character.html>`__ in PostgreSQL.
+-  Do not use ``JSONField``, unless the field is intended to store:
+
+   -  JSON text from another application (like data from an OCDS publication).
+   -  Configuration values for another application (to avoid migrations caused by changes in other applications).
+
 -  Do not use ``null=True`` with ``TextField`` or ``CharField``, `as recommended <https://docs.djangoproject.com/en/4.2/ref/models/fields/#null>`__.
 -  Do not use ``null=True`` with ``JSONField``, if possible. Instead, use ``default=dict``, ``default=list`` or  ``default=""``.
 -  Use ``Meta.indexes``, not ``db_index=True``, with ``ForeignKey``, `as recommended <https://docs.djangoproject.com/en/4.2/ref/models/fields/#db-index>`__.
