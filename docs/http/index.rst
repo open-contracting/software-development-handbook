@@ -54,22 +54,22 @@ Content Security Policy (CSP)
         - Typical
       * - ``script-src``
         - ``'self' https:``
-        - ``'self' 'unsafe-inline' https:`` if using inline scripts
+        - ``'self' 'unsafe-inline' https:`` if using inline scripts, plus external sources like ``https://cdn.usefathom.com/script.js``
       * - ``style-src``
         - ``'self' 'unsafe-inline'``
-        - ``'self' 'unsafe-inline'``, plus any external sources like ``https://use.fontawesome.com``
+        - ``'self' 'unsafe-inline'``, plus external sources like ``https://use.fontawesome.com``
       * - ``img-src``
         - ``'self' https:``
-        - ``'self' data: https:`` if using data URLs, plus external sources
+        - ``'self' data: https:`` if using data URLs, plus external sources like ``https://cdn.usefathom.com``
       * - ``font-src``
         - Omit
-        - ``'self' data:`` if using data URLs, plus any external sources like ``https://use.fontawesome.com``
+        - ``'self' data:`` if using data URLs, plus external sources like ``https://use.fontawesome.com``
       * - ``frame-src``
         - Omit
-        - Add any external embeds, like Power BI, Google Docs or YouTube
+        - Add external embeds, like Power BI, Google Docs or YouTube
       * - ``connect-src``
         - Omit
-        - Add any external connections, like Google Analytics, other APIs or JSON files
+        - Add external connections, like Google Analytics, other APIs or JSON files
       * - ``object-src``
         - ``'none'``
         -
