@@ -13,7 +13,7 @@ If an issue is assigned to you and you need clarification from OCP, you can re-a
 Close issues
 ------------
 
-If OCP asks a question, **DO NOT** close the issue after providing the answer. Instead, you can re-assign the issue to OCP. The issue is not closed until OCP has an opportunity to act on the provided information.
+If OCP asks a question, **DO NOT** close the issue after answering. Instead, you can re-assign the issue to OCP. The issue is not closed until OCP has an opportunity to act on the provided information.
 
 Automatically, with pull requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

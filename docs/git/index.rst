@@ -111,7 +111,7 @@ Add the following to your ``~/.config/git/ignore`` file:
    .DS_Store
    *.pyc
 
-In general, use the repository's ``.gitignore`` file, to not rely on each user having configured global exclusions.
+In general, use the repository's ``.gitignore`` file, to not rely on each user having global exclusions.
 
 Common excluded paths include:
 
