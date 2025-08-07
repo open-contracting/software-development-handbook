@@ -231,6 +231,13 @@ There should be a minimum of two `Administrators <https://app.transifex.com/open
 
 If we reach our collaborator limit, `manage collaborators <https://app.transifex.com/open-contracting-partnership-1/collaborators/>`__, removing those who were last seen more than 9 months ago.
 
+Valimail
+--------
+
+There should be a minimum of two `Owners <https://app.valimail.com/app/open-contracting-partnership/settings/members>`__ from OCP.
+
+Third-party sysadmins can be added with "Owner" access.
+
 WordFence
 ---------
 
