@@ -6,6 +6,6 @@ jobs:
     permissions:
       contents: write
     secrets:
-      personal-access-token: ${{ secrets.PAT }}
+      personal-access-token: ${{ "{{" }} secrets.PAT }}
     with:
       python-version: '{{ cookiecutter.python_version }}'
