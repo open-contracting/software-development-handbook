@@ -91,9 +91,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": dj_database_url.config(default="postgresql:///{{ cookiecutter.database_name }}?application_name={{ cookiecutter.application_name }}")
-}
+DATABASES = {"default": dj_database_url.config(default="postgresql:///{{ cookiecutter.database_name }}?application_name={{ cookiecutter.application_name }}")}
 
 
 # Password validation
