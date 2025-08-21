@@ -43,7 +43,7 @@ Onboard consultants or Start a project
 
    .. note::
 
-      Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Individual consultants can be collected into appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
+      Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Add individual consultants to appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
 
 #. From the *Members* tab:
 
