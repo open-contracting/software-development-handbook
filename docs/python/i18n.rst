@@ -77,7 +77,13 @@ Whenever text in the interface is added or updated, you must extract the strings
 
       .. code-block:: bash
 
-         django-admin makemessages -l en_US --no-obsolete
+         django-admin makemessages --no-obsolete -l en_US
+
+      If you are **not** using a translation tool, update the translation files. For example:
+
+      .. code-block:: bash
+
+         django-admin makemessages --no-obsolete -l en -l es
 
    .. tab-item:: Python (example)
       :sync: python
