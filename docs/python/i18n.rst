@@ -5,13 +5,41 @@ Internationalization (i18n)
 
    :doc:`preferences` for Internationalization (i18n)
 
-Treat the source language as "developer" English, using the language code ``en_US``. Then, use Transifex to translate the "developer" English to "proper" English, using the language code ``en``.
+Treat the source language as "developer" English, using the language code ``en_US``. Then, translate the "developer" English to "proper" English, using the language code ``en``.
 
 .. note::
 
    If using the source language as "proper" English, then replace ``en_US`` with ``en`` in the commands and templates below.
 
-Reference: `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__
+Reference: `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__ (Transifex)
+
+Install translation tool
+------------------------
+
+If you use a translation tool:
+
+.. tab-set::
+
+   .. tab-item:: Crowdin
+      :sync: crowdin
+
+      Install the `Crowdin CLI <https://support.crowdin.com/cli-tool/>`__:
+
+      .. code-block:: bash
+
+         npm install -g @crowdin/cli
+
+
+      Set the Crowdin `personal access token <https://support.crowdin.com/enterprise/account-settings/#creating-a-personal-access-token>`__ in the ``.crowdin.yml`` file in your home directory:
+
+      .. code-block:: yaml
+
+          api_token: ...
+
+   .. tab-item:: Transifex
+      :sync: tx
+
+      Install the `Transifex Client <https://developers.transifex.com/docs/cli>`__.
 
 Mark strings to translate
 -------------------------
@@ -37,64 +65,124 @@ When using Django, this step is already done. Otherwise, create a `pyproject.tom
    method = "jinja2"
    pattern = "**.html"
 
-Add the Transifex mapping
--------------------------
-
-See `Adding resources in bulk <https://developers.transifex.com/docs/cli#adding-resources-in-bulk>`__.
-
-.. note::
-
-   For reference, the equivalent with the old Python Transifex Client, replacing ``TXPROJECT`` and ``APP``, was:
-
-   .. code-block:: bash
-
-      tx config mapping -r TXPROJECT.django -f APP/locale/en_US/LC_MESSAGES/django.po -s en_US -t PO 'APP/locale/<lang>/LC_MESSAGES/django.po'
-
-Translate with Transifex
-------------------------
+Extract strings to translate
+----------------------------
 
 Whenever text in the interface is added or updated, you must extract the strings to translate from the code files into PO files by running:
 
-.. code-block:: bash
-   :caption: Django
+.. tab-set::
 
-   django-admin makemessages -l en_US --no-obsolete
+   .. tab-item:: Django
+      :sync: django
 
-.. code-block:: bash
-   :caption: Python (example)
+      .. code-block:: bash
 
-   pybabel extract -F pyproject.toml -o messages.pot .
-   pybabel update -N -i messages.pot -d locale
+         django-admin makemessages -l en_US --no-obsolete
 
-Then, push the PO files to Transifex with:
+   .. tab-item:: Python (example)
+      :sync: python
 
-.. code-block:: bash
+      .. code-block:: bash
 
-   tx push -s
+         pybabel extract -F pyproject.toml -o messages.pot .
+         pybabel update -N -i messages.pot -d locale
 
-If you made local changes to translations, push the translations to Transifex. For example:
+Update tool configuration
+-------------------------
 
-.. code-block:: bash
+If you use a translation tool, whenever a new PO file is added, you must update its configuration.
 
-   tx push -t -l en
+.. tab-set::
+
+   .. tab-item:: Crowdin
+      :sync: crowdin
+
+      Using ``manage.py`` from `data-support <https://github.com/open-contracting/data-support/blob/main/manage.py>`__:
+
+      .. code-block:: bash
+
+         manage.py update-crowdinyml-files
+
+   .. tab-item:: Transifex
+      :sync: tx
+
+      See `Adding resources in bulk <https://developers.transifex.com/docs/cli#adding-resources-in-bulk>`__.
+
+Translate with a tool
+---------------------
+
+Push the PO files:
+
+.. tab-set::
+
+   .. tab-item:: Crowdin
+      :sync: crowdin
+
+      .. code-block:: bash
+
+         crowdin push sources
+
+   .. tab-item:: Transifex
+      :sync: tx
+
+      .. code-block:: bash
+
+         tx push -s
+
+If you made local changes to translations, push the translations. For example:
+
+.. tab-set::
+
+   .. tab-item:: Crowdin
+      :sync: crowdin
+
+      .. code-block:: bash
+
+         crowdin push translations -l en
+
+   .. tab-item:: Transifex
+      :sync: tx
+
+      .. code-block:: bash
+
+         tx push -t -l en
 
 When ready, pull the translations from Transifex with:
 
-.. code-block:: bash
+.. tab-set::
 
-   tx pull -f -a
+   .. tab-item:: Crowdin
+      :sync: crowdin
 
-Then, compile the PO files to MO files with:
+      .. code-block:: bash
 
-.. code-block:: bash
-   :caption: Django
+         crowdin pull translations
 
-   python manage.py compilemessages
+   .. tab-item:: Transifex
+      :sync: tx
 
-.. code-block:: bash
-   :caption: Python (example)
+      .. code-block:: bash
 
-   pybabel compile -f -d locale
+         tx pull -f -a
+
+Compile the PO files to MO files
+--------------------------------
+
+.. tab-set::
+
+   .. tab-item:: Django
+      :sync: django
+
+      .. code-block:: bash
+
+         python manage.py compilemessages
+
+   .. tab-item:: Python (example)
+      :sync: python
+
+      .. code-block:: bash
+
+         pybabel compile -f -d locale
 
 Reference: Django `Translation <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__
 

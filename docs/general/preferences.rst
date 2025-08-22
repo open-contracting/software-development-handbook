@@ -86,13 +86,13 @@ Miscellaneous
 
    .. note:: OCP has `AWS credits from TechSoup <https://www.techsoup.org/amazon-web-services>`__.
 
+-  Crowdin (translation) for collaboration, otherwise gettext
 -  Fathom (web analytics)
 -  Fixer (currency conversion)
 -  GoDaddy (registrar and DNS) `#340 <https://github.com/open-contracting/deploy/issues/340>`__
 -  Memcached (page caching)
 -  Power BI (business intelligence)
 -  RabbitMQ (message broker)
--  Transifex (translation) for collaboration, otherwise gettext
 
 Reference
 ---------
