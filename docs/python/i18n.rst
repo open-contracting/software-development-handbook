@@ -16,11 +16,28 @@ Reference: `Non-English as a Source Language <https://help.transifex.com/en/arti
 Install dependencies
 --------------------
 
-When using Sphinx:
+.. tab-set::
 
-.. code-block:: bash
+   .. tab-item:: Sphinx
+      :sync: sphinx
 
-   pip install -r docs/requirements.txt sphinx-intl
+      .. code-block:: bash
+
+         pip install -r docs/requirements.txt sphinx-intl
+
+   .. tab-item:: OCDS Extension
+      :sync: extension
+
+      .. code-block:: bash
+
+         pip install ocdsextensionregistry[cli] sphinx-intl
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: bash
+
+         pip install babel
 
 If you use a translation tool:
 
@@ -34,7 +51,6 @@ If you use a translation tool:
       .. code-block:: bash
 
          npm install -g @crowdin/cli
-
 
       Set the Crowdin `personal access token <https://support.crowdin.com/enterprise/account-settings/#creating-a-personal-access-token>`__ in the ``.crowdin.yml`` file in your home directory:
 
@@ -98,11 +114,22 @@ Whenever text in the interface is added or updated, you must extract the strings
 
          sphinx-build -nW --keep-going -q -b gettext docs/ docs/_build/gettext
 
-      If you are **not** using a translation tool, update the translation files. For example:
+      If you are **not** using a translation tool, update the translation files:
 
       .. code-block:: bash
 
          sphinx-intl update -p docs/_build/gettext -d docs/locale
+
+   .. tab-item:: OCDS Extension
+      :sync: extension
+
+      [See its documentation.](https://ocdsextensionregistry.readthedocs.io/en/latest/translation.html)
+
+      If you are **not** using a translation tool, update the translation files:
+
+      .. code-block:: bash
+
+         sphinx-intl update -p build/locale -d locale
 
    .. tab-item:: Python (example)
       :sync: python
@@ -208,6 +235,13 @@ Compile the PO files to MO files
       .. code-block:: bash
 
          sphinx-intl build -d docs/locale
+
+   .. tab-item:: OCDS Extension
+      :sync: extension
+
+      .. code-block:: bash
+
+         sphinx-intl build -d locale
 
    .. tab-item:: Python (example)
       :sync: python
