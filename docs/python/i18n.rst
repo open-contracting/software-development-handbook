@@ -13,8 +13,14 @@ Treat the source language as "developer" English, using the language code ``en_U
 
 Reference: `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__ (Transifex)
 
-Install translation tool
-------------------------
+Install dependencies
+--------------------
+
+When using Sphinx:
+
+.. code-block:: bash
+
+   pip install -r docs/requirements.txt sphinx-intl
 
 If you use a translation tool:
 
@@ -84,6 +90,19 @@ Whenever text in the interface is added or updated, you must extract the strings
       .. code-block:: bash
 
          django-admin makemessages --no-obsolete -l en -l es
+
+   .. tab-item:: Sphinx
+      :sync: sphinx
+
+      .. code-block:: bash
+
+         sphinx-build -nW --keep-going -q -b gettext docs/ docs/_build/gettext
+
+      If you are **not** using a translation tool, update the translation files. For example:
+
+      .. code-block:: bash
+
+         sphinx-intl update -p docs/_build/gettext -d docs/locale
 
    .. tab-item:: Python (example)
       :sync: python
@@ -182,6 +201,13 @@ Compile the PO files to MO files
       .. code-block:: bash
 
          python manage.py compilemessages
+
+   .. tab-item:: Sphinx
+      :sync: sphinx
+
+      .. code-block:: bash
+
+         sphinx-intl build -d docs/locale
 
    .. tab-item:: Python (example)
       :sync: python
