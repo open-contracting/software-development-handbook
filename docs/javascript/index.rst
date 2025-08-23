@@ -154,11 +154,6 @@ Vue
 
 -  When navigating between "pages", respect native browser behaviors (open in new tab, etc.) by using an ``<a>`` link or ``<router-link>``.
 
-Internationalization (i18n)
----------------------------
-
-See the `Transifex Native <https://developers.transifex.com/docs/native>`__ documentation for your framework.
-
 .. _javascript-ci:
 
 Continuous integration
