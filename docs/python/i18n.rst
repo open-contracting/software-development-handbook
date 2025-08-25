@@ -11,7 +11,10 @@ Treat the source language as "developer" English, using the language code ``en_U
 
    If using the source language as "proper" English, then replace ``en_US`` with ``en`` in the commands and templates below.
 
-Reference: `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__ (Transifex)
+Reference:
+
+-  `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__ (Transifex)
+-  Django `Translation <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__
 
 Install dependencies
 --------------------
@@ -199,7 +202,7 @@ If you made local changes to translations, push the translations. For example:
 
          tx push -t -l en
 
-When ready, pull the translations from Transifex with:
+When ready, pull the translations with:
 
 .. tab-set::
 
@@ -249,8 +252,6 @@ Compile the PO files to MO files
       .. code-block:: bash
 
          pybabel compile -f -d locale
-
-Reference: Django `Translation <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__
 
 .. _i18n-ci:
 
