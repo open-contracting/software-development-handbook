@@ -156,7 +156,7 @@ If you use a translation tool, whenever a new PO file is added, you must update 
 
       .. code-block:: bash
 
-         manage.py update-crowdinyml-files
+         path/to/manage.py update-crowdinyml-files
 
    .. tab-item:: Transifex
       :sync: tx
