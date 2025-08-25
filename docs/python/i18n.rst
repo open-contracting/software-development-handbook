@@ -123,7 +123,7 @@ Whenever text in the interface is added or updated, you must extract the strings
    .. tab-item:: OCDS Extension
       :sync: extension
 
-      [See its documentation.](https://ocdsextensionregistry.readthedocs.io/en/latest/translation.html)
+      `See its documentation. <https://ocdsextensionregistry.readthedocs.io/en/latest/translation.html>`__
 
       If you are **not** using a translation tool, update the translation files:
 
