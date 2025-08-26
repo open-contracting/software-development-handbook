@@ -28,7 +28,7 @@ Install dependencies
 
          pip install -r docs/requirements.txt sphinx-intl
 
-   .. tab-item:: OCDS Extension
+   .. tab-item:: OCDS Extensions
       :sync: extension
 
       .. code-block:: bash
@@ -65,6 +65,35 @@ If you use a translation tool:
       :sync: tx
 
       Install the `Transifex Client <https://developers.transifex.com/docs/cli>`__.
+
+Initialize tool configuration
+-----------------------------
+
+If you use a translation tool:
+
+.. tab-set::
+
+   .. tab-item:: Crowdin
+      :sync: crowdin
+
+      Find the project's ID:
+
+      .. code-block:: bash
+
+         crowdin project list -i 1
+
+      Create the configuration file, using ``manage.py`` from `data-support <https://github.com/open-contracting/data-support/blob/main/manage.py>`__:
+
+      .. code-block:: bash
+
+         path/to/manage.py update-crowdinyml-files --project-id PROJECT_ID
+
+   .. tab-item:: Transifex
+      :sync: tx
+
+      .. code-block:: bash
+
+         sphinx-intl create-txconfig
 
 Mark strings to translate
 -------------------------
@@ -123,7 +152,7 @@ Whenever text in the interface is added or updated, you must extract the strings
 
          sphinx-intl update -p docs/_build/gettext -d docs/locale
 
-   .. tab-item:: OCDS Extension
+   .. tab-item:: OCDS Extensions
       :sync: extension
 
       `See its documentation. <https://ocdsextensionregistry.readthedocs.io/en/latest/translation.html>`__
@@ -156,7 +185,10 @@ If you use a translation tool, whenever a new PO file is added, you must update 
 
       .. code-block:: bash
 
-         path/to/manage.py update-crowdinyml-files
+         # Sphinx:
+         path/to/manage.py update-crowdinyml-files -p docs/_build/gettext -d docs/locale
+         # OCDS Extensions:
+         path/to/manage.py update-crowdinyml-files -p build/locale -d locale
 
    .. tab-item:: Transifex
       :sync: tx
@@ -239,7 +271,7 @@ Compile the PO files to MO files
 
          sphinx-intl build -d docs/locale
 
-   .. tab-item:: OCDS Extension
+   .. tab-item:: OCDS Extensions
       :sync: extension
 
       .. code-block:: bash
