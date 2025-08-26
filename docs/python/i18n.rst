@@ -76,17 +76,22 @@ If you use a translation tool:
    .. tab-item:: Crowdin
       :sync: crowdin
 
-      Find the project's ID:
+      #. Create the project on Crowdin.
 
-      .. code-block:: bash
+         #. In the project's *Customize Tabs* settings, disable all except *Sources*, *Members* and *Activity*.
+         #. Add `managers <https://crowdin.com/profile/opencontracting/managers>`__ to the project.
 
-         crowdin project list -i 1
+      #. Find the project's ID:
 
-      Create the configuration file, using ``manage.py`` from `data-support <https://github.com/open-contracting/data-support/blob/main/manage.py>`__:
+         .. code-block:: bash
 
-      .. code-block:: bash
+            crowdin project list -i 1
 
-         path/to/manage.py update-crowdinyml-files --project-id PROJECT_ID
+      #. Create the configuration file, using ``manage.py`` from `data-support <https://github.com/open-contracting/data-support/blob/main/manage.py>`__:
+
+         .. code-block:: bash
+
+            path/to/manage.py update-crowdinyml-files --project-id PROJECT_ID
 
    .. tab-item:: Transifex
       :sync: tx
