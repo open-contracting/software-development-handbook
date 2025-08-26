@@ -225,7 +225,7 @@ If you made local changes to translations, push the translations. For example:
 
       .. code-block:: bash
 
-         crowdin push translations -l en
+         crowdin push translations --import-eq-suggestions -l en
 
    .. tab-item:: Transifex
       :sync: tx
