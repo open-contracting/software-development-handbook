@@ -75,6 +75,11 @@ Review the broken links in the ``_linkcheck/output.txt`` file:
 ReadTheDocs
 -----------
 
+..
+   To avoid broken links, these ReadTheDocs projects continue to use old URLs:
+   ocp-deploy https://ocdsdeploy.readthedocs.io
+   ocp-standard-handbook https://ocds-standard-development-handbook.readthedocs.io
+
 Create a project
 ~~~~~~~~~~~~~~~~
 
