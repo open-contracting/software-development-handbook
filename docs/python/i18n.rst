@@ -28,7 +28,14 @@ Install dependencies
 
          pip install -r docs/requirements.txt sphinx-intl
 
-   .. tab-item:: OCDS Extensions
+   .. tab-item:: Standard
+      :sync: standard
+
+      .. code-block:: bash
+
+         pip install -r requirements.txt
+
+   .. tab-item:: Extensions
       :sync: extension
 
       .. code-block:: bash
@@ -157,7 +164,14 @@ Whenever text in the interface is added or updated, you must extract the strings
 
          sphinx-intl update -p docs/_build/gettext -d docs/locale
 
-   .. tab-item:: OCDS Extensions
+   .. tab-item:: Standard
+      :sync: standard
+
+      .. code-block:: bash
+
+         make extract
+
+   .. tab-item:: Extensions
       :sync: extension
 
       `See its documentation. <https://ocdsextensionregistry.readthedocs.io/en/latest/translation.html>`__
@@ -192,7 +206,7 @@ If you use a translation tool, whenever a new PO file is added, you must update 
 
          # Sphinx:
          path/to/manage.py update-crowdinyml-files -p docs/_build/gettext -d docs/locale
-         # OCDS Extensions:
+         # Standard or Extensions:
          path/to/manage.py update-crowdinyml-files -p build/locale -d locale
 
    .. tab-item:: Transifex
@@ -276,7 +290,12 @@ Compile the PO files to MO files
 
          sphinx-intl build -d docs/locale
 
-   .. tab-item:: OCDS Extensions
+   .. tab-item:: Standard
+      :sync: standard
+
+      This step isn't required.
+
+   .. tab-item:: Extensions
       :sync: extension
 
       .. code-block:: bash
