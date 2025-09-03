@@ -244,7 +244,7 @@ If you made local changes to translations, push the translations. For example:
 
       .. code-block:: bash
 
-         crowdin push translations --import-eq-suggestions -l es
+         crowdin push translations --import-eq-suggestions -l es-ES
 
    .. tab-item:: Transifex
       :sync: tx
