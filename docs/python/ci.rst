@@ -225,7 +225,7 @@ If using `tox <https://tox.wiki/en/latest/>`__:
 
 .. note::
 
-   Use `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions to test multiple Python versions, not ``tox``. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.10 on Windows).
+   Use `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions to test multiple Python versions, not ``tox``. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.11 on Windows).
 
 If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_name }}`` and removing the Jinja syntax if not using the :doc:`Cookiecutter template<packages>`:
 
@@ -239,7 +239,7 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
 .. code-block:: yaml
 
          # "orjson does not support PyPy" and fails to install. https://pypi.org/project/orjson/
-         - if: ${{ matrix.python-version != 'pypy-3.10' }}
+         - if: ${{ matrix.python-version != 'pypy-3.11' }}
            name: Test
            shell: bash
            run: |
@@ -247,7 +247,7 @@ If the package has optional support for `orjson <https://pypi.org/project/orjson
              pip install orjson
              coverage run --source=PACKAGENAME --append -m pytest
              pip uninstall -y orjson
-         - if: ${{ matrix.python-version == 'pypy-3.10' }}
+         - if: ${{ matrix.python-version == 'pypy-3.11' }}
            name: Test
            run: coverage run --source=PACKAGENAME -m pytest
 
