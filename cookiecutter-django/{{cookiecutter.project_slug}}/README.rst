@@ -6,5 +6,5 @@
 
 .. |Build Status| image:: https://github.com/open-contracting/{{ cookiecutter.project_slug }}/actions/workflows/ci.yml/badge.svg
    :target: https://github.com/open-contracting/{{ cookiecutter.project_slug }}/actions/workflows/ci.yml
-.. |Coverage Status| image:: https://coveralls.io/repos/github/open-contracting/{{ cookiecutter.project_slug }}/badge.svg?branch=main
-   :target: https://coveralls.io/github/open-contracting/{{ cookiecutter.project_slug }}?branch=main
+.. |Coverage Status| image:: https://codecov.io/github/open-contracting/{{ cookiecutter.project_slug }}/graph/badge.svg
+   :target: https://codecov.io/github/open-contracting/{{ cookiecutter.project_slug }}
