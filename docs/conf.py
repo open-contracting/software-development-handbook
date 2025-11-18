@@ -47,7 +47,6 @@ linkcheck_ignore = [
     r"^https://groups\.google\.com/a/open-contracting\.org/g/standard-discuss/members\?.+",
     r"^https://github\.com/(?:organizations/open-contracting/settings/|orgs/open-contracting/teams|issues/assigned$)",
     r"^https://airtable\.com/.+/workspace/billing$",
-    r"^https://coveralls\.io/repos/new$",
     r"^https://pypi\.org/manage/account/#api-tokens$",
     r"^https://readthedocs\.org/dashboard/$",
     r"^https://sentry\.io",

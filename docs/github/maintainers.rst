@@ -72,7 +72,6 @@ Onboard consultants or Start a project
       This permission level is required to **push fixes to protected branches**. The ``ocp-deploy`` user is the only member of the Robots team. The ``PAT`` environment variable is its personal access token to access all repositories of the ``open-contracting`` organization with a *Contents* permission of *Read and write*.
 
 #. Add the new repositories to `pre-commit ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
-#. Add the new repositories to `Coveralls <https://coveralls.io/repos/new>`__
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
 #. Use the :doc:`Django Cookiecutter template<../python/django>`, if relevant
 

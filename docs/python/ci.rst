@@ -72,7 +72,7 @@ The step that runs tests should set either the ``-W`` option or the ``PYTHONWARN
 Code coverage
 ~~~~~~~~~~~~~
 
-All the :ref:`templates<python-ci-templates>` below use Coveralls, :ref:`as preferred<devops>`.
+All the :ref:`templates<python-ci-templates>` below use Codecov, :ref:`as preferred<devops>`.
 
 .. _service-containers:
 

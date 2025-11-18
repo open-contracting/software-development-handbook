@@ -19,7 +19,7 @@ DevOps
 -  `SaltStack <https://docs.saltproject.io>`__ (service deployment)
 -  `GitHub Actions <https://docs.github.com/en/actions>`__ (continuous testing)
 -  `GitHub Packages <https://docs.github.com/en/packages>`__ (Docker images)
--  `Coveralls <https://coveralls.io/github/open-contracting>`__ (coverage reporting)
+-  `Codecov <https://app.codecov.io/github/open-contracting>`__ (coverage reporting)
 -  `LastPass <https://lastpass.com/vault/>`__ (shared secrets)
 
 Monitoring
