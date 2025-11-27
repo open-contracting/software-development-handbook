@@ -44,6 +44,13 @@ If the site has a :ref:`sitemap<django-sitemap>`, use `pa11y-ci <https://github.
 Continuous integration
 ----------------------
 
-.. note::
+Pa11y requires Chromium. To `allow Chromium to run on Ubuntu 23.10+ <https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md>`__, add this step before running pa11y:
 
-   This section is a stub. For now, see the Data Registry's `a11y.yml <https://github.com/open-contracting/data-registry/blob/main/.github/workflows/a11y.yml>`__ workflow file.
+.. code-block:: yaml
+
+   - name: Disable AppArmor
+     run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+
+.. seealso::
+
+   The Data Registry's `a11y.yml <https://github.com/open-contracting/data-registry/blob/main/.github/workflows/a11y.yml>`__ workflow file.
