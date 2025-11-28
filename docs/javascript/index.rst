@@ -159,10 +159,7 @@ Vue
 Continuous integration
 ----------------------
 
-Create a ``.github/workflows/js.yml`` file. As a base, use:
-
-.. literalinclude:: samples/js.yml
-   :language: yaml
+Create a ``.github/workflows/js.yml`` file.
 
 .. tip::
 
