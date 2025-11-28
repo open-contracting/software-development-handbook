@@ -170,13 +170,13 @@ Create a ``.github/workflows/js.yml`` file. As a base, use:
 
    .. code-block:: yaml
 
+      name: Lint JavaScript
+      on: [push, pull_request]
       jobs:
         lint:
           uses: open-contracting/.github/.github/workflows/js.yml@main
           permissions:
             contents: read
-          with:
-            filenames: path/to/file.js
 
 Reference
 ---------
