@@ -159,6 +159,14 @@ Vue
 Continuous integration
 ----------------------
 
+.. important::
+
+   In GitHub workflows, install project dependencies safely with:
+
+   .. code-block:: yaml
+
+      - run: npm ci --ignore-scripts
+
 Create a ``.github/workflows/js.yml`` file.
 
 .. tip::
@@ -174,6 +182,12 @@ Create a ``.github/workflows/js.yml`` file.
           uses: open-contracting/.github/.github/workflows/js.yml@main
           permissions:
             contents: read
+
+   If you don't use this workflow, include this step:
+
+   .. code-block:: yaml
+
+      - run: npx lockfile-lint --path package-lock.json --allowed-hosts npm --validate-https
 
 Reference
 ---------

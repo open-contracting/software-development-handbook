@@ -50,6 +50,14 @@ To `leverage the build cache <https://docs.docker.com/develop/develop-images/doc
 
    For Node, set the working directory before copying requirements files.
 
+.. important::
+
+   For Node, install project dependencies safely with:
+
+   .. code-block:: docker
+
+      RUN npm ci --ignore-scripts
+
 Base images
 -----------
 
