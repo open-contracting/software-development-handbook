@@ -134,7 +134,7 @@ If a project needs to read or write data to the filesystem:
       :caption: Dockerfile
 
       # Must match the settings.KINGFISHER_COLLECT_FILES_STORE default value.
-      RUN mkdir -p /data && chown -R runner:runner /data
+      RUN mkdir -p /data
 
 #. `Mount <https://docs.docker.com/storage/bind-mounts/>`__ the host's directory to the default value in the Docker Compose file. For example:
 
