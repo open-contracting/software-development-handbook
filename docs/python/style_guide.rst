@@ -119,9 +119,7 @@ Warnings
 
    .. code-block:: python
 
-      with warnings.catch_warnings(record=True) as wlist:
-          warnings.simplefilter("always", category=MyWarning)
-
+      with warnings.catch_warnings(record=True, action="always", category=MyWarning) as wlist:
           ...
 
       for w in wlist:
