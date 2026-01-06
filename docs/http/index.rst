@@ -54,10 +54,10 @@ Content Security Policy (CSP)
         - Typical
       * - ``script-src``
         - ``'self' https:``
-        - ``'self' 'unsafe-inline' https:`` if using inline scripts, plus external sources like ``https://cdn.usefathom.com/script.js``
+        - ``'self' https:``, plus external sources like ``https://cdn.usefathom.com/script.js``
       * - ``style-src``
-        - ``'self' 'unsafe-inline'``
-        - ``'self' 'unsafe-inline'``, plus external sources like ``https://use.fontawesome.com``
+        - ``'self'``
+        - ``'self'``, plus external sources like ``https://use.fontawesome.com``
       * - ``img-src``
         - ``'self' https:``
         - ``'self' data: https:`` if using data URLs, plus external sources like ``https://cdn.usefathom.com``
@@ -90,7 +90,7 @@ A minimalist ``Content-Security-Policy`` header is:
 
    default-src 'self';
    script-src 'self' https:;
-   style-src 'self' 'unsafe-inline';
+   style-src 'self';
    img-src 'self' https:;
    object-src 'none';
    worker-src 'none';
