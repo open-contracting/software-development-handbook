@@ -45,6 +45,7 @@ Content Security Policy (CSP)
    -  Delete all ``'report-sample'`` values
    -  Delete all directives whose policy is ``'self'`` only, except for the ``default-src`` directive
    -  Add a ``frame-ancestors 'none'`` directive
+   -  Edit remaining directives:
 
    .. list-table::
       :header-rows: 1
@@ -53,17 +54,17 @@ Content Security Policy (CSP)
         - Minimum
         - Typical
       * - ``script-src``
-        - ``'self' https:``
-        - ``'self' https:``, plus external sources like ``https://cdn.usefathom.com/script.js``
+        - Omit
+        - ``'self'``, plus external sources like ``https://cdn.usefathom.com/script.js``
       * - ``style-src``
-        - ``'self'``
-        - ``'self'``, plus external sources like ``https://use.fontawesome.com``
+        - Omit
+        - ``'self'``, plus external sources
       * - ``img-src``
-        - ``'self' https:``
-        - ``'self' data: https:`` if using data URLs, plus external sources like ``https://cdn.usefathom.com``
+        - Omit
+        - ``'self' data:`` if using data URLs, plus external sources like ``https://cdn.usefathom.com``
       * - ``font-src``
         - Omit
-        - ``'self' data:`` if using data URLs, plus external sources like ``https://use.fontawesome.com``
+        - ``'self' data:`` if using data URLs, plus external sources
       * - ``frame-src``
         - Omit
         - Add external embeds, like Power BI, Google Docs or YouTube
@@ -89,9 +90,6 @@ A minimalist ``Content-Security-Policy`` header is:
 .. code-block:: none
 
    default-src 'self';
-   script-src 'self' https:;
-   style-src 'self';
-   img-src 'self' https:;
    object-src 'none';
    worker-src 'none';
    frame-ancestors 'none'
