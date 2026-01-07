@@ -67,10 +67,10 @@ Content Security Policy (CSP)
         - ``'self' data:`` if using data URLs, plus external sources
       * - ``frame-src``
         - Omit
-        - Add external embeds, like Power BI, Google Docs or YouTube
+        - ``'self'``, plus external embeds like Power BI, Google Docs or YouTube
       * - ``connect-src``
         - Omit
-        - Add external connections, like Google Analytics, other APIs or JSON files
+        - ``'self'``, plus external connections like Google Analytics, other APIs or JSON files
       * - ``object-src``
         - ``'none'``
         -
