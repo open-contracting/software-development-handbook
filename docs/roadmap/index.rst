@@ -29,6 +29,7 @@ Product and service families
 -  Publishing data
 
    -  `OCDS Documentation <https://standard.open-contracting.org/latest/en/>`__: The official documentation of the Open Contracting Data Standard.
+   -  `Extension Explorer <https://extensions.open-contracting.org/>`__: The official documentation of OCDS extensions.
 
 Together, these tools connect with different steps of the hypothesis for change expressed in the `Scope of Data Products and Services <https://docs.google.com/document/d/1bJKyyhccImRkV-zi2DTEe5U9HDc_ncr5YJfMMUQiLfs/edit>`__.
 
