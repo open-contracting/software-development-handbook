@@ -46,6 +46,10 @@ There should be a minimum of two `IAM users <https://console.aws.amazon.com/iam/
 Cloudflare
 ----------
 
+.. seealso::
+
+   `DNS <https://ocdsdeploy.readthedocs.io/en/latest/deploy/services/dns.html>`__ in the Deploy documentation
+
 There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" access to "All domains".
 
 Third-party sysadmins can be added with "Administrator" access to "All domains".
@@ -82,10 +86,6 @@ The ``ocp-deploy`` user generates `personal access tokens <https://github.com/se
 
 GoDaddy
 -------
-
-.. seealso::
-
-   `DNS <https://ocdsdeploy.readthedocs.io/en/latest/deploy/services/dns.html>`__ in the Deploy documentation
 
 There should be a minimum of two `accounts <https://sso.godaddy.com/access>`__ from OCP only at the "Products, Domains, & Purchase" access level.
 
