@@ -90,15 +90,15 @@ Set ``server_tokens off;`` to prevent false positives from penetration tests (Ub
 System packages
 ---------------
 
-Before installing a system package, check whether it's included in a base image. For example, the ``psycopg2`` Python package `requires <https://www.psycopg.org/install/>`__ the ``libpq-dev`` system package. To check whether it's included, when using the `python:3.10 image <https://hub.docker.com/_/python>`__:
+Before installing a system package, check whether it's included in a base image. For example, the ``psycopg2`` Python package `requires <https://www.psycopg.org/install/>`__ the ``libpq-dev`` system package. To check whether it's included, when using the `python:3.14 image <https://hub.docker.com/_/python>`__:
 
-#. Find the tag on the DockerHub page of the base image (the ``3.10`` tag is under *Shared Tags*)
+#. Find the tag on the DockerHub page of the base image (the ``3.14`` tag is under *Shared Tags*)
 #. Click the link to view the Dockerfile
 #. Check the ``apt-get install`` commands for the package name
 #. If not found, look for ``FROM`` instructions
 #. Repeat from step 1 for the ``FROM`` image(s)
 
-We find that the `buildpack-deps:bullseye image <https://github.com/docker-library/buildpack-deps/blob/master/debian/bullseye/Dockerfile>`__ installs the ``libpq-dev`` system package.
+We find that the `buildpack-deps:trixie image <https://github.com/docker-library/buildpack-deps/blob/master/debian/trixie/Dockerfile>`__ installs the ``libpq-dev`` system package.
 
 If it's not included, install it following `best practices <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#apt-get>`__:
 

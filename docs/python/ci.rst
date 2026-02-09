@@ -64,10 +64,10 @@ The step that runs tests should set either the ``-W`` option or the ``PYTHONWARN
 
 .. tip::
 
-   The Python documentation describes `warning filter specifications <https://docs.python.org/3/library/warnings.html#the-warnings-filter>`__ as using regular expressions. However, this is only true when using the ``warnings`` module. If set using ``-W`` or ``PYTHONWARNINGS``, the message and module parts are escaped using ``re.escape``, and the module part is suffixed with a ``\Z`` anchor.
+   The Python documentation describes `warning filter specifications <https://docs.python.org/3/library/warnings.html#the-warnings-filter>`__ as using regular expressions. However, this is only true when using the ``warnings`` module. If set using ``-W`` or ``PYTHONWARNINGS``, the message and module parts are escaped using ``re.escape``, and the module part is suffixed with a ``\z`` anchor.
 
 ..
-   warnoptions is created in https://github.com/python/cpython/blob/3.10/Python/initconfig.c and processed in https://github.com/python/cpython/blob/3.10/Lib/warnings.py
+   warnoptions is created in https://github.com/python/cpython/blob/3.14/Python/initconfig.c and processed in https://github.com/python/cpython/blob/v3.14.0/Lib/warnings.py#L94 and https://github.com/python/cpython/blob/v3.14.0/Lib/_py_warnings.py#L358-L384
 
 Code coverage
 ~~~~~~~~~~~~~
