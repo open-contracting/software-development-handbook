@@ -30,7 +30,7 @@ setproctitle==1.3.3
     # via
     #   -r requirements.txt
     #   gunicorn
-sqlparse==0.5.1
+sqlparse==0.5.4
     # via
     #   -r requirements.txt
     #   django
