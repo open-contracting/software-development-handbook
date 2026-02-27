@@ -9,7 +9,6 @@ If a service is down, check its status page:
 -  `Cloudflare <https://www.cloudflarestatus.com>`__
 -  `Crowdin <https://status.crowdin.com>`__
 -  `GitHub <https://www.githubstatus.com>`__
--  `GoDaddy <https://status.godaddy.com>`__
 -  `Google <https://www.google.com/appsstatus/dashboard/>`__
 -  `Heroku <https://status.heroku.com>`__
 -  `LastPass <https://status.lastpass.com>`__
@@ -83,13 +82,6 @@ The ``ocp-deploy`` user generates `personal access tokens <https://github.com/se
 .. seealso::
 
    :doc:`GitHub for maintainers<../github/maintainers>`
-
-GoDaddy
--------
-
-There should be a minimum of two `accounts <https://sso.godaddy.com/access>`__ from OCP only at the "Products, Domains, & Purchase" access level.
-
-Third-party sysadmins can be added with "Delegate" access.
 
 Google
 ------

@@ -90,7 +90,7 @@ Miscellaneous
 -  Crowdin (translation) for collaboration, otherwise gettext
 -  Fathom (web analytics)
 -  Fixer (currency conversion)
--  GoDaddy (.eu registrar only)
+-  Hetzner (.eu registrar)
 -  Memcached (page caching)
 -  Power BI (business intelligence)
 -  RabbitMQ (message broker)
