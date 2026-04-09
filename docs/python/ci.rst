@@ -268,6 +268,8 @@ Keep GitHub Actions up-to-date with:
    :language: yaml
    :caption: .github/dependabot.yml
 
+The ``cooldown`` option delays version updates for newly released versions, to protect against supply chain attacks. It does not affect security updates.
+
 Reference: `Configuration options for dependency updates <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>`__
 
 Maintenance

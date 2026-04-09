@@ -97,6 +97,15 @@ Upgrade Vue dependencies:
 
    vue upgrade --next
 
+Dependency cooldown
+~~~~~~~~~~~~~~~~~~~
+
+To protect against supply chain attacks, configure npm to only install package versions published more than one week ago. In ``.npmrc``:
+
+.. code-block:: ini
+
+   min-release-age=7
+
 Vulnerabilities
 ~~~~~~~~~~~~~~~
 

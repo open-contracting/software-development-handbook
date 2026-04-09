@@ -6,3 +6,6 @@ version = "0.0.0"
 # https://github.com/astral-sh/ruff/issues/5824
 # https://github.com/astral-sh/ruff/issues/9585
 extend-exclude = ["cookiecutter-django", "cookiecutter-pypackage"]
+
+[tool.uv.pip]
+exclude-newer = "1 week"
