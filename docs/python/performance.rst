@@ -30,6 +30,8 @@ Once a hotspot is found, the solution might be to:
    -  `Austin <https://pypi.org/project/austin-dist/>`__ for CPU and memory statistical profiling, including running processes
    -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, including running processes
    -  `psutil <https://pypi.org/project/psutil/>`__
+   -  `sys.remote_exec() <https://docs.python.org/3/library/sys.html#sys.remote_exec>`__ to safely execute code in a running process (Python 3.14+)
+   -  ``python -m asyncio ps`` and ``python -m asyncio pstree`` to inspect async tasks in a running process (Python 3.14+)
 
 CPU
 ~~~
