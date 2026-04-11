@@ -20,7 +20,7 @@ If not already set (like via :ref:`SECURE_HSTS_SECONDS<django-env>` in Django), 
 X-Content-Type-Options
 ----------------------
 
-If not already set (like via `SECURE_CONTENT_TYPE_NOSNIFF <https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-SECURE_CONTENT_TYPE_NOSNIFF>`__ in Django), set the header to:
+If not already set (like via `SECURE_CONTENT_TYPE_NOSNIFF <https://docs.djangoproject.com/en/5.2/ref/settings/#std-setting-SECURE_CONTENT_TYPE_NOSNIFF>`__ in Django), set the header to:
 
 .. code-block:: none
 

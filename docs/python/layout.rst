@@ -6,13 +6,13 @@ A first step of a new project is to define its directory layout.
 Applications
 ------------
 
-Applications should follow the layout of the framework, like `Django <https://docs.djangoproject.com/en/4.2/intro/tutorial01/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__ or `FastAPI <https://fastapi.tiangolo.com/tutorial/bigger-applications/#an-example-file-structure>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/4.2/ref/django-admin/#startapp>`__.
+Applications should follow the layout of the framework, like `Django <https://docs.djangoproject.com/en/5.2/intro/tutorial01/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#default-structure-of-scrapy-projects>`__ or `FastAPI <https://fastapi.tiangolo.com/tutorial/bigger-applications/#an-example-file-structure>`__, and should use its command for generating the layout, like `django-admin startproject <https://docs.djangoproject.com/en/5.2/ref/django-admin/#startproject>`__ and `django-admin startapp <https://docs.djangoproject.com/en/5.2/ref/django-admin/#startapp>`__.
 
 .. tip::
 
    Commit the generated files before making changes, so that the changes appear in the history.
 
-If no framework is used, prefer a smaller number of directories, like in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize>`__ or `Pelican backend <https://github.com/open-contracting/pelican-backend>`__. Components should be logically distinct units, like `apps <https://docs.djangoproject.com/en/4.2/ref/applications/>`__ in Django. For example:
+If no framework is used, prefer a smaller number of directories, like in `Kingfisher Summarize <https://github.com/open-contracting/kingfisher-summarize>`__ or `Pelican backend <https://github.com/open-contracting/pelican-backend>`__. Components should be logically distinct units, like `apps <https://docs.djangoproject.com/en/5.2/ref/applications/>`__ in Django. For example:
 
 .. code-block:: none
 
@@ -67,7 +67,7 @@ Modules
 -  Use a single module for all models.
 -  If a module defines names that are imported by only one other module, merge the modules unless:
 
-   - It is a convention of a framework (for example, the files created by Django's `startapp <https://docs.djangoproject.com/en/4.2/intro/tutorial01/#creating-the-polls-app>`__ command).
+   - It is a convention of a framework (for example, the files created by Django's `startapp <https://docs.djangoproject.com/en/5.2/intro/tutorial01/#creating-the-polls-app>`__ command).
    - There is a divide in terms of responsibility (for example, model and view).
 
 -  Don't split a module only to reduce its length.

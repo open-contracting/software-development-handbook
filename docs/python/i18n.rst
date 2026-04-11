@@ -14,7 +14,7 @@ Treat the source language as "developer" English, using the language code ``en_U
 Reference:
 
 -  `Non-English as a Source Language <https://help.transifex.com/en/articles/6240900-non-english-as-a-source-language>`__ (Transifex)
--  Django `Translation <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__
+-  Django `Translation <https://docs.djangoproject.com/en/5.2/topics/i18n/translation/>`__
 
 Install dependencies
 --------------------
@@ -110,7 +110,7 @@ If you use a translation tool:
 Mark strings to translate
 -------------------------
 
-When using Django, use its `translation functions and template tags <https://docs.djangoproject.com/en/4.2/topics/i18n/translation/>`__. Otherwise, use `gettext.gettext() <https://docs.python.org/3/library/gettext.html>`__.
+When using Django, use its `translation functions and template tags <https://docs.djangoproject.com/en/5.2/topics/i18n/translation/>`__. Otherwise, use `gettext.gettext() <https://docs.python.org/3/library/gettext.html>`__.
 
 .. seealso::
 

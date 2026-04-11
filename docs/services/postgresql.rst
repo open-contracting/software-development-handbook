@@ -37,7 +37,7 @@ Define tables
 -------------
 
 -  In PostgreSQL, use ``TEXT`` instead of other character types, as there is `no performance difference <https://www.postgresql.org/docs/current/datatype-character.html>`__.
--  Use ``NOT NULL`` with character types, `as recommended by Django <https://docs.djangoproject.com/en/4.2/ref/models/fields/#null>`__.
+-  Use ``NOT NULL`` with character types, `as recommended by Django <https://docs.djangoproject.com/en/5.2/ref/models/fields/#null>`__.
 -  Use ``NOT NULL`` with JSON types, and set the default to an empty object, array or string.
 -  In Python, do not set default values to ``{}`` or ``[]``. In Django, use ``default=dict`` and ``default=list``. In Pydantic (including SQLModel), use ``default_factory=dict`` and ``default_factory=list``.
 -  JSON data often exceeds 2kb, and is therefore `TOASTed <https://www.postgresql.org/docs/current/storage-toast.html#STORAGE-TOAST-ONDISK>`__. If the application needs to SELECT a value from the JSON data, it is faster to extract that value to a column: for example, ``release_date``.

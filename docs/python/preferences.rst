@@ -9,7 +9,7 @@ We have preferences for :doc:`requirements<requirements>` in order to:
 For applications, we prefer all-inclusive and opinionated packages, because they:
 
 -  Promote greater similarity and code reuse across projects. Django encourages developers to use its authentication mechanism. With Flask, each developer can choose a different mechanism.
--  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/4.2/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
+-  Are more robust to changes in scope. For example, you might not need the `Django admin site <https://docs.djangoproject.com/en/5.2/ref/contrib/admin/>`__ on day one, but you'll be happy to have it when it becomes a requirement.
 
 Maintainers can find dependencies with:
 
@@ -25,7 +25,7 @@ Web framework
 API
   `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__. Do not use `Django Tastypie <https://django-tastypie.readthedocs.io/en/latest/>`__, which has at times fallen behind on Django and Python versions.
 Command-line interface
-  `Click <https://click.palletsprojects.com/>`__, unless a framework has its own, like `Django <https://docs.djangoproject.com/en/4.2/howto/custom-management-commands/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__ or `Typer <https://typer.tiangolo.com>`__ with FastAPI. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
+  `Click <https://click.palletsprojects.com/>`__, unless a framework has its own, like `Django <https://docs.djangoproject.com/en/5.2/howto/custom-management-commands/>`__, `Scrapy <https://docs.scrapy.org/en/latest/topics/commands.html#custom-project-commands>`__ or `Typer <https://typer.tiangolo.com>`__ with FastAPI. Do not use `argparse <https://docs.python.org/3/library/argparse.html>`__.
 DataFrames
   `Polars <https://pola.rs>`__, unless end-users are unfamiliar (`pandas <https://pandas.pydata.org/docs/>`__).
 Object Relational Mapper (ORM)
@@ -44,11 +44,11 @@ Templating
 Asset management
   Do not use `django-compressor <https://django-compressor.readthedocs.io/en/stable/>`__ or `django-pipeline <https://django-pipeline.readthedocs.io/en/latest/>`__, which are always behind NPM packages. See :ref:`javascript-preferences` for JavaScript.
 Internationalization (i18n)
-  `gettext <https://docs.python.org/3/library/gettext.html>`__ and `Babel <https://babel.pocoo.org/en/latest/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/4.2/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
+  `gettext <https://docs.python.org/3/library/gettext.html>`__ and `Babel <https://babel.pocoo.org/en/latest/>`__, unless a framework provides an interface to these, like `Django <https://docs.djangoproject.com/en/5.2/topics/i18n/>`__ or `Sphinx <https://www.sphinx-doc.org/en/master/usage/advanced/intl.html>`__.
 Logging
   `logging <https://docs.python.org/3/library/logging.html>`__
 Testing
-  `pytest <https://docs.pytest.org/>`__, unless a framework uses another, like `Django <https://docs.djangoproject.com/en/4.2/topics/testing/>`__ (unittest).
+  `pytest <https://docs.pytest.org/>`__, unless a framework uses another, like `Django <https://docs.djangoproject.com/en/5.2/topics/testing/>`__ (unittest).
 Documentation
   `Sphinx <https://www.sphinx-doc.org/en/master/>`__. Its Markdown extensions should only be used for OCDS documentation.
 
