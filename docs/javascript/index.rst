@@ -72,7 +72,7 @@ Asset management
 Sass
   `sass <https://github.com/sass/dart-sass>`__ (dart-sass). Do not use `node-sass <https://github.com/sass/node-sass#node-sass>`__, which is deprecated.
 Formatter
-  `Biome <https://biomejs.dev>`__.
+  `Biome <https://biomejs.dev>`__. See :ref:`HTML code style<html-code-style>`.
 
 Requirements
 ------------

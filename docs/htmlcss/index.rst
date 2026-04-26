@@ -4,6 +4,8 @@ HTML and CSS
 HTML
 ----
 
+.. _html-code-style:
+
 Code style
 ~~~~~~~~~~
 
@@ -15,15 +17,19 @@ You can use `Prettier <https://prettier.io/docs/en/>`__ to style HTML while wait
    :caption: biome.json
 
    {
-     "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
+     "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
      "vcs": {
        "enabled": true,
        "clientKind": "git",
        "useIgnoreFile": true,
        "defaultBranch": "main"
      },
-     "organizeImports": {
-       "enabled": true
+     "assist": {
+       "actions": {
+         "source": {
+           "organizeImports": "on"
+         }
+       }
      },
      "formatter": {
        "indentStyle": "space",
