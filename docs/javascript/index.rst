@@ -141,7 +141,7 @@ To upgrade vulnerable dependencies:
 
    .. code-block:: bash
 
-      npm audit fix
+      npm audit fix --package-lock-only
 
 #. Manually update version numbers in ``package.json``:
 
