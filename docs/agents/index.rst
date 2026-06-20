@@ -23,7 +23,10 @@ Tools
 Match the tool to the task:
 
 -  **Claude apps** (web, desktop, mobile) for chat: questions, drafting, and exploration that don't touch a repository.
+-  `Claude Cowork <https://claude.com/product/cowork>`__, in the desktop app, for multi-step knowledge work over your local files and folders — especially working on or searching through long documents. It uses the same agentic approach as Claude Code, without the terminal.
 -  **Claude Code** for work in a codebase: reading, editing, running, and committing code. This is the surface most of OCP's development guidance below assumes.
+-  `Claude for Microsoft 365 <https://claude.com/claude-for-microsoft-365>`__: add-ins that bring Claude into Word, Excel, PowerPoint, and Outlook, sharing context across your open documents.
+-  `Claude Design <https://claude.com/product/design>`__ for visual work: designs, prototypes, slides, and one-pagers.
 -  **The Claude browser extension** to act inside your live browser session (for example, a Google Doc).
 
    .. warning::
@@ -32,7 +35,7 @@ Match the tool to the task:
 
 .. note::
 
-   Anthropic ships several other surfaces (design, document, and collaborative-agent features) that evolve quickly. Confirm the current name and capabilities of any surface against the `official documentation <https://support.claude.com>`__ before relying on it.
+   These surfaces evolve quickly, and some are in research preview. Confirm the current name, availability, and capabilities of any surface against the `official documentation <https://support.claude.com>`__ before relying on it.
 
 Models
 ------
