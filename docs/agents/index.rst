@@ -50,21 +50,31 @@ More capable models and higher effort cost more and run slower, so drop to a sim
 Context
 -------
 
-A language model has no memory of its own. Each time you send a message, the model re-reads the **entire** conversation so far — every message, every file it has opened, and every command's output. That transcript is bounded by a fixed **context window**, and model performance *degrades as the window fills*: Claude starts to "forget" earlier instructions and make more mistakes. Aim for a high-quality, focused context; a shorter context generally yields better results. Reference: `How Claude Code works <https://code.claude.com/docs/en/how-claude-code-works>`__.
+A language model has no memory of its own. Each time you send a message, the model re-reads the **entire** conversation so far — every message, every file or document it has opened, and (in Claude Code) every command's output. That transcript is bounded by a fixed **context window** — roughly 200,000 tokens on most plans, larger on some Enterprise plans — and model performance *degrades as the window fills*: Claude starts to "forget" earlier instructions and make more mistakes. Aim for a high-quality, focused context; a shorter context generally yields better results. Reference: `Usage and length limits <https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits>`__.
 
-When a Claude Code session approaches the limit, it **compacts** the context — summarizing older turns to free space — which can lose detail. To work with this rather than against it:
+When a conversation approaches the limit, Claude **compacts** it — automatically summarizing older turns to free space and keep going. This happens across the products, including the chat apps and Claude Code, and summarizing can lose detail. So the most reliable habit on any surface is to **start a fresh conversation for an unrelated task**: keep each conversation focused, and carry forward only what matters. The trade-off is that Claude "forgets" the previous thread — see below for how to make starting fresh cheap.
+
+In Claude Code
+~~~~~~~~~~~~~~
+
+Claude Code gives you direct control over the context window:
 
 -  See what is using the window with ``/context``, and compact deliberately with ``/compact`` (optionally ``/compact focus on the API changes``) instead of waiting for automatic compaction.
--  Start a fresh conversation (``/clear``) between unrelated tasks. The trade-off is that Claude "forgets" everything; carry forward only what matters.
+-  Reset the context between unrelated tasks with ``/clear``.
 -  Roll back to an earlier, cleaner point with ``/rewind`` (or press ``Esc`` twice) instead of correcting the same mistake repeatedly.
 -  For a quick aside that shouldn't bloat the transcript, use ``/btw``.
 
-Persist context *across* sessions so that clearing or starting fresh is cheap:
+Persisting context across sessions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  A ``CLAUDE.md`` file (generate a starting point with ``/init``) gives every session the same project context. **Skills** load task-specific instructions on demand. These are, in effect, a boilerplate first prompt that is always present — though the harness gives them somewhat higher priority than text you paste in. Keep them short: an over-long ``CLAUDE.md`` or a pile of uploaded documents *adds* noise and reduces adherence. Reference: `Memory <https://code.claude.com/docs/en/memory>`__.
--  **Projects** are a feature of the Claude *apps*, not Claude Code; they retain instructions and uploaded files across chats. Claude Code's equivalent is ``CLAUDE.md`` plus skills.
+Both the apps and Claude Code let you carry context across conversations, so starting fresh is cheap:
 
-Two further effects on context:
+-  In the **Claude apps**, a **Project** retains instructions and uploaded files across chats.
+-  In **Claude Code**, a ``CLAUDE.md`` file (generate a starting point with ``/init``) gives every session the same project context, and **Skills** load task-specific instructions on demand. These are, in effect, a boilerplate first prompt that is always present — though the harness gives them somewhat higher priority than text you paste in. Reference: `Memory <https://code.claude.com/docs/en/memory>`__.
+
+Either way, keep it lean: an over-long set of instructions or a pile of uploaded documents *adds* noise and reduces the quality of Claude's answers, so don't overdo it.
+
+Two further effects on context apply everywhere:
 
 -  "Thinking" reasoning consumes context, because the model generates reasoning that it then re-reads before answering. Use simpler models or lower effort for simpler tasks.
 -  Non-English text reportedly uses more tokens than English for the same content, so it fills the window faster.
