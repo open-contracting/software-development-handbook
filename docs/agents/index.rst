@@ -72,9 +72,13 @@ Both the apps and Claude Code let you carry context across conversations, so sta
 -  In the **Claude apps**, several features carry context for you:
 
    -  `Profile instructions <https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features>`__ apply to *all* your conversations — Claude's standing profile of who you are and how you like to work.
-   -  `Memory <https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context>`__, when enabled, lets Claude summarize and reuse context from your past chats. Toggle it (and use incognito chats) under *Settings → Capabilities*.
+   -  `Memory <https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context>`__, when enabled, lets Claude carry context from your past chats. It is scoped — each Project has its own memory, separate from your non-project chats — and you can view, edit, or clear it (and use incognito chats) under *Settings → Capabilities*.
    -  A `Project <https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features>`__ retains instructions and uploaded files across the chats within it, with its own scoped memory.
 -  In **Claude Code**, a ``CLAUDE.md`` file (generate a starting point with ``/init``) gives every session the same project context, and **Skills** load task-specific instructions on demand. These are, in effect, a boilerplate first prompt that is always present — though the harness gives them somewhat higher priority than text you paste in. Reference: `Memory <https://code.claude.com/docs/en/memory>`__.
+
+.. note::
+
+   Profile and project instructions are not the same as memory. *You* write instructions, and Claude applies them verbatim to every relevant conversation. **Memory, by contrast, is managed by Claude**: it is a running *summary* of your past chats, not an exact or permanent record. If you ask Claude to remember something, expect it to be reworded, merged with other notes, or eventually dropped as the summary is rewritten. For anything that must persist exactly, write it as a profile or project instruction — or, in Claude Code, in ``CLAUDE.md``.
 
 Either way, keep it lean: an over-long set of instructions or a pile of uploaded documents *adds* noise and reduces the quality of Claude's answers, so don't overdo it.
 
