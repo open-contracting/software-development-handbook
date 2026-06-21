@@ -6,9 +6,9 @@ Claude
    -  Anthropic's `Claude Code best practices <https://code.claude.com/docs/en/best-practices>`__
    -  Anthropic's `prompting best practices <https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices>`__
 
-This page explains how to get good results from Claude — both the chat apps and `Claude Code <https://code.claude.com/docs/en/best-practices>`__ — and how to use it responsibly on OCP's work. These tools change quickly, so treat specific commands and model names as correct at the time of writing, and check the linked official documentation for current details.
+This page explains how to get good results from Claude — both the chat apps and `Claude Code <https://code.claude.com/docs/en/best-practices>`__ — and how to use it responsibly on OCP's work. These products change quickly, so treat specific commands and model names as correct at the time of writing, and check the linked official documentation for current details.
 
-If you had a poor experience with these tools, attend office hours before concluding that they don't work for your task: a small change in how you use them often makes the difference.
+If you had a poor experience with these products, attend office hours before concluding that they don't work for your task: a small change in how you use them often makes the difference.
 
 .. admonition:: A mental model: model, context, and tools
 
@@ -27,10 +27,10 @@ Claude is most useful on tasks where it can *use tools* — read your files, run
 
 Prefer Claude for tasks that have a way to verify the result — a test suite, a build, a screenshot to compare, a script whose output you can check. Give it that check up front, and it can iterate to a working answer instead of stopping at the first plausible one. Reference: `Give Claude a way to verify its work <https://code.claude.com/docs/en/best-practices>`__.
 
-Choose the tool
----------------
+Choose the product
+------------------
 
-Match the tool to the task:
+Match the product to the task:
 
 -  **Claude apps** (web, desktop, mobile) for chat: questions, drafting, and exploration that don't touch a repository.
 -  `Claude Cowork <https://claude.com/product/cowork>`__, in the desktop app, for multi-step knowledge work over your local files and folders — especially working on or searching through long documents. It uses the same agentic approach as Claude Code, without the terminal.
@@ -62,14 +62,14 @@ Manage the context
 
 A language model has no memory of its own. Each time you send a message, the model re-reads the **entire** conversation so far — every message, every file or document it has opened, and (in Claude Code) every command's output. That transcript is bounded by a fixed **context window** — roughly 200,000 tokens on most plans, larger on some Enterprise plans — and model performance *degrades as the window fills*: Claude starts to "forget" earlier instructions and make more mistakes. Aim for a high-quality, focused context; a shorter context generally yields better results. Reference: `Usage and length limits <https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits>`__.
 
-When a conversation approaches the limit, Claude **compacts** it — automatically summarizing older turns to free space and keep going. This happens across the products, including the chat apps and Claude Code, and summarizing can lose detail. So the most reliable habit on any surface is to **start a fresh conversation for an unrelated task**: keep each conversation focused, and carry forward only what matters. The trade-off is that Claude "forgets" the previous thread; the rest of this section covers what fills the window, what carries over, and how each tool helps.
+When a conversation approaches the limit, Claude **compacts** it — automatically summarizing older turns to free space and keep going. This happens across the products, including the chat apps and Claude Code, and summarizing can lose detail. So the most reliable habit on any surface is to **start a fresh conversation for an unrelated task**: keep each conversation focused, and carry forward only what matters. The trade-off is that Claude "forgets" the previous thread; the rest of this section covers what fills the window, what carries over, and how each product helps.
 
-Claude also manages the window itself, not just you. Compaction is one example; in the agentic tools (Cowork and Claude Code) Claude searches with tools like ``grep`` and reads only the parts of a file it needs rather than loading whole files, and large project knowledge is retrieved on demand. The main thing that is *not* read selectively is a file you attach directly to a chat message, which loads in full (see below).
+Claude also manages the window itself, not just you. Compaction is one example; in Cowork and Claude Code, Claude searches with tools like ``grep`` and reads only the parts of a file it needs rather than loading whole files, and large project knowledge is retrieved on demand. The main thing that is *not* read selectively is a file you attach directly to a chat message, which loads in full (see below).
 
 Files and attachments
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-How a file reaches the model depends on the tool:
+How a file reaches the model depends on the product:
 
 -  In the **chat apps**, a file you attach to a message is read **in full**, so it counts against the context window like pasted text — always present, and costing tokens every turn. (Very large files may instead be handled in Claude's file environment rather than loaded.) Attaching a file inside a Project chat works the same way: it is context for that one conversation, *not* added to the Project's knowledge.
 -  In **Cowork** and **Claude Code**, files are read **on demand**: Claude works agentically over the folders you give it access to, opening only the files it needs, so only what it actually reads enters the context.

@@ -8,7 +8,7 @@ Claude Code
    -  Simon Willison on `coding agents <https://simonwillison.net/2025/Jun/18/coding-agents/>`__
    -  `Agent Skills <https://agentskills.io>`__ (an emerging open standard) and the `CLAUDE.md management plugin <https://claude.com/plugins/claude-md-management>`__
 
-Claude Code is OCP's default coding agent: it runs in a terminal, so it needs no shared editor or IDE, and it gives access to the strongest models. This page is the developer's how-to for using it on OCP's repositories. For guidance that applies to all of Claude's tools — choosing a model, managing context, prompting, and sycophancy — see :doc:`index`.
+Claude Code is OCP's default coding agent: it runs in a terminal, so it needs no shared editor or IDE, and it gives access to the strongest models. This page is the developer's how-to for using it on OCP's repositories. For guidance that applies to all of Claude's products — choosing a model, managing context, prompting, and sycophancy — see :doc:`index`.
 
 Choose a project
 ----------------
@@ -30,7 +30,7 @@ Claude Code is especially good at complex **refactoring**, for example:
 -  reducing duplication, single-use functions, and single-use or single-letter variables
 -  extracting methods
 
-See :doc:`index` for choosing between Claude's tools in the first place.
+See :doc:`index` for choosing between Claude's products in the first place.
 
 Set up Claude Code
 ------------------
@@ -78,7 +78,7 @@ Work securely and responsibly
 
 .. seealso::
 
-   :doc:`index` covers the responsibilities that apply to all of Claude's tools. This section covers what is specific to working in a codebase.
+   :doc:`index` covers the responsibilities that apply to all of Claude's products. This section covers what is specific to working in a codebase.
 
 Limit permissions
 ~~~~~~~~~~~~~~~~~~
