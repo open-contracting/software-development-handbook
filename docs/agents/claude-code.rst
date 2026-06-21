@@ -96,6 +96,66 @@ Mark unreviewed AI-generated code so that reviewers and maintainers know what ha
    __generated_at__ = "2026-06-21"
    __review_status__ = "unreviewed"
 
-A `PostToolUse hook <https://code.claude.com/docs/en/hooks-guide>`__ can maintain these automatically — refreshing ``__generated_at__`` while a file is still marked ``unreviewed``, and running ``ruff format`` after each edit. A companion ``PreToolUse`` hook can rewrite ``python`` and ``pip`` commands to their ``uv`` equivalents, enforcing the preference in your ``CLAUDE.md``.
+A `PostToolUse hook <https://code.claude.com/docs/en/hooks-guide>`__ can maintain these tags automatically — refreshing ``__generated_at__`` while a file is still marked ``unreviewed``, and running ``ruff format`` after each edit. A companion ``PreToolUse`` hook can rewrite ``python`` and ``pip`` commands to their ``uv`` equivalents, enforcing the preference in your ``CLAUDE.md``. Register both in ``~/.claude/settings.json`` (adjust the paths and, on Linux, the ``sed -i`` syntax for your system):
+
+.. code-block:: json
+
+   {
+     "hooks": {
+       "PreToolUse": [
+         {
+           "matcher": "Bash",
+           "hooks": [
+             {
+               "type": "command",
+               "command": "/home/USER/.claude/hooks/rewrite-python-to-uv.sh"
+             }
+           ]
+         }
+       ],
+       "PostToolUse": [
+         {
+           "matcher": "Write|Edit",
+           "hooks": [
+             {
+               "type": "command",
+               "command": "/home/USER/.claude/hooks/python-post-write.sh"
+             }
+           ]
+         }
+       ]
+     }
+   }
+
+``rewrite-python-to-uv.sh``:
+
+.. code-block:: sh
+
+   #!/bin/sh
+   # Rewrites python/python3/pip/pip3 commands to use uv equivalents.
+
+   cmd=$(jq -r '.tool_input.command // empty')
+
+   if echo "$cmd" | grep -qE '^(python3?|pip3?) '; then
+       echo "$cmd" | sed -E 's|^python3? |uv run python |; s|^pip3? |uv pip |' | jq -R '{"hookSpecificOutput": {"hookEventName": "PreToolUse", "updatedInput": {"command": .}}}'
+   fi
+
+``python-post-write.sh``:
+
+.. code-block:: sh
+
+   #!/bin/sh
+   # After Write/Edit on Python files, update __generated_at__ if unreviewed, then run ruff format.
+
+   file=$(jq -r '.tool_input.file_path // empty')
+
+   case "$file" in
+     *.py)
+       if head -5 "$file" | grep -q '__review_status__ = "unreviewed"'; then
+         sed -i '' "s|^__generated_at__ = \".*\"|__generated_at__ = \"$(date +%Y-%m-%d)\"|" "$file"
+       fi
+       ruff format "$file" 2>/dev/null || true
+       ;;
+   esac
 
 It is reasonable to skip thorough review only for low-stakes code: a proof of concept, a prototype, a one-time script, or a non-critical code path. Review anything that reaches a critical path.
