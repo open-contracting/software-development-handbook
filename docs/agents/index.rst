@@ -52,9 +52,44 @@ Manage the context
 
 A language model has no memory of its own. Each time you send a message, the model re-reads the **entire** conversation so far — every message, every file or document it has opened, and (in Claude Code) every command's output. That transcript is bounded by a fixed **context window** — roughly 200,000 tokens on most plans, larger on some Enterprise plans — and model performance *degrades as the window fills*: Claude starts to "forget" earlier instructions and make more mistakes. Aim for a high-quality, focused context; a shorter context generally yields better results. Reference: `Usage and length limits <https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits>`__.
 
-Attached files contribute to that window in two different ways. A file you **attach to a message** is read in full, so it counts against the context window like pasted text (very large files may instead be handled in Claude's file environment rather than loaded). Files you add to a **Project's knowledge** behave differently: while the knowledge base is small enough to fit, Claude loads all of it, but once it grows past the window Claude switches to *retrieval* — searching the knowledge and pulling in only the relevant parts on demand. So a few attachments are always-present (and always-costing) context, whereas large project knowledge is searched rather than loaded wholesale. Reference: `RAG for projects <https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects>`__.
+When a conversation approaches the limit, Claude **compacts** it — automatically summarizing older turns to free space and keep going. This happens across the products, including the chat apps and Claude Code, and summarizing can lose detail. So the most reliable habit on any surface is to **start a fresh conversation for an unrelated task**: keep each conversation focused, and carry forward only what matters. The trade-off is that Claude "forgets" the previous thread; the rest of this section covers what fills the window, what carries over, and how each tool helps.
 
-When a conversation approaches the limit, Claude **compacts** it — automatically summarizing older turns to free space and keep going. This happens across the products, including the chat apps and Claude Code, and summarizing can lose detail. So the most reliable habit on any surface is to **start a fresh conversation for an unrelated task**: keep each conversation focused, and carry forward only what matters. The trade-off is that Claude "forgets" the previous thread — see below for how to make starting fresh cheap.
+Claude also manages the window itself, not just you. Compaction is one example; in the agentic tools (Cowork and Claude Code) Claude searches with tools like ``grep`` and reads only the parts of a file it needs rather than loading whole files, and large project knowledge is retrieved on demand. The main thing that is *not* read selectively is a file you attach directly to a chat message, which loads in full (see below).
+
+Files and attachments
+~~~~~~~~~~~~~~~~~~~~~~~
+
+How a file reaches the model depends on the tool:
+
+-  In the **chat apps**, a file you attach to a message is read **in full**, so it counts against the context window like pasted text — always present, and costing tokens every turn. (Very large files may instead be handled in Claude's file environment rather than loaded.)
+-  In **Cowork** and **Claude Code**, files are read **on demand**: Claude works agentically over the folders you give it access to, opening only the files it needs, so only what it actually reads enters the context.
+
+For a **Project's knowledge** (in the apps and Cowork), Claude loads the whole knowledge base while it is small enough to fit; once it grows past the window, Claude switches to *retrieval*, searching the knowledge and pulling in only the relevant parts. So large project knowledge is searched rather than loaded wholesale. Reference: `RAG for projects <https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects>`__.
+
+Models and thinking
+~~~~~~~~~~~~~~~~~~~~
+
+-  "Thinking" reasoning consumes context, because the model generates reasoning that it then re-reads before answering. Use simpler models or lower effort for simpler tasks.
+-  Non-English text reportedly uses more tokens than English for the same content, so it fills the window faster.
+
+Instructions and projects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To carry context across conversations in the apps without re-explaining it each time:
+
+-  `Profile instructions <https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features>`__ apply to *all* your conversations — your standing profile of who you are and how you like to work.
+-  A `Project <https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features>`__ bundles standing instructions, a knowledge base, and its own memory for one area of work. Its instructions apply to every chat **within that project**, and a Cowork project can also point at local folders.
+
+Instructions are always present and applied **verbatim**, so keep them lean: an over-long set of instructions *adds* noise and reduces the quality of Claude's answers.
+
+Memory
+~~~~~~
+
+`Memory <https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context>`__, when enabled, lets Claude carry context from your past chats. It is **scoped and isolated**: inside a Project, Claude draws only on that Project's own memory — *not* on your account-wide memory from other chats — and your general memory covers only your non-project chats. So something Claude "remembered" in ordinary chats will not be available inside a Project, and vice versa. You add to memory in two ways: by telling Claude in any chat to remember something (for example, "remember that I prefer X"), which it writes into the summary without leaving the conversation and applies from your next chat; or by editing the summary yourself. To read or edit exactly what is stored, open *Settings → Capabilities → View and edit memory*, which lists everything Claude remembers (you can also ask Claude in a chat to show it). The same screen lets you *pause* memory (keep it but stop reading or adding to it) or *reset* it (permanently delete everything, including project memories), and start *incognito* chats that are never remembered.
+
+.. note::
+
+   Instructions are not the same as memory. *You* write instructions, and Claude applies them verbatim to every relevant conversation. **Memory, by contrast, is managed by Claude**: it is a running *summary* of your past chats, not an exact or permanent record. If you ask Claude to remember something, expect it to be reworded, merged with other notes, or eventually dropped as the summary is rewritten. For anything that must persist exactly, write it as a profile or project instruction — or, in Claude Code, in ``CLAUDE.md``. Reference: `Chat search and memory <https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context>`__.
 
 In Claude Code
 ~~~~~~~~~~~~~~
@@ -66,28 +101,7 @@ Claude Code gives you direct control over the context window:
 -  Roll back to an earlier, cleaner point with ``/rewind`` (or press ``Esc`` twice) instead of correcting the same mistake repeatedly.
 -  For a quick aside that shouldn't bloat the transcript, use ``/btw``.
 
-Persist context across sessions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Both the apps and Claude Code let you carry context across conversations, so starting fresh is cheap:
-
--  In the **Claude apps**, several features carry context for you:
-
-   -  `Profile instructions <https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features>`__ apply to *all* your conversations — Claude's standing profile of who you are and how you like to work.
-   -  `Memory <https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context>`__, when enabled, lets Claude carry context from your past chats. It is **scoped and isolated**: inside a Project, Claude draws only on that Project's own memory — *not* on your account-wide memory from other chats — and your general memory covers only your non-project chats. So something Claude "remembered" in ordinary chats will not be available inside a Project, and vice versa. To read exactly what is stored, open *Settings → Capabilities → View and edit memory*, which lists everything Claude remembers; you can edit it there, or ask Claude in a chat to show or change what it remembers. The same screen lets you *pause* memory (keep it but stop reading or adding to it) or *reset* it (permanently delete everything, including project memories), and start *incognito* chats that are never remembered.
-   -  A `Project <https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features>`__ retains instructions and uploaded files across the chats within it, with its own scoped memory.
--  In **Claude Code**, a ``CLAUDE.md`` file (generate a starting point with ``/init``) gives every session the same project context, and **Skills** load task-specific instructions on demand. These are, in effect, a boilerplate first prompt that is always present — though the harness gives them somewhat higher priority than text you paste in. Reference: `Memory <https://code.claude.com/docs/en/memory>`__.
-
-.. note::
-
-   Profile and project instructions are not the same as memory. *You* write instructions, and Claude applies them verbatim to every relevant conversation. **Memory, by contrast, is managed by Claude**: it is a running *summary* of your past chats, not an exact or permanent record. If you ask Claude to remember something, expect it to be reworded, merged with other notes, or eventually dropped as the summary is rewritten. For anything that must persist exactly, write it as a profile or project instruction — or, in Claude Code, in ``CLAUDE.md``. Reference: `Chat search and memory <https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context>`__.
-
-Either way, keep it lean: an over-long set of instructions or a pile of uploaded documents *adds* noise and reduces the quality of Claude's answers, so don't overdo it.
-
-Two further effects on context apply everywhere:
-
--  "Thinking" reasoning consumes context, because the model generates reasoning that it then re-reads before answering. Use simpler models or lower effort for simpler tasks.
--  Non-English text reportedly uses more tokens than English for the same content, so it fills the window faster.
+To carry context across sessions, a ``CLAUDE.md`` file (generate a starting point with ``/init``) gives every session the same project context, and **Skills** load task-specific instructions on demand. These are, in effect, a boilerplate first prompt that is always present — though the harness gives them somewhat higher priority than text you paste in. As with apps instructions, keep them lean. Reference: `Memory <https://code.claude.com/docs/en/memory>`__.
 
 Prompt effectively
 ------------------
