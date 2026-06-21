@@ -72,7 +72,7 @@ Models and thinking
 ~~~~~~~~~~~~~~~~~~~~
 
 -  "Thinking" reasoning consumes context, because the model generates reasoning that it then re-reads before answering. Use simpler models or lower effort for simpler tasks.
--  Non-English text reportedly uses more tokens than English for the same content, so it fills the window faster.
+-  Non-English text generally uses more tokens than English for the same content, so it fills the window faster: a token is roughly 3.5 English characters, but the exact number varies by language. Reference: `Glossary <https://platform.claude.com/docs/en/about-claude/glossary>`__.
 
 Instructions and projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
