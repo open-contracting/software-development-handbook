@@ -61,10 +61,12 @@ Files and attachments
 
 How a file reaches the model depends on the tool:
 
--  In the **chat apps**, a file you attach to a message is read **in full**, so it counts against the context window like pasted text — always present, and costing tokens every turn. (Very large files may instead be handled in Claude's file environment rather than loaded.)
+-  In the **chat apps**, a file you attach to a message is read **in full**, so it counts against the context window like pasted text — always present, and costing tokens every turn. (Very large files may instead be handled in Claude's file environment rather than loaded.) Attaching a file inside a Project chat works the same way: it is context for that one conversation, *not* added to the Project's knowledge.
 -  In **Cowork** and **Claude Code**, files are read **on demand**: Claude works agentically over the folders you give it access to, opening only the files it needs, so only what it actually reads enters the context.
 
 For a **Project's knowledge** (in the apps and Cowork), Claude loads the whole knowledge base while it is small enough to fit; once it grows past the window, Claude switches to *retrieval*, searching the knowledge and pulling in only the relevant parts. So large project knowledge is searched rather than loaded wholesale. Reference: `RAG for projects <https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects>`__.
+
+The apps guard against an oversized attachment rather than silently discarding earlier messages: each file is capped (around 30 MB), and if a message and its attachment would exceed the context window, Claude returns a length error and prompts you to shorten the input or start a new chat. Reference: `Usage and length limits <https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits>`__.
 
 Models and thinking
 ~~~~~~~~~~~~~~~~~~~~
