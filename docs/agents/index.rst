@@ -20,8 +20,6 @@ If you had a poor experience with these products, attend office hours before con
 
    Most other features are variations on these three: skills, memory, projects, and ``CLAUDE.md`` shape what is in *context*; MCP servers add *tools*; retrieval (RAG) is a *tool* that pulls only the relevant *context* in; a subagent is just another bundle of model, context, and tools. Understand these three and the rest follows.
 
-From there, the two levers you actually control to improve Claude's output are **managing the context** and **improving your prompt** (see *Manage the context* and *Prompt effectively* below). The model is mostly a given — pick the most capable — and the tools come with the product, so almost everything else you do is really one of these two: skills, memory, projects, and files shape the *context*, while example outputs, specifications, and clearer instructions improve the *prompt*.
-
 Select your task
 ----------------
 
@@ -151,6 +149,10 @@ Disclose unreviewed AI-generated work so that reviewers know what has and hasn't
 .. seealso::
 
    When working in a codebase, see :doc:`claude-code` for OCP's permission and deny rules, the SSH-key caveat, the disclosure tags, and other Claude Code specifics.
+
+.. admonition:: In short
+
+   Model and tools are largely given — pick the most capable product and model — so improving Claude's output comes down to two levers: **managing the context** and **improving your prompt**. Almost everything else (skills, memory, projects, files, example outputs, specifications) feeds one of the two. The rest is judgement: watch for sycophancy, and keep secrets and production systems out of reach.
 
 .. toctree::
    :hidden:
