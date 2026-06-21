@@ -130,7 +130,7 @@ A few habits that reliably help:
 Watch for sycophancy
 --------------------
 
-Be wary of sycophancy. Generative models are trained to be agreeable and positive, and there is no reliable way to turn this off. Do not read Claude's enthusiasm as validation of your idea or its own output. When you need a genuine critique, ask for it explicitly, or have a *fresh* session review the work — a separate context that didn't produce the work evaluates it more honestly than the one that did.
+Be wary of sycophancy. Generative models are trained to be agreeable and positive, and there is no reliable way to turn this off. Do not read Claude's enthusiasm as validation of your idea or its own output. When you need a genuine critique, ask for it explicitly, or have a *fresh* session review the work — a separate context that didn't produce the work evaluates it more honestly than the one that did. Memory can reinforce sycophancy: if Claude records that you prefer agreement, that bias carries into new chats, so even starting fresh may not reset it (see *Memory*).
 
 Work securely and responsibly
 ------------------------------
