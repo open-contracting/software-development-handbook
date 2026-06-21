@@ -18,7 +18,7 @@ If you had a poor experience with these tools, attend office hours before conclu
    -  the **context** — everything the model can see for the current turn: your messages, your instructions, attached files, memory, and the output of any tools it has run. It is bounded by the context window and re-read every turn; see *Manage the context*.
    -  the **tools** — the actions the model can take beyond producing text, such as reading a file, running a shell command, searching the web, or editing code. Tools are what let Claude *act and verify* rather than only predict text.
 
-   Most other features are variations on these three: skills, memory, projects, and ``CLAUDE.md`` shape what is in *context*; MCP servers add *tools*; a subagent is just another bundle of model, context, and tools. Understand these three and the rest follows.
+   Most other features are variations on these three: skills, memory, projects, and ``CLAUDE.md`` shape what is in *context*; MCP servers add *tools*; retrieval (RAG) is a *tool* that pulls only the relevant *context* in; a subagent is just another bundle of model, context, and tools. Understand these three and the rest follows.
 
 Select your task
 ----------------
