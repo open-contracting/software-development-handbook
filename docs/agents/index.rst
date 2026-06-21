@@ -66,7 +66,7 @@ How a file reaches the model depends on the tool:
 
 For a **Project's knowledge** (in the apps and Cowork), Claude loads the whole knowledge base while it is small enough to fit; once it grows past the window, Claude switches to *retrieval*, searching the knowledge and pulling in only the relevant parts. So large project knowledge is searched rather than loaded wholesale. Reference: `RAG for projects <https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects>`__.
 
-The apps guard against an oversized attachment rather than silently discarding earlier messages: each file is capped (around 30 MB), and if a message and its attachment would exceed the context window, Claude returns a length error and prompts you to shorten the input or start a new chat. Reference: `Usage and length limits <https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits>`__.
+The apps guard against an oversized attachment rather than silently discarding earlier messages: each file is capped (around 30 MB), and if a message and its attachment would exceed the context window, Claude returns a length error and prompts you to shorten the input or start a new chat. References: `Upload files <https://support.claude.com/en/articles/8241126-upload-files-to-claude>`__ (size cap), `Usage and length limits <https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits>`__, and `Troubleshoot error messages <https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages>`__.
 
 Models and thinking
 ~~~~~~~~~~~~~~~~~~~~
