@@ -103,30 +103,23 @@ Be wary of sycophancy. Generative models are trained to be agreeable and positiv
 Work securely and responsibly
 ------------------------------
 
-Risks
-~~~~~
+Claude's main risks are autonomous operation, exposure of secrets or confidential data, and — over the longer term — skill atrophy from delegating work you no longer practice. OCP's existing practices cover much of this: secrets are centralized, and risky "skip all permissions" modes are disabled. Two rules apply on every surface:
 
-The main risks are autonomous operation, over-broad permissions, and exposure of secrets or confidential data — for example, a shell command can read your SSH keys, and a debugging session can pull sensitive values into logs. A subtler, longer-term risk is skill atrophy from delegating work you no longer practice.
-
-Mitigations
-~~~~~~~~~~~
-
-Existing OCP practice already covers much of this: secrets are centralized, and ``bypassPermissions`` mode (formerly "dangerously skip permissions") is disabled. Beyond that:
-
--  **Limit permissions.** Keep approval prompts on, and add ``permissions.deny`` rules for sensitive paths — at minimum ``pillar/private`` and ``salt/private``. Remember that the Bash tool can read files such as ``~/.ssh``, so deny what Claude should never see. Reference: `Permissions <https://code.claude.com/docs/en/permissions>`__.
--  **Never give agents access to production.**
--  **Don't leak through logs.** If you use Claude to debug logs, ensure those logs don't contain security, privacy, or confidential details. They shouldn't already — the same standard you apply to data sent to Sentry.
-
-Responsibility
-~~~~~~~~~~~~~~
+-  **Never point Claude at production or confidential systems** — including a browser extension pointed at an authenticated session.
+-  **Don't expose confidential data.** Treat anything Claude can read — files, documents, logs — as in scope, and keep secrets, personal data, and confidential details out of what you share.
 
 .. attention::
 
-   You are responsible for code you submit, whether or not Claude wrote it.
+   You are responsible for whatever you submit, whether or not Claude wrote it.
 
-Disclose unreviewed AI-generated code — for example, with a ``__generated_by__`` tag or a commit trailer — so reviewers and maintainers know what has and hasn't been checked. It is reasonable to skip thorough review only for low-stakes code: a proof of concept, a prototype, a one-time script, or a non-critical code path. Review anything that reaches a critical path.
+Disclose unreviewed AI-generated work so that reviewers know what has and hasn't been checked. It is reasonable to skip thorough review only for low-stakes output: a proof of concept, a prototype, a one-time script, or a non-critical code path. Review anything that reaches a critical path.
 
-Administration
-~~~~~~~~~~~~~~
+.. seealso::
 
-Administrators manage Claude's GitHub access from the `Claude Code admin settings <https://claude.ai/admin-settings/claude-code>`__ and can enforce organization-wide policy (including disabling ``bypassPermissions`` mode) through managed settings. Reference: `Managed settings <https://code.claude.com/docs/en/permissions>`__.
+   When working in a codebase, see :doc:`claude-code` for OCP's permission and deny rules, the SSH-key caveat, the disclosure tags, and other Claude Code specifics.
+
+.. toctree::
+   :hidden:
+
+   Claude Code <claude-code>
+
