@@ -52,11 +52,17 @@ To `leverage the build cache <https://docs.docker.com/develop/develop-images/doc
 
 .. important::
 
-   For Node, install project dependencies safely with:
+   For Node, enable pnpm with:
 
    .. code-block:: docker
 
-      RUN npm ci --ignore-scripts
+      RUN corepack enable
+
+   Then, install project dependencies safely with:
+
+   .. code-block:: docker
+
+      RUN pnpm install --frozen-lockfile --ignore-scripts
 
 Base images
 -----------

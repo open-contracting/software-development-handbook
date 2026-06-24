@@ -64,7 +64,7 @@ Preferences
 Plain JavaScript is preferred to using jQuery, unless functionality depends on jQuery plugins. To replace jQuery in a project, refer to `You Might Not Need jQuery <https://youmightnotneedjquery.com>`__. Similarly, use the `Fetch <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`__ API instead of the `Axios <https://axios-http.com>`__ package, etc.
 
 Package manager
-  `npm <https://docs.npmjs.com>`__, the default package manager of Node.js. Do not use `yarn <https://yarnpkg.com>`__. Yarn has no equivalent to ``npm audit fix``.
+  `pnpm <https://pnpm.io>`__, for its built-in supply-chain protections (dependency cooldown, trust policy, build scripts blocked by default) and its strict ``node_modules`` layout. Do not use `npm <https://docs.npmjs.com>`__ or `yarn <https://yarnpkg.com>`__.
 User interface
   `Vue <https://vuejs.org>`__ is preferred to `React <https://react.dev>`__. That said, do not use frameworks for simple interfaces.
 Asset management
@@ -77,19 +77,19 @@ Formatter
 Requirements
 ------------
 
-Use `npm <https://docs.npmjs.com>`__, not ``yarn``. Set the Node version in ``package.json``, `as documented <https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines>`__.
+Use `pnpm <https://pnpm.io>`__, not ``npm`` or ``yarn``. Set the Node version in the `engines <https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines>`__ property and the pnpm version in the `packageManager <https://nodejs.org/api/packages.html#packagemanager>`__ property of ``package.json``.
 
 List outdated dependencies:
 
 .. code-block:: bash
 
-   npm outdated
+   pnpm outdated
 
 Upgrade outdated dependencies:
 
 .. code-block:: bash
 
-   npm update
+   pnpm update
 
 Upgrade Vue dependencies:
 
@@ -97,14 +97,27 @@ Upgrade Vue dependencies:
 
    vue upgrade --next
 
-Dependency cooldown
-~~~~~~~~~~~~~~~~~~~
+.. _javascript-supply-chain:
 
-To protect against supply chain attacks, configure npm to only install package versions published more than one week ago. In ``.npmrc``:
+Supply chain
+~~~~~~~~~~~~
 
-.. code-block:: ini
+To protect against supply chain attacks, set in ``pnpm-workspace.yaml``:
 
-   min-release-age=7
+.. code-block:: yaml
+
+   minimumReleaseAge: 10080
+   trustPolicy: no-downgrade
+
+``no-downgrade`` has false positives if packages drop provenance attestation. Exclude the versions that ``pnpm install`` reports:
+
+.. code-block:: yaml
+
+   trustPolicyExclude:
+     - chokidar@4.0.3
+     - semver@6.3.1
+
+By default, pnpm enables ``minimumReleaseAge`` (1 day) and ``blockExoticSubdeps`` (prevents transitive dependencies from using git or tarballs).
 
 Vulnerabilities
 ~~~~~~~~~~~~~~~
@@ -117,38 +130,21 @@ To check for vulnerable dependencies:
 
 .. code-block:: bash
 
-   npm audit --production
+   pnpm audit --prod
 
 .. note::
 
-   ``npm audit`` (without ``--production``) has `false positives <https://overreacted.io/npm-audit-broken-by-design/>`__ (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__).
+   ``pnpm audit`` (without ``--prod``) has `false positives <https://overreacted.io/npm-audit-broken-by-design/>`__ (`Vue example <https://github.com/vuejs/vue-cli/issues/6686>`__).
 
 To upgrade vulnerable dependencies:
 
-#. Check the version of Node:
+.. code-block:: bash
 
-   .. code-block:: bash
+   pnpm audit --fix update
 
-      node --version
+This updates the lockfile to non-vulnerable versions, where the dependency ranges allow it. Check each package's changelog before committing.
 
-#. Upgrade npm:
-
-   .. code-block:: bash
-
-      npm install -g npm@latest
-
-#. Run:
-
-   .. code-block:: bash
-
-      npm audit fix --package-lock-only
-
-#. Manually update version numbers in ``package.json``:
-
-   #. Find a "fix available" line
-   #. Read its following line ("Will install <package>@<version>")
-   #. Check the package's changelog for changes between the two versions
-   #. Update ``package.json``, and repeat
+Where the dependency ranges don't allow it, ``pnpm audit --fix`` can add ``overrides`` to ``package.json`` to force non-vulnerable versions, instead.
 
 Code style
 ----------
@@ -174,7 +170,7 @@ Continuous integration
 
    .. code-block:: yaml
 
-      - run: npm ci --ignore-scripts
+      - run: pnpm install --frozen-lockfile --ignore-scripts
 
 Create a ``.github/workflows/js.yml`` file.
 
@@ -192,11 +188,11 @@ Create a ``.github/workflows/js.yml`` file.
           permissions:
             contents: read
 
-   If you don't use this workflow, include this step:
+   If you don't use this workflow, and the project uses npm, include this step:
 
    .. code-block:: yaml
 
-      - run: npx lockfile-lint --path package-lock.json --allowed-hosts npm --validate-https
+      - run: npx lockfile-lint --path package-lock.json --type npm --allowed-hosts npm --validate-https
 
 Reference
 ---------
