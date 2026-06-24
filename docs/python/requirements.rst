@@ -73,8 +73,8 @@ If not using Django, add:
 
    pytest
 
-Dependency cooldown
-~~~~~~~~~~~~~~~~~~~
+Supply chain
+~~~~~~~~~~~~
 
 To protect against supply chain attacks, configure uv to only resolve package versions uploaded more than one week ago. In ``pyproject.toml``:
 
