@@ -23,6 +23,7 @@ This work is licensed under a `Creative Commons Attribution 4.0 International Li
    services/index
    git/index
    github/index
+   agents/index
    roadmap/index
    learning/index
    contributing
