@@ -10,12 +10,12 @@ Connect to a database
 
 Connect to the database using a connection string stored in the ``DATABASE_URL`` environment variable.
 
-In Python, connect to the database using `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ if using :doc:`Django<../python/django>`, or `psycopg2 <https://www.psycopg.org/docs/module.html#psycopg2.connect>`__ otherwise.
+In Python, connect to the database using `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ if using :doc:`Django<../python/django>`, or `psycopg <https://www.psycopg.org/psycopg3/docs/api/connections.html#psycopg.Connection.connect>`__ otherwise.
 
 To set the search path for a PostgreSQL connection, append to the connection string:
 
 .. code-block:: none
-   :caption: psycopg2
+   :caption: psycopg
 
    ?options=-csearch_path%3Dmyschema,public
 
@@ -79,9 +79,9 @@ Construct SQL statements
 
    `GitLab SQL Style Guide <https://handbook.gitlab.com/handbook/enterprise-data/platform/sql-style-guide/>`__
 
-Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`__ to avoid accidental errors and `SQL injection <https://en.wikipedia.org/wiki/SQL_injection>`__. The code samples below use the psycopg2 Python package.
+Follow `best practices <https://www.psycopg.org/psycopg3/docs/basic/params.html>`__ to avoid accidental errors and `SQL injection <https://en.wikipedia.org/wiki/SQL_injection>`__. The code samples below use the psycopg Python package.
 
--  `Pass parameters to SQL queries <https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries>`__, using the second argument to the ``execute`` method. This adapts the Python value's type (like ``bool``, ``int``, ``str``) to the correct SQL representation:
+-  `Pass parameters to SQL queries <https://www.psycopg.org/psycopg3/docs/basic/params.html>`__, using the second argument to the ``execute`` method. This adapts the Python value's type (like ``bool``, ``int``, ``str``) to the correct SQL representation:
 
    .. code-block:: python
 
@@ -131,11 +131,11 @@ Follow `best practices <https://www.psycopg.org/docs/usage.html#sql-injection>`_
           SELECT * FROM record WHERE collection_id = %s AND ocid = %s
       """, (1, 1, 'ocds-213czf-1'))  # AVOID
 
--  If you are writing a query template in which you want to substitute column names or table names, use the ``format`` method and the ``SQL`` and ``Identifier`` classes (`documentation <https://www.psycopg.org/docs/sql.html>`__):
+-  If you are writing a query template in which you want to substitute column names or table names, use the ``format`` method and the ``SQL`` and ``Identifier`` classes (`documentation <https://www.psycopg.org/psycopg3/docs/api/sql.html>`__):
 
    .. code-block:: python
 
-      from psycopg2.sql import SQL, Identifier
+      from psycopg.sql import SQL, Identifier
 
       cur.execute(SQL("SELECT * FROM {table}").format(table=Identifier('collection')))
 
