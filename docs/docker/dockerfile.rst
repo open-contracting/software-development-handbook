@@ -96,7 +96,7 @@ Set ``server_tokens off;`` to prevent false positives from penetration tests (Ub
 System packages
 ---------------
 
-Before installing a system package, check whether it's included in a base image. For example, the ``psycopg2`` Python package `requires <https://www.psycopg.org/install/>`__ the ``libpq-dev`` system package. To check whether it's included, when using the `python:3.14 image <https://hub.docker.com/_/python>`__:
+Before installing a system package, check whether it's included in a base image. For example, the ``psycopg[c]`` Python package `requires <https://www.psycopg.org/psycopg3/docs/basic/install.html#local-installation>`__ the ``libpq-dev`` system package to build. To check whether it's included, when using the `python:3.14 image <https://hub.docker.com/_/python>`__:
 
 #. Find the tag on the DockerHub page of the base image (the ``3.14`` tag is under *Shared Tags*)
 #. Click the link to view the Dockerfile

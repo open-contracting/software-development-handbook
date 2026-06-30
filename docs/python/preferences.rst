@@ -29,11 +29,11 @@ Command-line interface
 DataFrames
   `Polars <https://pola.rs>`__, unless end-users are unfamiliar (`pandas <https://pandas.pydata.org/docs/>`__).
 Object Relational Mapper (ORM)
-  Django. If you don't need an ORM, use `psycopg2 <https://www.psycopg.org/docs/>`__. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except with FastAPI or in low-level libraries with limited scope *where an ORM is needed*.
+  Django. If you don't need an ORM, use `psycopg <https://www.psycopg.org/psycopg3/docs/>`__. Do not use `SQLAlchemy <https://www.sqlalchemy.org/>`__, except with FastAPI or in low-level libraries with limited scope *where an ORM is needed*.
 
   .. note::
 
-     Use ``psycopg2`` in production, not ``psycopg2-binary``, `as recommended <https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary>`__. :ref:`See instructions<requirements-psycopg2>`.
+     Use ``psycopg[c]`` in production and ``psycopg[binary]`` in development, `as recommended and preferred <https://www.psycopg.org/psycopg3/docs/basic/install.html#local-installation>`__. :ref:`See instructions<requirements-psycopg>`.
 
 HTTP client
   `Requests <https://docs.python-requests.org/en/latest/>`__ for synchronous code and `niquests <https://niquests.readthedocs.io/en/latest/>`__ for asynchronous code, unless a framework uses another, like Scrapy (Twisted).

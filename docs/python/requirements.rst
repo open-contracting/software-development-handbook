@@ -63,6 +63,10 @@ A common starter ``requirements.in`` for :doc:`django` is:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements.in
 
+This requires ``requirements_base.in`` (see :ref:`psycopg<requirements-psycopg>`):
+
+.. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements_base.in
+
 A common starter ``requirements_dev.in`` is:
 
 .. literalinclude:: ../../cookiecutter-django/{{cookiecutter.project_slug}}/requirements_dev.in
@@ -97,20 +101,19 @@ Add the requirement in alphabetical order to the appropriate ``.in`` file. Then,
 
    :doc:`preferences`
 
-.. _requirements-psycopg2:
+.. _requirements-psycopg:
 
-psycopg2
-~~~~~~~~
+psycopg
+~~~~~~~
 
-``psycopg2`` is `recommended <https://www.psycopg.org/docs/install.html#psycopg-vs-psycopg-binary>`__ for production. However, installing ``psycopg2`` for development can be difficult on operating systems like macOS. In that case, you can:
+psycopg `recommends <https://www.psycopg.org/psycopg3/docs/basic/install.html#local-installation>`__ installing ``psycopg[c]`` in production and ``psycopg[binary]`` in development. To install the same version but different extras in each environment, organize the requirements files like so:
 
--  Put ``psycopg2`` in ``requirements.in``
--  Put ``psycopg2-binary`` in ``requirements_dev.in``
--  Run: ``pip install psycopg2-binary``
-
-.. note::
-
-   You **must** keep the locked versions of psycopg2 and psycopg2-binary in sync.
+``requirements_base.in``
+   Production requirements, including ``psycopg`` (with no extra)
+``requirements.in``
+   ``-r requirements_base.txt`` plus ``psycopg[c]``
+``requirements_dev.in``
+   ``-r requirements_base.txt`` plus ``psycopg[binary]`` and development requirements
 
 Install requirements
 --------------------
