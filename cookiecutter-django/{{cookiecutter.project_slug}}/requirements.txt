@@ -21,7 +21,9 @@ packaging==24.1
     #   -r requirements_base.txt
     #   gunicorn
 psycopg==3.3.4
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   -r requirements_base.txt
 psycopg-c==3.3.4
     # via psycopg
 sentry-sdk==2.16.0
