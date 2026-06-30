@@ -1,0 +1,4 @@
+dj-database-url
+django<6
+gunicorn[setproctitle]
+sentry-sdk

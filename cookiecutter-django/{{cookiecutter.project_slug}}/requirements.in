@@ -1,5 +1,2 @@
-dj-database-url
-django<6
-gunicorn[setproctitle]
-psycopg2
-sentry-sdk
+-r requirements_base.txt
+psycopg[c]

@@ -2,43 +2,44 @@
 #    uv pip compile requirements_dev.in -o requirements_dev.txt
 asgiref==3.8.1
     # via
-    #   -r requirements.txt
+    #   -r requirements_base.txt
     #   django
 certifi==2024.8.30
     # via
-    #   -r requirements.txt
+    #   -r requirements_base.txt
     #   sentry-sdk
 coverage==7.6.2
     # via -r requirements_dev.in
 dj-database-url==2.2.0
-    # via -r requirements.txt
+    # via -r requirements_base.txt
 django==5.2.14
     # via
-    #   -r requirements.txt
+    #   -r requirements_base.txt
     #   dj-database-url
-gunicorn[setproctitle]==23.0.0
-    # via -r requirements.txt
+gunicorn==23.0.0
+    # via -r requirements_base.txt
 packaging==24.1
     # via
-    #   -r requirements.txt
+    #   -r requirements_base.txt
     #   gunicorn
-psycopg2==2.9.9
-    # via -r requirements.txt
+psycopg==3.3.4
+    # via -r requirements_dev.in
+psycopg-binary==3.3.4
+    # via psycopg
 sentry-sdk==2.16.0
-    # via -r requirements.txt
+    # via -r requirements_base.txt
 setproctitle==1.3.3
-    # via
-    #   -r requirements.txt
-    #   gunicorn
+    # via -r requirements_base.txt
 sqlparse==0.5.4
     # via
-    #   -r requirements.txt
+    #   -r requirements_base.txt
     #   django
 typing-extensions==4.12.2
     # via
-    #   -r requirements.txt
+    #   -r requirements_base.txt
     #   dj-database-url
+    #   psycopg
 urllib3==2.7.0
     # via
-    #   -r requirements.txt
+    #   -r requirements_base.txt
     #   sentry-sdk
