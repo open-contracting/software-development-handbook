@@ -9,3 +9,4 @@ jobs:
       personal-access-token: ${{ "{{" }} secrets.PAT }}
     with:
       python-version: '{{ cookiecutter.python_version }}'
+      standard-maintenance-scripts-files: requirements_base.in
