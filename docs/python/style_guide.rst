@@ -216,11 +216,11 @@ Maintenance
 
 Maintainers can find improper formatting with these regular expressions. Test directories and Sphinx ``conf.py`` files can be ignored, if needed.
 
--  Unnamed placeholders, except for log messages, ``strftime()``, `Cursor.executemany() <https://www.psycopg.org/psycopg3/docs/api/cursors.html#psycopg.Cursor.executemany>`__ and common false positives (e.g. ``%`` in ``SECRET_KEY`` default value):
+-  Unnamed placeholders, except for log messages, ``strftime()`` and common false positives (e.g. ``%`` in ``SECRET_KEY`` default value):
 
    .. code-block:: none
 
-      (?<!info)(?<!debug|error)(?<!getenv)(?<!warning)(?<!critical|strftime)(?<!exception)(?<!executemany)\((\n( *['"#].*)?)* *['"].*?%[^( ]
+      (?<!info)(?<!debug|error)(?<!getenv)(?<!warning)(?<!critical|strftime)(?<!exception)\((\n( *['"#].*)?)* *['"].*?%[^( ]
 
 -  Named placeholders, except for translation strings and :ref:`SQL statements<sql-statements>`:
 
