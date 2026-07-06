@@ -67,8 +67,8 @@ Package manager
   `pnpm <https://pnpm.io>`__, for its built-in supply-chain protections (dependency cooldown, trust policy, build scripts blocked by default) and its strict ``node_modules`` layout. Do not use `npm <https://docs.npmjs.com>`__ or `yarn <https://yarnpkg.com>`__.
 User interface
   `Vue <https://vuejs.org>`__ is preferred to `React <https://react.dev>`__. That said, do not use frameworks for simple interfaces.
-Asset management
-  `webpack <https://webpack.js.org>`__, unless a framework provides its own, like `Vue <https://cli.vuejs.org>`__.
+Bundler
+  `esbuild <https://esbuild.github.io>`__ to bundle assets for a server-rendered application (e.g. Django templates) or an npm package. `Vite <https://vite.dev>`__ for a single-page application.
 Sass
   `sass <https://github.com/sass/dart-sass>`__ (dart-sass). Do not use `node-sass <https://github.com/sass/node-sass#node-sass>`__, which is deprecated.
 Formatter
@@ -145,6 +145,11 @@ To upgrade vulnerable dependencies:
 This updates the lockfile to non-vulnerable versions, where the dependency ranges allow it. Check each package's changelog before committing.
 
 Where the dependency ranges don't allow it, ``pnpm audit --fix`` can add ``overrides`` to ``package.json`` to force non-vulnerable versions, instead.
+
+Linting
+~~~~~~~
+
+Use `knip <https://knip.dev>`__ to find unused files, dependencies and exports. Configure it in a ``knip.jsonc`` file. :ref:`Continuous integration<javascript-ci>` runs knip if you reuse the ``js`` workflow.
 
 Code style
 ----------

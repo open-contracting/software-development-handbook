@@ -102,7 +102,7 @@ CSS
 
 .. seealso::
 
-   The Data Registry's `webpack.config.js <https://github.com/open-contracting/data-registry/blob/main/webpack.config.js>`__ file, for compiling SCSS (Sass).
+   The Data Registry's `build.mjs <https://github.com/open-contracting/data-registry/blob/main/build.mjs>`__ file, for compiling SCSS (Sass).
 
 Frameworks
 ~~~~~~~~~~
