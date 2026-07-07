@@ -7,9 +7,7 @@ HTML
 Code style
 ~~~~~~~~~~
 
-Style CSS and JavaScript in HTML files using :ref:`Biome <biome>`.
-
-You can use `Prettier <https://prettier.io/docs/en/>`__ to style HTML while waiting for `Biome support <https://biomejs.dev/internals/language-support/>`__.
+Style HTML using :ref:`Biome <biome>`.
 
 Subresource integrity (SRI)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
