@@ -4,50 +4,12 @@ HTML and CSS
 HTML
 ----
 
-.. _html-code-style:
-
 Code style
 ~~~~~~~~~~
 
-Style CSS and JavaScript in HTML files using `Biome <https://biomejs.dev>`__.
+Style CSS and JavaScript in HTML files using :ref:`Biome <biome>`.
 
 You can use `Prettier <https://prettier.io/docs/en/>`__ to style HTML while waiting for `Biome support <https://biomejs.dev/internals/language-support/>`__.
-
-.. code-block:: json
-   :caption: biome.json
-
-   {
-     "$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
-     "vcs": {
-       "enabled": true,
-       "clientKind": "git",
-       "useIgnoreFile": true,
-       "defaultBranch": "main"
-     },
-     "assist": {
-       "actions": {
-         "source": {
-           "organizeImports": "on"
-         }
-       }
-     },
-     "formatter": {
-       "indentStyle": "space",
-       "indentWidth": 4,
-       "lineWidth": 119
-     },
-     "json": {
-       "formatter": {
-         "indentWidth": 2
-       }
-     },
-     "linter": {
-       "enabled": true,
-       "rules": {
-         "recommended": true
-       }
-     }
-   }
 
 Subresource integrity (SRI)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,7 +100,7 @@ Reminders
 Code style
 ~~~~~~~~~~
 
-Style CSS using `Biome <https://biomejs.dev/reference/configuration/#css>`__, with 2-space indentation.
+Style CSS using :ref:`Biome <biome>`, with 2-space indentation.
 
 In terms of naming conventions, consider `Block Element Modifier (BEM) <https://getbem.com>`__.
 

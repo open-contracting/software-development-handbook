@@ -72,7 +72,7 @@ Bundler
 Sass
   `sass <https://github.com/sass/dart-sass>`__ (dart-sass). Do not use `node-sass <https://github.com/sass/node-sass#node-sass>`__, which is deprecated.
 Formatter
-  `Biome <https://biomejs.dev>`__. See :ref:`HTML code style<html-code-style>`.
+  `Biome <https://biomejs.dev>`__.
 
 Requirements
 ------------
@@ -159,6 +159,74 @@ package.json
 
 -  Do not set the `scripts <https://docs.npmjs.com/cli/v11/using-npm/scripts>`__ property. Instead, document the full commands in the readme, to reduce indirection and obfuscation.
 
+.. _knip:
+
+knip
+~~~~
+
+Find unused files, dependencies and exports with `knip <https://knip.dev>`__, configured in a ``knip.jsonc`` file. Install it as a development dependency; when a ``knip.jsonc`` file exists, the :ref:`js.yml workflow<javascript-ci>` runs ``pnpm exec knip`` with the lockfile version.
+
+.. _biome:
+
+Biome
+~~~~~
+
+.. seealso:: `Biome configuration reference <https://biomejs.dev/reference/configuration/>`__
+
+Style JavaScript, TypeScript, JSON and CSS using `Biome <https://biomejs.dev>`__.
+
+.. code-block:: json
+   :caption: biome.json
+
+   {
+     "vcs": {
+       "enabled": true,
+       "clientKind": "git",
+       "useIgnoreFile": true,
+       "defaultBranch": "main"
+     },
+     "assist": {
+       "actions": {
+         "source": {
+           "organizeImports": "on"
+         }
+       }
+     },
+     "formatter": {
+       "indentStyle": "space",
+       "indentWidth": 4,
+       "lineWidth": 119
+     },
+     "json": {
+       "formatter": {
+         "indentWidth": 2
+       }
+     },
+     "linter": {
+       "enabled": true,
+       "rules": {
+         "recommended": true
+       }
+     }
+   }
+
+Install it as a development dependency, and use this `pre-commit hook <https://github.com/biomejs/pre-commit#using-biome-with-a-local-pre-commit-hook>`__, so that local pre-commit and the :ref:`js.yml workflow<javascript-ci>` run the same version:
+
+.. code-block:: yaml
+
+   ci:
+     autoupdate_schedule: quarterly
+     skip: [biome-check]
+   repos:
+     - repo: local
+       hooks:
+         - id: biome-check
+           name: biome check
+           entry: npx biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
+           language: system
+           types: [text]
+           files: "\\.(jsx?|tsx?|c(js|ts)|m(js|ts)|d\\.(ts|cts|mts)|jsonc?|css|svelte|vue|astro|graphql|gql)$"
+
 Vue
 ~~~
 
@@ -198,6 +266,26 @@ Create a ``.github/workflows/js.yml`` file.
    .. code-block:: yaml
 
       - run: npx lockfile-lint --path package-lock.json --type npm --allowed-hosts npm --validate-https
+
+.. _javascript-dependabot:
+
+Dependabot
+----------
+
+Keep :ref:`Biome<biome>` and :ref:`knip<knip>` up-to-date with Dependabot:
+
+.. code-block:: yaml
+   :caption: .github/dependabot.yml
+
+   - package-ecosystem: "npm"
+     directory: "/"
+     schedule:
+       interval: "yearly"
+     allow:
+       - dependency-name: "@biomejs/biome"
+       - dependency-name: "knip"
+     cooldown:
+       default-days: 7
 
 Reference
 ---------
