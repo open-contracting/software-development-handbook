@@ -173,7 +173,7 @@ Biome
 
 .. seealso:: `Biome configuration reference <https://biomejs.dev/reference/configuration/>`__
 
-Style JavaScript, TypeScript, JSON and CSS using `Biome <https://biomejs.dev>`__.
+Style `many languages <https://biomejs.dev/internals/language-support/>`__ using `Biome <https://biomejs.dev>`__. For example:
 
 .. code-block:: json
    :caption: biome.json
@@ -210,22 +210,16 @@ Style JavaScript, TypeScript, JSON and CSS using `Biome <https://biomejs.dev>`__
      }
    }
 
-Install it as a development dependency, and use this `pre-commit hook <https://github.com/biomejs/pre-commit#using-biome-with-a-local-pre-commit-hook>`__, so that local pre-commit and the :ref:`js.yml workflow<javascript-ci>` run the same version:
+Run Biome with :ref:`pre-commit<linting-pre-commit>`:
 
 .. code-block:: yaml
+   :caption: .pre-commit-config.yaml
 
-   ci:
-     autoupdate_schedule: quarterly
-     skip: [biome-check]
    repos:
-     - repo: local
+     - repo: https://github.com/biomejs/pre-commit
+       rev: v2.5.2
        hooks:
          - id: biome-check
-           name: biome check
-           entry: npx biome check --write --files-ignore-unknown=true --no-errors-on-unmatched
-           language: system
-           types: [text]
-           files: "\\.(jsx?|tsx?|c(js|ts)|m(js|ts)|d\\.(ts|cts|mts)|jsonc?|css|svelte|vue|astro|graphql|gql)$"
 
 Vue
 ~~~
@@ -272,7 +266,7 @@ Create a ``.github/workflows/js.yml`` file.
 Dependabot
 ----------
 
-Keep :ref:`Biome<biome>` and :ref:`knip<knip>` up-to-date with Dependabot:
+Keep :ref:`knip<knip>` up-to-date with :ref:`dependabot`:
 
 .. code-block:: yaml
    :caption: .github/dependabot.yml
@@ -282,7 +276,6 @@ Keep :ref:`Biome<biome>` and :ref:`knip<knip>` up-to-date with Dependabot:
      schedule:
        interval: "yearly"
      allow:
-       - dependency-name: "@biomejs/biome"
        - dependency-name: "knip"
      cooldown:
        default-days: 7

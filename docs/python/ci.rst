@@ -259,6 +259,8 @@ For example, the `Extension Registry <https://github.com/open-contracting/extens
 .. literalinclude:: samples/ci/static.yml
    :language: yaml
 
+.. _dependabot:
+
 Dependabot
 ----------
 
