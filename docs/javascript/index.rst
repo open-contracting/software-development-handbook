@@ -236,6 +236,80 @@ Run Biome with :ref:`pre-commit<linting-pre-commit>`:
 
 :ref:`javascript-ci` runs Biome if you reuse the ``js`` workflow.
 
+.. _esbuild:
+
+build.js
+~~~~~~~~
+
+Configure esbuild in a ``build.js`` file (or ``build.mjs``, if ``package.json`` doesn't set ``"type": "module"``).
+
+.. code-block:: javascript
+   :caption: build.js
+
+   import autoprefixer from "autoprefixer";
+   import browserslist from "browserslist";
+   import * as esbuild from "esbuild";
+   import { esbuildPluginBrowserslist } from "esbuild-plugin-browserslist";
+   import { sassPlugin } from "esbuild-sass-plugin";
+   import postcss from "postcss";
+
+   const production = process.env.NODE_ENV === "production";
+
+   const options = {
+       entryPoints: { // edit as needed
+           main: "src/scss/main.scss",
+           script: "src/js/main.js",
+       },
+       bundle: true,
+       outdir: "core/static",
+       minify: production,
+       sourcemap: !production,
+       legalComments: "linked",
+       logLevel: "info",
+       // any other options
+       plugins: [
+           esbuildPluginBrowserslist(browserslist(), { printUnknownTargets: false }),
+           sassPlugin({
+               async transform(source) {
+                   const { css } = await postcss([autoprefixer]).process(source, { from: undefined });
+                   return css;
+               },
+           }),
+       ],
+   };
+
+   if (process.argv.includes("--watch")) {
+       const context = await esbuild.context(options);
+       await context.watch();
+       console.log("Watching for changes …");
+   } else {
+       await esbuild.build(options);
+   }
+
+`esbuild-plugin-browserslist <https://www.npmjs.com/package/esbuild-plugin-browserslist>`__ sets esbuild's `target <https://esbuild.github.io/api/#target>`__ from `browserslist <https://github.com/browserslist/browserslist>`__'s `defaults <https://browsersl.ist/#q=defaults>`__ query, so that esbuild transpiles any JavaScript syntax that those browsers don't support.
+
+Compile Sass with `esbuild-sass-plugin <https://github.com/glromeo/esbuild-sass-plugin>`__, adding vendor prefixes with `Autoprefixer <https://github.com/postcss/autoprefixer>`__ (via `PostCSS <https://postcss.org>`__).
+
+Set ``NODE_ENV=production`` in Dockerfiles so that esbuild minifies bundles and omits sourcemaps.
+
+With ``bundle: true``, esbuild resolves each ``url()`` in Sass, to copy and content-hash it. However:
+
+-  An asset from a dependency may not resolve: for example, if the dependency points ``url()`` to a path that isn't built yet. If so, configure your application to build and serve that file (for example, add it to Django's ``STATICFILES_DIRS``), and mark the path as ``external``:
+
+   .. code-block:: javascript
+
+      external: ["/static/*"],
+
+-  If a file is used outside Sass (like images in HTML templates), configure it as above.
+-  If a file is exclusive to Sass, point ``url()`` to its source file with a relative path. If the file is a font or image, map its extension to the ``file`` loader, because esbuild assigns no loader to fonts or images by default:
+
+   .. code-block:: javascript
+
+      loader: {
+         ".woff2": "file",
+         ".otf": "file",
+      },
+
 Vue
 ~~~
 
