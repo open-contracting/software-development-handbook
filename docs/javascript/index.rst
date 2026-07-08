@@ -59,18 +59,24 @@ To upgrade Node, change the ``node-version`` key in GitHub Actions workflows and
 Preferences
 -----------
 
-Plain JavaScript is preferred to using jQuery, unless functionality depends on jQuery plugins. To replace jQuery in a project, refer to `You Might Not Need jQuery <https://youmightnotneedjquery.com>`__. Similarly, use the `Fetch <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`__ API instead of the `Axios <https://axios-http.com>`__ package, etc.
+Use plain JavasScript:
+
+-  Do not use `lodash <https://lodash.com>`__ or `underscore <https://underscorejs.org>`__.
+-  Do not use `axios <https://axios-http.com>`__. Use the `Fetch API <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`__.
+-  Do not use jQuery, unless existing functionality depends on jQuery plugins. To replace jQuery, refer to `You Might Not Need jQuery <https://youmightnotneedjquery.com>`__.
 
 Package manager
   `pnpm <https://pnpm.io>`__, for its built-in supply-chain protections (`dependency cooldown <https://pnpm.io/settings#minimumreleaseage>`__, `trust policy <https://pnpm.io/settings#trustpolicy>`__, `build scripts blocked by default <https://pnpm.io/global-packages#build-script-approval>`__) and its improved `node_modules structure <https://pnpm.io/symlinked-node-modules-structure>`__. Do not use `npm <https://docs.npmjs.com>`__ or `yarn <https://yarnpkg.com>`__.
-User interface
+Framework
   `Vue <https://vuejs.org>`__ is preferred to `React <https://react.dev>`__. That said, do not use frameworks for simple interfaces.
 Bundler
-  `esbuild <https://esbuild.github.io>`__ to bundle assets for a server-rendered application (e.g. Django templates) or an npm package. `Vite <https://vite.dev>`__ for a single-page application.
+  `esbuild <https://esbuild.github.io>`__ to bundle assets for a server-rendered application (e.g. assets referenced by ``script`` tags in Django templates) or for an npm package. `Vite <https://vite.dev>`__ for a single-page application.
 Sass
   `sass <https://github.com/sass/dart-sass>`__ (dart-sass). Do not use `node-sass <https://github.com/sass/node-sass#node-sass>`__, which is deprecated.
 Formatter
-  `Biome <https://biomejs.dev>`__.
+  `Biome <https://biomejs.dev>`__. Do not use `Prettier <https://prettier.io>`__.
+Linter
+  `Biome <https://biomejs.dev>`__. Do not use `ESLint <https://eslint.org>`__.
 
 Requirements
 ------------
