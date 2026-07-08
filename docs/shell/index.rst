@@ -69,24 +69,22 @@ And:
 Continuous integration
 ----------------------
 
-Create a ``.github/workflows/shell.yml`` file. As a base, use:
+Create a ``.github/workflows/shell.yml`` file. In most cases, you can reuse the `shell <https://github.com/open-contracting/.github/blob/main/.github/workflows/shell.yml>`__ workflow, like:
+
+.. code-block:: yaml
+
+   jobs:
+     lint:
+       uses: open-contracting/.github/.github/workflows/shell.yml@main
+       permissions:
+         contents: read
+       with:
+         ignore: file.sh
+
+Otherwise, as a base, use:
 
 .. literalinclude:: samples/shell.yml
    :language: yaml
-
-.. tip::
-
-   In most cases, you can reuse the `shell <https://github.com/open-contracting/.github/blob/main/.github/workflows/shell.yml>`__ workflow. For example:
-
-   .. code-block:: yaml
-
-      jobs:
-        lint:
-          uses: open-contracting/.github/.github/workflows/shell.yml@main
-          permissions:
-            contents: read
-          with:
-            ignore: file.sh
 
 Maintenance
 ~~~~~~~~~~~

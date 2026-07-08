@@ -254,27 +254,23 @@ Continuous integration
 
       - run: pnpm install --frozen-lockfile --ignore-scripts
 
-Create a ``.github/workflows/js.yml`` file.
+Create a ``.github/workflows/js.yml`` file. In most cases, you can reuse the `js <https://github.com/open-contracting/.github/blob/main/.github/workflows/js.yml>`__ workflow, like:
 
-.. tip::
+.. code-block:: yaml
 
-   In most cases, you can reuse the `js <https://github.com/open-contracting/.github/blob/main/.github/workflows/js.yml>`__ workflow. For example:
+   name: Lint JavaScript
+   on: [push, pull_request]
+   jobs:
+     lint:
+       uses: open-contracting/.github/.github/workflows/js.yml@main
+       permissions:
+         contents: read
 
-   .. code-block:: yaml
+If you don't use this workflow, and the project uses npm, include this step:
 
-      name: Lint JavaScript
-      on: [push, pull_request]
-      jobs:
-        lint:
-          uses: open-contracting/.github/.github/workflows/js.yml@main
-          permissions:
-            contents: read
+.. code-block:: yaml
 
-   If you don't use this workflow, and the project uses npm, include this step:
-
-   .. code-block:: yaml
-
-      - run: npx lockfile-lint --path package-lock.json --type npm --allowed-hosts npm --validate-https
+   - run: npx lockfile-lint --path package-lock.json --type npm --allowed-hosts npm --validate-https
 
 Reference
 ---------
