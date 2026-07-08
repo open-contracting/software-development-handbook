@@ -7,7 +7,7 @@ HTML
 Code style
 ~~~~~~~~~~
 
-Style HTML using :ref:`Biome <biome>`.
+Check and style HTML using :ref:`Biome <biome>`.
 
 Subresource integrity (SRI)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,7 +96,7 @@ Reminders
 Code style
 ~~~~~~~~~~
 
-Style CSS using :ref:`Biome <biome>`, with 2-space indentation.
+Check and style CSS using :ref:`Biome <biome>`, with 2-space indentation.
 
 In terms of naming conventions, consider `Block Element Modifier (BEM) <https://getbem.com>`__.
 

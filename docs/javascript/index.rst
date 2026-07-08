@@ -184,7 +184,7 @@ Biome
 
 .. seealso:: `Biome configuration reference <https://biomejs.dev/reference/configuration/>`__
 
-Style `many languages <https://biomejs.dev/internals/language-support/>`__ using `Biome <https://biomejs.dev>`__. For example:
+Check and style `many languages <https://biomejs.dev/internals/language-support/>`__ using `Biome <https://biomejs.dev>`__. For example:
 
 .. code-block:: json
    :caption: biome.json
