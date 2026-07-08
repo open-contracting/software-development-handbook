@@ -153,9 +153,7 @@ Where the dependency ranges don't allow it, ``pnpm audit --fix`` can add ``overr
 Linting
 ~~~~~~~
 
-Use `knip <https://knip.dev>`__ to find unused files, dependencies and exports. Install it as a development dependency, and configure it in a ``knip.jsonc`` file.
-
-Keep it up-to-date with :ref:`dependabot`:
+Use `knip <https://knip.dev>`__ to find unused files, dependencies and exports. Install it as a development dependency, configure it in a ``knip.jsonc`` file, and keep it up-to-date with :ref:`dependabot`:
 
 .. code-block:: yaml
    :caption: .github/dependabot.yml
