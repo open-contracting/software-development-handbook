@@ -64,7 +64,7 @@ Preferences
 Plain JavaScript is preferred to using jQuery, unless functionality depends on jQuery plugins. To replace jQuery in a project, refer to `You Might Not Need jQuery <https://youmightnotneedjquery.com>`__. Similarly, use the `Fetch <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`__ API instead of the `Axios <https://axios-http.com>`__ package, etc.
 
 Package manager
-  `pnpm <https://pnpm.io>`__, for its built-in supply-chain protections (dependency cooldown, trust policy, build scripts blocked by default) and its strict ``node_modules`` layout. Do not use `npm <https://docs.npmjs.com>`__ or `yarn <https://yarnpkg.com>`__.
+  `pnpm <https://pnpm.io>`__, for its built-in supply-chain protections (`dependency cooldown <https://pnpm.io/settings#minimumreleaseage>`__, `trust policy <https://pnpm.io/settings#trustpolicy>`__, `build scripts blocked by default <https://pnpm.io/global-packages#build-script-approval>`__) and its improved `node_modules structure <https://pnpm.io/symlinked-node-modules-structure>`__. Do not use `npm <https://docs.npmjs.com>`__ or `yarn <https://yarnpkg.com>`__.
 User interface
   `Vue <https://vuejs.org>`__ is preferred to `React <https://react.dev>`__. That said, do not use frameworks for simple interfaces.
 Bundler
@@ -77,7 +77,7 @@ Formatter
 Requirements
 ------------
 
-Use `pnpm <https://pnpm.io>`__, not ``npm`` or ``yarn``. Set the Node version in the `engines <https://docs.npmjs.com/cli/v7/configuring-npm/package-json#engines>`__ property and the pnpm version in the `packageManager <https://nodejs.org/api/packages.html#packagemanager>`__ property of ``package.json``.
+Set the pnpm version in the `packageManager <https://nodejs.org/api/packages.html#packagemanager>`__ property of ``package.json``.
 
 List outdated dependencies:
 
