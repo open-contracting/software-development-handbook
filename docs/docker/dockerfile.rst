@@ -64,6 +64,12 @@ To `leverage the build cache <https://docs.docker.com/develop/develop-images/doc
 
       RUN pnpm install --frozen-lockfile --ignore-scripts
 
+   Add ``--prod`` if running a Node.js web server (``CMD ["node", …]``):
+
+   .. code-block:: docker
+
+      RUN pnpm install --frozen-lockfile --ignore-scripts --prod
+
 Base images
 -----------
 
