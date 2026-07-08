@@ -18,11 +18,11 @@ Version
 ECMAScript
 ~~~~~~~~~~
 
-Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature support in modern browsers <https://compat-table.github.io/compat-table/es6/>`__). We don't support `Internet Explorer 11 <https://death-to-ie11.com>`__.
+Write modern JavaScript. If needed, use a :ref:`bundler<esbuild>` to transpile code for older browsers.
 
-.. tip::
+.. dropdown:: Modernizing legacy code
 
-   To transform older code to ECMAScript 6, use `lebab <https://github.com/lebab/lebab>`__, but be aware of its `bugs <https://github.com/lebab/lebab#unsafe-transforms>`__. There is a lebab `plugin <https://packagecontrol.io/packages/lebab>`__ for `Sublime Text <https://www.sublimetext.com>`__. Use these preferences (*Preferences* > *Package Settings* > *Lebab* > *Settings - User*):
+   Use `lebab <https://github.com/lebab/lebab>`__, but be aware of its `bugs <https://github.com/lebab/lebab#unsafe-transforms>`__. There is a lebab `plugin <https://packagecontrol.io/packages/lebab>`__ for `Sublime Text <https://www.sublimetext.com>`__. Use these preferences (*Preferences* > *Package Settings* > *Lebab* > *Settings - User*):
 
    .. code-block:: json
 
@@ -46,8 +46,6 @@ Frontend code is written for ECMAScript 6 (ES6) (`see the status of feature supp
           "includes"
         ]
       }
-
-   To transform newer code to ECMAScript 6, use `Babel <https://babeljs.io>`__ with the `defaults <https://babeljs.io/docs/options#no-targets>`__ query from `browserlist <https://github.com/browserslist/browserslist>`__.
 
 Node
 ~~~~
