@@ -294,13 +294,13 @@ Set ``NODE_ENV=production`` in Dockerfiles so that esbuild minifies bundles and 
 
 With ``bundle: true``, esbuild resolves each ``url()`` in Sass, to copy and content-hash it. However:
 
--  An asset from a dependency may not resolve: for example, if the dependency points ``url()`` to a path that isn't built yet. If so, configure your application to build and serve that file (for example, add it to Django's ``STATICFILES_DIRS``), and mark the path as ``external``:
+-  An asset from a dependency may not resolve; for example, the dependency points ``url()`` to a path that isn't built yet. If so, configure your application to build and serve that file (for example, add it to Django's ``STATICFILES_DIRS``), and mark the path as ``external``:
 
    .. code-block:: javascript
 
       external: ["/static/*"],
 
--  If a file is used outside Sass (like images in HTML templates), configure it as above.
+-  If a file is used outside Sass (like images in HTML templates), configure as above.
 -  If a file is exclusive to Sass, point ``url()`` to its source file with a relative path. If the file is a font or image, map its extension to the ``file`` loader, because esbuild assigns no loader to fonts or images by default:
 
    .. code-block:: javascript
