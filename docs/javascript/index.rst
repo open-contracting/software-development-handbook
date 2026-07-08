@@ -149,7 +149,25 @@ Where the dependency ranges don't allow it, ``pnpm audit --fix`` can add ``overr
 Linting
 ~~~~~~~
 
-Use `knip <https://knip.dev>`__ to find unused files, dependencies and exports. Configure it in a ``knip.jsonc`` file. :ref:`Continuous integration<javascript-ci>` runs knip if you reuse the ``js`` workflow.
+Use `knip <https://knip.dev>`__ to find unused files, dependencies and exports. Install it as a development dependency, and configure it in a ``knip.jsonc`` file.
+
+Keep it up-to-date with :ref:`dependabot`:
+
+.. code-block:: yaml
+   :caption: .github/dependabot.yml
+
+   - package-ecosystem: "npm"
+     directories:
+       - "/"
+       - "**/*"
+     schedule:
+       interval: "yearly"
+     allow:
+       - dependency-name: "knip"
+     cooldown:
+       default-days: 7
+
+:ref:`javascript-ci` runs knip if you reuse the ``js`` workflow.
 
 Code style
 ----------
@@ -158,13 +176,6 @@ package.json
 ~~~~~~~~~~~~
 
 -  Do not set the `scripts <https://docs.npmjs.com/cli/v11/using-npm/scripts>`__ property. Instead, document the full commands in the readme, to reduce indirection and obfuscation.
-
-.. _knip:
-
-knip
-~~~~
-
-Find unused files, dependencies and exports with `knip <https://knip.dev>`__, configured in a ``knip.jsonc`` file. Install it as a development dependency; when a ``knip.jsonc`` file exists, the :ref:`js.yml workflow<javascript-ci>` runs ``pnpm exec knip`` with the lockfile version.
 
 .. _biome:
 
@@ -221,6 +232,8 @@ Run Biome with :ref:`pre-commit<linting-pre-commit>`:
        hooks:
          - id: biome-check
 
+:ref:`javascript-ci` runs Biome if you reuse the ``js`` workflow.
+
 Vue
 ~~~
 
@@ -260,25 +273,6 @@ Create a ``.github/workflows/js.yml`` file.
    .. code-block:: yaml
 
       - run: npx lockfile-lint --path package-lock.json --type npm --allowed-hosts npm --validate-https
-
-.. _javascript-dependabot:
-
-Dependabot
-----------
-
-Keep :ref:`knip<knip>` up-to-date with :ref:`dependabot`:
-
-.. code-block:: yaml
-   :caption: .github/dependabot.yml
-
-   - package-ecosystem: "npm"
-     directory: "/"
-     schedule:
-       interval: "yearly"
-     allow:
-       - dependency-name: "knip"
-     cooldown:
-       default-days: 7
 
 Reference
 ---------
