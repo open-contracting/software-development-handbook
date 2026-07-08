@@ -148,7 +148,7 @@ To upgrade vulnerable dependencies:
 
 This updates the lockfile to non-vulnerable versions, where the dependency ranges allow it. Check each package's changelog before committing.
 
-Where the dependency ranges don't allow it, ``pnpm audit --fix`` can add ``overrides`` to ``package.json`` to force non-vulnerable versions, instead.
+Where the dependency ranges don't allow it, ``pnpm audit --fix override`` can add ``overrides`` to ``package.json`` to force non-vulnerable versions, instead.
 
 Linting
 ~~~~~~~
