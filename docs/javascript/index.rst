@@ -67,8 +67,8 @@ Use plain JavasScript:
 
 Package manager
   `pnpm <https://pnpm.io>`__, for its built-in supply-chain protections (`dependency cooldown <https://pnpm.io/settings#minimumreleaseage>`__, `trust policy <https://pnpm.io/settings#trustpolicy>`__, `build scripts blocked by default <https://pnpm.io/global-packages#build-script-approval>`__) and its improved `node_modules structure <https://pnpm.io/symlinked-node-modules-structure>`__. Do not use `npm <https://docs.npmjs.com>`__ or `yarn <https://yarnpkg.com>`__.
-Framework
-  `Vue <https://vuejs.org>`__ is preferred to `React <https://react.dev>`__. That said, do not use frameworks for simple interfaces.
+UI framework
+  `Vue <https://vuejs.org>`__ or `React <https://react.dev>`__. That said, do not use frameworks for simple interfaces.
 Bundler
   `esbuild <https://esbuild.github.io>`__ to bundle assets for a server-rendered application (e.g. assets referenced by ``script`` tags in Django templates) or for an npm package. `Vite <https://vite.dev>`__ for a single-page application.
 Sass
