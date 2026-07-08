@@ -12,7 +12,7 @@ Style HTML using :ref:`Biome <biome>`.
 Subresource integrity (SRI)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When using external packages:
+When using unbundled external packages:
 
 -  Reference a package's specific version on a content delivery network (CDN), like `unpkg <https://unpkg.com>`__, `jsDelivr <https://www.jsdelivr.com>`__, `cdnjs <https://cdnjs.com>`__ or the package's own CDN (like `Redocly <https://github.com/Redocly/redoc#add-an-html-element-to-the-page>`__)
 -  Use the `SRI Hash Generator <https://www.srihash.org>`__, as `recommended <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity#tools_for_generating_sri_hashes>`__ by MDN, with the default SHA-384 algorithm
@@ -60,9 +60,7 @@ On each page of a public-facing website:
 CSS
 ---
 
-.. seealso::
-
-   The Data Registry's `build.mjs <https://github.com/open-contracting/data-registry/blob/main/build.mjs>`__ file, for compiling SCSS (Sass).
+.. seealso:: :ref:`esbuild` for compiling SCSS (Sass)
 
 Frameworks
 ~~~~~~~~~~
