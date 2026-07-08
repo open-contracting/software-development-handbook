@@ -6,4 +6,4 @@ jobs:
     permissions:
       contents: read
     with:
-      ignore: crate
+      ignore: crate,ist
