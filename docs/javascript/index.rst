@@ -198,30 +198,33 @@ Check and style `many languages <https://biomejs.dev/internals/language-support/
        "useIgnoreFile": true,
        "defaultBranch": "main"
      },
-     "assist": {
-       "actions": {
-         "source": {
-           "organizeImports": "on"
-         }
-       }
-     },
      "formatter": {
        "indentStyle": "space",
-       "indentWidth": 4,
        "lineWidth": 119
-     },
-     "json": {
-       "formatter": {
-         "indentWidth": 2
-       }
-     },
-     "linter": {
-       "enabled": true,
-       "rules": {
-         "recommended": true
-       }
      }
    }
+
+By default, Biome runs the formatter, linter (with recommended preset) and assist (with recommended actions).
+
+Skip formatting of generated files and OCDS schema:
+
+
+.. code-block:: json
+   :emphasize-lines: 4
+
+     "formatter": {
+       "indentStyle": "space",
+       "lineWidth": 119,
+       "includes": ["**", "!path/pattern"]
+     },
+
+Skip vendored files and mis-parsed files, like Django and Jinja templates that use ``{% … %}`` tags:
+
+.. code-block:: json
+
+     "files": {
+       "includes": ["**", "!path/pattern"]
+     }
 
 Run Biome with :ref:`pre-commit<linting-pre-commit>`:
 
