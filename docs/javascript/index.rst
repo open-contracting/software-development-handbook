@@ -18,7 +18,7 @@ Version
 ECMAScript
 ~~~~~~~~~~
 
-Write modern JavaScript. If needed, use a :ref:`bundler<esbuild>` to transpile code for older browsers.
+Write modern JavaScript. If needed, use a :ref:`bundler<javascript-preferences>` to transpile code for older browsers.
 
 .. dropdown:: Modernizing legacy code
 
