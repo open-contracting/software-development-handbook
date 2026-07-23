@@ -30,8 +30,8 @@ html_static_path = ["_static"]
 
 linkcheck_anchors_ignore = [
     # GitHub readme headings.
-    r"^(?:change-github-repository-configuration|commit-message-header|github|inputs|node-sass"
-    r"|requesting-message-acknowledgements-from-another-thread|tests|unsafe-transforms|L22-L24)$",
+    (r"^(?:change-github-repository-configuration|commit-message-header|github|inputs|node-sass"
+    r"|requesting-message-acknowledgements-from-another-thread|tests|unsafe-transforms|L22-L24)$"),
 ]
 linkcheck_ignore = [
     # Localhost instructions.
