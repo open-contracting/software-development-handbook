@@ -64,6 +64,18 @@ And:
 
 -  Avoid ``set -x`` in scripts run by continuous integration, because it will expand any secret variables
 
+Variable names
+~~~~~~~~~~~~~~
+
+Use lowercase names for local variables. (``shellcheck`` reports `SC2154 <https://www.shellcheck.net/wiki/SC2154>`__) only for lowercase names.)
+
+Reserve uppercase names for environment variables (like ``LOGNAME`` or ``MAILTO``) and external variables from sourced files (like ``/etc/os-release``).
+
+Avoid shadowing commands (like ``host``, ``dir``, ``mail``):
+
+-  Store a command's path as ``<tool>_bin``, for example: ``mail_bin=/usr/bin/mail``
+-  Store a command's output as ``<tool>_output``, for example: ``hostname_output=$(hostname)``
+
 .. _shell-ci:
 
 Continuous integration
