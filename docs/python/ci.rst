@@ -36,7 +36,6 @@ Automated tests
 Create a ``.github/workflows/ci.yml`` file, and use or adapt one of the :ref:`templates<python-ci-templates>` below.
 
 -  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows>`__ and `Running a workflow based on the conclusion of another workflow <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow>`__, in particular.
--  If the project is only used with a specific version of the OS or Python, set ``runs-on:`` and ``python-version:`` appropriately.
 -  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
 -  If a ``run:`` step is a single line, omit the ``name:`` key.
 -  Put commands that form logical units in the same ``run:`` step. For example:

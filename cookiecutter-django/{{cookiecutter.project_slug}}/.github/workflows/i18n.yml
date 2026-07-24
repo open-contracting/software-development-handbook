@@ -10,4 +10,3 @@ jobs:
       contents: read
     with:
       source: en_US
-      python-version: '{{ cookiecutter.python_version }}'
