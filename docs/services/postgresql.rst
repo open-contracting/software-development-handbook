@@ -31,7 +31,7 @@ Database administrators need to identify the sources of queries, in order to not
 
 -  Django applications set the `application_name <https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-APPLICATION-NAME>`__ query string parameter in the PostgreSQL `connection URI <https://www.postgresql.org/docs/current/libpq-connect.html#id-1.7.3.8.3.6>`__, or use a service-specific user
 -  Kingfisher Summarize uses the `psycopg <https://www.psycopg.org/psycopg3/docs/>`__ package, and adds ``/* kingfisher-summarize {identifier} */`` as a comment to expensive queries
--  Kingfisher Colab uses the `ipython-sql <https://pypi.org/project/ipython-sql/>`__ package, and adds the Google Colaboratory notebook URL as a comment to all queries
+-  Kingfisher Colab uses the `ipython-sql <https://pypi.org/project/ipython-sql/>`__ package, and adds the Google Colab notebook URL as a comment to all queries
 
 Define tables
 -------------
