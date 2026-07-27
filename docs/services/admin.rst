@@ -6,6 +6,7 @@ See the `Deploy documentation <https://ocdsdeploy.readthedocs.io/en/latest/use/>
 If a service is down, check its status page:
 
 -  `Amazon Web Services <https://health.aws.amazon.com/phd/status>`__
+-  `Claude Platform <https://platform.claude.com>`__
 -  `Cloudflare <https://www.cloudflarestatus.com>`__
 -  `Crowdin <https://status.crowdin.com>`__
 -  `GitHub <https://www.githubstatus.com>`__
@@ -39,6 +40,11 @@ Amazon Web Services
 -------------------
 
 There should be a minimum of two `IAM users <https://console.aws.amazon.com/iam/home?region=us-east-1#/home>`__ in the administrators group from OCP only. `The root user should not be used <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html>`__.
+
+Claude Platform
+---------------
+
+There should be a minimum of two `admins <https://platform.claude.com/settings/members>`__ from OCP.
 
 .. _cloudflare:
 
