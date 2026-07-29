@@ -158,16 +158,16 @@ Use `knip <https://knip.dev>`__ to find unused files, dependencies and exports. 
 .. code-block:: yaml
    :caption: .github/dependabot.yml
 
-   - package-ecosystem: "npm"
-     directories:
-       - "/"
-       - "**/*"
-     schedule:
-       interval: "yearly"
-     allow:
-       - dependency-name: "knip"
-     cooldown:
-       default-days: 7
+     - package-ecosystem: "npm"
+       directories:
+         - "/"
+         - "**/*"
+       schedule:
+         interval: "yearly"
+       allow:
+         - dependency-name: "knip"
+       cooldown:
+         default-days: 7
 
 :ref:`javascript-ci` runs knip if you reuse the ``js`` workflow.
 
