@@ -137,7 +137,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Project-specific Django configuration
 
-LOCALE_PATHS = list(BASE_DIR.glob("*/locale"))
+LOCALE_PATHS = [BASE_DIR / "locale"]
 
 STATIC_ROOT = BASE_DIR / "static"
 {%- if cookiecutter.use_fathom == "y" %}
