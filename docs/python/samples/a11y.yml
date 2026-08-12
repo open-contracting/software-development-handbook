@@ -57,7 +57,11 @@ jobs:
           PA11Y_SUPPRESS_KNOWN_WARNINGS: 1
           PA11Y_STRATEGY: hideElements
         run: pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml -f https://SUBDOMAIN.open-contracting.org -r http://127.0.0.1:8000
-    services:
+      - env:
+          PA11Y_INCLUDE_WARNINGS: 1
+          PA11Y_SUPPRESS_KNOWN_WARNINGS: 1
+          PA11Y_STRATEGY: ignore
+        run: pnpm exec pa11y-ci -c pa11y.mobile.js -s http://127.0.0.1:8000/sitemap.xml -f https://SUBDOMAIN.open-contracting.org -r http://127.0.0.1:8000    services:
       postgres:
         image: postgres:16
         env:
