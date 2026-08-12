@@ -207,7 +207,7 @@ Run four checks, in this order:
 
 The errors commands run without ``PA11Y_SUPPRESS_KNOWN_WARNINGS``, because a rule like ``color-contrast`` can report both errors (no review needed) and warnings (review needed), so suppressing its warnings would suppress its errors, too.
 
-The errors commands use only the ``ignore`` strategy, because the warnings commands also report errors. The warnings command for the mobile viewport uses only the ``ignore`` strategy, because the ``hideElements`` strategy guards against an ignored rule shadowing a real issue, a risk that is rarely specific to a viewport.
+The errors commands use only the ``ignore`` strategy, because the warnings commands also report errors. The warnings command for the mobile viewport also uses ``ignore``, because ``hideElements`` guards against an ignored rule shadowing a real issue, a risk that is rarely specific to a viewport.
 
 .. literalinclude:: samples/a11y.yml
    :language: yaml
