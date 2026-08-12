@@ -109,7 +109,9 @@ For example:
 URLs
 ^^^^
 
-If the site has a :ref:`sitemap<django-sitemap>`, use Pa11y CI's ``--sitemap`` option. Otherwise, set the ``urls`` key. Cover each template, each language, and the pages whose content exercises the most markup. For example:
+If the site has a :ref:`sitemap<django-sitemap>`, use Pa11y CI's ``--sitemap`` option, and set the ``urls`` key to cover templates that a sitemap excludes, like noindexed pages, search results and 404 pages.
+
+Otherwise, set the ``urls`` key. Cover each template, each language, and the pages whose content exercises the most markup. For example:
 
 .. code-block:: javascript
 
