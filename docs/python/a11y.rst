@@ -1,49 +1,208 @@
 Accessibility (a11y)
 ====================
 
-Public sites should check for accessibility issues, using `Pa11y <https://pa11y.org>`__.
+Check public sites for accessibility issues, using `Pa11y <https://pa11y.org>`__.
 
-Automated tests
----------------
+Pa11y checks against WCAG 2.1 level AA by default.
 
-Create a ``pa11y.default.json`` file for the default `configuration <https://github.com/pa11y/pa11y#configuration>`__, for example:
+Dependencies
+------------
 
-.. code-block:: json
-
-   {
-     "defaults": {}
-   }
-
-Create a ``pa11y.mobile.json`` file for the mobile configuration, for example:
-
-.. code-block:: json
-
-   {
-     "viewport": {
-       "width": 320,
-       "height": 480,
-       "deviceScaleFactor": 2,
-       "isMobile": true
-     }
-   }
-
-Test individual URLs with `pa11y <https://github.com/pa11y/pa11y>`__, for example:
+Install `pa11y-ci <https://github.com/pa11y/pa11y-ci>`__ and `puppeteer <https://pptr.dev>`__. If using ``package.json``:
 
 .. code-block:: bash
 
-   pa11y -c pa11y.default.json http://127.0.0.1:8000
+   pnpm add --save-dev pa11y-ci puppeteer
 
-If the site has a :ref:`sitemap<django-sitemap>`, use `pa11y-ci <https://github.com/pa11y/pa11y-ci>`__, for example:
+Configuration
+-------------
+
+Create a ``pa11y.default.js`` file for the default `configuration <https://github.com/pa11y/pa11y#configuration>`__, and a ``pa11y.mobile.js`` file for a mobile viewport. (Use the ``.cjs`` extension if ``package.json`` sets ``"type": "module"``.)
+
+Default
+~~~~~~~
+
+The file reads environment variables to control behavior, and sets these options:
+
+``runners``
+  Use both `HTML CodeSniffer <https://squizlabs.github.io/HTML_CodeSniffer/>`__ (``htmlcs``) and `axe-core <https://github.com/dequelabs/axe-core>`__ (``axe``).
+``levelCapWhenNeedsReview``
+  By default, the ``axe`` runner reports issues that need manual review as errors. Cap these at ``warning``, to reserve ``error`` for unambiguous issues.
+``includeWarnings``
+  By default, Pa11y excludes warnings. The ``PA11Y_INCLUDE_WARNINGS`` environment variable controls this option.
+``hideElements`` and ``ignore``
+  See :ref:`pa11y-suppressions`.
+
+.. _pa11y-suppressions:
+
+Suppressions
+^^^^^^^^^^^^
+
+Pa11y CI fails if *any* issue is reported. Every issue must therefore be either fixed or suppressed.
+
+Both runners report false positives. For example, they report insufficient contrast if an element's text is placed on a background image.
+
+To not report false positives, Pa11y can hide elements (``hideElements``) or ignore rules (``ignore``), but it can't ignore a specific rule for a specific element. Either option can shadow a real issue:
+
+-  ``hideElements`` hides the elements *and their descendants*, along with any other issues they have.
+-  ``ignore`` ignores the rules on *all* elements, including any other elements added later.
+
+To not miss real issues, we run Pa11y CI with each option. The ``hideElements`` and ``ignore`` options are set according to the ``PA11Y_STRATEGY`` environment variable. Set the ``PA11Y_SUPPRESS_KNOWN_WARNINGS`` environment variable to not report false positives in CI; omit it in development to review all warnings.
+
+Each suppression in ``knownErrors`` and ``knownWarnings`` is a list of rules and the maximally narrow selectors to which they apply.
+
+Sometimes, an element reports both a false positive and a real issue. Hiding the element would hide both. In that case, set no selectors, and comment why.
+
+For example:
+
+.. code-block:: javascript
+   :caption: pa11y.default.js
+
+   const strategy = process.env.PA11Y_STRATEGY;
+   const includeWarnings = "PA11Y_INCLUDE_WARNINGS" in process.env;
+   const suppressKnownWarnings = "PA11Y_SUPPRESS_KNOWN_WARNINGS" in process.env;
+
+   const knownErrors = {
+     // "This form does not contain a submit button." (the submit button is inside a noscript element)
+     // https://www.w3.org/WAI/WCAG21/Techniques/html/H32
+     rules: ["WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2"],
+     selectors: ["header form[method='post']"],
+   };
+
+   const knownWarnings = [
+     {
+       // "This element's text is placed on a background image." (the real ratio is ~15:1, #212529 on #fff)
+       // https://www.w3.org/WAI/WCAG21/Techniques/general/G18
+       rules: ["WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage", "color-contrast"],
+       selectors: ["select.form-select"],
+     },
+     {
+       // "This element's text or background contains transparency." (the real ratio is ~5.2:1, #1d70b8 on #fff)
+       // https://www.w3.org/WAI/WCAG21/Techniques/general/G18
+       // These links can also report a "color-contrast" error from the axe runner.
+       rules: ["WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Alpha", "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Alpha"],
+       selectors: [],
+     },
+   ];
+
+   const suppressions = [knownErrors, ...(includeWarnings && suppressKnownWarnings ? knownWarnings : [])];
+
+   const withoutSelectors = suppressions.filter((suppression) => !suppression.selectors.length);
+   const withSelectors = suppressions.filter((suppression) => suppression.selectors.length);
+
+   const hideElements = strategy === "hideElements" ? withSelectors.flatMap((suppression) => suppression.selectors) : [];
+   const ignore = [
+     ...withoutSelectors.flatMap((suppression) => suppression.rules),
+     ...(strategy === "ignore" ? withSelectors.flatMap((suppression) => suppression.rules) : []),
+   ];
+
+   module.exports = {
+     defaults: {
+       runners: ["htmlcs", "axe"],
+       levelCapWhenNeedsReview: "warning",
+       includeWarnings: includeWarnings,
+       ...(hideElements.length ? { hideElements: hideElements.join(", ") } : {}),
+       ...(ignore.length ? { ignore: ignore } : {}),
+     },
+   };
+
+URLs
+^^^^
+
+If the site has a :ref:`sitemap<django-sitemap>`, use Pa11y CI's ``--sitemap`` option. Otherwise, set the ``urls`` key. Cover each template, each language, and the pages whose content exercises the most markup. For example:
+
+.. code-block:: javascript
+
+   module.exports = {
+     defaults: {
+       // ...
+     },
+     urls: [
+       // ...
+       // The Medicine extension has examples, tables, schema and codelists.
+       "http://127.0.0.1:8000/en/extensions/medicine/master/",
+       "http://127.0.0.1:8000/es/extensions/medicine/master/",
+     ],
+   };
+
+Mobile
+~~~~~~
+
+The mobile configuration reuses the default configuration:
+
+.. code-block:: javascript
+   :caption: pa11y.mobile.js
+
+   const base = require("./pa11y.default.js");
+
+   module.exports = {
+     defaults: {
+       ...base.defaults,
+       viewport: {
+         width: 320,
+         height: 480,
+         deviceScaleFactor: 2,
+         isMobile: true,
+       },
+     },
+   };
+
+Local checks
+------------
+
+Serve the site, then check its URLs. Repeat each command with ``pa11y.mobile.js``.
+
+#. Check for errors:
+
+   .. code-block:: bash
+
+      env PA11Y_STRATEGY=ignore \
+        pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml
+      env PA11Y_STRATEGY=hideElements \
+        pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml
+
+#. Review all warnings, with no suppression:
+
+   .. code-block:: bash
+
+      env PA11Y_INCLUDE_WARNINGS=1 PA11Y_STRATEGY=ignore \
+        pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml
+      env PA11Y_INCLUDE_WARNINGS=1 PA11Y_STRATEGY=hideElements \
+        pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml
+
+#. Fix the real issues. Add false positives to ``knownErrors`` and/or ``knownWarnings``, and then repeat with ``PA11Y_SUPPRESS_KNOWN_WARNINGS=1``, to check that nothing else is reported.
+
+   .. tip::
+
+      If an issue is hard to locate, validate the markup.
+
+      Pa11y checks the DOM, not your source. For example, if there's an unbalanced ``<a>`` tag in a translated string, the browser's parser can create an ``<a>`` tag with a ``href`` attribute but no inner text, which is an accessibility issue.
+
+To check individual URLs, pass them as arguments, without the ``--sitemap`` option:
 
 .. code-block:: bash
 
-   pa11y-ci -c pa11y.default.json -s http://127.0.0.1:8000/sitemap.xml
+   env PA11Y_STRATEGY=ignore pnpm exec pa11y-ci -c pa11y.default.js http://127.0.0.1:8000/en/
 
 .. _a11y-ci:
 
 Continuous integration
 ----------------------
 
-.. note::
+Create a ``.github/workflows/a11y.yml`` file, and adapt the template below.
 
-   This section is a stub. For now, see the Data Registry's `a11y.yml <https://github.com/open-contracting/data-registry/blob/main/.github/workflows/a11y.yml>`__ workflow file.
+-  Load fixtures, so that pages have content: a page with no content reports no issues.
+-  Build and serve the site using its production configuration (``NODE_ENV``, ``DJANGO_ENV``, ``collectstatic``), because static file handling and minification differ from development.
+-  Rewrite the URLs in the sitemap to the local server, using the ``--sitemap-find`` (``-f``) and ``--sitemap-replace`` (``-r``) options, because the sitemap contains URLs with the site's canonical domain.
+
+Run four checks, in this order:
+
+#. Errors, with ``pa11y.default.js``, using the ``ignore`` strategy.
+#. Errors, with ``pa11y.mobile.js``, using the ``ignore`` strategy.
+#. Warnings, with ``pa11y.default.js``, using the ``ignore`` strategy.
+#. Warnings, with ``pa11y.default.js``, using the ``hideElements`` strategy.
+
+The errors commands use only the ``ignore`` strategy (but without ``PA11Y_SUPPRESS_KNOWN_WARNINGS``), because the warnings commands also report errors.
+
+.. literalinclude:: samples/a11y.yml
+   :language: yaml

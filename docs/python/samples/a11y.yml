@@ -1,0 +1,71 @@
+name: Accessibility
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  build:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disable AppArmor  # https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
+        run: echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - uses: actions/setup-python@v7
+        with:
+          python-version-file: .python-version
+          cache: pip
+          cache-dependency-path: '**/requirements*.txt'
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm exec puppeteer browsers install chrome
+      - run: pip install -r requirements.txt
+      - name: Build
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/postgres
+          NODE_ENV: production
+        shell: bash
+        run: |
+          node build.mjs
+          env DJANGO_ENV=production python manage.py collectstatic --noinput -v2
+          python manage.py migrate
+          python manage.py loaddata tests/fixtures/a11y.json
+      - name: Serve
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/postgres
+          DJANGO_ENV: production
+          SERVE_STATIC: 'True'
+        run: |
+          python manage.py runserver &
+          sleep 5
+      - env:
+          PA11Y_STRATEGY: ignore
+        run: pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml -f https://SUBDOMAIN.open-contracting.org -r http://127.0.0.1:8000
+      - env:
+          PA11Y_STRATEGY: ignore
+        run: pnpm exec pa11y-ci -c pa11y.mobile.js -s http://127.0.0.1:8000/sitemap.xml -f https://SUBDOMAIN.open-contracting.org -r http://127.0.0.1:8000
+      - env:
+          PA11Y_INCLUDE_WARNINGS: 1
+          PA11Y_SUPPRESS_KNOWN_WARNINGS: 1
+          PA11Y_STRATEGY: ignore
+        run: pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml -f https://SUBDOMAIN.open-contracting.org -r http://127.0.0.1:8000
+      - env:
+          PA11Y_INCLUDE_WARNINGS: 1
+          PA11Y_SUPPRESS_KNOWN_WARNINGS: 1
+          PA11Y_STRATEGY: hideElements
+        run: pnpm exec pa11y-ci -c pa11y.default.js -s http://127.0.0.1:8000/sitemap.xml -f https://SUBDOMAIN.open-contracting.org -r http://127.0.0.1:8000
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432/tcp
