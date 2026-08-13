@@ -62,12 +62,14 @@ For example:
    const includeWarnings = "PA11Y_INCLUDE_WARNINGS" in process.env;
    const suppressKnownWarnings = "PA11Y_SUPPRESS_KNOWN_WARNINGS" in process.env;
 
-   const knownErrors = {
-     // "This form does not contain a submit button." (the submit button is inside a noscript element)
-     // https://www.w3.org/WAI/WCAG21/Techniques/html/H32
-     rules: ["WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2"],
-     selectors: ["header form[method='post']"],
-   };
+   const knownErrors = [
+     {
+       // "This form does not contain a submit button." (the submit button is inside a noscript element)
+       // https://www.w3.org/WAI/WCAG21/Techniques/html/H32
+       rules: ["WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2"],
+       selectors: ["header form[method='post']"],
+     },
+   ];
 
    const knownWarnings = [
      {
@@ -85,25 +87,34 @@ For example:
      },
    ];
 
-   const suppressions = [knownErrors, ...(includeWarnings && suppressKnownWarnings ? knownWarnings : [])];
+   function createDefaults(extraKnownWarnings = []) {
+     const suppressions = [
+       ...knownErrors,
+       ...(includeWarnings && suppressKnownWarnings ? [...knownWarnings, ...extraKnownWarnings] : []),
+     ];
 
-   const withoutSelectors = suppressions.filter((suppression) => !suppression.selectors.length);
-   const withSelectors = suppressions.filter((suppression) => suppression.selectors.length);
+     const withoutSelectors = suppressions.filter((suppression) => !suppression.selectors.length);
+     const withSelectors = suppressions.filter((suppression) => suppression.selectors.length);
 
-   const hideElements = strategy === "hideElements" ? withSelectors.flatMap((suppression) => suppression.selectors) : [];
-   const ignore = [
-     ...withoutSelectors.flatMap((suppression) => suppression.rules),
-     ...(strategy === "ignore" ? withSelectors.flatMap((suppression) => suppression.rules) : []),
-   ];
+     const hideElements =
+       strategy === "hideElements" ? withSelectors.flatMap((suppression) => suppression.selectors) : [];
+     const ignore = [
+       ...withoutSelectors.flatMap((suppression) => suppression.rules),
+       ...(strategy === "ignore" ? withSelectors.flatMap((suppression) => suppression.rules) : []),
+     ];
 
-   module.exports = {
-     defaults: {
+     return {
        runners: ["htmlcs", "axe"],
        levelCapWhenNeedsReview: "warning",
        includeWarnings: includeWarnings,
        ...(hideElements.length ? { hideElements: hideElements.join(", ") } : {}),
        ...(ignore.length ? { ignore: ignore } : {}),
-     },
+     };
+   }
+
+   module.exports = {
+     createDefaults,
+     defaults: createDefaults(),
    };
 
 URLs
@@ -116,11 +127,8 @@ Otherwise, set the ``urls`` key. Cover each template, each language, and the pag
 .. code-block:: javascript
 
    module.exports = {
-     defaults: {
-       // ...
-     },
+     // ...
      urls: [
-       // ...
        // The Medicine extension has examples, tables, schema and codelists.
        "http://127.0.0.1:8000/en/extensions/medicine/master/",
        "http://127.0.0.1:8000/es/extensions/medicine/master/",
@@ -137,9 +145,12 @@ The mobile configuration reuses the default configuration:
 
    const base = require("./pa11y.default.js");
 
+   const knownWarnings = [];
+
    module.exports = {
+     ...base,
      defaults: {
-       ...base.defaults,
+       ...base.createDefaults(knownWarnings),
        viewport: {
          width: 320,
          height: 480,
