@@ -125,7 +125,7 @@ Set the image tag to the version used in production.
 
        services:
          postgres:
-           image: postgres:15
+           image: postgres:16
            env:
              POSTGRES_PASSWORD: postgres
            options: >-

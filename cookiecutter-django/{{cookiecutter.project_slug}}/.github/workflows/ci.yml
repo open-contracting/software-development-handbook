@@ -34,7 +34,7 @@ jobs:
           fail_ci_if_error: true
     services:
       postgres:
-        image: postgres:15
+        image: postgres:16
         env:
           POSTGRES_PASSWORD: postgres
         options: >-
