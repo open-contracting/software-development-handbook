@@ -1,5 +1,5 @@
 dj-database-url
-django<6
+django<5.3
 gunicorn[setproctitle]
 psycopg
 sentry-sdk
