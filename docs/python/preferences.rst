@@ -36,7 +36,7 @@ Object Relational Mapper (ORM)
      Use ``psycopg[c]`` in production and ``psycopg[binary]`` in development, `as recommended and preferred <https://www.psycopg.org/psycopg3/docs/basic/install.html#local-installation>`__. :ref:`See instructions<requirements-psycopg>`.
 
 HTTP client
-  `Requests <https://docs.python-requests.org/en/latest/>`__ for synchronous code and `niquests <https://niquests.readthedocs.io/en/latest/>`__ for asynchronous code, unless a framework uses another, like Scrapy (Twisted).
+  `Requests <https://docs.python-requests.org/en/latest/>`__ for synchronous code and `niquests <https://niquests.readthedocs.io/en/latest/>`__ for asynchronous code (not `httpx <https://github.com/open-contracting/software-development-handbook/issues/159>`__), unless a framework uses another, like Scrapy (Twisted).
 HTML parsing
   `lxml <https://pypi.org/project/lxml/>`__. Do not use `BeautifulSoup <https://pypi.org/project/BeautifulSoup/>`__.
 Templating
