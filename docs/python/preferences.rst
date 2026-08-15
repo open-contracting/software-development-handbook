@@ -33,8 +33,10 @@ Object Relational Mapper (ORM)
 
   .. note::
 
-     Use ``psycopg[c]`` in production and ``psycopg[binary]`` in development, `as recommended and preferred <https://www.psycopg.org/psycopg3/docs/basic/install.html#local-installation>`__. :ref:`See instructions<requirements-psycopg>`.
+     Use ``psycopg[c]`` in production and ``psycopg[binary]`` in development, `as recommended <https://www.psycopg.org/psycopg3/docs/basic/install.html#local-installation>`__. :ref:`See instructions<requirements-psycopg>`.
 
+Database migrations
+  The ORM's own, like `Django's <https://docs.djangoproject.com/en/stable/topics/migrations/>`__, or `Alembic <https://alembic.sqlalchemy.org/en/latest/>`__ with SQLAlchemy. Otherwise, use `pg-diff <https://michaelsogos.github.io/pg-diff/>`__ to write the migration as a numbered SQL file, `as in Pelican backend <https://pelican-backend.readthedocs.io/en/latest/tasks/database.html#change-the-schema>`__.
 HTTP client
   `Requests <https://docs.python-requests.org/en/latest/>`__ for synchronous code and `niquests <https://niquests.readthedocs.io/en/latest/>`__ for asynchronous code (not `httpx <https://github.com/open-contracting/software-development-handbook/issues/159>`__), unless a framework uses another, like Scrapy (Twisted).
 HTML parsing
