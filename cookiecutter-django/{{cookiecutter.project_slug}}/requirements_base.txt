@@ -20,7 +20,7 @@ sentry-sdk==2.16.0
     # via -r requirements_base.in
 setproctitle==1.3.3
     # via gunicorn
-sqlparse==0.5.4
+sqlparse==0.6.0
     # via django
 typing-extensions==4.12.2
     # via
