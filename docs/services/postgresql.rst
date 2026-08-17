@@ -196,6 +196,7 @@ Format SQL files with `SQLFluff <https://sqlfluff.com>`__.
 
    [tool.sqlfluff.core]
    dialect = "postgres"
+   max_line_length = 119
    exclude_rules = ["ST07"]
 
    [tool.sqlfluff.rules.capitalisation.keywords]
