@@ -116,7 +116,7 @@ When an exception is raised:
 
 -  If the error isn't expected to occur and it's unknown whether it can safely be ignored, the consumer can do nothing (e.g. allow the exception to be raised), in which case administrative action is required (e.g. purging the queue or changing the code).
 
-Acking and nacking without requeueing both remove the message from the queue. However, if a `dead-letter exchange <https://www.rabbitmq.com/docs/dlx>`__ is configured, only the nack'd message is preserved, with an ``x-death`` header recording its original queue and routing key, allowing it to be reprocessed once the cause of the error is fixed.
+Acking and nacking without requeueing both remove the message from the queue. However, if a `dead-letter exchange <https://www.rabbitmq.com/docs/dlx>`__ is configured, only the nack'd message is preserved, with an ``x-death`` header recording its original queue and routing key, allowing it to be reprocessed once the cause of the error is fixed (which can be in the consumer, if it hadn't been updated for a new message format).
 
 .. seealso::
 
