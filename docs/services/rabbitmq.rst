@@ -80,6 +80,8 @@ To be idempotent, make state changes as late as possible: for example, write to 
 
 The simplest form of deduplication is to delete previously written rows before writing new rows to the database.
 
+Messages about the same row can also be processed *concurrently*, in case of multiple workers or a prefetch count above 1. To be idempotent, use `optimistic locking <https://en.wikipedia.org/wiki/Optimistic_concurrency_control>`__: ``UPDATE`` the row conditional on its current value, and do the work only if the ``UPDATE`` matched a row. Otherwise, ack the message.
+
 Database commits
 ~~~~~~~~~~~~~~~~
 
@@ -114,7 +116,7 @@ When an exception is raised:
 
 -  If the error isn't expected to occur and it's unknown whether it can safely be ignored, the consumer can do nothing (e.g. allow the exception to be raised), in which case administrative action is required (e.g. purging the queue or changing the code).
 
-Acking a message and nacking without requeueing both remove the message from the queue. However, if a `dead-letter exchange <https://www.rabbitmq.com/docs/dlx>`__ is configured, only the nack'd message is preserved, with an ``x-death`` header recording its original queue and routing key, allowing it to be reprocessed once the cause of the error is fixed.
+Acking and nacking without requeueing both remove the message from the queue. However, if a `dead-letter exchange <https://www.rabbitmq.com/docs/dlx>`__ is configured, only the nack'd message is preserved, with an ``x-death`` header recording its original queue and routing key, allowing it to be reprocessed once the cause of the error is fixed.
 
 .. seealso::
 
