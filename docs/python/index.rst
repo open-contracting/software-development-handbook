@@ -36,4 +36,4 @@ Applications are upgraded to, at minimum, the Python version in the `latest Ubun
    performance
    packages
 
-Reference: `18F Python Development Guide <https://engineering.18f.gov/python/>`__
+Reference: `18F Python Development Guide <https://guides.18f.org/engineering/languages-runtimes/python/>`__

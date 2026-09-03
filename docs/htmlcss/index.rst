@@ -98,7 +98,7 @@ Code style
 
 Check and style CSS using :ref:`Biome <biome>`, with 2-space indentation.
 
-In terms of naming conventions, consider `Block Element Modifier (BEM) <https://getbem.com>`__.
+In terms of naming conventions, consider `Block Element Modifier (BEM) <https://bem.info/en/methodology/naming-convention/>`__.
 
 Development
 ~~~~~~~~~~~

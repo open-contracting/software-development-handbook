@@ -78,11 +78,11 @@ All the :ref:`templates<python-ci-templates>` below use Codecov, :ref:`as prefer
 Service containers
 ~~~~~~~~~~~~~~~~~~
 
-If the workflow requires `service containers <https://docs.github.com/en/actions/using-containerized-services/about-service-containers>`__, add the ``services:`` key after the ``steps:`` key, so that files are easier to compare visually.
+If the workflow requires `service containers <https://docs.github.com/en/actions/tutorials/use-containerized-services/use-docker-service-containers>`__, add the ``services:`` key after the ``steps:`` key, so that files are easier to compare visually.
 
 .. note::
 
-   Service containers are `only available on Ubuntu runners <https://docs.github.com/en/actions/using-containerized-services/about-service-containers#about-service-containers>`__.
+   Service containers are `only available on Ubuntu runners <https://docs.github.com/en/actions/tutorials/use-containerized-services/use-docker-service-containers#communicating-with-docker-service-containers>`__.
 
 Mock APIs
 ^^^^^^^^^
@@ -146,7 +146,7 @@ This connection string can be used in ``psql`` commands or in environment variab
 
    If you are running out of connections, use the ``cyberboss/postgres-max-connections`` image, which is a `fork <https://github.com/tgstation/tgstation-server/blob/a64be6d9819b8923231ffbe54e37f5d92ebd0f17/.github/workflows/ci-suite.yml#L271>`__ of ``postgres:latest`` with ``max_connections=500``.
 
-Reference: `Creating PostgreSQL service containers <https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers>`__
+Reference: `Creating PostgreSQL service containers <https://docs.github.com/en/actions/tutorials/use-containerized-services/create-postgresql-service-containers>`__
 
 RabbitMQ
 ^^^^^^^^
