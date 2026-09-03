@@ -98,5 +98,5 @@ Miscellaneous
 Reference
 ---------
 
--  `18F Language Selection Guide <https://engineering.18f.gov/language-selection/>`__
--  `18F Datastore Selection Guide <https://engineering.18f.gov/datastore-selection/>`__
+-  `18F Languages & Runtimes Guide <https://guides.18f.org/engineering/languages-runtimes/>`__
+-  `18F Datastore Selection Guide <https://guides.18f.org/engineering/tools/datastore-selection/>`__

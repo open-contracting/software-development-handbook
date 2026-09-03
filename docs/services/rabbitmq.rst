@@ -135,7 +135,7 @@ A topic exchange could support collection-specific queues, but `priority queues 
 Publisher confirms
 ~~~~~~~~~~~~~~~~~~
 
-It's possible to ensure message delivery (`see Python example <https://github.com/pika/pika/blob/main/docs/examples/blocking_publish_mandatory.rst>`__) by using `publisher confirms <https://www.rabbitmq.com/confirms.html#publisher-confirms>`__ and setting the `mandatory flag <https://www.rabbitmq.com/amqp-0-9-1-reference.html#basic.publish>`__.
+It's possible to ensure message delivery (`see Python example <https://github.com/pika/pika/blob/main/docs/examples/blocking_publish_mandatory.md>`__) by using `publisher confirms <https://www.rabbitmq.com/confirms.html#publisher-confirms>`__ and setting the `mandatory flag <https://www.rabbitmq.com/amqp-0-9-1-reference#basic.publish>`__.
 
 However, for simplicity, in Python, we're using `Pika <https://pika.readthedocs.io/en/stable/>`__'s `BlockingConnection <https://pika.readthedocs.io/en/stable/modules/adapters/blocking.html>`__, which would use a "publish-and-wait" strategy for publisher confirms, which is `officially discouraged <https://www.rabbitmq.com/publishers.html#publisher-confirm-strategies>`__, because it would wait for each message to be `persisted to disk <https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed>`__.
 

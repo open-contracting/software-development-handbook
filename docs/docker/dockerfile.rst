@@ -182,6 +182,5 @@ Node
 
 See:
 
--  `Dockerising a Node.js web app <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>`__
 -  `Best Practices Guide <https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md>`__
 -  `Node.js Language-specific guide <https://docs.docker.com/language/nodejs/>`__

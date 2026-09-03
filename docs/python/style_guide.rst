@@ -60,7 +60,7 @@ across these files (ignoring boilerplate and test files):
 Whitespace
 ----------
 
-Use empty lines to group code into logical units (paragraphs). For example, tests follow an `Arrange, Act, Assert <https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#arranging-your-tests>`__ pattern. An empty line should separate each step.
+Use empty lines to group code into logical units (paragraphs). For example, tests follow an `Arrange, Act, Assert <https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices#arrange-your-tests>`__ pattern. An empty line should separate each step.
 
 .. _python-type-hints:
 
@@ -100,7 +100,7 @@ Warnings
 
    .. admonition:: Why?
 
-      The `warnings.catch_warnings(record=True) <https://docs.python.org/3/library/warnings.html#warnings.catch_warnings>`__ context manager catches instances of ``warnings.WarningMessage``, not instances of the original warning classes. To reissue a warning, you need to do, like in `Apache Airflow <https://github.com/apache/airflow/blob/main/airflow/utils/warnings.py>`__:
+      The `warnings.catch_warnings(record=True) <https://docs.python.org/3/library/warnings.html#warnings.catch_warnings>`__ context manager catches instances of ``warnings.WarningMessage``, not instances of the original warning classes. To reissue a warning, you need to do:
 
       .. code-block:: python
 

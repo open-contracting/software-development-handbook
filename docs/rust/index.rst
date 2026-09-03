@@ -20,7 +20,7 @@ Preferences
 -  Read the ``Cargo.toml`` files of OCP projects for inspiration
 -  Use unstable language features or compiler flags instead of related crates. For example:
 
-   -  `let_chains <https://doc.rust-lang.org/unstable-book/language-features/let-chains.html>`__ instead of `if_chain <https://docs.rs/if_chain/latest/if_chain/>`__
+   -  `let_chains <https://doc.rust-lang.org/reference/expressions/if-expr.html#chains-of-conditions>`__ instead of `if_chain <https://docs.rs/if_chain/latest/if_chain/>`__
    -  `once_cell <https://doc.rust-lang.org/std/cell/struct.OnceCell.html>`__ instead of `once_cell <https://docs.rs/once_cell/latest/once_cell/>`__ (crate) or `lazy_static <https://docs.rs/lazy_static/latest/lazy_static/>`__
    -  `on-broken-pipe <https://doc.rust-lang.org/nightly/unstable-book/compiler-flags/on-broken-pipe.html>`__ instead of `calm_io <https://github.com/myrrlyn/calm_io>`__
 
@@ -160,8 +160,8 @@ If you're getting confusing compile errors, especially any involving type annota
 
 If errors relate to ownership, try using:
 
--  ``Arc<Mutex<T>>``, as discussed in sections `16.3 <https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct>`__ and `20.2 <https://doc.rust-lang.org/book/ch20-02-multithreaded.html#sending-requests-to-threads-via-channels>`__ of *The Rust Programming Language*.
--  ``Option`` with ``take()``, as discussed in sections `17.3 <https://doc.rust-lang.org/book/ch17-03-oo-design-patterns.html#requesting-a-review-of-the-post-changes-its-state>`__ and `20.3 <https://doc.rust-lang.org/book/ch20-03-graceful-shutdown-and-cleanup.html#implementing-the-drop-trait-on-threadpool>`__ of *The Rust Programming Language*.
+-  ``Arc<Mutex<T>>``, as discussed in sections `16.3 <https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct>`__ and `21.2 <https://doc.rust-lang.org/book/ch21-02-multithreaded.html#sending-requests-to-threads-via-channels>`__ of *The Rust Programming Language*.
+-  ``Option`` with ``take()``, as discussed in sections `18.3 <https://doc.rust-lang.org/book/ch18-03-oo-design-patterns.html#requesting-a-review-of-the-post-changes-its-state>`__ and `21.3 <https://doc.rust-lang.org/book/ch21-03-graceful-shutdown-and-cleanup.html#implementing-the-drop-trait-on-threadpool>`__ of *The Rust Programming Language*.
 
 To reduce the number of allocations, try using:
 
@@ -179,7 +179,7 @@ Learning
 Rust has no:
 
 -  `Exception <https://rust-cli.github.io/book/tutorial/errors.html#nicer-error-reporting>`__
--  `Reflection <https://doc.rust-lang.org/book/ch19-06-macros.html#procedural-macros-for-generating-code-from-attributes>`__
+-  `Reflection <https://doc.rust-lang.org/book/ch20-05-macros.html#procedural-macros-for-generating-code-from-attributes>`__
 
 Introductions
 ^^^^^^^^^^^^^

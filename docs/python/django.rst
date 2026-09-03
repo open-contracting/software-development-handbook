@@ -195,14 +195,14 @@ Environment variables
 Using the settings template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`SECRET_KEY <https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-SECRET_KEY>`__
+`SECRET_KEY <https://docs.djangoproject.com/en/stable/ref/settings/#std-setting-SECRET_KEY>`__
   Replace ``!!!SECRET_KEY!!!`` with:
 
   .. code-block:: bash
 
      python manage.py shell -c 'from django.core.management import utils; print(utils.get_random_secret_key())'
 
-`INSTALLED_APPS <https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-INSTALLED_APPS>`__
+`INSTALLED_APPS <https://docs.djangoproject.com/en/stable/ref/settings/#std-setting-INSTALLED_APPS>`__
   Do not enable more applications than necessary. Among the `default applications <https://github.com/django/django/blob/main/django/conf/project_template/project_name/settings.py-tpl>`__:
 
   `django.contrib.admin <https://docs.djangoproject.com/en/stable/ref/contrib/admin/>`__ (`tutorial <https://docs.djangoproject.com/en/stable/intro/tutorial02/>`__)
@@ -221,10 +221,10 @@ Using the settings template
     Remove, if the application is private. (Added by the Cookiecutter template.)
 
   Then, make any corresponding changes to ``urls.py``, and ``MIDDLEWARE``, ``TEMPLATES``, ``STATIC_URL`` and ``AUTH_PASSWORD_VALIDATORS`` in ``settings.py``.
-`DATABASES <https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DATABASES>`__
+`DATABASES <https://docs.djangoproject.com/en/stable/ref/settings/#std-setting-DATABASES>`__
   -  Replace ``{{ cookiecutter.database_name }}`` and ``{{ cookiecutter.application_name }}``.
   -  Remember to add `dj-database-url <https://github.com/kennethreitz/dj-database-url#readme>`__ to your :doc:`requirements file<requirements>`.
-`LOGGING <https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-LOGGING>`__
+`LOGGING <https://docs.djangoproject.com/en/stable/ref/settings/#std-setting-LOGGING>`__
   See :doc:`logging`.
 
 Add additional settings for:

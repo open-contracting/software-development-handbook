@@ -23,4 +23,4 @@ Technical writing
 -----------------
 
 -  Google `Technical Writing Courses <https://developers.google.com/tech-writing>`__
--  GitLab `Technical Writing Fundamentals <https://handbook.gitlab.com/handbook/product/ux/technical-writing/fundamentals/>`__
+-  GitLab `Technical Writing Fundamentals <https://university.gitlab.com/courses/gitlab-technical-writing-fundamentals>`__

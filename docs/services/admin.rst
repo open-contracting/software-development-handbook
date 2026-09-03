@@ -53,7 +53,7 @@ Cloudflare
 
 .. seealso::
 
-   `DNS <https://ocdsdeploy.readthedocs.io/en/latest/deploy/services/dns.html>`__ in the Deploy documentation
+   `Cloudflare <https://ocdsdeploy.readthedocs.io/en/latest/deploy/services/cloudflare.html>`__ in the Deploy documentation
 
 There should be a minimum of two `users <https://dash.cloudflare.com/db6be30e1a0704432e9e1e32ac612fe9/members>`__ from OCP with "Super Administrator - All Privileges" access to "All domains".
 
@@ -78,7 +78,6 @@ There should be a minimum of two `owners <https://docs.github.com/en/organizatio
 
 The ``ocp-deploy`` user generates `personal access tokens <https://github.com/settings/tokens>`__ to:
 
--  read and write to `ocp-data <https://github.com/open-contracting-partnership/ocp-data>`__ from the `OCP Form Server <https://survey.open-contracting.org>`__ on :ref:`heroku` (fine-grained)
 -  auto-commit from :doc:`lint workflows<../github/maintainers>` to `selected repositories <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ (classic)
 
 .. tip::
@@ -172,7 +171,7 @@ PyPI
 
 `Transfer <https://pypi.org/manage/organization/opencontracting/projects/>`__ all projects to the `opencontracting <https://pypi.org/org/opencontracting/>`__ organization.
 
-The organization should have a minimum of two `Owner <https://docs.pypi.org/organization-accounts/roles-entities/>`__ users from OCP, in addition to the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
+The organization should have a minimum of two `Owner <https://docs.pypi.org/organization-accounts/roles-entities/>`__ users from OCP, in addition to the `opencontracting <https://pypi.org/user/opencontracting/>`__ user, whose API token is used in :ref:`pypi.yml workflows<pypi-ci>`.
 
 Only users who are reasonably expected to upload releases should have an organization role.
 
@@ -204,7 +203,7 @@ Third-party sysadmins can be added with "Member" access.
 Test PyPI
 ---------
 
-For each package, the `opencontracting <https://test.pypi.org/user/opencontracting/>`__ user can be the single Owner, whose API token is used in `pypi.yml workflows <pypi-ci>`__.
+For each package, the `opencontracting <https://test.pypi.org/user/opencontracting/>`__ user can be the single Owner, whose API token is used in :ref:`pypi.yml workflows<pypi-ci>`.
 
 Transifex
 ---------

@@ -90,7 +90,7 @@ To avoid pushing commits that fail formatting or linting checks, new projects sh
 
       RuntimeError: failed to find interpreter for Builtin discover of python_spec='python3.10'
 
-   pre-commit uses `virtualenv <https://virtualenv.pypa.io/en/latest/>`__ to `discover Python interpreters <https://virtualenv.pypa.io/en/latest/user_guide.html#python-discovery>`__. On macOS, install the missing version with Homebrew, instead of uv:
+   pre-commit uses `virtualenv <https://virtualenv.pypa.io/en/latest/>`__ to `discover Python interpreters <https://virtualenv.pypa.io/en/latest/how-to/usage.html#select-a-python-version>`__. On macOS, install the missing version with Homebrew, instead of uv:
 
    .. code-block:: bash
 

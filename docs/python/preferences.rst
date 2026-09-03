@@ -21,7 +21,7 @@ Preferences
 -----------
 
 Web framework
-  `Django LTS <https://www.djangoproject.com/download/>`__, unless a newer version has desirable features. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://pythonhosted.org/Frozen-Flask/>`__.
+  `Django LTS <https://www.djangoproject.com/download/>`__, unless a newer version has desirable features. Do not use `Flask <https://flask.palletsprojects.com/>`__, except in limited circumstances like generating a static site with `Frozen-Flask <https://frozen-flask.readthedocs.io/en/latest/>`__.
 API
   `Django REST Framework <https://www.django-rest-framework.org>`__ or `FastAPI <https://fastapi.tiangolo.com>`__. Do not use `Django Tastypie <https://django-tastypie.readthedocs.io/en/latest/>`__, which has at times fallen behind on Django and Python versions.
 Command-line interface
