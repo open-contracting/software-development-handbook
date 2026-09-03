@@ -94,20 +94,27 @@ Acknowledgements
 
 Usually, a message is ack'd once processing is complete. In some cases, a message is ack'd *before* its processing is complete:
 
--  *When processing is long*: If a message is not ack'd on a channel within the `acknowledgement timeout <https://www.rabbitmq.com/consumers.html#acknowledgement-timeout>`__ (30 minutes by default), the broker closes the channel. This might cause unexpected errors the next time the consumer uses the channel.
+-  *When processing is long*: If a message is not ack'd on a channel within the `acknowledgement timeout <https://www.rabbitmq.com/docs/consumers#acknowledgement-timeout>`__ (30 minutes by default), the broker closes the channel and requeues its deliveries. This might cause unexpected errors the next time the consumer uses the channel.
 -  *When processing isn't atomic*: After some initial work, a consumer might perform work and publish messages in chunks, like when implementing the `Splitter pattern <https://www.enterpriseintegrationpatterns.com/patterns/messaging/Sequencer.html>`__. If it encounters an error in one chunk, the consumer cannot easily "retry" the original message, without encountering integrity errors and publishing duplicate messages. As such, the message is ack'd after the initial work ("point-of-no-return").
 
-If a consumer is interrupted or fails before a message is ack'd, the broker `automatically requeues <https://www.rabbitmq.com/confirms.html#automatic-requeueing>`__ the message, once either the acknowledgement timeout or the :ref:`heartbeat timeout<rabbitmq-heartbeat>` is reached, at which time the consumer is considered buggy, stuck or unavailable by the broker.
+.. note::
+
+   As of RabbitMQ 4.3, only `quorum queues <https://www.rabbitmq.com/docs/quorum-queues>`__ evaluate the acknowledgement timeout. On a `classic queue <https://www.rabbitmq.com/docs/classic-queues>`__, a slow/stuck consumer is never interrupted, the node-wide ``consumer_timeout`` setting is ignored, and the ``x-consumer-timeout`` queue argument is rejected. Manually stopping the consumer requeues its unacknowledged messages.
+
+If a consumer is interrupted or fails before a message is ack'd, the broker `automatically requeues <https://www.rabbitmq.com/docs/confirms#automatic-requeueing>`__ the message, once either the acknowledgement timeout or the :ref:`heartbeat timeout<rabbitmq-heartbeat>` is reached, at which time the consumer is considered buggy, stuck or unavailable by the broker.
 
 When an exception is raised:
 
--  If the error is expected to occur (e.g. an integrity error due to a duplicate message), or if there's no consequence to ignoring the message (avoid causing a silent failure), the consumer should catch the error, write to a log, and `nack <https://www.rabbitmq.com/nack.html>`__ the message.
+-  If the error is expected to occur (e.g. an integrity error due to a duplicate message), or if there's no consequence to ignoring the message (avoid causing a silent failure), the consumer should catch the error, write to a log, and ack the message.
+-  If the error isn't expected to occur and the message is unprocessable, the consumer should catch the error, write to a log, and `nack <https://www.rabbitmq.com/docs/nack>`__ the message.
 
    .. note::
 
       In Python, Pika's `basic_nack <https://pika.readthedocs.io/en/stable/modules/channel.html#pika.channel.Channel.basic_nack>`__ method sets ``requeue=True`` by default. Set ``requeue=False`` instead.
 
 -  If the error isn't expected to occur and it's unknown whether it can safely be ignored, the consumer can do nothing (e.g. allow the exception to be raised), in which case administrative action is required (e.g. purging the queue or changing the code).
+
+Acking a message and nacking without requeueing both remove the message from the queue. However, if a `dead-letter exchange <https://www.rabbitmq.com/docs/dlx>`__ is configured, only the nack'd message is preserved, with an ``x-death`` header recording its original queue and routing key, allowing it to be reprocessed once the cause of the error is fixed.
 
 .. seealso::
 
@@ -121,7 +128,7 @@ Topic exchanges
 
 A `topic exchange <https://www.rabbitmq.com/tutorials/tutorial-five-python.html>`__ can be used to allow routing on multiple criteria. We don't have a clear use case for this yet.
 
-A topic exchange could support collection-specific queues, but `priority queues <https://www.rabbitmq.com/priority.html>`__ appear to be a simpler way to prioritize collections.
+A topic exchange could support collection-specific queues, but `priority queues <https://www.rabbitmq.com/docs/priority>`__ appear to be a simpler way to prioritize collections.
 
 Publisher confirms
 ~~~~~~~~~~~~~~~~~~
