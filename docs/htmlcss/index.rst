@@ -47,9 +47,7 @@ On each page of a public-facing website:
    .. seealso::
 
       -  `Open Graph protocol <https://ogp.me>`__
-      -  `Twitter Summary Card <https://web.archive.org/web/20241215193236/https://developer.x.com/en/docs/x-for-websites/cards/overview/summary>`__
       -  `Facebook Sharing Debugger <https://developers.facebook.com/tools/debug/>`__
-      -  `Twitter Card validator <https://cards-dev.twitter.com/validator>`__
 
 .. seealso::
 
