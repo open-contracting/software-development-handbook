@@ -4,13 +4,13 @@ Dockerfile
 Dockerfile instructions
 -----------------------
 
-Reference: `Dockerfile reference <https://docs.docker.com/engine/reference/builder/>`__, Best practices for `Dockerfile instructions <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#dockerfile-instructions>`__
+Reference: `Dockerfile reference <https://docs.docker.com/reference/dockerfile>`__, Best practices for `Dockerfile instructions <https://docs.docker.com/build/building/best-practices/#dockerfile-instructions>`__
 
 USER
 ~~~~
 
--  Use the ``user:group`` form for the `USER <https://docs.docker.com/engine/reference/builder/#user>`__ instruction, unless you want the group to be ``root``.
--  Use the name ``runner`` for the `non-root user <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user>`__:
+-  Use the ``user:group`` form for the `USER <https://docs.docker.com/reference/dockerfile#user>`__ instruction, unless you want the group to be ``root``.
+-  Use the name ``runner`` for the `non-root user <https://docs.docker.com/build/building/best-practices/#user>`__:
 
    .. code-block:: docker
 
@@ -20,7 +20,7 @@ WORKDIR
 ~~~~~~~
 
 -  Use a leading ``/`` with the ``WORKDIR`` instruction.
--  Set `WORKDIR <https://docs.docker.com/engine/reference/builder/#workdir>`__ to ``/workdir``:
+-  Set `WORKDIR <https://docs.docker.com/reference/dockerfile#workdir>`__ to ``/workdir``:
 
    .. code-block:: docker
 
@@ -29,13 +29,13 @@ WORKDIR
 COPY
 ~~~~
 
--  Use the ``--chown=user:group`` option with the `COPY <https://docs.docker.com/engine/reference/builder/#copy>`__ instruction, unless you want the ownership of the files to be ``root:root``.
--  Prefer the ``COPY`` instruction to the `ADD <https://docs.docker.com/engine/reference/builder/#add>`__ instruction, `as recommended <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy>`__.
+-  Use the ``--chown=user:group`` option with the `COPY <https://docs.docker.com/reference/dockerfile#copy>`__ instruction, unless you want the ownership of the files to be ``root:root``.
+-  Prefer the ``COPY`` instruction to the `ADD <https://docs.docker.com/reference/dockerfile#add>`__ instruction, `as recommended <https://docs.docker.com/build/building/best-practices/#add-or-copy>`__.
 
 Layer order
 -----------
 
-To `leverage the build cache <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache>`__, order the instructions from least-to-most likely to change over time. In general, the order is:
+To `leverage the build cache <https://docs.docker.com/build/building/best-practices/#leverage-build-cache>`__, order the instructions from least-to-most likely to change over time. In general, the order is:
 
 #. Declare the base image
 #. Install system packages
@@ -112,7 +112,7 @@ Before installing a system package, check whether it's included in a base image.
 
 We find that the `buildpack-deps:trixie image <https://github.com/docker-library/buildpack-deps/blob/master/debian/trixie/Dockerfile>`__ installs the ``libpq-dev`` system package.
 
-If it's not included, install it following `best practices <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#apt-get>`__:
+If it's not included, install it following `best practices <https://docs.docker.com/build/building/best-practices/#apt-get>`__:
 
 .. code-block:: docker
 
@@ -148,7 +148,7 @@ If a project needs to read or write data to the filesystem:
       # Must match the settings.KINGFISHER_COLLECT_FILES_STORE default value.
       RUN mkdir -p /data
 
-#. `Mount <https://docs.docker.com/storage/bind-mounts/>`__ the host's directory to the default value in the Docker Compose file. For example:
+#. `Mount <https://docs.docker.com/engine/storage/bind-mounts/>`__ the host's directory to the default value in the Docker Compose file. For example:
 
    .. code-block:: yaml
       :caption: docker-compose.yaml
@@ -165,7 +165,7 @@ Templates
 
 .. note::
 
-   If Dockerfiles are similar across projects, we can consider creating our own base images and using the `ONBUILD <https://docs.docker.com/engine/reference/builder/#onbuild>`__ instruction to copy source code.
+   If Dockerfiles are similar across projects, we can consider creating our own base images and using the `ONBUILD <https://docs.docker.com/reference/dockerfile#onbuild>`__ instruction to copy source code.
 
 Python
 ~~~~~~
@@ -183,4 +183,4 @@ Node
 See:
 
 -  `Best Practices Guide <https://github.com/nodejs/docker-node/blob/main/docs/BestPractices.md>`__
--  `Node.js Language-specific guide <https://docs.docker.com/language/nodejs/>`__
+-  `Node.js Language-specific guide <https://docs.docker.com/guides/nodejs/>`__

@@ -73,7 +73,7 @@ Construct SQL statements
 
 .. tip::
 
-   Add `SQLFluff <https://sqlfluff.com>`__ to `pre-commit <https://docs.sqlfluff.com/en/latest/production/pre_commit.html>`__ if a project contains SQL files.
+   Add `SQLFluff <https://www.sqlfluff.com>`__ to `pre-commit <https://docs.sqlfluff.com/en/latest/production/pre_commit.html>`__ if a project contains SQL files.
 
 .. seealso::
 
@@ -189,7 +189,7 @@ Do not use ``LIMIT`` with ``OFFSET``. ``OFFSET`` becomes more inefficient as its
 Format code
 -----------
 
-Format SQL files with `SQLFluff <https://sqlfluff.com>`__.
+Format SQL files with `SQLFluff <https://www.sqlfluff.com>`__.
 
 .. code-block:: toml
    :caption: pyproject.toml

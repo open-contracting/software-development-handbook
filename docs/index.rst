@@ -33,4 +33,4 @@ Useful resources
 -  `The Good Services Principles <https://good.services/15-principles-of-good-service-design>`__ and `Scale <https://good.services/the-good-services-scale>`__
 -  `18F Engineering Practices Guide <https://guides.18f.org/engineering/>`__
 -  `18F De-risking Guide <https://guides.18f.org/derisking-government-tech/>`__
--  `Creating Passionate Users <https://web.archive.org/web/2019/https://headrush.typepad.com/creating_passionate_users/>`__
+-  `Creating Passionate Users <https://web.archive.org/web/20191222045610/https://headrush.typepad.com/creating_passionate_users/>`__

@@ -35,7 +35,7 @@ Automated tests
 
 Create a ``.github/workflows/ci.yml`` file, and use or adapt one of the :ref:`templates<python-ci-templates>` below.
 
--  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows>`__ and `Running a workflow based on the conclusion of another workflow <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow>`__, in particular.
+-  Workflows should have a single responsibility: running tests, linting Python, checking translations, deploying, etc. To connect workflows, read `Events that trigger workflows <https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows>`__ and `Running a workflow based on the conclusion of another workflow <https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow>`__, in particular.
 -  If a ``run:`` step uses an ``env:`` key, put ``env:`` before ``run:``, so that the reader is more likely to see the command with its environment.
 -  If a ``run:`` step is a single line, omit the ``name:`` key.
 -  Put commands that form logical units in the same ``run:`` step. For example:
@@ -54,7 +54,7 @@ Create a ``.github/workflows/ci.yml`` file, and use or adapt one of the :ref:`te
       - run: sudo apt update # WRONG
       - run: sudo apt install gettext # WRONG
 
-Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners>`__
+Reference: `Customizing GitHub-hosted runners <https://docs.github.com/en/actions/how-tos/manage-runners/github-hosted-runners/customize-runners>`__
 
 Python warnings
 ~~~~~~~~~~~~~~~
@@ -114,7 +114,7 @@ Use the `mccutchen/go-httpbin image <https://hub.docker.com/r/mccutchen/go-httpb
 
 .. note::
 
-   Services to mock APIs include `httpbin <https://httpbingo.org>`__, `RequestBin <https://requestbin.com/docs/>`__, `Postman Echo <https://learning.postman.com/docs/developer/echo-api/>`__, `PostBin <https://www.toptal.com/developers/postbin/>`__, etc.
+   Services to mock APIs include `httpbin <https://httpbingo.org>`__, `RequestBin <https://pipedream.com/requestbin>`__, `Postman Echo <https://learning.postman.com/docs/reference/developer-resources/echo-api/>`__, `PostBin <https://www.postb.in/>`__, etc.
 
 PostgreSQL
 ^^^^^^^^^^
@@ -224,7 +224,7 @@ If using `tox <https://tox.wiki/en/latest/>`__:
 
 .. note::
 
-   Use `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`__ in GitHub Actions to test multiple Python versions, not ``tox``. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.11 on Windows).
+   Use `matrix <https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstrategymatrix>`__ in GitHub Actions to test multiple Python versions, not ``tox``. This makes it easier to install version-specific dependencies (like ``libxml2-dev`` for PyPy), and it makes exclusions more visible (like pypy-3.11 on Windows).
 
 If not using ``tox``, use this template, replacing ``{{ cookiecutter.package_name }}`` and removing the Jinja syntax if not using the :doc:`Cookiecutter template<packages>`:
 
@@ -271,7 +271,7 @@ Keep GitHub Actions up-to-date with:
 
 The ``cooldown`` option delays version updates for newly released versions, to protect against supply chain attacks. It does not affect security updates.
 
-Reference: `Configuration options for dependency updates <https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file>`__
+Reference: `Configuration options for dependency updates <https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference>`__
 
 Maintenance
 -----------

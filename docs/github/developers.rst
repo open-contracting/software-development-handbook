@@ -18,7 +18,7 @@ If OCP asks a question, **DO NOT** close the issue after answering. Instead, you
 Automatically, with pull requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When creating a pull request that fixes one or more issues, add the text “fixes #42” or “closes #42” in the pull request’s description so that GitHub `automatically closes them after merging <https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue>`__.
+When creating a pull request that fixes one or more issues, add the text “fixes #42” or “closes #42” in the pull request’s description so that GitHub `automatically closes them after merging <https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue>`__.
 
 Manually, with a rationale
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,12 +32,12 @@ All issues should be closed with a brief rationale. This makes it easy to unders
 Pull requests
 -------------
 
-**DO NOT** force-push changes to a pull request in response to a code review. Force-pushing makes it impossible to use GitHub's *View changes* feature. If you want a single commit, select `Squash and merge <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges>`__ from the *Merge pull request* dropdown.
+**DO NOT** force-push changes to a pull request in response to a code review. Force-pushing makes it impossible to use GitHub's *View changes* feature. If you want a single commit, select `Squash and merge <https://docs.github.com/en/pull-requests/reference/pull-request-merges>`__ from the *Merge pull request* dropdown.
 
 Projects
 --------
 
-The ``open-contracting`` `organization <https://github.com/orgs/open-contracting/projects?query=is%3Aopen>`__ uses `GitHub Projects <https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards>`__ to organize work in a `Kanban <https://en.wikipedia.org/wiki/Kanban>`__ system.
+The ``open-contracting`` `organization <https://github.com/orgs/open-contracting/projects?query=is%3Aopen>`__ uses `GitHub Projects <https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects>`__ to organize work in a `Kanban <https://en.wikipedia.org/wiki/Kanban>`__ system.
 
 People expect to have visibility of all of a repository’s issues within the *Issues* tab; therefore, a card that is not attached to an issue should never be added to a project.
 
