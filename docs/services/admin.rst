@@ -18,7 +18,6 @@ If a service is down, check its status page:
 -  `PyPI <https://status.python.org>`__
 -  `ReadTheDocs <https://status.readthedocs.com>`__
 -  `Sentry <https://status.sentry.io>`__
--  `Transifex <https://status.transifex.com>`__
 -  `WordFence <https://status.wordfence.com>`__
 
 These :doc:`preferred services<../general/preferences>` don't have individual user accounts:
@@ -204,13 +203,6 @@ Test PyPI
 ---------
 
 For each package, the `opencontracting <https://test.pypi.org/user/opencontracting/>`__ user can be the single Owner, whose API token is used in :ref:`pypi.yml workflows<pypi-ci>`.
-
-Transifex
----------
-
-There should be a minimum of two `Administrators <https://app.transifex.com/open-contracting-partnership-1/settings/>`__ from OCP only.
-
-If we reach our collaborator limit, `manage collaborators <https://app.transifex.com/open-contracting-partnership-1/collaborators/>`__, removing those who were last seen more than 9 months ago.
 
 Valimail
 --------
