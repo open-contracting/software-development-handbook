@@ -65,7 +65,6 @@ linkcheck_ignore = [
     r"^https://www\.figma\.com/files/team/.+/members$",
     r"^https://readthedocs\.org/dashboard/$",
     r"^https://sentry\.io",
-    r"^https://app\.transifex\.com/.+/(collaborators|settings)/$",
     r"^https://cards-dev\.twitter\.com/validator$",
     # Redirects to specific versions.
     r"^https://docs\.pytest\.org/$",
