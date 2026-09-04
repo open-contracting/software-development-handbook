@@ -64,7 +64,7 @@ The template sets ``WEB_CONCURRENCY=2`` and ``--threads 2`` (as described in the
 Signals
 ~~~~~~~
 
-The shell form, ``CMD command param1``, `runs the command as a subcommand <https://docs.docker.com/engine/reference/builder/#cmd>`__ of ``/bin/sh -c``, which `doesn't pass signals <https://docs.docker.com/engine/reference/builder/#entrypoint>`__. For Gunicorn to receive the ``SIGTERM`` signal and stop gracefully, the exec form, ``CMD ["command", "param1"]``, is used.
+The shell form, ``CMD command param1``, `runs the command as a subcommand <https://docs.docker.com/reference/dockerfile#cmd>`__ of ``/bin/sh -c``, which `doesn't pass signals <https://docs.docker.com/reference/dockerfile#entrypoint>`__. For Gunicorn to receive the ``SIGTERM`` signal and stop gracefully, the exec form, ``CMD ["command", "param1"]``, is used.
 
 Reference: `Signal Handling <https://gunicorn.org/signals/>`__
 

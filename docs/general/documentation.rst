@@ -11,7 +11,7 @@ Documentation
 Types of documentation
 ----------------------
 
-Read `The Documentation System <https://documentation.divio.com>`__ to learn about the four types of documentation we write: tutorials, how-to guides, technical reference and explanation.
+Read `The Documentation System <https://docs.divio.com/documentation-system/>`__ to learn about the four types of documentation we write: tutorials, how-to guides, technical reference and explanation.
 
 Locations of documentation
 --------------------------

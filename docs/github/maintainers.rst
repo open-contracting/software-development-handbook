@@ -43,7 +43,7 @@ Onboard consultants or Start a project
 
    .. note::
 
-      Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization>`__. Add individual consultants to appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
+      Do not use `outside collaborators <https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization>`__. Add individual consultants to appropriate teams, like the `Standard <https://github.com/orgs/open-contracting/teams/standard>`__ team.
 
 #. From the *Members* tab:
 
@@ -91,7 +91,7 @@ Per the `Software terms of reference (TOR) template <https://docs.google.com/doc
 
 .. note::
 
-   A `custom security configuration <https://docs.github.com/en/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration>`__ is applied to all new repositories.
+   A `custom security configuration <https://docs.github.com/en/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration>`__ is applied to all new repositories.
 
 Offboard consultants
 --------------------

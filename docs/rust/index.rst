@@ -60,12 +60,12 @@ Prefer functions, but use macros if you need:
 
 .. seealso::
 
-   -  `The Little Book of Rust Macros <https://veykril.github.io/tlborm/>`__
+   -  `The Little Book of Rust Macros <https://lukaswirth.dev/tlborm/>`__
    -  `Macros <https://doc.rust-lang.org/stable/reference/macros.html>`__ in *The Rust Reference*
 
    Debugging:
 
-   -  `Debugging <https://veykril.github.io/tlborm/decl-macros/minutiae/debugging.html>`__ in *The Little Book of Rust Macros*
+   -  `Debugging <https://lukaswirth.dev/tlborm/decl-macros/minutiae/debugging.html>`__ in *The Little Book of Rust Macros*
    -  `cargo-expand <https://github.com/dtolnay/cargo-expand>`__
    -  `proc-macro-error <https://crates.io/crates/proc_macro_error>`__
 

@@ -1,19 +1,19 @@
 RabbitMQ
 ========
 
-The shortest explanation of RabbitMQ is the `AMQP 0-9-1 Model in Brief <https://www.rabbitmq.com/tutorials/amqp-concepts.html#amqp-model>`__:
+The shortest explanation of RabbitMQ is the `AMQP 0-9-1 Model in Brief <https://www.rabbitmq.com/tutorials/amqp-concepts#amqp-model>`__:
 
 -  Multiple *publishers* can publish messages to *exchanges*
 -  An *exchange* routes the messages it receives to one or more *queues*, using rules called *bindings*
 -  Multiple *consumers* can subscribe to one or more *queues*
 
-It is recommended to be familiar with all `RabbitMQ tutorials <https://www.rabbitmq.com/getstarted.html>`__.
+It is recommended to be familiar with all `RabbitMQ tutorials <https://www.rabbitmq.com/tutorials>`__.
 
 .. seealso::
 
-   -  `AMQP 0-9-1 Model Explained <https://www.rabbitmq.com/tutorials/amqp-concepts.html>`__
-   -  `Reliability Guide <https://www.rabbitmq.com/reliability.html>`__
-   -  `Full documentation <https://www.rabbitmq.com/documentation.html>`__
+   -  `AMQP 0-9-1 Model Explained <https://www.rabbitmq.com/tutorials/amqp-concepts>`__
+   -  `Reliability Guide <https://www.rabbitmq.com/docs/reliability>`__
+   -  `Full documentation <https://www.rabbitmq.com/docs>`__
 
 Development
 -----------
@@ -24,7 +24,7 @@ Development
 
       brew install rabbitmq
 
-#. Enable the `management plugin <https://www.rabbitmq.com/management.html>`__:
+#. Enable the `management plugin <https://www.rabbitmq.com/docs/management>`__:
 
    .. code-block:: shell
 
@@ -54,9 +54,9 @@ Bindings
 Heartbeat
 ~~~~~~~~~
 
-If a consumer processes a message in the same thread as the `heartbeat <https://www.rabbitmq.com/heartbeats.html>`__, the heartbeat can timeout if the processing is slow, causing the connection to RabbitMQ to drop (for Python, see Pika's `readme <https://github.com/pika/pika/#requesting-message-acknowledgements-from-another-thread>`__).
+If a consumer processes a message in the same thread as the `heartbeat <https://www.rabbitmq.com/docs/heartbeats>`__, the heartbeat can timeout if the processing is slow, causing the connection to RabbitMQ to drop (for Python, see Pika's `readme <https://github.com/pika/pika/#requesting-message-acknowledgements-from-another-thread>`__).
 
-The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/main/examples/basic_consumer_threaded.py>`__), like when using `yapw <https://yapw.readthedocs.io/en/latest/>`__. Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/heartbeats.html>`__.
+The solution is to process the message in a separate thread (`see Python example <https://github.com/pika/pika/blob/main/examples/basic_consumer_threaded.py>`__), like when using `yapw <https://yapw.readthedocs.io/en/latest/>`__. Disabling heartbeats is `highly discouraged <https://www.rabbitmq.com/docs/heartbeats>`__.
 
 .. https://github.com/open-contracting/data-registry/issues/140
 
@@ -67,7 +67,7 @@ The solution is to process the message in a separate thread (`see Python example
 Consumer prefetch
 ~~~~~~~~~~~~~~~~~
 
-In an early production environment, `prefetch count <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch>`__ is set to 1, which is the `most conservative <https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput>`__ option. In a mature production environment, it is set to 20, in order to scale first by using more threads before using more processes, based on this `blog post <https://blog.rabbitmq.com/posts/2012/04/rabbitmq-performance-measurements-part-2>`__.
+In an early production environment, `prefetch count <https://www.rabbitmq.com/docs/confirms#channel-qos-prefetch>`__ is set to 1, which is the `most conservative <https://www.rabbitmq.com/docs/confirms#channel-qos-prefetch-throughput>`__ option. In a mature production environment, it is set to 20, in order to scale first by using more threads before using more processes, based on this `blog post <https://www.rabbitmq.com/blog/2012/04/25/rabbitmq-performance-measurements-part-2>`__.
 
 Idempotence
 ~~~~~~~~~~~
@@ -120,7 +120,7 @@ Acking and nacking without requeueing both remove the message from the queue. Ho
 
 .. seealso::
 
-   *Message acknowledgment* under `Work Queues tutorial <https://www.rabbitmq.com/tutorials/tutorial-two-python.html>`__
+   *Message acknowledgment* under `Work Queues tutorial <https://www.rabbitmq.com/tutorials/tutorial-two-python>`__
 
 Unused features
 ---------------
@@ -128,21 +128,21 @@ Unused features
 Topic exchanges
 ~~~~~~~~~~~~~~~
 
-A `topic exchange <https://www.rabbitmq.com/tutorials/tutorial-five-python.html>`__ can be used to allow routing on multiple criteria. We don't have a clear use case for this yet.
+A `topic exchange <https://www.rabbitmq.com/tutorials/tutorial-five-python>`__ can be used to allow routing on multiple criteria. We don't have a clear use case for this yet.
 
 A topic exchange could support collection-specific queues, but `priority queues <https://www.rabbitmq.com/docs/priority>`__ appear to be a simpler way to prioritize collections.
 
 Publisher confirms
 ~~~~~~~~~~~~~~~~~~
 
-It's possible to ensure message delivery (`see Python example <https://github.com/pika/pika/blob/main/docs/examples/blocking_publish_mandatory.md>`__) by using `publisher confirms <https://www.rabbitmq.com/confirms.html#publisher-confirms>`__ and setting the `mandatory flag <https://www.rabbitmq.com/amqp-0-9-1-reference#basic.publish>`__.
+It's possible to ensure message delivery (`see Python example <https://github.com/pika/pika/blob/main/docs/examples/blocking_publish_mandatory.md>`__) by using `publisher confirms <https://www.rabbitmq.com/docs/confirms#publisher-confirms>`__ and setting the `mandatory flag <https://www.rabbitmq.com/amqp-0-9-1-reference#basic.publish>`__.
 
-However, for simplicity, in Python, we're using `Pika <https://pika.readthedocs.io/en/stable/>`__'s `BlockingConnection <https://pika.readthedocs.io/en/stable/modules/adapters/blocking.html>`__, which would use a "publish-and-wait" strategy for publisher confirms, which is `officially discouraged <https://www.rabbitmq.com/publishers.html#publisher-confirm-strategies>`__, because it would wait for each message to be `persisted to disk <https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed>`__.
+However, for simplicity, in Python, we're using `Pika <https://pika.readthedocs.io/en/stable/>`__'s `BlockingConnection <https://pika.readthedocs.io/en/stable/modules/adapters/blocking.html>`__, which would use a "publish-and-wait" strategy for publisher confirms, which is `officially discouraged <https://www.rabbitmq.com/docs/publishers#publisher-confirm-strategies>`__, because it would wait for each message to be `persisted to disk <https://www.rabbitmq.com/docs/confirms#when-publishes-are-confirmed>`__.
 
 The cases that publisher confirms protect against are, in Python:
 
 -  `pika.exceptions.UnroutableError <https://pika.readthedocs.io/en/stable/modules/adapters/blocking.html#pika.adapters.blocking_connection.BlockingChannel.basic_publish>`__: The message can't be routed to any queue.
--  `pika.exceptions.NackError <https://www.rabbitmq.com/confirms.html#server-sent-nacks>`__: An internal error occurs in the process responsible for the queue.
--  `More complex scenarios <https://www.rabbitmq.com/confirms.html#publisher-confirms-and-guaranteed-delivery>`__.
+-  `pika.exceptions.NackError <https://www.rabbitmq.com/docs/confirms#server-sent-nacks>`__: An internal error occurs in the process responsible for the queue.
+-  `More complex scenarios <https://www.rabbitmq.com/docs/confirms#publisher-confirms-and-guaranteed-delivery>`__.
 
 All these are unlikely. To ensure messages are routable, before publishing a message, we make sure a queue exists and is bound to the exchange such that the message goes to that queue.

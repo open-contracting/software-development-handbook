@@ -11,7 +11,7 @@ Documentation is written using `Sphinx <https://www.sphinx-doc.org/en/master/>`_
 
 .. note::
 
-   We can consider writing `Architecture Decision Records (ADRs) <https://github.blog/2020-08-13-why-write-adrs/>`__.
+   We can consider writing `Architecture Decision Records (ADRs) <https://github.blog/engineering/why-write-adrs/>`__.
 
 .. _python-docstrings:
 

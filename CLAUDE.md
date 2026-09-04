@@ -21,7 +21,7 @@ existing voice, markup, and structure.
 
 Follow `docs/general/documentation.rst`:
 
-- Know which of the four [Divio documentation types](https://documentation.divio.com) you
+- Know which of the four [Divio documentation types](https://docs.divio.com/documentation-system/) you
   are writing: tutorial, how-to guide, technical reference, or explanation. The type sets
   the page's register, so when it isn't clear from the request or the page you're editing
   (typically for a new page), confirm it with the user before writing. Keep the types on

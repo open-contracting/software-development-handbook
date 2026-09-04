@@ -379,7 +379,7 @@ Input/Output
 Functional style
 ----------------
 
-``itertools``, ``filter()`` and ``map()`` can be harder to read, less familiar, and longer. On PyPy, they can also be `slower <https://www.pypy.org/performance.html>`__.
+``itertools``, ``filter()`` and ``map()`` can be harder to read, less familiar, and longer. On PyPy, they can also be `slower <https://pypy.org/performance.html>`__.
 
 Instead of using ``filter()`` and ``map()`` with a lambda expression, you can use a list comprehension in most cases. For example:
 

@@ -62,7 +62,7 @@ Preferences
 Use plain JavasScript:
 
 -  Do not use `lodash <https://lodash.com>`__ or `underscore <https://underscorejs.org>`__.
--  Do not use `axios <https://axios-http.com>`__. Use the `Fetch API <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`__.
+-  Do not use `axios <https://axios.rest>`__. Use the `Fetch API <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`__.
 -  Do not use jQuery, unless existing functionality depends on jQuery plugins. To replace jQuery, refer to `You Might Not Need jQuery <https://youmightnotneedjquery.com>`__.
 
 Package manager

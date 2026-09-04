@@ -15,7 +15,7 @@ Subresource integrity (SRI)
 When using unbundled external packages:
 
 -  Reference a package's specific version on a content delivery network (CDN), like `unpkg <https://unpkg.com>`__, `jsDelivr <https://www.jsdelivr.com>`__, `cdnjs <https://cdnjs.com>`__ or the package's own CDN (like `Redocly <https://github.com/Redocly/redoc#add-an-html-element-to-the-page>`__)
--  Use the `SRI Hash Generator <https://www.srihash.org>`__, as `recommended <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity#tools_for_generating_sri_hashes>`__ by MDN, with the default SHA-384 algorithm
+-  Use the `SRI Hash Generator <https://srihash.org>`__, as `recommended <https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity#tools_for_generating_sri_hashes>`__ by MDN, with the default SHA-384 algorithm
 
 Some scripts cannot use subresource integrity:
 
@@ -24,7 +24,7 @@ Some scripts cannot use subresource integrity:
 -  ``https://use.typekit.net/xxxxxxx.js``
 -  ``https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX``
 
-Reference: `Subresource Integrity <https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity>`__ on MDN
+Reference: `Subresource Integrity <https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity>`__ on MDN
 
 Search engine optimization (SEO)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,7 +47,7 @@ On each page of a public-facing website:
    .. seealso::
 
       -  `Open Graph protocol <https://ogp.me>`__
-      -  `Twitter Summary Card <https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary>`__
+      -  `Twitter Summary Card <https://web.archive.org/web/20241215193236/https://developer.x.com/en/docs/x-for-websites/cards/overview/summary>`__
       -  `Facebook Sharing Debugger <https://developers.facebook.com/tools/debug/>`__
       -  `Twitter Card validator <https://cards-dev.twitter.com/validator>`__
 

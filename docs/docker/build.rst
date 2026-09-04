@@ -32,7 +32,7 @@ If you need to build multiple images, then for each image:
 #. Set either:
 
    -  The path to the Dockerfile with the `file <https://github.com/docker/build-push-action#inputs>`__ key
-   -  The path to the directory (`context <https://docs.docker.com/engine/context/working-with-contexts/>`__) with the ``context`` key
+   -  The path to the directory (`context <https://docs.docker.com/engine/manage-resources/contexts/>`__) with the ``context`` key
 
 #. Add a suffix to the repository name under the ``tags`` key.
 

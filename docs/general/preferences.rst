@@ -6,7 +6,7 @@ We have preferences in order to limit the number of tools with which developers 
 Collaboration
 -------------
 
--  GitHub (version control, issue tracking, `project board <https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards>`__)
+-  GitHub (version control, issue tracking, `project board <https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects>`__)
 -  Google Docs (collaborative editing)
 -  Google Meet (audio/video calling)
 -  Slack (instant messaging)

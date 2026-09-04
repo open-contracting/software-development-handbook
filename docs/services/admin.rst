@@ -14,7 +14,7 @@ If a service is down, check its status page:
 -  `Heroku <https://status.heroku.com>`__
 -  `LastPass <https://status.lastpass.com>`__
 -  `Linode <https://status.linode.com>`__
--  `Microsoft Azure <https://azure.status.microsoft/en-ca/status>`__
+-  `Microsoft Azure <https://azure.status.microsoft/en-us/status>`__
 -  `PyPI <https://status.python.org>`__
 -  `ReadTheDocs <https://status.readthedocs.com>`__
 -  `Sentry <https://status.sentry.io>`__
@@ -23,7 +23,7 @@ If a service is down, check its status page:
 
 These :doc:`preferred services<../general/preferences>` don't have individual user accounts:
 
--  Ahrefs (`requires account upgrade <https://app.ahrefs.com/pricing>`__)
+-  Ahrefs (`requires account upgrade <https://ahrefs.com/pricing>`__)
 -  Fathom
 -  Fixer
 -  Hetzner (except :ref:`hetzner-cloud`)
@@ -131,7 +131,7 @@ Third-party sysadmins can be added with "Collaborator" access.
 Hetzner Cloud
 -------------
 
-There should be a minimum of two `admins <https://console.hetzner.cloud/projects/104976/security/members>`__ from OCP, including the ``sysadmin`` owner.
+There should be a minimum of two `admins <https://console.hetzner.com/projects/104976/security/members>`__ from OCP, including the ``sysadmin`` owner.
 
 Third-party sysadmins can be added with "Member" access.
 
@@ -187,7 +187,7 @@ Third-party maintainers can be added to the package's associated ReadTheDocs pro
 SecurityScorecard
 -----------------
 
-The `Free Plan <https://securityscorecard.com/pricing-packages/>`__ has no `people management <https://support.securityscorecard.com/hc/en-us/articles/360056396951-Manage-users-and-permissions-in-SecurityScorecard>`__.
+The `Free Plan <https://securityscorecard.com/pricing/>`__ has no `people management <https://support.securityscorecard.com/hc/en-us/articles/360056396951-Manage-users-and-permissions-in-SecurityScorecard>`__.
 
 Third-party sysadmins can be `added <https://platform.securityscorecard.io/#/getting-started>`__.
 
