@@ -30,7 +30,7 @@ Monitoring
    `Monitoring <https://ocdsdeploy.readthedocs.io/en/latest/reference/#monitoring>`__ in the Deploy documentation
 
 -  `Prometheus <https://prometheus.io>`__
--  `Sentry <https://sentry.io>`__
+-  `Sentry <https://sentry.io/welcome/>`__
 -  `Ahrefs <https://ahrefs.com>`__
 -  `SecurityScorecard <https://securityscorecard.com>`__
 -  `WordFence <https://www.wordfence.com>`__

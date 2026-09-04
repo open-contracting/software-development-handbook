@@ -114,7 +114,7 @@ Groups
 
 -  `standard-discuss <https://groups.google.com/a/open-contracting.org/g/standard-discuss>`__ (`owners <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Aowner>`__, `managers <https://groups.google.com/a/open-contracting.org/g/standard-discuss/members?q=role%3Amanager>`__)
 
-There should be a minimum of two `Owner <https://support.google.com/a/answer/167094?hl=en>`__ members from OCP only.
+There should be a minimum of two `Owner <https://knowledge.workspace.google.com/admin/groups/assign-roles-to-a-groups-members>`__ members from OCP only.
 
 .. _heroku:
 
