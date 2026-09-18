@@ -3,7 +3,7 @@ on: [push, pull_request]
 permissions:
   contents: read
 jobs:
-  build:
+  test:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
 {%- if cookiecutter.os_independent == "y" %}
     {%- raw %}
@@ -32,3 +32,11 @@ jobs:
       - uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
         with:
           fail_ci_if_error: true
+  # Without `if: always()`, a failed `test` would skip `build`, and a skipped job satisfies a required status check.
+  build:
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - if: {% raw %}${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}{% endraw %}
+        run: exit 1
