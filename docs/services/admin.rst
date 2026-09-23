@@ -81,7 +81,7 @@ The ``ocp-deploy`` user generates `personal access tokens <https://github.com/se
 
 .. tip::
 
-   Use the `org:owners <https://github.com/open-contracting/standard-maintenance-scripts#github>`__ task to check the configuration.
+   Use the `org:owners <https://github.com/open-contracting/standard-maintenance-scripts#access-tasks->`__ task to check the configuration.
 
 .. seealso::
 

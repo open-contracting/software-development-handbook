@@ -83,7 +83,7 @@ Per the `Software terms of reference (TOR) template <https://docs.google.com/doc
 
 .. tip::
 
-   Update and then use the `org:members <https://github.com/open-contracting/standard-maintenance-scripts#github>`__, ``org:team_members``, ``org:team_repos`` and ``org:team_perms`` tasks to check the configuration.
+   Update and then use the `org:members <https://github.com/open-contracting/standard-maintenance-scripts#access-tasks->`__, ``org:team_members``, ``org:team_repos`` and ``org:team_perms`` tasks to check the configuration.
 
 .. note::
 
@@ -141,4 +141,4 @@ Repositories that are no longer supported should be archived.
 #. Run the `fix:archive_repos REPOS=repo1,repo2 <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task on the repository.
 #. Move the archive to the ``open-contracting-archive`` organization.
 #. `Archive <https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories>`__ the repository through its settings.
-#. Run the `local:badges <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task.
+#. Run the `local:badges <https://github.com/open-contracting/standard-maintenance-scripts#miscellaneous-tasks>`__ task.
