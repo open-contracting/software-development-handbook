@@ -75,10 +75,6 @@ GitHub
 
 There should be a minimum of two `owners <https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization>`__ from OCP only. Owners do not need to be added to teams.
 
-The ``ocp-deploy`` user generates `personal access tokens <https://github.com/settings/tokens>`__ to:
-
--  auto-commit from :doc:`lint workflows<../github/maintainers>` to `selected repositories <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ (classic)
-
 .. tip::
 
    Use the `org:owners <https://github.com/open-contracting/standard-maintenance-scripts#access-tasks->`__ task to check the configuration.

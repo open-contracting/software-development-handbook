@@ -34,11 +34,11 @@ A product name should be:
 
 Furthermore, if the product is specific to OCDS, its full name should be prefixed with 'OCDS'.
 
-Onboard consultants or Start a project
---------------------------------------
+Onboard consultants / Start a project
+-------------------------------------
 
 #. Create `new repositories <https://github.com/orgs/open-contracting/repositories>`__, as needed by the consultants
-#. Run the `fix:lint_repos <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ and ``fix:protect_branches`` tasks, to configure the repository
+#. Run the `fix:lint_repos <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task, to configure the repository
 #. Create a `new team <https://github.com/orgs/open-contracting/teams>`__ named after the consultants' organization
 
    .. note::
@@ -62,14 +62,24 @@ Onboard consultants or Start a project
 
          If consultants need to make changes that require Admin privileges, instead, ask the consultants for instructions to make the changes yourself.
 
-#. If using the ``stefanzweifel/git-auto-commit-action`` action in the :ref:`lint.yml workflow<linting-ci>`, like in the :doc:`../python/django` Cookiecutter template to auto-fix requirements files:
+#. Add the new repositories to the `appropriate rulesets <https://github.com/organizations/open-contracting/settings/rules>`__, as described in :ref:`workflow-contexts`
+#. If the repository has a ``requirements_dev.txt`` file, so that the :ref:`lint.yml workflow<linting-ci>` auto-fixes requirements files:
 
-   #. Add the new repositories to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team
-   #. Set the *Permission level* to "Admin"
+   #. Install the `open-contracting-requirements <https://github.com/organizations/open-contracting/settings/installations/162530796>`__ app on the new repositories
+   #. Add the new repositories to the ``APP_CLIENT_ID`` and ``APP_PRIVATE_KEY`` secrets, in both the `Actions <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ and `Dependabot <https://github.com/organizations/open-contracting/settings/secrets/dependabot>`__ stores
+   #. Pass the secrets to the workflow:
 
-   .. note::
+      .. code-block:: yaml
+         :emphasize-lines: 6-8
 
-      This permission level is required to **push fixes to protected branches**. The ``ocp-deploy`` user is the only member of the Robots team. The ``PAT`` environment variable is its personal access token to access all repositories of the ``open-contracting`` organization with a *Contents* permission of *Read and write*.
+         jobs:
+           lint:
+             uses: open-contracting/.github/.github/workflows/lint.yml@main
+             permissions:
+               contents: write
+             secrets:
+               client-id: ${{ secrets.APP_CLIENT_ID }}
+               private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
 #. Add the new repositories to `pre-commit ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
 #. Add any projects to :ref:`ReadTheDocs<readthedocs>` as appropriate
@@ -93,6 +103,87 @@ Per the `Software terms of reference (TOR) template <https://docs.google.com/doc
 
    A `custom security configuration <https://docs.github.com/en/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/apply-custom-configuration>`__ is applied to all new repositories.
 
+.. _workflow-contexts:
+
+Add a workflow to a repository
+------------------------------
+
+A ruleset requires a status check by its *context*, which is the name that GitHub gives to a job's result. A job calling a reusable workflow reports ``<caller job ID> / <called job ID>``; a job calling no reusable workflow reports its job ID alone; and a matrix job reports one context per combination, like ``build (ubuntu-latest)``.
+
+Only a workflow triggered by ``push`` or ``pull_request`` reports a context on a pull request. A workflow triggered by another event like ``workflow_run`` reports no context; therefore, its contexts are never required.
+
+#. Use a consistent job ID in the caller, so that the repository reports the context that the ruleset requires:
+
+   .. list-table::
+      :header-rows: 1
+
+      * - Reusable workflow
+        - Job ID
+        - Context
+        - Ruleset
+      * - ``lint.yml``
+        - ``lint``
+        - ``lint / build``
+        - Require status check to pass: lint
+      * - ``js.yml``
+        - ``js``
+        - ``js / build``
+        - Require status check to pass: js
+      * - ``shell.yml``
+        - ``shell``
+        - ``shell / build``
+        - Require status check to pass: shell
+      * - ``spellcheck.yml``
+        - ``spellcheck``
+        - ``spellcheck / build``
+        - Require status check to pass: spellcheck
+      * - ``i18n-babel.yml``, ``i18n-django.yml``
+        - ``i18n``
+        - ``i18n / build``
+        - Require status check to pass: i18n
+      * - ``ci-profile.yml``
+        - ``ci``
+        - ``ci / build``
+        - Require status check to pass: ci
+      * - N/A
+        - ``build``
+        - ``build``
+        - Require status check to pass: build (ci, pypi, a11y, php, lint rust)
+
+#. If the workflow has a matrix job or multiple jobs, add a ``build`` job that summarizes them:
+
+   .. code-block:: yaml
+
+      jobs:
+        test:
+          runs-on: ubuntu-latest
+          ...
+        nonlinux:
+          runs-on: ${{ matrix.os }}
+          strategy:
+            matrix:
+              os: [macos-latest, windows-latest]
+          ...
+        # Without `if: always()`, a failed dependency would skip `build`, and a skipped job satisfies a required status check.
+        build:
+          needs: [test, nonlinux]
+          if: always()
+          runs-on: ubuntu-latest
+          steps:
+            - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+              run: exit 1
+
+#. Add the repository to the matching `ruleset <https://github.com/organizations/open-contracting/settings/rules>`__, to require the context.
+#. If the repository has no ``lint.yml`` workflow, add it to the ``lint`` ruleset's exclusion list, as that ruleset targets all repositories.
+
+.. note::
+
+   The `open-contracting-extensions <https://github.com/organizations/open-contracting-extensions/settings/rules>`__ organization groups its rulesets: ``Require status checks to pass: lint`` targets all repositories, and ``Require status checks to pass: ci, js, shell, spellcheck`` targets the profiles.
+
+.. tip::
+
+   Use the `repos:status_checks <https://github.com/open-contracting/standard-maintenance-scripts#review-github-repository-metadata-and-configuration->`__ task to report repositories whose required status checks don't match GitHub Actions workflows.
+
 Offboard consultants
 --------------------
 
@@ -111,14 +202,27 @@ Protect branches
 
 .. tip::
 
-   Use the `fix:protect_branches <https://github.com/open-contracting/standard-maintenance-scripts#change-github-repository-configuration>`__ task to protect branches.
+   To protect a new repository, add it to the appropriate rulesets, as described in :ref:`workflow-contexts`.
 
-We don’t generally enable the following behaviors on `protected branches <https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches>`__ for the provided reasons:
+Branches are protected by `organization rulesets <https://github.com/organizations/open-contracting/settings/rules>`__. A repository's rules are the aggregate of every ruleset that targets it, so a repository needs no configuration of its own.
+
+Broadly, the rulesets enforce two policies:
+
+-  Deletions and force pushes are blocked on the default branch of every repository, with no bypass.
+-  A push is rejected if its commits' required status checks aren't already passing. The rulesets that set the required status checks can be bypassed by Admin roles, and by the ``open-contracting-requirements`` app, whose auto-commit is pushed before any workflow runs on it.
+
+A repository with release branches (like the standard and profiles) sets the bypass according to the branch's maturity:
+
+-  Before 1.0, a branch (like ``0.9`` or ``0.9-dev``) can be bypassed.
+-  From 1.0 onwards, a release branch (like ``1.0``) is in a "No bypass" ruleset.
+-  From 1.0 onwards, a development branch (like ``1.0-dev``) is in a "No bypass" ruleset in the ``standard`` and ``infrastructure`` repositories only.
+
+We don't generally enable the following behaviors for the provided reasons:
 
 -  **Require branches to be up to date before merging**: While this may avoid introducing errors, it slows development in an environment in which there are many simultaneous pull requests, because each would require an extra step before merging. If the automated tests fail after merging, the error can be corrected, or the changes can be reverted.
--  **Require pull request reviews before merging**: While this is a best practice, it slows development as the team is not sufficiently large to staff it. It is okay, for example, for an author to self-merge a simple change. Authors may, of course, request reviews for significant changes.
+-  **Required approvals**: While this is a best practice, it slows development as the team is not sufficiently large to staff it. It is okay, for example, for an author to self-merge a simple change. Authors should, of course, request reviews for significant changes. An approval is required, however, in a software repository to which an external partner has write access, unless that partner is its principal developer.
 
-If a repository needs multiple branches (like the standard and profiles), the needed branches should be protected. Otherwise, unprotected branches more than a month old should either be opened as pull requests, protected, or deleted.
+If a repository needs multiple branches (like the standard and profiles), the needed branches should be matched by a ruleset. Otherwise, unmatched branches more than a month old should either be opened as pull requests, or deleted.
 
 .. seealso::
 

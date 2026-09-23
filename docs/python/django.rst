@@ -15,7 +15,7 @@ Django
    pre-commit install
 
 1. `Add the repository to pre-commit.ci <https://github.com/organizations/open-contracting/settings/installations/20658712>`__
-1. Add the repository to the `Robots <https://github.com/orgs/open-contracting/teams/robots/repositories>`__ team, and set the *Permission level* to "Admin" (for the ``stefanzweifel/git-auto-commit-action`` action in the :ref:`lint workflow<linting-ci>`).
+1. Install the `open-contracting-requirements <https://github.com/organizations/open-contracting/settings/installations/162530796>`__ app on the repository, and add the repository to the ``APP_CLIENT_ID`` and ``APP_PRIVATE_KEY`` secrets in both the `Actions <https://github.com/organizations/open-contracting/settings/secrets/actions>`__ and `Dependabot <https://github.com/organizations/open-contracting/settings/secrets/dependabot>`__ stores (for the ``stefanzweifel/git-auto-commit-action`` action in the :ref:`lint workflow<linting-ci>`).
 
 .. _django-layout:
 
