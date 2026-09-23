@@ -333,10 +333,10 @@ The following prevents GitHub Actions from running a workflow twice when pushing
         pull_request:
           branches: [main, master]
 
-   However, this means the workflow won't run for a push to a non-PR branch. Some developers only open a PR when ready for review, rather than as soon as they push the branch. In such cases, it's important for the developer to receive feedback from the workflow.
+   However, this means the workflow won't run for:
 
-   This also means the workflow won't run for a pull request whose base branch isn't a default branch. Sometimes, we create PRs on non-default branches, like when doing a rewrite, like the ``django`` branch of Kingfisher Process.
+   -  repositories without ``main`` or ``master`` branches, like some standards repositories (``1.0``, ``1.0-dev``, etc.).
+   -  a push to a PR branch, whose base branch isn't ``main`` or ``master``. We sometimes create PRs against other branches, like during a major rewrite.
+   -  a push to a non-PR branch. We sometimes open a PR only when ready for review, but still benefit from the workflow's result.
 
-   To correct for both scenarios, we use ``on: [push, pull_request]``, and then use the above condition to avoid duplicate runs.
-
-   Note that, in standards repositories, we have many protected branches (like ``1.0`` and ``1.0-dev``) that are not "main" or "master". The above setup avoids accidentally excluding relevant branches.
+   Therefore, we use ``on: [push, pull_request]``, and use the above condition to avoid duplicate runs.
