@@ -237,8 +237,6 @@ Run Biome with :ref:`pre-commit<linting-pre-commit>`:
        hooks:
          - id: biome-check
 
-:ref:`javascript-ci` runs Biome if you reuse the ``js`` workflow.
-
 .. _esbuild:
 
 build.js
