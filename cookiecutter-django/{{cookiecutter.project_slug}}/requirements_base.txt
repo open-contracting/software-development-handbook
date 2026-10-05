@@ -26,5 +26,5 @@ typing-extensions==4.12.2
     # via
     #   dj-database-url
     #   psycopg
-urllib3==2.7.0
+urllib3==2.8.0
     # via sentry-sdk
