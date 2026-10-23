@@ -2,7 +2,7 @@
 #    uv pip compile requirements_base.in -o requirements_base.txt
 asgiref==3.8.1
     # via django
-certifi==2024.8.30
+certifi==2026.10.19
     # via sentry-sdk
 dj-database-url==2.2.0
     # via -r requirements_base.in
