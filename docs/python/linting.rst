@@ -88,13 +88,13 @@ To avoid pushing commits that fail formatting or linting checks, new projects sh
 
    .. code-block:: none
 
-      RuntimeError: failed to find interpreter for Builtin discover of python_spec='python3.10'
+      RuntimeError: failed to find interpreter for Builtin discover of python_spec='python3.13'
 
    pre-commit uses `virtualenv <https://virtualenv.pypa.io/en/latest/>`__ to `discover Python interpreters <https://virtualenv.pypa.io/en/latest/how-to/usage.html#select-a-python-version>`__. On macOS, install the missing version with Homebrew, instead of uv:
 
    .. code-block:: bash
 
-      brew install python@3.10
+      brew install python@3.13
 
 .. _linting-ci:
 
