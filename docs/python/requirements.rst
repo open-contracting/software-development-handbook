@@ -50,7 +50,7 @@ Get started
 Virtual environment
 ~~~~~~~~~~~~~~~~~~~
 
-Create a ``.python-version`` file (for example, containing ``3.13``), then run:
+Create a ``.python-version`` file (for example, containing ``3.14``), then run:
 
 .. code-block:: bash
 
