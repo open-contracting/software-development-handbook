@@ -31,12 +31,28 @@ Once a hotspot is found, the solution might be to:
    -  `psrecord <https://pypi.org/project/psrecord/>`__ to chart CPU and memory usage, including running processes
    -  `psutil <https://pypi.org/project/psutil/>`__
    -  `sys.remote_exec() <https://docs.python.org/3/library/sys.html#sys.remote_exec>`__ to safely execute code in a running process (Python 3.14+)
+   -  ``python -m pdb -p PID`` to debug a running process (Python 3.14+)
    -  ``python -m asyncio ps`` and ``python -m asyncio pstree`` to inspect async tasks in a running process (Python 3.14+)
+   -  ``python -m profiling.sampling dump PID`` to print a process's stack, like a traceback, for example if it hangs (Python 3.15+)
+
+.. note::
+
+   On Linux, if attaching to a running process, run the tool as root. Attaching requires ptrace permission, and Ubuntu allows a process to trace only its children (`ptrace_scope <https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html>`__ is 1).
+
+   In Docker, root in a container lacks this permission. Add the ``SYS_PTRACE`` capability to the service in the Compose file, recreate the container, and run the tool in the container (``docker compose exec --user root SERVICE ...``):
+
+   .. code-block:: yaml
+
+      cap_add:
+        - SYS_PTRACE
+
+   The ``pdb``, ``asyncio`` and ``profiling.sampling`` standard library modules must run the same minor version of Python as the process.
 
 CPU
 ~~~
 
--  `cProfile <https://docs.python.org/3/library/profile.html>`__ is a deterministic profiler, measures functions, and lacks support for threads. For example:
+-  `profiling.sampling <https://docs.python.org/3.15/library/profiling.sampling.html>`__ (Tachyon) is a statistical profiler with minimal overhead, supports threads and async, and can attach to a running process (Python 3.15+).
+-  `cProfile <https://docs.python.org/3/library/profile.html>`__ (``profiling.tracing`` in Python 3.15+) is a deterministic profiler, measures functions, and lacks support for threads. For example:
 
    .. code-block:: shell
 
