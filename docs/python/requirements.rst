@@ -50,7 +50,7 @@ Get started
 Virtual environment
 ~~~~~~~~~~~~~~~~~~~
 
-Create a ``.python-version`` file (for example, containing ``3.14``), then run:
+Create a ``.python-version`` file (for example, containing ``3.14``). In applications, also set ``requires-python`` in the ``pyproject.toml`` file (for example, ``>=3.14``), which Ruff uses as its target version. Then, run:
 
 .. code-block:: bash
 
