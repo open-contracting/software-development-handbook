@@ -6,7 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - run: |
+      - shell: bash
+        run: |
           sudo apt update
           sudo apt install devscripts shellcheck shfmt
       - run: checkbashisms $(shfmt -f .)

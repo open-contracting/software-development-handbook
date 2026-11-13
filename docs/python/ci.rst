@@ -43,6 +43,7 @@ Create a ``.github/workflows/ci.yml`` file, and use or adapt one of the :ref:`te
    .. code-block:: yaml
 
       - name: Install gettext
+        shell: bash
         run: |
           sudo apt update
           sudo apt install gettext
