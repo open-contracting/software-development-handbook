@@ -32,3 +32,6 @@ ignore-variadic-names = true
 
 [tool.coverage.run]
 omit = ["*/migrations/*"]
+
+[tool.uv.pip]
+exclude-newer = "1 week"
