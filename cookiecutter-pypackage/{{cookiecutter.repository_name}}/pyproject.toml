@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.2"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,10 +8,9 @@ version = "0.0.1"
 authors = [{name = "Open Contracting Partnership", email = "data@open-contracting.org"}]
 description = "{{ cookiecutter.short_description }}"
 readme = "README.rst"
-license = {text = "BSD"}
+license = "BSD-3-Clause"
 urls = {Homepage = "https://github.com/open-contracting/{{ cookiecutter.repository_name }}"}
 classifiers = [
-    "License :: OSI Approved :: BSD License",
 {%- if cookiecutter.os_independent == "y" %}
     "Operating System :: OS Independent",
 {%- else %}
