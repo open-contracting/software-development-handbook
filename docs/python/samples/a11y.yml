@@ -20,7 +20,7 @@ jobs:
         with:
           python-version-file: .python-version
           cache: pip
-          cache-dependency-path: '**/requirements*.txt'
+          cache-dependency-path: requirements*.txt
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm exec puppeteer browsers install chrome
       - run: pip install -r requirements.txt

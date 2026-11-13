@@ -12,7 +12,7 @@ jobs:
         with:
           python-version-file: .python-version
           cache: pip
-          cache-dependency-path: '**/requirements*.txt'
+          cache-dependency-path: requirements*.txt
       - run: sudo apt install gettext
       - run: pip install -r requirements.txt
       # Check requirements.txt contains production requirements.
